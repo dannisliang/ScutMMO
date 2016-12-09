@@ -1,0 +1,441 @@
+// 定义公用的结构、变量等（服务器、客户端公用）
+
+package ProtoBuf;
+
+enum PROTOCOL_VERSION_UPPER 
+{
+    PROTOCOL_VERSION_CURRENT     = 1;			// 当前协议版本号
+};
+
+enum PROTOCOL_VERSION_LOWER 
+{
+    PROTOCOL_VERSION_LOWER_LIMIT = 1;			// 允许登陆的最低协议版本号
+};
+
+enum PingConfig 
+{
+    option allow_alias  = true;
+    CLIENT_PING_INTERVAL = 9;					// 客户端发ping包的间隔(s)
+    SERVER_PING_INTERVAL = 9;					// 服务端之间发ping包的间隔(s) （由于网络底层采用LRU机制超时，客户端和服务的超时时间需要一致，待后期分开后再改小点）
+};
+
+//角色性别
+enum ECharacterSex{
+	ECHARACTER_SEX_MAN = 1;		//男性
+	ECHARACTER_SEX_FEMAL = 2;	//女性
+}
+
+//种族
+enum ERace
+{
+	ERace_Human = 1;		//人族
+	ERace_Fairy = 2;		//精灵
+}
+
+//角色职业
+enum ECharacterProf{
+	ECHARACTER_PROF_WARRIOR		= 1;		//战士
+	ECHARACTER_PROF_ASSASSIN	= 2;		//刺客
+	ECHARACTER_PROF_MAGICIAN	= 3;		//法师
+	ECHARACTER_PROF_ARCHER		= 4;		//弓手
+}
+
+// 游戏货币类型
+enum CurrencyType
+{
+    VALUE_CURRENCY_NULL         = 0;
+    VALUE_CURRENCY_SILVER       = 1;			// 银币
+    VALUE_CURRENCY_GOLD         = 2;			// 金币
+    VALUE_CURRENCY_BIND_GOLD    = 3;			// 绑定金币
+    VALUE_CURRENCY_REPUTATION   = 5;			// 声望
+}
+
+// 引起属性变化的元素枚举
+enum AttributeType
+{
+    BASE_ATTRIBUTE       = 0;					// 基础属性
+    EQUIP_ATTRIBUTE      = 1;					// 装备基础属性
+    ATTRIBUTE_TYPE_COUNT = 2;
+};
+
+// 场景类型
+enum SceneType
+{
+    SCENE_TYPE_NULL            = 0;       
+    SCENE_TYPE_CITY            = 1;				// 主城
+    SCENE_TYPE_FIELD           = 2;				// 野外    
+    SCENE_TYPE_ARENA           = 4;				// 竞技场
+    SCENE_TYPE_SINGLE_INSTANCE = 8;				// 单人副本
+    SCENE_TYPE_MULTI_INSTANCE  = 16;			// 多人副本
+    SCENE_TYPE_LOGIN           = 17;			// 登陆界面场景
+};
+
+// 导航网格行动标志
+enum SamplePolyFlags
+{
+	SAMPLE_POLYFLAGS_WALK		    = 0x01;		// 行走
+	SAMPLE_POLYFLAGS_SWIM		    = 0x02;		// 游泳
+	SAMPLE_POLYFLAGS_FORBIT_ACROSS  = 0x04;		// 禁止轻功跨障碍
+	SAMPLE_POLYFLAGS_DOOR			= 0x08;		// Ability to move through doors.
+	SAMPLE_POLYFLAGS_DISABLED	    = 0x10;		// 无效
+	SAMPLE_POLYFLAGS_ALL		    = 0xffff;	
+};
+
+enum MapDefine
+{
+    option allow_alias			= true;
+    MAX_NAV_POLYS				= 256;
+    MAX_NAV_POINT_VALUE			= 768;			// 256 * 3;
+    INVALID_NAVMESH_POLYREF		= 0;
+};
+
+enum REGION_DEFINE
+{
+    option allow_alias			= true;
+    DEFAULT_REGION_WIDTH		= 18;			// 默认region宽度
+    DEFAULT_REGION_HEIGHT		= 18;			// 默认region高度
+};
+
+enum CharacterDefine 
+{
+    option allow_alias = true;
+    MAX_CREATE_CHARACTER_COUNT	= 3;			// 最大可创建的角色数量（合服时可能超出这个数量）
+    CHARACTER_NAME_MIN_LENGTH	= 6;			// 最短角色名字节数，注意utf8编码一个汉字通常占3字节
+    CHARACTER_NAME_MAX_LENGTH	= 32;			// 最长角色名字节数
+};
+
+//背包标签页
+enum EPackageLabel
+{
+	option allow_alias = true;
+	EPackageLabel_none = 0;
+	EPackageLabel_daily = 1;		//日常标签页
+	EPackageLabel_material = 2;		//材料标签页
+	EPackageLabel_task = 3;			//任务标签页
+	EPackageLabel_equip = 4;		//装备标签页
+	EPackageLabel_limit = 5;		
+}
+
+
+
+enum EQuality
+{
+	option allow_alias = true;
+	EQuality_none	= 0;
+	EQuality_white	= 1;	//白
+	EQuality_green	= 2;	//绿
+	EQuality_blue	= 3;	//蓝
+	EQuality_purple = 4;	//紫
+	EQuality_gold	= 5;	//金
+	EQuality_red	= 6;	//红
+	EQuality_limit	= 7;
+}
+
+//装备位置定义 1武器,2服饰,3披风,4靴子,5项链,6戒指,7护腕,8护符，9时装,10翅膀
+enum EEquipPos
+{
+	option allow_alias = true;
+	EEquipPos_none		= 0;
+	EEquipPos_weapon	= 1;	//武器
+	EEquipPos_clothes	= 2;	//服饰
+	EEquipPos_cloak		= 3;	//披风
+	EEquipPos_boot		= 4;	//靴子
+	EEquipPos_necklace	= 5;	//项链
+	EEquipPos_ring		= 6;	//戒指
+	EEquipPos_bracer	= 7;	//护腕
+	EEquipPos_talisman	= 8;	//护符
+	EEquipPos_fashion	= 9;	//时装
+	EEquipPos_wing		= 10;	//翅膀
+	EEquipPos_ring_ex	= 11;	//戒指(扩展)
+	EEquipPos_bracer_ex	= 12;	//护腕(扩展)	
+	EEquipPos_limit		= 13;
+}
+
+//常量参数定义
+enum EArg
+{
+	option allow_alias = true;
+	EArg_DefSweepCount			= 130100001;		//默认扫荡次数
+	EArg_SweepOnePrice			= 130100002;		//扫荡1次钻石价格
+	EArg_SweepTenPrice			= 130100003;		//扫荡10次钻石价格
+	EArg_SecdFlopPrice			= 130100004;		//第二次抽奖价格
+	EArg_ThirdFlopPrice			= 130100005;		//第三次抽奖价格
+	EArg_FourthFlopPrice		= 130100006;		//第四次抽奖价格
+	EArg_DeputyCollSec          = 130100007;		//副业采集读条时间
+	EArg_DigHolePrice           = 130100008;		//装备打孔钻石价格
+	EArg_PublishCampNoticePrice	= 130100009;		//发布阵营公告价格
+	EArg_CharacterEyeShot		= 130100010;		//角色显示视野
+	EArg_CharLvlUpAutoPoint		= 130100011;		//角色升级可自由分配的点数
+	EArg_DeputySkillMaxLvl		= 130100012;		//副业技能等级上限
+	EArg_DeputyEveryRestEnergy	= 130100013;		//副业每日重置活力值
+	EArg_DeputyCanSpeeupTime	= 130100014;		//副业可加速时间
+	EArg_DeputyMakeContriCost	= 130100015;		//制造副业精修技能单次消耗贡献
+	EArg_DeputyMakeGoldCost		= 130100016;		//制造副业精修技能单次消耗金币
+	EArg_DeputyMakeAddExp		= 130100017;		//制造副业精修技能单次增加经验
+
+	EArg_pkRedLine				= 130100018;		//触发嗜杀状态的pk值
+	EArg_maxPkValue				= 130100019;		//最大pk值
+	EArg_subPkValueTenMinutes   = 130100020;		//每在线10分钟下降的杀戮值
+	EArg_stoneSubPkValue		= 130100021;		//一个清心石最大可减少的杀戮值
+	EArg_attackRedTime			= 130100022;		//主动攻击标记（即红色名字）持续时间，单位秒
+	EArg_hpRed					= 130100023;		//血量低于多少百分比的时候屏幕闪红
+	EArg_levelCannotPk			= 130100024;		//小于等于此等级不能切换PK模式也不会被攻击（新手状态）
+
+	EArg_RevertHP_MA			= 130100030;		//非战斗状态下，人物每2秒恢复自身5%最大生命的当前气血和5%最大魔法的当前魔法
+}
+
+//邮件类型
+enum EMailType
+{
+	MAIL_TYPE_NORMAL			= 1;				//普通邮件类型
+	MAIL_TYPE_TRADE				= 2;				//交易邮件类型
+	MAIL_TYPE_SYSTEM			= 3;				//系统邮件类型
+	MAIL_TYPE_PAY				= 4;				//付款邮件类型（交易邮件付款）
+	MAIL_TYPE_RETURN			= 5;				//退信邮件类型（交易邮件退信）
+
+}
+
+//交易货币类型
+enum EMailTradingSellType
+{
+	MAIL_TRADING_SELL_TYPE_NONE		= 0;				//
+	MAIL_TRADING_SELL_TYPE_GOLD		= 1;				//金币
+	MAIL_TRADING_SELL_TYPE_DIAMOND	= 2;				//钻石
+}
+
+//返回码（公用的返回码放到前面，模块相关的返回码放到后面）
+enum ERetCode
+{
+	option allow_alias = true;
+	//公用返回码 0 - 99
+	RET_SUCCESS				= 0;	//成功
+	RET_FAIL				= 1;	//失败
+	RET_LEVEL_LACK			= 2;	//等级不足
+	RET_MONEY_LACK			= 3;	//金钱不足
+	RET_GOLD_LACK			= 4;	//金币不足
+	RET_BIND_GOLD_LACK		= 5;	//绑定金币不足
+	RET_DIAMOND_LACK		= 6;	//钻石不足
+	RET_BIND_DIAMOND_LACK	= 7;	//绑定钻石不足
+	RET_VIP_LEVEL_LACK		= 8;	//vip等级不足
+
+	//登录 100 - 199
+	RET_LOGIN_BAD_USER_NAME_LEN		= 100;		//用户名长度错误
+	RET_LOGIN_CHARACTER_NOT_EXITS   = 101;		//角色不存在
+	RET_LOGIN_ACCOUNT_OTHER_LOGIN   = 102;		//账号异地登录
+	RET_LOGIN_CHARACTER_NUM_LIMIT	= 103;		//角色数量超过上限
+	RET_LOGIN_CHARACTER_NAME_EXISTS	= 104;		//名字已存在
+	RET_LOGIN_CHARACTER_SEX_ERROR	= 105;		//性别错误
+	RET_LOGIN_CHARACTER_PROF_ERROR	= 106;		//职业错误
+	RET_LOGIN_CHARACTER_NAME_LEN_ERROR = 107;	//名字长度错误
+	RET_LOGIN_CHARACTER_CREATE_FAILED = 108;	//创建角色失败
+
+	//技能 200-299
+	RET_SKILL_USE_MP_LACK = 200;    //缺少魔法值
+
+	//场景 300-399
+	RET_SCENE_ALREADY_IN_DST_MAP = 300;		//已经在目标地图
+	RET_SCENE_TIMEOUT_LOADMAP    = 301;		//加载地图超时,退回到上个地图
+	RET_SCENE_SCENCE_NOT_EXIT    = 302;		//场景已经删除，无法进入，退回到上个地图
+	RET_SCENE_INSCENE_SUCCESS	 = 303;		//场景内传送成功
+
+	//背包 400-499
+	RET_PACKAGE_SPACE_NOT_ENOUGH		= 400;	//背包空间不够
+	RET_PACKAGE_ITEM_NOT_EXITS			= 401;	//物品不存在
+	RET_PACKAGE_ITEM_CAN_NOT_SELL		= 402;	//物品不能出售
+	RET_PACKAGE_ITEM_NUM_LACK			= 403;	//物品数量不够
+	RET_PACKAGE_ITEM_CAN_NOT_USE		= 404;	//物品不能使用
+	RET_PACKAGE_ITEM_CAN_NOT_BATCH_USE	= 405;	//物品不能批量使用
+	RET_PACKAGE_EXPAND_LIMIT			= 406;	//背包扩展已达上限
+	RET_PACKAGE_ITEM_FUNC_PARAM_ERR		= 407;	//物品功能参数错误
+	RET_PACKAGE_SORT_IN_COOL			= 408;	//整理在冷却中
+	RET_PACKAGE_LACK_STREN_MATERIAL		= 409;	//缺少强化材料
+	RET_PACKAGE_STREN_LEVEL_LIMIT		= 410;	//强化等级达到上限
+	RET_PACKAGE_LACK_REFINE_MATERIAL	= 411;	//缺少精炼材料
+	RET_PACKAGE_REFINE_LEVEL_LIMIT		= 412;	//精炼等级达到上限
+	RET_PACKAGE_HOLE_ALREADY_OPEN		= 413;	//镶嵌孔已开启
+	RET_PACKAGE_HOLE_NOT_OPEN			= 414;	//镶嵌孔未开启
+	RET_PACKAGE_ALREADY_INLAY			= 415;	//已镶嵌宝石
+	RET_PACKAGE_ALREADY_INALY_SAME_TYPE = 416;	//已镶嵌相同类型的宝石
+	RET_PACKAGE_INLAY_STONE_NOT_EXIST   = 417;	//镶嵌的宝石不存在
+	RET_PACKAGE_NOT_INLAY				= 418;	//未镶嵌宝石
+	RET_PACKAGE_INLAY_HOLY_NOT_EXIST    = 419;	//镶嵌的神印石不存在
+	RET_PACKAGE_NOT_INLAY_HOLY			= 420;	//未镶嵌神印石
+	RET_PACKAGE_NOT_CAN_STREN_EQUIP		= 421;	//没有可强化的装备
+	RET_PACKAGE_CAN_NOT_INLAY_HOLY		= 422;	//不能镶嵌神印石
+	RET_PACKAGE_ALREADY_INLAY_HOLY		= 423;	//已镶嵌神印石
+	RET_PACKAGE_COMPOSE_MATERIAL_LACK	= 424;	//缺少合成材料
+	RET_PACKAGE_DROP_NOT_EXITS			= 425;	//掉落不存在
+	RET_PACKAGE_DROP_CAN_NOT_PICK		= 426;	//掉落不能拾取
+
+
+
+	//装备 500 - 599
+	RET_EQUIP_EQUIP_NOT_EXIST			= 500;	//装备不存在
+	RET_EQUIP_EQUIP_POS_ERR				= 501;	//装备位置错误
+	RET_EQUIP_POS_NOT_EXIT_EQUIP		= 502;	//位置装备不存在
+
+	//任务 600-699
+	RET_MISSION_HAVE_ACCEPT				= 600;	//该任务已经接取过
+	RET_MISSION_CAN_NOT_ACCEPT			= 601;	//该任务无法接取
+	RET_MISSION_LEVEL_ERROR				= 602;	//等级条件不符合
+	RET_MISSION_NOT_EXIST				= 603;	//任务不存在
+	RET_MISSION_STATE_NOT_MATCH			= 604;	//任务状态不匹配
+	RET_MISSION_PROFESSION_LIMIT		= 605;  //职业限制
+	RET_MISSION_SEX_LIMIT				= 606;	//性别限制
+	RET_MISSION_CAMP_LIMIT				= 607;  //阵营限制
+	RET_MISSION_RACE_LIMIT				= 608;  //种族限制
+	RET_MISSION_MUTEX_LIMIT				= 609;	//互斥任务限制
+	RET_MISSION_REPEAT_ACCEPT_MISSION	= 610;	//任务已接，不能重复接取
+	RET_MISSION_TIMES_ERROR				= 611;	//当天超过最大次数
+	RET_MISSION_HAVE_ACCEPT_NUMBER_LIMIT = 612; //接取的任务已经超过上限了
+	RET_MISSION_HAVE_DICE				= 613;	//已经接取过了阵营任务等完成后再来接
+	RET_MISSION_DICE_TIMES_LIMIT		= 614;	//一天只能接取10次阵营任务
+	RET_MISSION_CAN_NOT_GET_CAMP_REWARD = 615;	//还不能领取宝箱奖励
+	RET_MISSION_NOT_OPEN_CAMP_MISSION   = 616;	//还没开启阵营任务
+
+	//副本 700-799
+	RET_DUPLICATE_CAN_NOT_ENTER		= 700;	//不能进副本
+	RET_DUPLICATE_ENERGY_LACK		= 701;	//体力不足
+	RET_DUPLICATE_ALREAY_IN			= 702;	//已经在副本
+	RET_DUPLICATE_FLOP_NOT_OPEN		= 703;	//未开启翻牌
+	RET_DUPLICATE_OUT_FLOP_TIME		= 704;	//不在翻牌时间
+	RET_DUPLICATE_RELIVE_NO_DEAD	= 705;	//未死亡
+	RET_DUPLICATE_PRE_NOT_PASS		= 706;	//前置副本未通关
+	RET_DUPLICATE_MAX_LEVEL_LIMIT	= 707;	//副本最大进入等级限制
+	RET_DUPLICATE_FLOP_NOT_EXIST    = 708;	//翻牌物品不存在
+	RET_DUPLICATE_FLOP_NUM_LIMIT	= 709;	//翻牌次数打到上限
+	RET_DUPLICATE_LACK_ENTER_NUM	= 710;	//进入次数不足
+	RET_DUPLICATE_IS_UNLOCK			= 711;	//副本未解锁
+	RET_DUPLICATE_AREA_NOT_EXIST	= 712;	//区域不存在
+	RET_DUPLICATE_ENTER_AREA		= 713;  //入口区域错误
+	RET_DUPLICATE_IN_TEAM			= 714;	//在队伍中
+	RET_DUPLICATE_IN_ROOM			= 715;	//在房间中
+	RET_DUPLICATE_NOT_IN_TEAM		= 716;	//不在队伍中
+	RET_DUPLICATE_NOT_IN_ROOM		= 717;	//不在房间中
+	RET_DUPLICATE_NOT_TEM_LEADER	= 718;	//不是队长
+	RET_DUPLICATE_NOT_ROOM_LEADER	= 719;	//不是房主
+	RET_DUPLICATE_PLAYER_NUM_LIMIT	= 720;	//副本人数限制
+	RET_DUPLICATE_RELIVE_NUM_LIMIT	= 721;	//复活次数限制
+	RET_DUPLICATE_IN_ERROR_TEAM		= 722;	//队伍错误
+	RET_DUPLICATE_IN_ERROR_ROOM		= 723;	//房间错误
+
+	//好友 800-899
+	RET_RELATION_HAVE_APPLY					= 800;  //已经申请过了
+	RET_RELATION_NOT_AGREE					= 801;	//对方不同意添加你为好友
+	RET_RELATION_CAN_NOT_APPLY_SELF			= 802;	//自己不能申请添加自己为好友
+	RET_RELATION_APPLY_GROUP_ERROR			= 803;	//申请添加的组错误
+	RET_RELATION_NOT_ADD_SELF				= 804;	//自己不能添加自己为好友
+	RET_RELATION_NOT_IN_APPLY				= 805;  //没有在申请列表中无法进行同意
+	RET_RELATION_SIZE_LIMIT_NO_APPLY		= 806;  //好友人数已达上限无法进行申请
+	RET_RELATION_SIZE_LIMIT_NO_APPLY_OTHER	= 807;  //对方好友人数已达上限无法进行申请
+	RET_RELATION_IS_MY_FRIEND				= 808;  //对方已经是我的好友了
+	RET_RELATION_SIZE_LIMIT_NO_ADD			= 809;  //好友人数已达上限无法进行添加
+	RET_RELATION_SIZE_LIMIT_NO_ADD_OTHER	= 810;  //对方好友人数已达上限无法进行添加
+	RET_RELATION_ADD_BLACK_MYSELF			= 811;  //不能添加自己为黑名单
+	RET_RELATION_BALCK_SIZE_LIMIT			= 812;  //黑名单人数已经达到上限
+	RET_RELATION_IN_YOUR_BALCK				= 813;  //对方已经在你的黑名单中了
+	RET_RELATION_IN_OTHER_BALCK				= 814;  //你在对方的黑名单中了
+	RET_RELATION_IN_OTHER_BALCK_CAN_NOT_APPLY= 815;	//你在对方的黑名单中无法进行申请添加对方好友
+	RET_RELATION_IN_YOUR_BALCK_CAN_NOT_APPLY = 816;	//对方在你的黑名单中无法进行申请添加对方好友
+	RET_RELATION_NOT_SEARCH					= 817;  //该玩家不存在
+	RET_RELATION_NOT_FRIENDS				= 818;  //不是好友关系
+	RET_RELATION_HAVE_GIVE_PHYSICAL			= 819;  //今天已经赠送过体力了
+	RET_RELATION_GIVE_PHYSICAL_TIMES_LIMIT  = 820;  //已经大最大赠送次数明天再来
+	RET_RELATION_GET_PHYSICAL_TIME_LIMTI    = 821;  //已经过了领取体力的时间
+	RET_RELATION_NOT_GET_PHYSICAL			= 822;  //该好友还未赠送过你体力无法领取
+	RET_RELATION_HAVE_GET_PHYSICAL			= 823;	//已经领取回赠过体力了
+	RET_RELATION_GET_PHYSICAL_GIFT_LIMIT	= 824;  //进度不够还不能领取体力礼包
+	RET_RELATION_IN_CD_TIME					= 825;  //在冷却时间中
+
+	//聊天 900-999
+	RET_CHAT_NOT_MYSELF						= 900;	//不能跟自己聊天
+	RET_CHAT_TARGET_NOT_ONLINE				= 901;  //对方不在线无法进行聊天
+	RET_CHAT_TARGET_IN_BLACK				= 902;  //对方在你的黑名单中无法进行聊天
+	RET_CHAT_QUREY_CHAR_NOT_EXITS			= 903;	//查询的玩家不存在
+
+	//邮件1000-1099
+	RET_MAIL_SEND_LEVEL_LIMIT				= 1001;	//邮件等级限制
+	RET_MAIL_SEND_TARGET_ERROR				= 1002;	//目标玩家不存在
+	RET_MAIL_DATA_ERROR						= 1003; //邮件数据出错
+	RET_MAIL_TRADE_NOT_SEND_OFFLINE			= 1004;	//无法给离线玩家发送交易邮件
+	RET_MAIL_NO_SEND_TO_SELF				= 1005;	//无法给自己发送邮件
+	RET_MAIL_NOT_EXIST						= 1006; //邮件不存在
+	RET_MAIL_SEND_TYPE_ERROR				= 1007; //发送邮件的类型出错
+	RET_MAIL_TRADING_SELL_TYPE_ERROR		= 1008; //交易邮件货币类型出错
+	RET_MAIL_NOT_HAVE_ATTACHMENT			= 1009;	//没有附件
+	RET_MAIL_GRID_INDEX_ERROR				= 1010; //该格子没有物品
+	RET_MAIL_GOODS_NUM_LIMIT				= 1011; //物品数量不足
+	RET_MAIL_TYPE_ERROR						= 1012; //邮件类型出错
+	RET_MAIL_CONTENT_LEN_LIMIT				= 1013;	//邮件内容太长
+	RET_MAIL_TOPIC_LEN_LIMIT				= 1014;	//邮件主题太长
+	RET_MAIL_SELL_TYPE_ERROR				= 1015;	//邮件交易货币类型错误
+	RET_MAIL_SELL_NUM_ERROR					= 1016;	//邮件交易货币数量错误
+	RET_MAIL_ALREDAY_FULL					= 1017;	//邮箱已满
+	RET_MAIL_ALREADY_FETCH					= 1018;	//附件已领取
+
+	//阵营 1100--1199
+	RET_CAMP_LEADER_CAN_PUBLISH_NOTICE		= 1100;	//只有首领才能发布公告
+	RET_CAMP_NOTICE_LEN_LIMIT				= 1101;	//公告长度限制
+	RET_CAMP_NOTICE_CD_LIMIT				= 1102;	//公告CD中
+	RET_CAMP_ALREADY_IN_CAMP				= 1103;	//已经加入阵营
+	RET_CAMP_CHANGE_CAMP_TIME_LIMIT			= 1104;	//更换阵营时间限制
+	RET_CAMP_NOT_JOIN_CAMP					= 1105;	//没有加入阵营
+	RET_CAMP_NOT_EXIST						= 1106;	//阵营不存在
+
+	//成就
+	RET_ACHIEVEMENT_SORTTYEP_ERROR			= 1200;	//成就类型出错
+	RET_ACHIEVEMENT_NOT_EXIST				= 1201;	//该成就ID不存在
+	RET_ACHIEVEMENT_REWARD_HAVE_GET			= 1201; //已经领取过单个成就奖励了
+	RET_ACHIEVEMENT_BOX_REWARD_ERROR		= 1201;	//领取成就宝箱出错
+	RET_ACHIEVEMENT_BOX_REWARD_POINT_LIMIT  = 1202; //成就点数没到无法领取宝箱
+	RET_ACHIEVEMENT_BOX_REWARD_HAVE_GET		= 1203;	//已经领取过成就宝箱了
+
+	//技能
+	RET_SKILL_LACK_MONEY                    = 1301; //缺少金币
+	RET_SKILL_CHARACTER_LEVEL_LOW           = 1302; //角色等级不足
+
+	//副业 1400-1499
+	RET_DEPUTY_SKILL_MAX_LEVEL_LIMIT		= 1400;	//副业技能已达最高等级
+	RET_DEPUTY_LACK_SKILLFUL				= 1401;	//熟练度不够
+	RET_DEPUTY_LACK_UNION_CONTRI			= 1402;	//帮会贡献不够
+	RET_DEPUTY_MAKE_LIST_NOT_OPEN			= 1403;	//制造列表未开启
+	RET_DEPUTY_COLLECT_LACK_ENERGY			= 1404;	//活力值不够
+	RET_DEPUTY_COLLECT_BY_OTHER				= 1405;	//已经被别人采集
+	RET_DEPUTY_LACK_LEVEL					= 1406;	//副业等级不够
+	RET_DEPUTY_COLLECT_BREAK				= 1407;	//采集中断
+	RET_DEPUTY_COLLECT_IN_MOVE				= 1408;	//移动过程中无法采集
+	RET_DEPUTY_RES_NOT_EXIST				= 1409;	//资源不存在
+
+	//商城 1500-1599
+	RET_MALL_BUY_COUNT_LIMIT				= 1500; //您购买的商品已超过上限
+	RET_MALL_GOODS_COUNT_LACK				= 1501; //您购买的商品现在缺货
+}
+
+//模块ID定义
+enum EMODULE_ID
+{
+	option allow_alias = true;
+
+	EMODULE_ID_NONE			= 0;
+	EMODULE_ID_SERV_SYS		= 1;	//服务器系统模块（服务器专用）
+	EMODULE_ID_PLAYER       = 2;    //角色
+	EMODULE_ID_LOGIN		= 3;	//登录
+	EMODULE_ID_SCENE		= 4;	//场景
+	EMODULE_ID_SKILL		= 5;	//技能
+	EMODULE_ID_BUFF			= 6;	//BUFF
+	EMODULE_ID_PACKAGE		= 7;	//背包
+	EMODULE_ID_TASK			= 8;	//任务
+	EMODULE_ID_CHAT			= 9;	//聊天
+	EMODULE_ID_DUPLICATE	= 10;	//副本
+	EMODULE_ID_FRIEND		= 11;	//好友
+	EMODULE_ID_MOVE         = 12;   //移动
+	EMODULE_ID_MAIL			= 13;	//邮件
+	EMODULE_ID_CAMP			= 14;	//阵营
+	EMODULE_ID_ACHIEVEMENT  = 15;	//成就
+	EMODULE_ID_DEPUTY		= 16;	//副业
+	EMODULE_ID_PVP			= 17;	//pvp
+	EMODULE_ID_MALL			= 18;	//商城
+	EMODULE_ID_ROOM			= 19;	//房间
+	EMODULE_ID_ACTIVITY		= 20;	//活跃度
+	EMODULE_ID_LIMIT		= 30;
+}

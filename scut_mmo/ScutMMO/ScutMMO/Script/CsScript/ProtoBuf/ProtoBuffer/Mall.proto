@@ -1,0 +1,78 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+//请求商城数据 client-->center	CLIENT_TO_CENTER_GET_MALL_DATA
+message Mall_AskData
+{
+}
+
+//商城数据
+message MallProtoInfo
+{
+	optional uint32 mall_id	= 1;			//商品id(与配置表id对应)
+	optional uint32 amount	= 2;			//数量
+	//optional uint64 time	= 3;			//时间
+}
+
+//商城数据返回 center-->client	CENTER_TO_CLIENT_ASK_DATA_RESULT
+message Mall_AskDataRsp
+{
+	repeated MallProtoInfo data = 1;
+}
+
+//请求商品剩余刷新时间 client-->center	CLIENT_TO_CENTER_GET_TIME
+message Mall_GetTimeReq
+{
+	required uint32 mall_id	= 1;	//商品id
+}
+
+//返回商品剩余刷新时间 center-->client	CENTER_TO_CLIENT_GET_TIME_RESULT
+message Mall_GetTimeRsp
+{
+	required uint32 mall_id		= 1;	//商品id
+	optional uint64 time		= 2;	//剩余刷新时间
+	optional uint64 open_time	= 3;	//开放剩余时间
+}
+
+//请求购买 client->logic	CLIENT_TO_LOGIC_BUY
+message Mall_BuyReq
+{
+	required uint32 mall_id	= 1;	//商品id
+	optional uint32 count	= 2;	//购买数量
+}
+
+//购买返回 logic->client	LOGIC_TO_CLIENT_BUY_RESULT
+message Mall_BuyRsp
+{
+	required int32 retcode = 1;		//返回码，详见ComDefine.proto ERetCode枚举
+}
+
+//验证请求 logic->center	LOGIC_TO_CENTER_BUY_VERIFY_REQ
+message Mall_Buy_VerifyReq
+{
+	optional uint32 char_id	= 1;
+	required uint32 mall_id	= 2;	//商品id
+	optional uint32 count	= 3;	//购买数量
+}
+
+//验证返回 center->logic	CENTER_TO_LOGIC_BUY_VERIFY_RSP
+message Mall_Buy_VerifyRsp
+{
+	required uint32 char_id	= 1;
+	required int32 result	= 2;	//返回码，详见ComDefine.proto ERetCode枚举
+	optional uint32 mall_id	= 3;	//商品id
+	optional uint32 count	= 4;	//购买数量
+}
+
+//通知客户端商城数据变化 center->client	CENTER_TO_CLIENT_CHANGE_NOTIFY
+message Mall_Chang_Notify
+{
+	required uint32 operate_type	= 1;	//操作类型 0:上架 1:下架 2:修改
+	required uint32 char_id			= 2;
+	optional uint32 mall_id			= 3;	//商品id
+	optional uint32 count			= 4;	//购买数量
+	optional uint64 time			= 5;	//刷新时间
+	optional uint64 open_time		= 6;	//开放剩余时间
+}

@@ -1,0 +1,226 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+message CSEnterSceneReq
+{
+	required uint32 mapId  = 1;
+}
+
+message PingLogicServer
+{
+    required uint64 clientTick = 1;
+};
+
+// 客户端修改连接超时时间
+message ClientResetTimeOut 
+{
+    enum Type 
+	{
+        RETSET    = 0;							// 重置为默认时间
+        PLAYCG    = 1;							// 播放进场动画
+    }
+    enum Time 
+	{
+        PLAYCG_TIME = 40;						// 进场动画超时时间(秒)
+    }
+    required Type type = 1;
+}
+
+// 客户端用账号登录逻辑服务器
+message AccountLoginLogicRequest
+{
+	required uint32 groupId   = 1;
+    required uint64 token     = 2;              // 登陆logic server口令
+    required string channelId = 3;              // 渠道类型
+    required string userId    = 4;              // 渠道用户id
+    required string userName  = 5;              // 用户名
+}; 
+
+// 客户端从新连接逻辑服务器
+message ReconnectRequest
+{
+    required uint32 accountIndex    = 1;        // 此玩家在账号管理中的索引值
+    required uint32 charId			= 2;		// 角色ID
+    required uint64 token			= 3;		// 验证token
+    required string channelId		= 4;		// 渠道类型
+    required string userId			= 5;		// 渠道用户id
+	required string userName		= 6;        // 用户名
+    required uint64 startMark       = 7;        // logic server的一个标志
+}
+
+// 客户端请求角色列表
+message ClientCharacterListRequest
+{
+    // NULL
+};
+
+// 创建角色
+message ClientCreateCharacterRequest
+{
+    required uint32 groupId         = 1;        // 大区服id
+    required string name            = 2;        // 名字
+    required uint32 sex             = 3;        // 性别
+    required uint32 prof            = 4;        // 职业
+    required uint32 race            = 5;        // 种族
+};
+
+//删除角色请求
+message ClientDelCharacterReq{
+	required uint32 charid = 1;		//角色ID
+}
+
+
+// 选中角色进入游戏
+message EnterWorld
+{
+    required uint32 charId  = 1;
+}
+
+//角色
+////////////////////////////////////////////////////////////////////////////////////////
+//分配属性点
+//CLIENT_TO_LOGIC_PLAYER_ATRR_POINT
+//洗属性点
+//CLIENT_TO_LOGIC_PLAYER_ATRR_CLEAR_POINT
+message AttrPoint
+{
+	required uint32 APoint = 1;    //玩家可分配的属性点
+	repeated Attr PlayerAttrs = 2;  //玩家属性
+}
+
+//自动分配属性点
+//CLIENT_TO_LOGIC_PLAYER_AUTO_POINT 
+message AutoAttrPoint
+{
+	required uint32 setAuto = 1;    //设置是否自动分配点数(0:手动,1：自动)
+	repeated Attr AutoAttrs = 2;  //自动分配属性点集合
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+//技能
+////////////////////////////////////////////////////////////////////////////////////////
+message UseSkillReq
+{
+	required  uint32    skillId = 1;  
+	required  Vector3PB dir     = 2;      //技能方向
+	repeated  uint32	targetCids = 3;   //目标生物cid
+	optional  Vector3PB targetPos = 4;   //目标坐标
+}
+
+//技能蓄力结束
+message ChargeEndSKillReq
+{
+	required  uint32    skillId = 1;  
+}
+
+//请求学习技能
+//CLIENT_TO_LOGIC_SKILL_LEVEL_UP_REQ
+message LevUpSkillReq
+{
+	required uint32 skillId = 1;   //技能Id
+}
+
+//技能中断
+//CLIENT_TO_LOGIC_SKILL_STOP
+message UseSkillStop
+{
+	required uint32 skillId = 1;   //技能Id
+	optional uint32	 skillStep =2;	//技能阶段
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+//场景
+////////////////////////////////////////////////////////////////////////////////////////
+// 请求场景传送
+//CLIENT_TO_LOGIC_SCENE_TRANS      
+message TransSceneReq
+{
+	enum Type
+	{
+		Test  = 0;      //测试版本自由传送
+		TransPoint = 1; //传送点类型
+		Route = 2;      //同一地图切线类型
+		Free  = 3;      //自由传送
+	}
+	required uint32 typeId = 1;		  //传送类型
+	optional uint32 instanceId  = 2;  //实例id（例如：传送点Id, 实例场景Id）
+	optional Vector3PB dstPos   = 3;  //目标地坐标
+}
+
+//请求当前地图线路信息
+//CLIENT_TO_LOGIC_SCENE_REQ_ROUTEINFO
+
+//地图加载完成
+//CLIENT_TO_LOGIC_SCENE_LOAD_SUCCESS
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////登录服协议，暂时放在这里/////////////////////
+
+
+// 检查游戏版本
+message CheckVersionRequest
+{
+    required uint32 version = 1;    // 版本号
+    optional string imei    = 2;    // 客户端设备号
+};
+
+// 检查游戏版本返回
+message CheckVersionResponse
+{
+    enum Result 
+    {
+        CHECK_VERSION_SUCCESS = 1;  // 检查版本成功,继续登录流程
+        CHECK_VERSION_REFUSE  = 2;  // 版本不匹配,不能登录
+        SERVER_LOAD_IS_FULL   = 3;  // 服务器人数已满,不能登录
+        LOGIN_IS_CLOSED       = 4;  // 游戏暂未开放，还不能登录
+        LOGIN_IS_REFUSED      = 5;  // 拒绝登录（针对IP、设备等）
+        SOMETHING_ERROR       = 6;  // 其它错误
+    };
+    required Result result     = 1;
+	optional uint32 version	   = 2;
+};
+
+// 帐号登录游戏
+message AccountLoginRequest
+{
+	required string user_name  = 1;			//用户名
+	required string user_id = 2;			//用户ID
+	optional string token = 3;				//token
+};
+
+message AccountLoginResponse
+{
+	required int32 retcode      = 1;	// 返回码，详见 ComDefine.proto 文件里的枚举 ERetCode
+	optional uint32 groupID     = 2;	// 服务器组ID，用来标识第几组服务器（Center Server）
+	optional string logicIp     = 3;	// 逻辑服务器IP地址
+	optional uint32 logicPort   = 4;	// 逻辑服务器端口
+	optional uint64 logicToken  = 5;	// 连接逻辑服务器口令
+};
+
+message PingLoginRequest
+{}
+
+
+message PvpSetModeRequest
+{
+	required uint32 pk_mode = 1; //设置的PK模式
+}
+
+message PvpSetModeRespone
+{
+	required int32 retcode = 1; //返回码
+	required uint32 pk_mode = 2; //当前PK模式
+	required uint32 cid = 3; //修改PK模式的玩家
+}
+
+
+//////////////////////////////////////////

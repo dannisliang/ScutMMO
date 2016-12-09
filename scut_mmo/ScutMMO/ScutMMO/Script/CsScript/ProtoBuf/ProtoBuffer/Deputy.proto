@@ -1,0 +1,101 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+
+
+//请求收集副业技能信息
+message Deputy_CollectSkillInfoReq
+{
+	//空
+}
+
+//返回副业技能信息
+message Deputy_CollectSkillInfoRsp
+{
+	repeated SingleDeputyDBData data = 1;
+}
+
+//请求制造副业技能信息
+message Deputy_MakeSkillInfoReq
+{
+	//空
+}
+//返回制造副业技能信息
+message Deputy_MakeSkillInfoRsp
+{
+	repeated SingleDeputyDBData data = 1;
+}
+
+
+//请求升级收集副业技能
+message Deputy_UpgradeCollectSkillReq
+{
+	required int32 collect_type = 1;	//收集副业类型 1-草药，2-矿石，3-钓鱼，4-剥皮
+}
+
+//返回升级收集副业技能
+message Deputy_UpgradeCollectSkillRsp
+{
+	required int32 retcode = 1;			//返回码，详见ComDefine.proto ERetCode枚举
+	optional int32 collect_type = 2;	//收集副业类型 1-草药，2-矿石，3-钓鱼，4-剥皮
+	optional int32 level = 3;			//技能等级
+}
+
+//请求精修制作副业技能
+message Deputy_RefineMakeSkillReq
+{
+	required int32 make_type = 1;	//制造副业类型 1-锻造，2-缝纫，3-冶金，4-烹饪，5-制药
+	required int32 refine_type = 2;	//精修类型 1-精修一次，2-精修10次
+}
+
+//返回精修制作副业技能
+message Deputy_RefineMakeSkillRsp
+{
+	required int32 retcode = 1;		//返回码，详见ComDefine.proto ERetCode枚举
+	optional int32 make_type = 2;	//制造副业类型 1-锻造，2-缝纫，3-冶金，4-烹饪，5-制药
+	optional int32 level = 3;		//技能等级
+	optional int32 exp = 4;		    //经验
+}
+
+//请求采集副业操作
+message Deputy_CollectOperateReq
+{
+	required uint32 collect_cid = 1;	//收集副业操作的生物id(草药，矿石，渔等物件的cid)
+}
+//返回采集副业操作
+message Deputy_CollectOperateRsp
+{
+	required int32 retcode = 1;			//返回码，详见ComDefine.proto ERetCode枚举
+	optional int32 collect_type = 2;	//收集副业类型 1-草药，2-矿石，3-钓鱼，4-剥皮
+}
+
+//请求制作副业操作
+message Deputy_MakeOperateReq
+{
+	required int32 make_id = 1;		//制作ID(配置表中的id)
+	optional int32 reel_id = 2;		//卷轴ID(1-锻造，2-缝纫，3-冶金 制作装备的需要卷轴，其他不用)
+	optional int32 make_num = 3;	//制作数量（4-烹饪，5-制药 需要数量）
+}
+//返回制作副业操作
+message Deputy_MakeOperateRsp
+{
+	required int32 retcode = 1;			//返回码，详见ComDefine.proto ERetCode枚举
+	optional int32 make_id = 2;			//制作ID(配置表中的id)
+	optional uint32 item_id = 3;		//制作的物品ID
+}
+
+//通知收集副业状态
+message Deputy_CollectNotify
+{
+	required int32 collect_type = 1;	//收集副业类型 1-草药，2-矿石，3-钓鱼，4-剥皮
+	required int32 state = 2;			//状态，1-开始，2-中断，3-自动，4-结束
+}
+
+//更新采集副业熟练度
+message Deputy_CollectEnergyUpdate
+{
+	required int32 collect_type = 1;	//收集副业类型 1-草药，2-矿石，3-钓鱼，4-剥皮
+	required int32 energy = 2;			//对应类型的熟练度
+}

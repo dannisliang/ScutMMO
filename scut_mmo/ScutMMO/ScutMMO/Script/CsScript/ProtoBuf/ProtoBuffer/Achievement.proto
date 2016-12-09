@@ -1,0 +1,73 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+//获得成就信息请求
+message CGGetAchievementInfoReq
+{
+
+}
+
+//成就分类信息
+message ClientAchievementSortInfo
+{
+	optional uint32 sortType = 1;							//成就分类信息，根据配置项来确定
+	repeated ClientAchievementInfo achievementInfoList = 2; //成就列表
+	optional uint32 achievementProgress = 3;				//成就进度
+	optional uint32 achievementReward = 4;					//成就宝箱领取状态 每个比特位表示一项
+}
+
+message GCGetAchievementInfoRsp
+{
+	repeated ClientAchievementSortInfo achievementList = 1; //成就列表
+}
+
+//领取单个成就奖励
+message CGGetAchievementRewardReq
+{
+	optional uint32 sortType = 1;							//成就分类信息
+	optional uint32 achievementId = 2;						//成就ID
+}
+
+message GCGetAchievementRewardRsp
+{
+	optional uint32 sortType = 1;							//成就分类信息
+	optional uint32 achievementId = 2;						//成就ID
+	optional uint32 ret = 3;								//错误码
+}
+
+//领取成就宝箱奖励
+message CGGetAchievementBoxRewardReq
+{
+	optional uint32 prizeId = 1;							//奖励ID
+}
+
+message CGGetAchievementBoxRewardRsp
+{
+	optional uint32 prizeId = 1;							//奖励ID
+	optional uint32 ret = 2;								//错误码
+}
+
+message ClientAchievementInfo
+{
+	optional uint32 id = 1;				//成就ID
+	optional uint32 status = 2;			//当前状态1,代表未完成，2代表完成未领取，3代表已领取
+	optional uint32 completeCount = 3;	//完成数
+}
+
+//成就更新通知
+message GCAchievementNotify
+{
+	repeated ClientAchievementInfo changeAchievementList = 1;
+}
+
+//服务器内部成就更新通知
+message WGAchievementNotify
+{
+	optional uint32 charId = 1;			//角色ID
+	optional uint32 type = 2;			//成就类型0是累加1是最终值
+	optional uint32 parameterType = 3;	//更新参数类型
+	optional uint32 parameter = 4;		//更新参数
+	optional uint32 count = 5;
+}

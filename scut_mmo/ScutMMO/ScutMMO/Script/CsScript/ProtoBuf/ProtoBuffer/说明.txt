@@ -1,0 +1,6 @@
+ProtoBuffer 文件夹下定义了游戏内所有通信协议
+客户端 <----> 服务器
+服务器 <----> 服务器
+
+ComProtocol.proto 定义公共的消息结构
+ComDefine.proto 定义公共的结构及变量

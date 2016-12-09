@@ -1,0 +1,200 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+
+
+////////////////////////  client to logic and logic to client ///////////////////////////////////////////////////
+
+//副本信息
+message Duplicate_InfoReq
+{
+	//空
+}
+//副本信息返回
+message Duplicate_InfoRsp
+{
+	required int32 retcode = 1;		//返回码
+	repeated DuplicateProto info = 2;
+}
+
+//进入副本
+message Duplicate_EnterReq
+{
+	required int32 duplicate_id = 1;	//副本ID
+}
+
+//进入副本返回
+message Duplicate_EnterRsp
+{
+	required int32 retcode = 1;			//返回码
+	optional int32 duplicate_id = 2;	//副本ID
+	repeated int32 area = 3;			//区域
+}
+
+//退出副本
+message Duplicate_ExitReq
+{
+	//空
+}
+//退出副本返回
+message Duplicate_ExitRsp
+{
+	required int32 retcode = 1;		//返回码
+}
+
+
+//副本结果返回
+message Duplicate_ResultRsp
+{
+	required int32 result = 1;			//结果 0 成功，1 失败
+	required int32 duplicate_id = 2;	//副本ID
+	optional int32 star = 3;			//星级
+	optional int32 sec = 4;				//通关时间
+	optional int32 kill_mon = 5;		//消灭怪物数量
+	optional int32 die_count = 6;		//死亡次数
+	optional int32 exp = 7;				//经验
+	optional int32 gold = 8;			//金币
+	optional int32 bind_gold = 9;		//绑定金币
+	optional int32 diamond = 10;			//钻石
+	optional int32 bind_diamond = 11;	//绑定钻石
+	optional RewardItemProto reward = 12;//奖励物品
+	optional RewardItemProto flop = 13;	 //翻牌物品
+}
+
+//副本自动战斗
+message Duplicate_AutoFightReq
+{
+	//空
+}
+
+//副本自动战斗返回
+message Duplicate_AutoFightRsp
+{
+	required int32 result = 1;	//结果 
+}
+
+//购买次数
+message Duplicate_BuyCountReq
+{
+	required int32 duplicate_id = 1;	//副本ID
+}
+//购买次数返回
+message Duplicate_BuyCountRsp
+{
+	required int32 retcode = 1;		//返回码
+}
+
+//翻牌
+message Duplicate_FlopReq
+{
+	//空
+}
+
+//翻牌返回
+message Duplicate_FlopRsp
+{
+	required int32 retcode = 1;		//返回码
+	optional int32 index = 2;		//翻牌物品索引
+}
+
+//扫荡
+message Duplicate_SweepReq
+{
+	required int32 duplicate_id = 1;	//副本ID
+	required int32 sweep_type = 2;		//扫荡类型 1 扫荡一次，2 扫荡10次
+}
+//扫荡返回
+message Duplicate_SweepRsp
+{
+	required int32 retcode = 1;				//返回码
+	optional int32 sweep_type = 2;			//扫荡类型 1 扫荡一次，2 扫荡10次
+	repeated RewardItemProto reward = 3;	//扫荡物品
+	optional int32 reson = 4;				//失败原因
+	
+}
+//副本更新返回
+message Duplicate_UpdateRsp
+{
+	repeated DuplicateProto info = 1;
+}
+
+//复活
+message Duplicate_ReliveReq
+{
+	required int32 type = 1;	//复活方式， 1 回城复活，2 消耗金钱复活
+}
+
+//复活返回
+message Duplicate_ReliveRsp
+{
+	required int32 retcode = 1;				//返回码
+	optional int32 type = 2;				//复活方式
+}
+
+//离开副本
+message Duplicate_LeaveReq
+{
+	//空
+}
+//离开数副本返回
+message Duplicate_LeaveRsp
+{
+	required int32 retcode = 1;		//返回码
+}
+
+
+//进入副本区域
+message Duplicate_EnterAreaReq
+{
+	required int32 area_id = 1;	//区域ID
+}
+
+//进入副本区域返回
+message Duplicate_EnterAreaRsp
+{
+	required int32 retcode = 1;	//区域ID
+}
+
+
+
+/////////////////////////////////// logic to center and center to logic //////////////////////////////////////////////////
+
+//逻辑服向中心服请求创建副本
+message LogicToCenter_CreateDuplicateReq
+{
+	required uint32 char_id = 1;			//角色ID
+	required uint32 duplicate_id = 2;		//副本ID
+}
+//中心服返回逻辑服创建副本返回
+message CenterToLogic_CreateDuplicateRsp
+{
+	required int32 retcode = 1;				//返回码
+	required uint32 char_id = 2;			//角色ID
+	required uint32 duplicate_id = 3;		//副本ID
+	optional uint32 scene_id = 4;			//副本场景ID
+}
+
+//逻辑服通知中心服进入副本结果
+message LogicToCenter_EnterDuplicateRes
+{
+	required int32 retcode = 1;				//返回码
+	required uint32 char_id = 2;			//角色ID
+	required uint32 duplicate_id = 3;		//副本ID
+	required uint32 scene_id = 4;			//副本场景ID
+	optional uint64 start_time = 5;			//副本起始时间
+	optional uint32	limit_time = 6;			//副本时间
+}
+
+//逻辑服通知中心服副本结束
+message LogicToCenter_DuplicateEnd
+{
+	required uint32 scene_id = 1;			//副本场景ID
+}
+
+//逻辑服通知中心服副本销毁
+message LogicToCenter_DuplicateDestory
+{
+	required uint32 scene_id = 1;			//副本场景ID
+}
