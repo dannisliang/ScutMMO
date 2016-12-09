@@ -1,0 +1,62 @@
+//Action –≠“È
+
+package ProtoBuf;
+
+message RequestHello1001Pack
+{
+}
+
+message ResponseHello1001Pack
+{
+}
+
+
+message RequestRegister1002Pack
+{
+	optional string ServerID = 1;
+	optional string DeviceID = 2;
+	optional int32	MobileType = 3;
+	optional int32	GameID = 4;
+	optional string ClientAppVersion = 5;
+	optional int32	ScreenX = 6;
+	optional int32	ScreenY = 7;
+	optional string RetailID = 8;
+}
+
+message ResponseRegister1002Pack
+{
+	optional string passport = 1;
+	optional string password = 2;
+}
+
+
+message RequestLogin1004Pack
+{
+	optional int32 MobileType = 1;
+	optional string Pid = 2;
+	optional string Pwd = 3;
+	optional string RetialId = 4;
+
+
+	optional int32 GameType = 5;
+	optional int32 ServerId = 6;
+	optional string DeviceID = 7;
+	optional int32	Sex = 8;
+	optional string NickName = 9;
+	optional string HeadID = 10;
+	optional int32	ScreenX = 11;
+	optional int32	ScreenY = 12;
+}
+
+message ResponseLogin1004Pack
+{
+	optional string SessionID = 1;
+	optional string UserID = 2;
+	optional int32 UserType = 3;
+	optional string LoginTime = 4;
+	optional int32 GuideID = 5;
+	optional string PassportId = 6;
+	optional string RefreshToken = 7;
+	optional string QihooUserID = 8;
+	optional string Scope = 9;
+}

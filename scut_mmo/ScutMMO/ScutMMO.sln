@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScutMMO", "ScutMMO\ScutMMO.csproj", "{3CCAE6F7-4B0A-4A6C-A915-98B4FECD48EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scut", "Scut", "{CE6910A2-1891-4FC4-9813-574F743CC0D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework.Common", "ScutMMO\Scut\Source\Framework\ZyGames.Framework.Common\ZyGames.Framework.Common.csproj", "{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework.Game", "ScutMMO\Scut\Source\Middleware\ZyGames.Framework.Game\ZyGames.Framework.Game.csproj", "{DE7024B7-7168-4262-A250-6A21B932EC3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZyGames.Framework", "ScutMMO\Scut\Source\Framework\ZyGames.Framework\ZyGames.Framework.csproj", "{416E2E00-4064-4D7A-87A2-A649FF120274}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CCAE6F7-4B0A-4A6C-A915-98B4FECD48EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CCAE6F7-4B0A-4A6C-A915-98B4FECD48EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CCAE6F7-4B0A-4A6C-A915-98B4FECD48EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CCAE6F7-4B0A-4A6C-A915-98B4FECD48EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7024B7-7168-4262-A250-6A21B932EC3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7024B7-7168-4262-A250-6A21B932EC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7024B7-7168-4262-A250-6A21B932EC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7024B7-7168-4262-A250-6A21B932EC3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416E2E00-4064-4D7A-87A2-A649FF120274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416E2E00-4064-4D7A-87A2-A649FF120274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416E2E00-4064-4D7A-87A2-A649FF120274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416E2E00-4064-4D7A-87A2-A649FF120274}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E87A5049-85A1-436B-A5ED-2BC0A4E45BDB} = {CE6910A2-1891-4FC4-9813-574F743CC0D3}
+		{DE7024B7-7168-4262-A250-6A21B932EC3B} = {CE6910A2-1891-4FC4-9813-574F743CC0D3}
+		{416E2E00-4064-4D7A-87A2-A649FF120274} = {CE6910A2-1891-4FC4-9813-574F743CC0D3}
+	EndGlobalSection
+EndGlobal

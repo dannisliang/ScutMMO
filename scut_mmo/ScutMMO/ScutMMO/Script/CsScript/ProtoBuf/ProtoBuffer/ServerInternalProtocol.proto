@@ -1,0 +1,310 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+// ------------- to center server -------------
+// login server 注册
+message LoginServerRegiste 
+{
+    required uint32  groupId    = 1;
+    required uint32  serverId   = 2;
+    required uint32  outerPort  = 3;
+    required string  outerIp    = 4;
+}
+
+// logic server 注册
+message LogicServerRegiste 
+{
+    enum TYPE
+    {
+        FIRST     = 1;
+        RECONNECT = 2;
+    }
+    required uint32  server_id   = 1;
+    required uint32  outer_port  = 2;
+    required string  outer_ip    = 3;
+    required TYPE    type        = 4;
+}
+
+// login server 状态
+message LoginServerState 
+{
+    required uint32  state = 1;
+}
+
+// logic server 状态
+message LogicServerState 
+{
+    required uint32  state			= 1;
+    required uint32  characterCount = 2;
+    required uint32  playerCount	= 3;
+    required uint32  enterAccountCount = 4;
+}
+
+//登录服向中心服请求账号登录验证
+message AccountLoginCheckReq{
+	required string channel_user_id = 1;	//渠道用户ID
+	required uint32 session_id = 2;			//连接id，原样返回
+}
+
+//登录服向中心服请求账户登录验证 返回
+message AccountLoginCheckRsp{
+	required string channel_user_id = 1;	//渠道用户ID
+	required uint32 group_id = 2;			//服务器组ID
+	required string logic_ip = 3;			//逻辑服务器ip
+	required uint32 logic_port = 4;			//逻辑服务器端口
+	required uint64 logic_token = 5;		//登录token 
+	required uint32 session_id = 6;			//连接id，原样返回
+}
+
+//登录服通知中心服账号下线
+message AccountLogoutNotify{
+	required string channel_user_id = 1;	//渠道用户ID
+}
+
+
+//逻辑服向中心服请求登录token验证
+message LogicCheckTokenReq{
+	required string channel_user_id = 1;	//渠道用户ID
+	required uint64 logic_token = 2;		//逻辑服登录token
+}
+
+//逻辑服向中心服请求登录token验证 返回
+message LogicCheckTokenRsp{
+	required int32 retcode = 1;				//返回码
+	required string channel_user_id = 2;	//渠道用户ID
+}
+
+
+//中心服通知逻辑服账户被踢下线
+message KickChannelUserNotify{
+	required string channel_user_id = 1;	//渠道用户ID
+	required uint32 charID = 2;			//角色ID
+}
+
+
+//中心服通知登录服账户下线
+message CenterAccountLogoutNotify{
+	enum TYPE{
+		TOKEN_EXPIRED		= 1;	//TOKEN 过期
+		CHARACTER_LOGOUT	= 2;	//角色下线
+		}
+	required TYPE type = 1;
+	required string channel_user_id = 2;	//渠道用户ID
+}
+
+// 客户端从新连接逻辑服务器时，逻辑服务器会通知中心服再验证一次
+message ReconnectCheckRequest
+{
+    required uint32 charId          = 1;        // 角色ID
+    required string channel_user_id = 2;        // 渠道用户ID
+    required uint32 accountIndex    = 3;        // 此玩家在账号管理中的索引值
+    required uint64 token           = 4;        // 验证token
+    required string channelId       = 5;        // 渠道类型
+    required string userId          = 6;        // 渠道用户id
+}
+
+message ReconnectCheckResponse
+{
+    required uint32 retCode         = 1;        // 返回码
+    required uint32 charId          = 2;        // 角色ID
+    required string channel_user_id = 3;        // 渠道用户ID
+    required uint32 accountIndex    = 4;        // 此玩家在账号管理中的索引值
+    required uint64 token           = 5;        // 验证token
+    required string channelId       = 6;        // 渠道类型
+    required string userId          = 7;        // 渠道用户id
+}
+
+// 登录服务器请求用户的登录logic server地址(from login server)
+message LogicServerAddressReq
+{
+    required string app_guid     = 1;            // 回执时需要
+    required string channel_id   = 2;            // 渠道账号类型
+    required string user_id      = 3;            // 渠道用户ID
+}
+
+// 逻辑服请求账户登录逻辑服务器(from logic server)
+message LoginLogicRequest
+{
+    required uint32 connect_index = 1;           // 连接号索引
+    required string channel_user_id = 2;         // 渠道用户ID
+    required uint64 token         = 3;           // 登陆logic server所需的token
+    required uint32 group_id      = 4;           // 登陆服区
+}
+
+// 逻辑服请求账户登录逻辑服务器 返回(to logic server)
+message LoginLogicResponse
+{
+    enum RESULT 
+	{
+        LOGIN_LOGIC_SUCESS        = 0;            // 登陆游戏请求成功
+        LOGIN_LOGIC_FAIL          = 1;            // 登陆游戏请求失败
+    };
+
+    message SwitchServerParam
+	{
+        required uint32 character_id             = 1; // 要跨服的character_id
+        required uint32 source_scene_template_id = 2; // 跨服前所在场景，有些场景退出时候位置信息不保存到角色数据。所以换线的时候直接用协议传过去的坐标。
+        required float  source_pose_x            = 3; // 跨服前所在位置
+        required float  source_pose_y            = 4;
+        required uint32 dest_scene_template_id   = 5; // 目标场景，链接目标LogicServer后，进入该场景，而不是退出存盘时候所在的场景
+        required uint32 dest_scene_instance_id   = 6;
+        required uint64 dest_scene_enter_key     = 7; // 进入场景的key
+        required float  dest_scene_pos_x         = 8;
+        required float  dest_scene_pos_y         = 9;
+    }
+
+    required uint32 connect_index	= 1;         // 连接号索引
+    required RESULT result			= 2;		 // 结果
+	optional string channel_user_id = 3;         // 渠道用户ID
+    optional uint32 group_id      = 4;           // 登陆服区
+    optional uint32 switch_server_flag             = 6; // 跨服标志，为1下面的参数有效
+    optional SwitchServerParam switch_server_param = 7; // 跨服参数，当switch_server_flag==1时候有效
+}
+
+// 玩家跨逻辑服时，逻辑服通知中心服(from logic server)
+message SwitchServerBeginNotify
+{
+    required string channel_id               = 1;   // 渠道账号类型
+    required string user_id                  = 2;   // 渠道用户ID
+
+    required uint32 character_id             = 3;   // 要跨服的角色id
+    required uint32 source_scene_template_id = 4;   // 跨服前所在场景，有些场景退出时候位置信息不保存到角色数据。所以换线的时候直接用协议传过去的坐标。
+    required float  source_pose_x            = 5;   // 跨服前所在位置
+    required float  source_pose_y            = 6;
+
+    required uint32 dest_logic_service_id    = 7;   // 目标logic server的id, 跨服流程启动后只允许从改服登录
+    required uint32 dest_scene_template_id   = 8;   // 目标场景，连到目标logic server后，进入该场景，而不是退出存盘时候所在的场景
+    required uint32 dest_scene_instance_id   = 9;
+    required uint64 dest_scene_enter_key     = 10;  // 进入场景的key
+    required float  dest_scene_pos_x         = 11;
+    required float  dest_scene_pos_y         = 12;
+}
+
+message BroadcastToLogicServer
+{
+	required uint32 groupId = 1;
+	required bytes msg = 2; //如果内部塞了C++内部的结构体这里一定要用bytes不要使用string
+}
+
+//逻辑服通知中心服创建角色
+message LogicToCenterCreateChar
+{
+	required uint32 charID					= 1; //角色ID
+	required CharacterDBBaseInfo base		= 2; //基础信息
+}
+
+//逻辑服通知中心服删除角色
+message LogicToCenterDelChar
+{
+	required uint32 charID					= 1; //角色ID
+	required string channel_user_id			= 2; //渠道用户ID
+}
+
+//逻辑服角色信息同步到中心服
+message LogicToCenterCharSync
+{
+	required uint32 charID			= 1; //角色ID
+	repeated CharSyncAttr attrlist	= 2; //属性列表
+	repeated ItemProtoInfo equip	= 3; //装备信息
+	optional int32 all_equip		= 4; //是否是全部装备
+}
+
+// 用户请求进入游戏(from logic server)
+message EnterLogicRequest
+{
+    required uint32 character_id  = 1;           // 角色ID
+	required string channel_id    = 2;           // 渠道账号类型
+    required string user_id       = 3;           // 渠道用户ID
+	required uint64 token         = 4;           // 登陆logic server所需的token
+    required string channel_user_id = 5;         // 合成后的账号信息 
+    required CharacterDBSimpleInfo charSimpleInfo = 6; // 角色简单信息
+	optional int32  map_id = 7;					 //地图ID
+	optional int32  scene_id = 8;				 //场景ID
+	repeated ItemProtoInfo equip = 9;			 //装备信息
+	optional CharacterDBAttrDetailInfo attr = 10;//属性
+}
+
+// 用户请求退出游戏(from logic server)
+message LogoutLogicRequest
+{
+    enum FLAG 
+    {
+        LOGOUT_FLAG_GAMING        = 0;            // 离开游戏
+        LOGOUT_FLAG_KICKOUT       = 1;            // 被踢下线
+        LOGOUT_FLAG_LOGIN_BREAK   = 2;            // 登录中端
+        LOGOUT_FLAG_SWITCH_SERVER = 3;            // 跨服下线
+    };
+
+    required FLAG   flag          = 1;
+    required uint32 character_id  = 2;           // 角色ID
+	required string channel_user_id = 3;		 // 渠道用户ID
+    required uint64 token         = 4;           // token
+}
+
+// 角色登录请求分配逻辑服节点
+message AllocLogicNodeRequest
+{   
+	required uint32 character_id  = 1;           // 角色ID
+	required string channel_id    = 2;           // 渠道ID
+    required string user_id       = 3;           // 用户ID
+    required string channel_user_id = 5;         // 渠道用户ID
+}
+
+// 角色登录分配逻辑服节点 返回
+message AllocLogicNodeResponse
+{   
+	required int32 result			= 1;		   // 分配结果
+	required uint32 character_id	= 2;           // 角色ID
+	required string channel_id		= 3;           // 渠道ID
+    required string user_id			= 4;           // 用户ID
+    required string channel_user_id = 5;		   // 渠道用户ID
+	optional uint32 dst_scene_id    = 6;		   // 目标场景ID
+	optional uint32 dst_map_id      = 7;		   // 目标地图ID
+	optional string logic_ip		= 8;		   // 逻辑节点IP(切换逻辑节点时才有值)
+	optional uint32 logic_port      = 9;		   // 逻辑节点端口(切换逻辑节点时才有值)
+	optional uint32 logic_token     = 10;		   // 逻辑节点token(切换逻辑节点时才有值)
+}
+
+
+
+// Client发给另外一个Client的通知
+message ClientNotifyToClient 
+{
+    required uint32 charId        = 1;
+    required uint32 event         = 2;
+}
+
+// ------------- from center server -------------
+// dbproxy server 地址信息
+message DBProxyAddrInfo
+{
+    required uint32  groupId	= 1;
+	required uint32  serverId   = 2;
+    required uint32  Port       = 3;
+    required string  Ip         = 4;
+}
+
+//中心服返回申请场景结果
+message CenterRspSceneId
+{
+	required uint32 retCode		= 1;
+	optional uint32 dstSceneId	= 2;
+	optional Vector3PB dstPos  	= 3;
+	optional string ip			= 4;
+	optional uint32 port		= 5;
+	optional string token       = 6;
+	optional uint32 dstMapId    = 7;
+}
+
+//中心服通知逻辑服每日刷新
+message CenterDailyUpdateNotify
+{
+	optional uint64 updateDailyTime = 1;
+}
+
+//中心服通知逻辑服每周刷新
+message CenterWeekUpdateNotify
+{
+	optional uint64 updateDailyTime = 1;
+}

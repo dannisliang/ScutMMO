@@ -1,0 +1,206 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "ProtoBuffer/Chat.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+//申请添加好友 直接发往中心服 客户端主要需要填充CLIENT_TO_LOGIC_REDIRECT_CENTERSERVER协议号
+message CWApplyRelationReq
+{
+	optional uint32 groupIndex = 1;		//添加标记 0添加好友  1添加到黑名单
+	optional uint32 playerId = 2;		//要添加的玩家ID
+}
+
+//申请添加好友返回
+message WCApplyRelationRsp
+{
+	optional uint32 ret = 1;		//状态码
+	optional uint32 playerId = 2;   //要添加的玩家ID
+}
+
+message WCNotifyRelationRsp
+{
+	optional uint32 ret = 1;		//状态码
+	optional uint32 flag = 2;		//1表示申请  2表示添加  客户端可以根据该类型来判断是要放入申请列表中还是放入到好友列表中
+	optional bool agree = 3;		//False表示不同意  True表示同意
+	optional CharacterPlayerMiniInfo friendInfo = 4; //好友信息
+	optional uint32 groupIndex = 5; //分组索引     0表示为好友 1表示为黑名单
+}
+
+//同意申请好友
+message CWAgreeRelationReq
+{
+	optional uint32 playerId = 1;		//申请方的玩家ID
+	optional uint32 groupIndex = 2;
+	optional bool agree = 3;			//是否同意	
+}
+
+//同意申请好友返回
+message WCAgreeRelationRsp
+{
+	optional uint32 ret = 1;		//状态码
+	optional uint32 playerID = 2;
+}
+
+//删除好友
+message CWDeleteRelationReq
+{
+	repeated uint32 playerIdList = 1; //删除的玩家ID
+	optional uint32 groupIndex = 2;
+}
+
+//删除好友返回
+message CWDeleteRelationRsp
+{
+	optional uint32 ret = 1;		//状态码
+	repeated uint32 playerId = 2;   //对方的ID
+	optional uint32 groupIndex = 3; //删除的玩家分组号
+	optional bool isActive = 4; //true表示主动删除 false表示别动删除
+}
+
+//请求最近联系人
+message CWRecentChatListReq
+{
+}
+
+//请求最近联系人返回
+message WCRecentChatListRsp
+{
+	repeated CharacterPlayerMiniInfo recentList = 1;
+}
+
+//好友推荐
+message CWOneKeyFriendReq
+{
+	optional bool again = 1;			//True表示换一批
+}
+
+message WCOneKeyFriendRsp
+{
+	repeated CharacterPlayerMiniInfo recommend = 1;	
+	optional uint32 ret = 2;
+}
+
+//请求好友信息
+message CWRelationInfoReq
+{
+	optional uint32 groupIndex = 1; //分组
+}
+
+message GroupRelationInfo
+{
+	repeated CharacterPlayerMiniInfo relationInfoList = 1;
+}
+
+message WCRelationInfoRsp
+{
+	optional uint32 groupIndex = 1;					//分组
+	repeated GroupRelationInfo relationInfo = 2;	//所有的好友信息数组
+	optional uint32 leftGiveTimes = 3;				//赠送剩余的次数
+	optional uint32 giftProgress = 4;				//体力礼包进度条
+}
+
+//搜索好友
+message CWSearchUserReq
+{
+	optional string name = 1;       //搜索的名字
+	optional uint32 searchID = 2;   //搜索的ID
+}
+
+//返回结果
+message WCSearchUserRsp
+{
+	optional uint32 ret = 1;		//状态码
+	optional CharacterPlayerMiniInfo playerInfo = 2;
+}
+
+//赠送体力(现在没有体力了，变成礼包，仍然使用该协议)
+message CWGivePhyscialReq
+{
+	optional uint32 playerID = 1;       //被赠送方的ID
+}
+
+//赠送体力返回(现在没有体力了，变成礼包，仍然使用该协议)
+message WCGivePhyscialRsp
+{
+	optional uint32 ret = 1;		//状态码
+	optional uint32 playerID = 2;       //被赠送方的ID
+}
+
+//通知对方体力(现在没有体力了，变成礼包，仍然使用该协议)
+message WCPhysicalNotifyRsp
+{
+	optional uint32 type = 1;  //1表示领取 2表示赠送
+	optional uint32 playerID = 2;
+}
+
+//一键赠送(现在没有体力了，变成礼包，仍然使用该协议)
+message CWAllGivePhyscialReq
+{
+	repeated uint32 playerIds = 1;	//赠送的玩家ID
+}
+
+message WCAllGivePhyscialRsp
+{
+	repeated uint32 playerIds = 1;	//赠送的玩家ID
+}
+
+//领取体力(现在没有体力了，变成礼包，仍然使用该协议)
+message CWGetPhyscialReq
+{
+	optional uint32 playerID = 1;   //领取谁的体力
+}
+
+message WCGetPhyscialRsp
+{
+	optional uint32 ret = 1;		//状态码
+	optional uint32 playerID = 2;   //被赠送方的ID
+}
+
+//该协议为服务器内部协议客户端无需关心
+message WLGetPhyscialReq
+{
+	optional uint32 playerID = 1;   //领取的玩家ID
+}
+
+//领取礼包
+message CWGetPhysicalGiftReq
+{
+}
+
+message WCGetPhysicalGiftRsp
+{
+	optional uint32 ret = 1;		//状态码
+}
+
+//发往逻辑服领取礼包,客户端无视该协议
+message WLGetPhysicalGiftReq
+{
+	optional uint32 playerId = 1;
+}
+
+//请求申请列表
+message CWApplyListReq
+{
+}
+
+message WCApplyListRsp
+{
+	repeated CharacterPlayerMiniInfo applyInfo = 1; //申请列表信息
+}
+
+//一键删除申请列表
+message CWClearApplyListReq
+{
+}
+
+message WCClearApplyListRsp
+{
+	optional uint32 ret = 1;
+}
+
+//一键同意申请列表
+message CWOneKeyAgreeRelationReq
+{
+	
+}

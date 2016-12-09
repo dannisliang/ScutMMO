@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+
+using ZyGames.Framework.Cache.Generic;
+using ZyGames.Framework.Common;
+using ZyGames.Framework.Game.Contract;
+using ZyGames.Framework.Game.Service;
+
+using ZyGames.Framework.Common.Serialization;
+using ZyGames.Framework.RPC.IO;
+using ProtoBuf;
+using ZyGames.Framework.Game.Sns;
+
+namespace GameServer.Script.CsScript.Action
+{
+    /// <summary>
+    /// 1002_注册
+    /// </summary>
+    /// <remarks>继续BaseStruct类:不检查用户合法性请求;AuthorizeAction:有验证合法性</remarks>
+    public class Action1002 : BaseAction
+    {
+        private RequestRegister1002Pack requestPack;
+        private ResponseRegister1002Pack responsePack;
+
+        public Action1002(ActionGetter actionGetter)
+            : base((short) ActionType.Regist, actionGetter)
+        {
+        }
+
+        /// <summary>
+        /// 客户端请求的参数较验
+        /// </summary>
+        /// <returns>false:中断后面的方式执行并返回Error</returns>
+        public override bool GetUrlElement()
+        {
+            byte[] data = (byte[])actionGetter.GetMessage();
+            if (data.Length >= 0)
+            {
+                requestPack = ProtoBufUtils.Deserialize<RequestRegister1002Pack>(data);
+                if (requestPack == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 业务逻辑处理
+        /// </summary>
+        /// <returns>false:中断后面的方式执行并返回Error</returns>
+        public override bool TakeAction()
+        {
+            responsePack = new ResponseRegister1002Pack();
+            try
+            {
+                string[] userList = SnsManager.GetRegPassport(requestPack.DeviceID);
+                responsePack.passport = userList[0];
+                responsePack.password = userList[1];
+                return true;
+            }
+            catch (Exception ex)
+            {
+                this.SaveLog(ex);
+                this.ErrorCode = ZyGames.Framework.Game.Lang.Language.Instance.ErrorCode;
+                this.ErrorInfo = ZyGames.Framework.Game.Lang.Language.Instance.St1002_GetRegisterPassportIDError;
+                return false;
+            }
+        }
+        /// <summary>
+        /// 下发给客户的包结构数据
+        /// </summary>
+        protected override byte[] BuildResponsePack()
+        {
+            if (responsePack == null)
+            {
+                return null;
+            }
+            return ProtoBufUtils.Serialize(responsePack);
+        }
+
+    }
+}
