@@ -14,6 +14,10 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+*.dll
+*.nlp
+*.pdb
+
 # Windows shortcuts
 *.lnk
 
@@ -45,6 +49,7 @@ Temporary Items
 /scut_mmo/ScutMMO/ScutMMO/Log/
 /scut_mmo/ScutMMO/ScutMMO/obj/
 /scut_mmo/ScutMMO/ScutMMO/temp/
+/scut_mmo/ScutMMO/ScutMMO/bin/
 /scut_mmo/ScutMMO/ScutMMO/ScriptRuntimeDomain/
 /scut_mmo/ScutMMO/ScutMMO/Script/CsScript/ProtoBuf/Common/.svn/
 /scut_mmo/ScutMMO/ScutMMO/Script/CsScript/ProtoBuf/ProtoBuffer/.svn/
@@ -52,3 +57,5 @@ Temporary Items
 /scut_mmo/ScutMMO/ScutMMO/Scut/Source/Framework/ZyGames.Framework.Common/obj/
 /scut_mmo/ScutMMO/ScutMMO/Scut/Source/Middleware/AccountServer/obj/
 /scut_mmo/ScutMMO/ScutMMO/Scut/Source/Middleware/ZyGames.Framework.Game/obj/
+*.dll
+scut_mmo/ScutMMO/ScutMMO/bin/Debug/ScutMMO.dll
