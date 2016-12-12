@@ -179,8 +179,15 @@
     <Compile Include="Script\CsScript\Logic\RecastNavCSharp\Recast\NavMeshCreateParams.cs" />
     <Compile Include="Script\CsScript\Logic\RecastNavCSharp\Recast\RecastVertex.cs" />
     <Compile Include="Script\CsScript\Logic\RoleManager.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\Grid.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\Grid9Manager.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\Map.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\MapMgr.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\MonsterManager.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\NpcManager.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\PlayerManager.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\Scene.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\SceneMgr.cs" />
     <Compile Include="Script\CsScript\MainClass.cs" />
     <Compile Include="Script\CsScript\MesspagePack.cs" />
     <Compile Include="Script\CsScript\ProtoBuf\Common\ComDefine.cs" />
@@ -263,6 +270,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Script\Model\Character\Creature\Creature.cs" />
+    <Compile Include="Script\Model\Character\Creature\Monster.cs" />
+    <Compile Include="Script\Model\Character\Creature\Player.cs" />
     <Compile Include="Script\Model\Common\Vector3.cs" />
     <Compile Include="Script\Model\DbConfig.cs" />
     <Compile Include="Script\Model\GuestUser.cs" />
