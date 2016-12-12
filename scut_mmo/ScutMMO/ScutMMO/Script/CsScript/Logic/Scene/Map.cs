@@ -61,25 +61,25 @@ namespace GameServer.Script.Logic
 
         public MapMapConfig MapConfig { get; private set; }
 
-        private NavMesh _MapNavMesh;
-        private NavMeshQuery _MapNavMeshQuery;
-        private QueryFilter _MapQueryFilter;
-        private long[] _PathPolys = new long[(int)MapDefine.MAX_NAV_POLYS];
-        private float[] _StraightPathPoints = new float[(int)MapDefine.MAX_NAV_POINT_VALUE];
+        private NavMesh m_MapNavMesh;
+        private NavMeshQuery m_MapNavMeshQuery;
+        private QueryFilter m_MapQueryFilter;
+        private long[] m_PathPolys = new long[(int)MapDefine.MAX_NAV_POLYS];
+        private float[] m_StraightPathPoints = new float[(int)MapDefine.MAX_NAV_POINT_VALUE];
 
         public NavMesh MapNavMesh 
         { 
-            get {return _MapNavMesh;} 
+            get {return m_MapNavMesh;} 
         }
 
         public NavMeshQuery MapNavMeshQuery 
         { 
-            get { return _MapNavMeshQuery;} 
+            get { return m_MapNavMeshQuery;} 
         }
 
         public QueryFilter MapQueryFilter
         {
-            get { return _MapQueryFilter; }
+            get { return m_MapQueryFilter; }
         }
 
         public Map()
@@ -96,10 +96,10 @@ namespace GameServer.Script.Logic
                 return false;
             }
 
-            _MapQueryFilter = new QueryFilter();
-            _MapQueryFilter.IncludeFlags = 0;
-            _MapQueryFilter.IncludeFlags = _MapQueryFilter.IncludeFlags | (int)SamplePolyFlags.SAMPLE_POLYFLAGS_WALK;
-            _MapQueryFilter.ExcludeFlags = 0;
+            m_MapQueryFilter = new QueryFilter();
+            m_MapQueryFilter.IncludeFlags = 0;
+            m_MapQueryFilter.IncludeFlags = m_MapQueryFilter.IncludeFlags | (int)SamplePolyFlags.SAMPLE_POLYFLAGS_WALK;
+            m_MapQueryFilter.ExcludeFlags = 0;
 
             bool retCode = LoadNavMesh(MapConfig.mapResources);
             if (retCode == false)
@@ -166,7 +166,7 @@ namespace GameServer.Script.Logic
 
             }
 
-            _MapNavMeshQuery.FindNearestPoly(startPos, extents, _MapQueryFilter, ref polyRef, ref nearPoint);
+            m_MapNavMeshQuery.FindNearestPoly(startPos, extents, m_MapQueryFilter, ref polyRef, ref nearPoint);
 
             return polyRef;
         }
@@ -214,7 +214,7 @@ namespace GameServer.Script.Logic
                 return false;
             }
 
-            Status status = _MapNavMeshQuery.FindPath(startRef, endRef, nearStartPos, nearEndPos, _MapQueryFilter, ref _PathPolys, ref nPolys, (int)MapDefine.MAX_NAV_POLYS);
+            Status status = m_MapNavMeshQuery.FindPath(startRef, endRef, nearStartPos, nearEndPos, m_MapQueryFilter, ref m_PathPolys, ref nPolys, (int)MapDefine.MAX_NAV_POLYS);
             if (status != Status.Success && nPolys <= 0)
             {
                 return false;
@@ -225,12 +225,12 @@ namespace GameServer.Script.Logic
             epos[1] = nearEndPos[1];
             epos[2] = nearEndPos[2];
 
-            if (_PathPolys[nPolys - 1] != endRef)
+            if (m_PathPolys[nPolys - 1] != endRef)
             {
-                _MapNavMeshQuery.ClosestPointOnPoly(_PathPolys[nPolys-1], nearEndPos, ref epos);
+                m_MapNavMeshQuery.ClosestPointOnPoly(m_PathPolys[nPolys-1], nearEndPos, ref epos);
             }
 
-            status = _MapNavMeshQuery.FindStraightPath(nearStartPos, epos, _PathPolys, nPolys, ref _StraightPathPoints,
+            status = m_MapNavMeshQuery.FindStraightPath(nearStartPos, epos, m_PathPolys, nPolys, ref m_StraightPathPoints,
                 ref straightPathFlags, ref straightPathPolys, ref nStraightPoints, (int)MapDefine.MAX_NAV_POLYS);
             if (status != Status.Success)
             {
@@ -242,9 +242,9 @@ namespace GameServer.Script.Logic
 
             for (int i = 0, j = 0; i < nStraightPoints * 3; i+=3, j++)
             {
-                path[j].X = _StraightPathPoints[i + 0];
-                path[j].Y = _StraightPathPoints[i + 1];
-                path[j].Z = _StraightPathPoints[i + 2];
+                path[j].X = m_StraightPathPoints[i + 0];
+                path[j].Y = m_StraightPathPoints[i + 1];
+                path[j].Z = m_StraightPathPoints[i + 2];
                 flgs[j] = straightPathFlags[j];
             }
 
@@ -259,16 +259,16 @@ namespace GameServer.Script.Logic
             NavMeshInfo navInfo = MapMgr.Inst().GetNavMeshInfo(mapName);
             if (navInfo == null)
             {
-                retCode = LoadNavMeshByJsonFile(path, ref _MapNavMesh);
+                retCode = LoadNavMeshByJsonFile(path, ref m_MapNavMesh);
                 if (MapNavMesh == null || retCode == false)
                 {
                     Console.WriteLine("LoadNavMeshByJsonFile {0} failed", path);
                     return false;
                 }
 
-                _MapNavMeshQuery = new NavMeshQuery();
+                m_MapNavMeshQuery = new NavMeshQuery();
 
-                _MapNavMeshQuery.Init(MapNavMesh, (int)MapDefine.MAX_NAV_POLYS);
+                m_MapNavMeshQuery.Init(MapNavMesh, (int)MapDefine.MAX_NAV_POLYS);
 
                 NavMeshInfo newNavInfo = new NavMeshInfo();
                 newNavInfo.pdtNavMesh = MapNavMesh;
@@ -278,8 +278,8 @@ namespace GameServer.Script.Logic
             }
             else
             {
-                _MapNavMesh = navInfo.pdtNavMesh;
-                _MapNavMeshQuery = navInfo.pdtNavMeshQuery;
+                m_MapNavMesh = navInfo.pdtNavMesh;
+                m_MapNavMeshQuery = navInfo.pdtNavMeshQuery;
             }
           
             return true;

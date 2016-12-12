@@ -11,23 +11,23 @@ namespace GameServer.Script.Logic
     // 计算屏幕方式的九宫格的矩形
     public class Grid9Manager
     {
-        public UInt32 _GridSizeX = 0;
-        public UInt32 _GridSizeZ = 0;
-        public readonly List<List<Grid>> _GridLst = new List<List<Grid>>();
+        public uint m_GridSizeX = 0;
+        public uint m_GridSizeZ = 0;
+        public readonly List<List<Grid>> m_GridLst = new List<List<Grid>>();
 
         public UInt32 GrideSizeX
         {
-            get { return _GridSizeX; }
+            get { return m_GridSizeX; }
         }
 
         public UInt32 GrideSizeZ
         {
-            get { return _GridSizeZ; }
+            get { return m_GridSizeZ; }
         }
 
         public List<List<Grid>> GridLst
         {
-            get { return _GridLst; }
+            get { return m_GridLst; }
         }
 
         public Grid9Manager()
@@ -35,34 +35,34 @@ namespace GameServer.Script.Logic
 
         }
 
-        public void InitGridSize(UInt32 width, UInt32 height)
+        public void InitGridSize(uint width, uint height)
         {
-            _GridSizeX = width / Scene.GRID_LENGTH + 1;
-            _GridSizeZ = height / Scene.GRID_LENGTH + 1;
-            for(UInt32 i = 0; i < _GridSizeX; i++)
+            m_GridSizeX = width / Scene.GRID_LENGTH + 1;
+            m_GridSizeZ = height / Scene.GRID_LENGTH + 1;
+            for (uint i = 0; i < m_GridSizeX; i++)
             {
                 List<Grid> lst = new List<Grid>();
-                
-                for (UInt32 j = 0; j < _GridSizeZ; j++)
+
+                for (uint j = 0; j < m_GridSizeZ; j++)
                 {
                     lst.Add(new Grid(i, j));
                 }
 
-                _GridLst.Add(lst);
+                m_GridLst.Add(lst);
             }
         }
 
         public Grid GetGrid(Vector3 pos)
         {
-            UInt32 gridX = (UInt32)(pos.X / Scene.GRID_LENGTH);
-            UInt32 gridZ = (UInt32)(pos.Z / Scene.GRID_LENGTH);
+            uint gridX = (uint)(pos.X / Scene.GRID_LENGTH);
+            uint gridZ = (uint)(pos.Z / Scene.GRID_LENGTH);
 
-            if (gridX >= _GridSizeX || gridZ >= _GridSizeZ)
+            if (gridX >= m_GridSizeX || gridZ >= m_GridSizeZ)
             {
                 return null;
             }
 
-            return _GridLst[(int)gridX][(int)gridZ];
+            return m_GridLst[(int)gridX][(int)gridZ];
         }
 
     }

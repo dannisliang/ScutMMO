@@ -114,6 +114,10 @@
     <Compile Include="Script\CsScript\Action\LoginProxyProtoBuf.cs" />
     <Compile Include="Script\CsScript\CustomActionDispatcher.cs" />
     <Compile Include="Script\CsScript\Locale\SimplifiedLanguage.cs" />
+    <Compile Include="Script\CsScript\Logic\Character\Creature.cs" />
+    <Compile Include="Script\CsScript\Logic\Character\Monster.cs" />
+    <Compile Include="Script\CsScript\Logic\Character\NPC.cs" />
+    <Compile Include="Script\CsScript\Logic\Character\Player.cs" />
     <Compile Include="Script\CsScript\Logic\RecastNavCSharp\Crowd\Crowd.cs" />
     <Compile Include="Script\CsScript\Logic\RecastNavCSharp\Crowd\CrowdAgent.cs" />
     <Compile Include="Script\CsScript\Logic\RecastNavCSharp\Crowd\CrowdAgentAnimation.cs" />
@@ -269,9 +273,6 @@
     <Compile Include="Script\CsScript\Tools\Utility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Script\Model\Character\Creature\Creature.cs" />
-    <Compile Include="Script\Model\Character\Creature\Monster.cs" />
-    <Compile Include="Script\Model\Character\Creature\Player.cs" />
     <Compile Include="Script\Model\Common\Vector3.cs" />
     <Compile Include="Script\Model\DbConfig.cs" />
     <Compile Include="Script\Model\GuestUser.cs" />
@@ -304,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\LuaScript\Action\" />
+    <Folder Include="Script\Model\Character\Creature\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Scut\Source\Framework\ZyGames.Framework.Common\ZyGames.Framework.Common.csproj">

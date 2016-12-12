@@ -8,37 +8,37 @@ namespace GameServer.Script.Logic
 {
     public class Grid
     {
-        private readonly List<UInt32> _CidLst = new List<UInt32>();
-        private readonly UInt32 _GridX;
-        private readonly UInt32 _GridZ;
+        private readonly List<uint> m_CidLst = new List<uint>();
+        private readonly uint m_GridX;
+        private readonly uint m_GridZ;
 
-        public List<UInt32> CidList { get { return _CidLst; } }
+        public List<uint> CidList { get { return m_CidLst; } }
 
-        public UInt32 GridX { get { return _GridX; } }
+        public uint GridX { get { return m_GridX; } }
 
-        public UInt32 GridY { get { return _GridZ; } }
+        public uint GridZ { get { return m_GridZ; } }
 
-        public Grid(UInt32 gridX, UInt32 gridZ)
+        public Grid(uint gridX, uint gridZ)
         {
-            _GridX = gridX;
-            _GridZ = gridZ;
+            m_GridX = gridX;
+            m_GridZ = gridZ;
         }
 
-        void AddCid(UInt32 cid)
+        public void AddCid(uint cid)
         {
-            foreach(UInt32 c in _CidLst)
+            foreach (uint c in m_CidLst)
             {
                 if (c == cid)
                 {
                     return;
                 }
             }
-            _CidLst.Add(cid);
+            m_CidLst.Add(cid);
         }
 
-        void RemoveCid(UInt32 cid)
+        public void RemoveCid(uint cid)
         {
-            _CidLst.Remove(cid);
+            m_CidLst.Remove(cid);
         }
     }
 }

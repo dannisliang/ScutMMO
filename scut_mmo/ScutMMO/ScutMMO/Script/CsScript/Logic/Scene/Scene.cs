@@ -16,22 +16,38 @@ namespace GameServer.Script.Logic
 
         public UInt32 SceneId { get;  set; }
 
-        public PlayerManager PlayerMgr { get ; set; }
+        private PlayerManager m_PlayerManager = new PlayerManager();
 
-        public MonsterManager MonsterMgr { get; set; }
+        private MonsterManager m_MonsterManager = new MonsterManager();
 
-        public NpcManager NpcMgr { get; set; }
+        private NpcManager m_NpcManager = new NpcManager();
 
-        public Grid9Manager Grid9Mgr { get; set; }
+        private Grid9Manager m_Grid9Manager = new Grid9Manager();
+
+        public PlayerManager PlayerManager
+        {
+            get { return m_PlayerManager; }
+        }
+
+        public MonsterManager MonsterManager
+        {
+            get { return m_MonsterManager; }
+        }
+
+        public NpcManager NpcManager
+        {
+            get { return m_NpcManager; }
+        }
+
+        public Grid9Manager Grid9Manager
+        {
+            get { return m_Grid9Manager; }
+        }
 
         public Scene()
         {
             MapId = 0;
             SceneId = 0;
-            PlayerMgr = new PlayerManager();
-            MonsterMgr = new MonsterManager();
-            NpcMgr = new NpcManager();
-            Grid9Mgr = new Grid9Manager();
         }
 
         public virtual bool Init(UInt32 mapId, UInt32 sceneId)
@@ -42,12 +58,48 @@ namespace GameServer.Script.Logic
                 return false;
             }
 
-            Grid9Mgr.InitGridSize(pMap.Width, pMap.Height);
+            Grid9Manager.InitGridSize(pMap.Width, pMap.Height);
 
             MapId = mapId;
             SceneId = sceneId;
 
             return true;
+        }
+
+        public virtual Grid EnterScene(Creature creature)
+        {
+            if (creature == null) return null;
+
+            Grid grid = Grid9Manager.GetGrid(creature.Pos);
+            if (grid == null)
+            {
+                Console.WriteLine("Creature:{0} EnterScene failed", creature.Cid);
+                return null;
+            }
+
+            grid.AddCid(creature.Cid);
+
+            if (creature.CreatureType == (uint)CreatureTypeEnum.CREATURE_PLAYER)
+            {
+                Player player = (Player)creature;
+                PlayerManager.AddPlayer(player);
+            }
+            else if (creature.CreatureType == (uint)CreatureTypeEnum.CREATURE_MONSTER)
+            {
+                Monster monster = (Monster)creature;
+                MonsterManager.AddMonster(monster);
+            }
+            else if (creature.CreatureType == (uint)CreatureTypeEnum.CREATURE_NPC)
+            {
+                NPC npc = (NPC)creature;
+                NpcManager.AddNPC(npc);
+            }
+            else
+            {
+
+            }
+
+            return grid;
         }
     }
 }

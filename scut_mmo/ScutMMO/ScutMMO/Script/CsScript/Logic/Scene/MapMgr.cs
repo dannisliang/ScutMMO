@@ -19,14 +19,21 @@ namespace GameServer.Script.Logic
             return _Inst;
         }
 
-        public Dictionary<uint, Map>  MapInfoDict { get; private set; }
-        public Dictionary<string, NavMeshInfo> NavMeshMap { get; private set; }
+        private Dictionary<uint, Map> m_MapInfoDict = new Dictionary<uint, Map>();
+        private Dictionary<string, NavMeshInfo> m_NavMeshMap = new Dictionary<string, NavMeshInfo>();
+
+        public Dictionary<uint, Map> MapInfoDict
+        {
+            get { return m_MapInfoDict; }
+        }
+
+        public Dictionary<string, NavMeshInfo> NavMeshMap
+        {
+            get { return m_NavMeshMap; }
+        }
 
         public bool Init()
         {
-            MapInfoDict = new Dictionary<uint, Map>();
-            NavMeshMap = new Dictionary<string, NavMeshInfo>();
-
             bool retCode = false;
 
             retCode = LoadConfig();
