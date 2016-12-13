@@ -29,5 +29,10 @@ namespace GameServer.Script.Logic
                 Monsters.Add(monster.Cid, monster);
             }
         }
+
+        public bool RemoveMonster(uint cid)
+        {
+            return Monsters.Remove(cid);
+        }
     }
 }

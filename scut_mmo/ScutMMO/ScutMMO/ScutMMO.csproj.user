@@ -5,8 +5,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>E:\code\server\scut_mmo\ScutMMO\ScutMMO\GameServer.exe</StartProgram>
-    <StartWorkingDirectory>E:\code\server\scut_mmo\ScutMMO\ScutMMO\</StartWorkingDirectory>
+    <StartProgram>E:\GitHub\ScutMMO\scut_mmo\ScutMMO\ScutMMO\GameServer.exe</StartProgram>
+    <StartWorkingDirectory>E:\GitHub\ScutMMO\scut_mmo\ScutMMO\ScutMMO\</StartWorkingDirectory>
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
   </PropertyGroup>
 </Project>

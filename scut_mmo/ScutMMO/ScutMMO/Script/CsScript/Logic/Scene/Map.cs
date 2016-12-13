@@ -9,24 +9,48 @@ using System.IO;
 using Detour;
 using ProtoBuf;
 using GameServer.Script.Model;
+using ZyGames.Framework.Common;
 
-public class NavMeshInfo
-{
-    public NavMesh pdtNavMesh { get; set; }
-    public NavMeshQuery pdtNavMeshQuery { get; set; }
-};
-
-
-//用来解析JSON文件
-class JsonMap
-{
-    public NavMeshParams Param { get; set; }
-
-    public List<NavMeshBuilder> NavMeshBuilders { get; set; } 
-}
 
 namespace GameServer.Script.Logic
 {
+    public enum MapMainType
+    {
+        NONE_MAP,
+        NEUTRAL_MAP,
+        CAMPE_MAP,
+        GUILD_MAP,
+        WILD_MAP,
+        DYNAMIC_MAP = 8,
+    };
+
+    public enum MapSubType
+    {
+        NONE_SUBMAP,
+        SINGLE_SUBMAP = 1,
+        TEAM_SUBMAP,
+        WELFARE_SUBMAP,
+        CAMPE_SUBMAP,
+        GUILD_SUBMAP,
+        ACTIVITY_SUBMAP,
+        LOGIN_SUBMAP,
+    };
+
+    public class NavMeshInfo
+    {
+        public NavMesh pdtNavMesh { get; set; }
+        public NavMeshQuery pdtNavMeshQuery { get; set; }
+    };
+
+
+    //用来解析JSON文件
+    class JsonMap
+    {
+        public NavMeshParams Param { get; set; }
+
+        public List<NavMeshBuilder> NavMeshBuilders { get; set; }
+    }
+
     public class Map
     {
         public const string ConfigFileDir = "./Data/Map/";
@@ -309,7 +333,7 @@ namespace GameServer.Script.Logic
                 //var ms = new MemoryStream(heByte);
                 //JsonMap jsonMap = (JsonMap)new DataContractJsonSerializer(typeof(JsonMap)).ReadObject(ms);
 
-                JsonMap jsonMap = (JsonMap)JsonConvert.DeserializeObject(jsonString, typeof(JsonMap));
+                JsonMap jsonMap = MathUtils.ParseJson<JsonMap>(jsonString);//JsonConvert.DeserializeObject(jsonString, typeof(JsonMap));
                 if (jsonMap == null)
                 {
                     Console.WriteLine("JsonConvert.DeserializeObject ==> {0} failed", filePath);
@@ -328,6 +352,10 @@ namespace GameServer.Script.Logic
                 for (int i = 0; i < jsonMap.NavMeshBuilders.Count; i++)
                 {
                     NavMeshBuilder builder = jsonMap.NavMeshBuilders[i];
+                    if (builder == null)
+                    {
+                        continue;
+                    }
                     long result = 0;
                     Status ss = navMesh.AddTile(builder, NavMesh.TileFreeData, 0, ref result);
                     if (ss != Status.Success)

@@ -5,16 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ZyGames.Framework.Common;
+using ZyGames.Framework.Model;
+using ZyGames.Framework.Cache.Generic;
+
 
 namespace GameServer.Script.Logic
 {
-    public class Scene
+    public class Scene : MemoryEntity
     {
         public const UInt32 GRID_LENGTH = 10;
 
         public UInt32 MapId { get;  set; }
 
         public UInt32 SceneId { get;  set; }
+
+        public Map Map { get; private set; }
 
         private PlayerManager m_PlayerManager = new PlayerManager();
 
@@ -23,6 +29,8 @@ namespace GameServer.Script.Logic
         private NpcManager m_NpcManager = new NpcManager();
 
         private Grid9Manager m_Grid9Manager = new Grid9Manager();
+
+        private OtherCreatureManaget m_OtherCreatureManaget = new OtherCreatureManaget();
 
         public PlayerManager PlayerManager
         {
@@ -44,6 +52,11 @@ namespace GameServer.Script.Logic
             get { return m_Grid9Manager; }
         }
 
+        public OtherCreatureManaget OtherCreatureManaget
+        {
+            get { return m_OtherCreatureManaget; }
+        }
+
         public Scene()
         {
             MapId = 0;
@@ -52,13 +65,13 @@ namespace GameServer.Script.Logic
 
         public virtual bool Init(UInt32 mapId, UInt32 sceneId)
         {
-            Map pMap = MapMgr.Inst().GetMap(mapId);
-            if (pMap == null)
+            Map = MapMgr.Inst().GetMap(mapId);
+            if (Map == null)
             {
                 return false;
             }
 
-            Grid9Manager.InitGridSize(pMap.Width, pMap.Height);
+            Grid9Manager.InitGridSize(Map.Width, Map.Height);
 
             MapId = mapId;
             SceneId = sceneId;
@@ -96,10 +109,47 @@ namespace GameServer.Script.Logic
             }
             else
             {
-
+                OtherCreatureManaget.AddCreature(creature);
             }
 
             return grid;
+        }
+
+        bool LeaveScene(Creature creature, Grid grid)
+        {
+            if (grid == null)
+            {
+                Console.WriteLine("LeaveScene failed");
+                return false;
+            }
+
+            grid.RemoveCid(creature.Cid);
+
+            bool flag = false;
+
+            if (creature.CreatureType == (uint)CreatureTypeEnum.CREATURE_PLAYER)
+            {
+                flag = PlayerManager.RemovePlayer(creature.Cid);
+            }
+            else if (creature.CreatureType == (uint)CreatureTypeEnum.CREATURE_MONSTER)
+            {
+                flag = MonsterManager.RemoveMonster(creature.Cid);
+            }
+            else if (creature.CreatureType == (uint)CreatureTypeEnum.CREATURE_NPC)
+            {
+                flag = NpcManager.RemoveNPC(creature.Cid);
+            }
+            else
+            {
+                flag = OtherCreatureManaget.RemoveCreature(creature.Cid);
+            }
+
+            if (flag == false)
+            {
+                Console.WriteLine("Scene::LeaveScene, m_scenePlayers cannt find, cid:{0}", creature.Cid);
+            }
+
+            return flag;
         }
     }
 }

@@ -29,9 +29,9 @@ namespace GameServer.Script.Logic
             }
         }
 
-        public void RemovePlayer(uint cid)
+        public bool RemovePlayer(uint cid)
         {
-            Players.Remove(cid);
+            return Players.Remove(cid);
         }
     }
 }

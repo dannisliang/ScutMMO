@@ -30,6 +30,7 @@ using ZyGames.Framework.Game.Service;
 using ZyGames.Framework.RPC.Sockets;
 using ZyGames.Framework.Script;
 using GameServer.Script.Logic;
+using GameServer.Script.Common;
 
 
 namespace Game.Script
@@ -43,9 +44,7 @@ namespace Game.Script
 
         protected override void OnStartAffer()
         {
-            //加载配置
-            ConfigMgr.Inst().InitConfigMgr();
-            MapMgr.Inst().Init();
+            SystemGlobal.Start();
             //ActionFactory.SetActionIgnoreAuthorize(1002);
             //ActionFactory.SetActionIgnoreAuthorize(200); 
             //Lua script regist method
@@ -56,6 +55,7 @@ namespace Game.Script
 
         protected override void OnServiceStop()
         {
+            SystemGlobal.Stop();
             GameEnvironment.Stop();
         }
 

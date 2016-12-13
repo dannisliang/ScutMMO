@@ -30,9 +30,9 @@ namespace GameServer.Script.Logic
             }
         }
 
-        public void RemoveNPC(uint cid)
+        public bool RemoveNPC(uint cid)
         {
-            NPCs.Remove(cid);
+            return NPCs.Remove(cid);
         }
     }
 }

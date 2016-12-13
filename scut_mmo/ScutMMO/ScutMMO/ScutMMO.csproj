@@ -7,7 +7,7 @@
     <ProjectGuid>{3CCAE6F7-4B0A-4A6C-A915-98B4FECD48EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScutMMO</RootNamespace>
+    <RootNamespace>GameServer</RootNamespace>
     <AssemblyName>ScutMMO</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -112,6 +112,7 @@
     <Compile Include="Script\CsScript\Action\BaseAuthorizeAction.cs" />
     <Compile Include="Script\CsScript\Action\LoginExtendActionProtoBuf.cs" />
     <Compile Include="Script\CsScript\Action\LoginProxyProtoBuf.cs" />
+    <Compile Include="Script\CsScript\Common\SystemGlobal.cs" />
     <Compile Include="Script\CsScript\CustomActionDispatcher.cs" />
     <Compile Include="Script\CsScript\Locale\SimplifiedLanguage.cs" />
     <Compile Include="Script\CsScript\Logic\Character\Creature.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Script\CsScript\Logic\Scene\MapMgr.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\MonsterManager.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\NpcManager.cs" />
+    <Compile Include="Script\CsScript\Logic\Scene\OtherCreatureManaget.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\PlayerManager.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\Scene.cs" />
     <Compile Include="Script\CsScript\Logic\Scene\SceneMgr.cs" />

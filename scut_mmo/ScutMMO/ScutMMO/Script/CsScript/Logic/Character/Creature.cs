@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 using GameServer.Script.Model;
+using ProtoBuf;
+using ZyGames.Framework.Common;
+using ZyGames.Framework.Model;
+using ZyGames.Framework.Cache.Generic;
 
 namespace GameServer.Script.Logic
 {
@@ -36,7 +40,11 @@ namespace GameServer.Script.Logic
 
         private readonly List<UInt32> m_BeenSeeLst = new List<uint>();
 
-        private Vector3 _Pos = new Vector3();
+        private Vector3 m_Pos = new Vector3();
+
+        private Vector3 m_Dir = new Vector3();
+
+        private readonly uint m_ViewLayer;
 
         public List<UInt32> SeeLst { get {return m_SeeLst; } }
 
@@ -44,8 +52,31 @@ namespace GameServer.Script.Logic
 
         public Vector3 Pos
         {
-            get { return _Pos; }
-            set { _Pos = value; }
+            get { return m_Pos; }
+            set { m_Pos = value; }
         }
+
+        public Vector3 Dir
+        {
+            get { return m_Dir; }
+            set { m_Pos = value; }
+        }
+
+        public Grid Grid { get; set; }
+
+        public Scene Scene { get; set; }
+
+        public uint ViewLayer { get { return m_ViewLayer; } }
+
+        public Creature()
+        {
+
+        }
+
+        //public virtual bool Init();
+
+        //public virtual bool UnInit();
+
+        //public virtual void Update();
     }
 }
