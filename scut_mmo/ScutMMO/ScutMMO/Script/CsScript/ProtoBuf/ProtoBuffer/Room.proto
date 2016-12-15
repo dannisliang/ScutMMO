@@ -1,0 +1,278 @@
+import "ProtoBuffer/ComProtocol.proto";
+import "ProtoBuffer/ClientToServerCmd.proto";
+import "Common/ComDefine.proto";
+package ProtoBuf;
+
+
+
+//房员信息
+message RoomMemberProto
+{
+	optional uint32 cid = 1;		//cid
+	optional string name = 2;		//名字
+	optional int32 prof	= 3;		//职业
+	optional int32 level = 4;		//等级
+	optional int32 fight = 5;		//战力
+	optional int32 type = 6;		//房员类型 1 房员，2 房主
+}
+
+//所有的房员信息
+message RoomAllMemberProto
+{
+	repeated RoomMemberProto member = 1;	//房员
+}
+
+
+//房间信息
+message RoomProto
+{
+	optional uint32 room_id = 1;	//房间ID
+	optional uint32 dup_id = 2;		//副本ID
+	repeated int32  pwd = 3;		//密码
+}
+
+
+//房间详细信息
+message RoomDetailProto
+{
+	optional RoomProto room = 1;				//房间信息
+	optional RoomAllMemberProto member = 2;		//房员信息
+}
+
+
+
+//////////////////////////// client and center  /////////////////////////////////////////
+
+
+
+//请求创建房间
+message Room_CreateReq
+{
+	required int32 dup_id = 1;	//副本ID
+	repeated int32 pwd = 2;		//密码（3位数，每位 0-9），如果没有的话就不赋值
+}
+//创建房间返回
+message Room_CreateRsp
+{
+	required int32 retcode = 1;		//返回码
+	optional RoomDetailProto detail = 2;//房间信息
+}
+
+//请求设置密码
+message Room_SetPwdReq
+{
+	required int32 type = 1;	// 1 设置，2 取消
+	repeated int32 pwd = 2;
+}
+//设置密码返回
+message Room_SetPwdRsp
+{
+	required int32 retcode = 1; //返回码
+	optional int32 type = 2;	// 1 设置，2 取消
+	repeated int32 pwd = 3;		//密码
+}
+
+//请求加入房间
+message Room_JoinReq
+{
+	required uint32 dup_id = 1;		//房间副本
+	required uint32 room_id = 2;	//房间ID
+	repeated int32  pwd = 3;		//密码
+}
+//加入房间返回
+message Room_JoinRsp
+{
+	required int32 retcode = 1;	//返回码
+	optional RoomDetailProto detail = 2;//房间信息 
+}
+
+//请求邀请好友
+message Room_InviteReq
+{
+	required uint32 friend_cid = 1;		//好友id
+}
+
+//邀请好友返回
+message Room_InviteRsp
+{
+	required int32 retcode = 1;	//返回码
+}
+
+//请求回复邀请
+message Room_ReplyInviteReq
+{
+	required int32 reply = 1;		// 1 同意，2 拒绝
+	required uint32 dup_id = 2;		//副本ID
+	required uint32 room_id = 3;	//房间ID
+	repeated int32 pwd = 4;			//密码
+}
+//回复邀请返回
+message Room_ReplyInviteRsp
+{
+	required int32 retcode = 1;	//返回码
+	optional int32 reply = 2;	//回复  1 同意，2 拒绝
+	optional RoomDetailProto detail = 3;//房间信息 
+}
+
+
+//请求请离房间
+message Room_KickReq
+{
+	required uint32 cid = 1;	//需要请离的房员id
+}
+//请离房间返回
+message Room_KickRsp
+{
+	required int32 retcode = 1;	//返回码
+}
+
+//请求离开房间
+message Room_LeaveReq
+{
+	//空
+}
+//离开房间返回
+message Room_LeaveRsp
+{
+	required int32 retcode = 1;	//返回码
+}
+
+//请求自动加入
+message Room_AutoJoinReq
+{
+	//空
+}
+//自动加入返回
+message Room_AutoJoinRsp
+{
+	required int32 retcode = 1;	//返回码
+	//房间信息
+}
+
+//通知离开房间
+message Room_NotifyLeave
+{
+	required uint32 cid = 1;	//离开的玩家id
+}
+
+//通知其他房员有新房员加入房间
+message Room_NotifyJoin
+{
+	//成员信息
+	optional RoomMemberProto join = 1;	
+}
+
+//通知房员更新
+message Room_NotifyUpdate
+{
+	//成员信息
+	optional RoomMemberProto update = 1;	
+}
+
+//通知玩家收到进入房间的邀请
+message Room_NotifyRecvInvite
+{
+	optional RoomProto room = 1;		//房间信息
+	optional RoomMemberProto owner = 2; //房主信息
+}
+
+//通知房主好友拒绝邀请
+message Room_NotifyRefuse
+{
+	optional string name = 1;	//好友名字
+}
+
+//通知玩家被踢出房间
+message Room_NotifyKick
+{
+	//空
+}
+
+//通知其他房员有房员被踢出
+message Room_NotifyMemberKick
+{
+	required uint32 kick = 1;
+}
+
+
+//通知房员房间解散
+message Room_NotifyDismiss
+{
+	//空
+}
+
+//////////////////////////// center an logic  ///////////////////////////////////
+
+//逻辑服通知中心服创建房间
+message LCRoom_CreateRoom
+{
+	required uint32 charid = 1;
+	required uint32 dupid = 2;
+	repeated int32 pwd = 3;
+}
+
+//逻辑服通知中心服设置密码
+message LCRoom_SetPwd
+{
+	required uint32 charid = 1;
+	required int32 type = 2;	// 1 设置，2 取消
+	repeated int32 pwd = 3;
+}
+
+//逻辑服通知中心服加入房间
+message LCRoom_Join
+{
+	required uint32 charid = 1;
+	required uint32 dup_id = 2;
+	required uint32 roomid = 3;
+	repeated int32 pwd = 4;
+}
+
+
+//逻辑服通知中心服邀请好友
+message LCRoom_InviteFriend
+{
+	required uint32 charid = 1;
+	required uint32 friend_cid = 2;		//好友id
+}
+
+//逻辑服通知中心服回复邀请
+message LCRoom_ReplyInvite
+{
+	required uint32 charid = 1;
+	required int32 reply = 2;		// 1 同意，2 拒绝
+	required uint32 dup_id = 3;		//副本ID
+	required uint32 room_id = 4;	//房间ID
+	repeated int32 pwd = 5;			//密码
+}
+
+
+//逻辑服通知中心服请离房间
+message LCRoom_KickRoom
+{
+	required uint32 charid = 1;
+	required uint32 cid = 2;	//需要请离的房员id
+}
+
+
+//逻辑服通知中心服离开房间
+message LCRoom_LeaveRoom
+{
+	required uint32 charid = 1;
+}
+
+
+//逻辑服通知中心服自动加入
+message LCRoom_AutoJoin
+{
+	required uint32 charid = 1;
+}
+
+
+//中心服通知逻辑服更新玩家房间
+message CLRoom_CharRoomNotify
+{
+	required uint32 charid = 1;
+	required uint32 roomid = 2;
+	required uint32 owner = 3;
+}

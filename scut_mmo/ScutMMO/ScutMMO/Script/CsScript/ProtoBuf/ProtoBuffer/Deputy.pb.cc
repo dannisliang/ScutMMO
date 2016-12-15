@@ -228,10 +228,11 @@ void protobuf_AssignDesc_ProtoBuffer_2fDeputy_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Deputy_CollectOperateRsp));
   Deputy_MakeOperateReq_descriptor_ = file->message_type(10);
-  static const int Deputy_MakeOperateReq_offsets_[3] = {
+  static const int Deputy_MakeOperateReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Deputy_MakeOperateReq, make_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Deputy_MakeOperateReq, reel_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Deputy_MakeOperateReq, make_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Deputy_MakeOperateReq, item_idx_),
   };
   Deputy_MakeOperateReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -396,14 +397,15 @@ void protobuf_AddDesc_ProtoBuffer_2fDeputy_2eproto() {
     "\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\"/\n\030De"
     "puty_CollectOperateReq\022\023\n\013collect_cid\030\001 "
     "\002(\r\"A\n\030Deputy_CollectOperateRsp\022\017\n\007retco"
-    "de\030\001 \002(\005\022\024\n\014collect_type\030\002 \001(\005\"K\n\025Deputy"
+    "de\030\001 \002(\005\022\024\n\014collect_type\030\002 \001(\005\"]\n\025Deputy"
     "_MakeOperateReq\022\017\n\007make_id\030\001 \002(\005\022\017\n\007reel"
-    "_id\030\002 \001(\005\022\020\n\010make_num\030\003 \001(\005\"J\n\025Deputy_Ma"
-    "keOperateRsp\022\017\n\007retcode\030\001 \002(\005\022\017\n\007make_id"
-    "\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\r\";\n\024Deputy_Collec"
-    "tNotify\022\024\n\014collect_type\030\001 \002(\005\022\r\n\005state\030\002"
-    " \002(\005\"B\n\032Deputy_CollectEnergyUpdate\022\024\n\014co"
-    "llect_type\030\001 \002(\005\022\016\n\006energy\030\002 \002(\005", 1032);
+    "_id\030\002 \001(\005\022\020\n\010make_num\030\003 \001(\005\022\020\n\010item_idx\030"
+    "\004 \001(\005\"J\n\025Deputy_MakeOperateRsp\022\017\n\007retcod"
+    "e\030\001 \002(\005\022\017\n\007make_id\030\002 \001(\005\022\017\n\007item_id\030\003 \001("
+    "\r\";\n\024Deputy_CollectNotify\022\024\n\014collect_typ"
+    "e\030\001 \002(\005\022\r\n\005state\030\002 \002(\005\"B\n\032Deputy_Collect"
+    "EnergyUpdate\022\024\n\014collect_type\030\001 \002(\005\022\016\n\006en"
+    "ergy\030\002 \002(\005", 1050);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ProtoBuffer/Deputy.proto", &protobuf_RegisterTypes);
   Deputy_CollectSkillInfoReq::default_instance_ = new Deputy_CollectSkillInfoReq();
@@ -2708,6 +2710,7 @@ void Deputy_CollectOperateRsp::Swap(Deputy_CollectOperateRsp* other) {
 const int Deputy_MakeOperateReq::kMakeIdFieldNumber;
 const int Deputy_MakeOperateReq::kReelIdFieldNumber;
 const int Deputy_MakeOperateReq::kMakeNumFieldNumber;
+const int Deputy_MakeOperateReq::kItemIdxFieldNumber;
 #endif  // !_MSC_VER
 
 Deputy_MakeOperateReq::Deputy_MakeOperateReq()
@@ -2729,6 +2732,7 @@ void Deputy_MakeOperateReq::SharedCtor() {
   make_id_ = 0;
   reel_id_ = 0;
   make_num_ = 0;
+  item_idx_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2767,6 +2771,7 @@ void Deputy_MakeOperateReq::Clear() {
     make_id_ = 0;
     reel_id_ = 0;
     make_num_ = 0;
+    item_idx_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2821,6 +2826,22 @@ bool Deputy_MakeOperateReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_item_idx;
+        break;
+      }
+
+      // optional int32 item_idx = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_item_idx:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &item_idx_)));
+          set_has_item_idx();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2858,6 +2879,11 @@ void Deputy_MakeOperateReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->make_num(), output);
   }
 
+  // optional int32 item_idx = 4;
+  if (has_item_idx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->item_idx(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2879,6 +2905,11 @@ void Deputy_MakeOperateReq::SerializeWithCachedSizes(
   // optional int32 make_num = 3;
   if (has_make_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->make_num(), target);
+  }
+
+  // optional int32 item_idx = 4;
+  if (has_item_idx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->item_idx(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2911,6 +2942,13 @@ int Deputy_MakeOperateReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->make_num());
+    }
+
+    // optional int32 item_idx = 4;
+    if (has_item_idx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->item_idx());
     }
 
   }
@@ -2949,6 +2987,9 @@ void Deputy_MakeOperateReq::MergeFrom(const Deputy_MakeOperateReq& from) {
     if (from.has_make_num()) {
       set_make_num(from.make_num());
     }
+    if (from.has_item_idx()) {
+      set_item_idx(from.item_idx());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2976,6 +3017,7 @@ void Deputy_MakeOperateReq::Swap(Deputy_MakeOperateReq* other) {
     std::swap(make_id_, other->make_id_);
     std::swap(reel_id_, other->reel_id_);
     std::swap(make_num_, other->make_num_);
+    std::swap(item_idx_, other->item_idx_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

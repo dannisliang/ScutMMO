@@ -36,21 +36,17 @@ void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
 void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
 void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
 
+class DupMonsStateProto;
+class DupFightDataProto;
 class Duplicate_InfoReq;
 class Duplicate_InfoRsp;
 class Duplicate_EnterReq;
 class Duplicate_EnterRsp;
-class Duplicate_ExitReq;
-class Duplicate_ExitRsp;
 class Duplicate_ResultRsp;
 class Duplicate_AutoFightReq;
 class Duplicate_AutoFightRsp;
-class Duplicate_BuyCountReq;
-class Duplicate_BuyCountRsp;
 class Duplicate_FlopReq;
 class Duplicate_FlopRsp;
-class Duplicate_SweepReq;
-class Duplicate_SweepRsp;
 class Duplicate_UpdateRsp;
 class Duplicate_ReliveReq;
 class Duplicate_ReliveRsp;
@@ -58,13 +54,227 @@ class Duplicate_LeaveReq;
 class Duplicate_LeaveRsp;
 class Duplicate_EnterAreaReq;
 class Duplicate_EnterAreaRsp;
-class LogicToCenter_CreateDuplicateReq;
-class CenterToLogic_CreateDuplicateRsp;
-class LogicToCenter_EnterDuplicateRes;
+class Duplicate_BuyCountReq;
+class Duplicate_BuyCountRsp;
+class Duplicate_AutoChallengeReq;
+class Duplicate_AutoChallengeRsp;
+class Duplicate_FightDataRsp;
+class Duplicate_MonsWaveRsp;
+class Duplicate_MonsNumRsp;
+class Duplicate_MonsStateRsp;
+class Duplicate_ReliveNumRsp;
+class Duplicate_TowerHpRsp;
+class Duplicate_TransMonsNumRsp;
+class DupBeforAreaProto;
+class LogicToCenter_EnterDupReq;
+class CenterToLogic_EnterDupRsp;
+class LogicToCenter_CreateSceneReq;
+class CenterToLogic_CreateSceneRsp;
+class LogicToCenter_CreateDuplicateRsp;
+class CenterToLogic_DuplicateNotifyPrepare;
+class LogicToCenter_DuplicatePrepareRsp;
+class CenterToLogic_DuplicateEnterNotify;
+class LogicToCenter_DuplicateEnterRsp;
+class LogicToCenter_DuplicateLeaveRsp;
+class LogicToCenter_DuplicateBegin;
 class LogicToCenter_DuplicateEnd;
 class LogicToCenter_DuplicateDestory;
 
 // ===================================================================
+
+class DupMonsStateProto : public ::google::protobuf::Message {
+ public:
+  DupMonsStateProto();
+  virtual ~DupMonsStateProto();
+
+  DupMonsStateProto(const DupMonsStateProto& from);
+
+  inline DupMonsStateProto& operator=(const DupMonsStateProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupMonsStateProto& default_instance();
+
+  void Swap(DupMonsStateProto* other);
+
+  // implements Message ----------------------------------------------
+
+  DupMonsStateProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupMonsStateProto& from);
+  void MergeFrom(const DupMonsStateProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 mons_id = 1;
+  inline bool has_mons_id() const;
+  inline void clear_mons_id();
+  static const int kMonsIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 mons_id() const;
+  inline void set_mons_id(::google::protobuf::uint32 value);
+
+  // required int32 state = 2;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 2;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.DupMonsStateProto)
+ private:
+  inline void set_has_mons_id();
+  inline void clear_has_mons_id();
+  inline void set_has_state();
+  inline void clear_has_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 mons_id_;
+  ::google::protobuf::int32 state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupMonsStateProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupFightDataProto : public ::google::protobuf::Message {
+ public:
+  DupFightDataProto();
+  virtual ~DupFightDataProto();
+
+  DupFightDataProto(const DupFightDataProto& from);
+
+  inline DupFightDataProto& operator=(const DupFightDataProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupFightDataProto& default_instance();
+
+  void Swap(DupFightDataProto* other);
+
+  // implements Message ----------------------------------------------
+
+  DupFightDataProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupFightDataProto& from);
+  void MergeFrom(const DupFightDataProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint32 cid() const;
+  inline void set_cid(::google::protobuf::uint32 value);
+
+  // required uint64 atk = 2;
+  inline bool has_atk() const;
+  inline void clear_atk();
+  static const int kAtkFieldNumber = 2;
+  inline ::google::protobuf::uint64 atk() const;
+  inline void set_atk(::google::protobuf::uint64 value);
+
+  // required uint64 be_atk = 3;
+  inline bool has_be_atk() const;
+  inline void clear_be_atk();
+  static const int kBeAtkFieldNumber = 3;
+  inline ::google::protobuf::uint64 be_atk() const;
+  inline void set_be_atk(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.DupFightDataProto)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_atk();
+  inline void clear_has_atk();
+  inline void set_has_be_atk();
+  inline void clear_has_be_atk();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 atk_;
+  ::google::protobuf::uint64 be_atk_;
+  ::google::protobuf::uint32 cid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupFightDataProto* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class Duplicate_InfoReq : public ::google::protobuf::Message {
  public:
@@ -211,6 +421,30 @@ class Duplicate_InfoRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateProto >*
       mutable_info();
 
+  // repeated .ProtoBuf.DuplicateGroupProto group = 3;
+  inline int group_size() const;
+  inline void clear_group();
+  static const int kGroupFieldNumber = 3;
+  inline const ::ProtoBuf::DuplicateGroupProto& group(int index) const;
+  inline ::ProtoBuf::DuplicateGroupProto* mutable_group(int index);
+  inline ::ProtoBuf::DuplicateGroupProto* add_group();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >&
+      group() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >*
+      mutable_group();
+
+  // repeated int32 open_list = 4;
+  inline int open_list_size() const;
+  inline void clear_open_list();
+  static const int kOpenListFieldNumber = 4;
+  inline ::google::protobuf::int32 open_list(int index) const;
+  inline void set_open_list(int index, ::google::protobuf::int32 value);
+  inline void add_open_list(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      open_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_open_list();
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_InfoRsp)
  private:
   inline void set_has_retcode();
@@ -219,10 +453,12 @@ class Duplicate_InfoRsp : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateProto > info_;
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto > group_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > open_list_;
   ::google::protobuf::int32 retcode_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
@@ -294,17 +530,39 @@ class Duplicate_EnterReq : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 duplicate_id() const;
   inline void set_duplicate_id(::google::protobuf::int32 value);
 
+  // optional int32 area_id = 2;
+  inline bool has_area_id() const;
+  inline void clear_area_id();
+  static const int kAreaIdFieldNumber = 2;
+  inline ::google::protobuf::int32 area_id() const;
+  inline void set_area_id(::google::protobuf::int32 value);
+
+  // optional .ProtoBuf.Vector3PB cur_pos = 3;
+  inline bool has_cur_pos() const;
+  inline void clear_cur_pos();
+  static const int kCurPosFieldNumber = 3;
+  inline const ::ProtoBuf::Vector3PB& cur_pos() const;
+  inline ::ProtoBuf::Vector3PB* mutable_cur_pos();
+  inline ::ProtoBuf::Vector3PB* release_cur_pos();
+  inline void set_allocated_cur_pos(::ProtoBuf::Vector3PB* cur_pos);
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_EnterReq)
  private:
   inline void set_has_duplicate_id();
   inline void clear_has_duplicate_id();
+  inline void set_has_area_id();
+  inline void clear_has_area_id();
+  inline void set_has_cur_pos();
+  inline void clear_has_cur_pos();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 duplicate_id_;
+  ::google::protobuf::int32 area_id_;
+  ::ProtoBuf::Vector3PB* cur_pos_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
@@ -395,21 +653,61 @@ class Duplicate_EnterRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_area();
 
+  // optional int32 mons_num = 4;
+  inline bool has_mons_num() const;
+  inline void clear_mons_num();
+  static const int kMonsNumFieldNumber = 4;
+  inline ::google::protobuf::int32 mons_num() const;
+  inline void set_mons_num(::google::protobuf::int32 value);
+
+  // optional int32 dup_sec = 5;
+  inline bool has_dup_sec() const;
+  inline void clear_dup_sec();
+  static const int kDupSecFieldNumber = 5;
+  inline ::google::protobuf::int32 dup_sec() const;
+  inline void set_dup_sec(::google::protobuf::int32 value);
+
+  // optional int32 tower_hp = 6;
+  inline bool has_tower_hp() const;
+  inline void clear_tower_hp();
+  static const int kTowerHpFieldNumber = 6;
+  inline ::google::protobuf::int32 tower_hp() const;
+  inline void set_tower_hp(::google::protobuf::int32 value);
+
+  // optional int32 trans_num = 7;
+  inline bool has_trans_num() const;
+  inline void clear_trans_num();
+  static const int kTransNumFieldNumber = 7;
+  inline ::google::protobuf::int32 trans_num() const;
+  inline void set_trans_num(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_EnterRsp)
  private:
   inline void set_has_retcode();
   inline void clear_has_retcode();
   inline void set_has_duplicate_id();
   inline void clear_has_duplicate_id();
+  inline void set_has_mons_num();
+  inline void clear_has_mons_num();
+  inline void set_has_dup_sec();
+  inline void clear_has_dup_sec();
+  inline void set_has_tower_hp();
+  inline void clear_has_tower_hp();
+  inline void set_has_trans_num();
+  inline void clear_has_trans_num();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 retcode_;
   ::google::protobuf::int32 duplicate_id_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > area_;
+  ::google::protobuf::int32 mons_num_;
+  ::google::protobuf::int32 dup_sec_;
+  ::google::protobuf::int32 tower_hp_;
+  ::google::protobuf::int32 trans_num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
@@ -417,160 +715,6 @@ class Duplicate_EnterRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Duplicate_EnterRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Duplicate_ExitReq : public ::google::protobuf::Message {
- public:
-  Duplicate_ExitReq();
-  virtual ~Duplicate_ExitReq();
-
-  Duplicate_ExitReq(const Duplicate_ExitReq& from);
-
-  inline Duplicate_ExitReq& operator=(const Duplicate_ExitReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Duplicate_ExitReq& default_instance();
-
-  void Swap(Duplicate_ExitReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Duplicate_ExitReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Duplicate_ExitReq& from);
-  void MergeFrom(const Duplicate_ExitReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_ExitReq)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[1];
-
-  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
-
-  void InitAsDefaultInstance();
-  static Duplicate_ExitReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Duplicate_ExitRsp : public ::google::protobuf::Message {
- public:
-  Duplicate_ExitRsp();
-  virtual ~Duplicate_ExitRsp();
-
-  Duplicate_ExitRsp(const Duplicate_ExitRsp& from);
-
-  inline Duplicate_ExitRsp& operator=(const Duplicate_ExitRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Duplicate_ExitRsp& default_instance();
-
-  void Swap(Duplicate_ExitRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Duplicate_ExitRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Duplicate_ExitRsp& from);
-  void MergeFrom(const Duplicate_ExitRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required int32 retcode = 1;
-  inline bool has_retcode() const;
-  inline void clear_retcode();
-  static const int kRetcodeFieldNumber = 1;
-  inline ::google::protobuf::int32 retcode() const;
-  inline void set_retcode(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_ExitRsp)
- private:
-  inline void set_has_retcode();
-  inline void clear_has_retcode();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 retcode_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
-
-  void InitAsDefaultInstance();
-  static Duplicate_ExitRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -649,75 +793,33 @@ class Duplicate_ResultRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 star() const;
   inline void set_star(::google::protobuf::int32 value);
 
-  // optional int32 sec = 4;
-  inline bool has_sec() const;
-  inline void clear_sec();
-  static const int kSecFieldNumber = 4;
-  inline ::google::protobuf::int32 sec() const;
-  inline void set_sec(::google::protobuf::int32 value);
-
-  // optional int32 kill_mon = 5;
-  inline bool has_kill_mon() const;
-  inline void clear_kill_mon();
-  static const int kKillMonFieldNumber = 5;
-  inline ::google::protobuf::int32 kill_mon() const;
-  inline void set_kill_mon(::google::protobuf::int32 value);
-
-  // optional int32 die_count = 6;
-  inline bool has_die_count() const;
-  inline void clear_die_count();
-  static const int kDieCountFieldNumber = 6;
-  inline ::google::protobuf::int32 die_count() const;
-  inline void set_die_count(::google::protobuf::int32 value);
-
-  // optional int32 exp = 7;
+  // optional int32 exp = 4;
   inline bool has_exp() const;
   inline void clear_exp();
-  static const int kExpFieldNumber = 7;
+  static const int kExpFieldNumber = 4;
   inline ::google::protobuf::int32 exp() const;
   inline void set_exp(::google::protobuf::int32 value);
 
-  // optional int32 gold = 8;
+  // optional int32 gold = 5;
   inline bool has_gold() const;
   inline void clear_gold();
-  static const int kGoldFieldNumber = 8;
+  static const int kGoldFieldNumber = 5;
   inline ::google::protobuf::int32 gold() const;
   inline void set_gold(::google::protobuf::int32 value);
 
-  // optional int32 bind_gold = 9;
-  inline bool has_bind_gold() const;
-  inline void clear_bind_gold();
-  static const int kBindGoldFieldNumber = 9;
-  inline ::google::protobuf::int32 bind_gold() const;
-  inline void set_bind_gold(::google::protobuf::int32 value);
-
-  // optional int32 diamond = 10;
-  inline bool has_diamond() const;
-  inline void clear_diamond();
-  static const int kDiamondFieldNumber = 10;
-  inline ::google::protobuf::int32 diamond() const;
-  inline void set_diamond(::google::protobuf::int32 value);
-
-  // optional int32 bind_diamond = 11;
-  inline bool has_bind_diamond() const;
-  inline void clear_bind_diamond();
-  static const int kBindDiamondFieldNumber = 11;
-  inline ::google::protobuf::int32 bind_diamond() const;
-  inline void set_bind_diamond(::google::protobuf::int32 value);
-
-  // optional .ProtoBuf.RewardItemProto reward = 12;
+  // optional .ProtoBuf.RewardItemProto reward = 6;
   inline bool has_reward() const;
   inline void clear_reward();
-  static const int kRewardFieldNumber = 12;
+  static const int kRewardFieldNumber = 6;
   inline const ::ProtoBuf::RewardItemProto& reward() const;
   inline ::ProtoBuf::RewardItemProto* mutable_reward();
   inline ::ProtoBuf::RewardItemProto* release_reward();
   inline void set_allocated_reward(::ProtoBuf::RewardItemProto* reward);
 
-  // optional .ProtoBuf.RewardItemProto flop = 13;
+  // optional .ProtoBuf.RewardItemProto flop = 7;
   inline bool has_flop() const;
   inline void clear_flop();
-  static const int kFlopFieldNumber = 13;
+  static const int kFlopFieldNumber = 7;
   inline const ::ProtoBuf::RewardItemProto& flop() const;
   inline ::ProtoBuf::RewardItemProto* mutable_flop();
   inline ::ProtoBuf::RewardItemProto* release_flop();
@@ -731,22 +833,10 @@ class Duplicate_ResultRsp : public ::google::protobuf::Message {
   inline void clear_has_duplicate_id();
   inline void set_has_star();
   inline void clear_has_star();
-  inline void set_has_sec();
-  inline void clear_has_sec();
-  inline void set_has_kill_mon();
-  inline void clear_has_kill_mon();
-  inline void set_has_die_count();
-  inline void clear_has_die_count();
   inline void set_has_exp();
   inline void clear_has_exp();
   inline void set_has_gold();
   inline void clear_has_gold();
-  inline void set_has_bind_gold();
-  inline void clear_has_bind_gold();
-  inline void set_has_diamond();
-  inline void clear_has_diamond();
-  inline void set_has_bind_diamond();
-  inline void clear_has_bind_diamond();
   inline void set_has_reward();
   inline void clear_has_reward();
   inline void set_has_flop();
@@ -757,19 +847,13 @@ class Duplicate_ResultRsp : public ::google::protobuf::Message {
   ::google::protobuf::int32 result_;
   ::google::protobuf::int32 duplicate_id_;
   ::google::protobuf::int32 star_;
-  ::google::protobuf::int32 sec_;
-  ::google::protobuf::int32 kill_mon_;
-  ::google::protobuf::int32 die_count_;
   ::google::protobuf::int32 exp_;
-  ::google::protobuf::int32 gold_;
-  ::google::protobuf::int32 bind_gold_;
-  ::google::protobuf::int32 diamond_;
   ::ProtoBuf::RewardItemProto* reward_;
   ::ProtoBuf::RewardItemProto* flop_;
-  ::google::protobuf::int32 bind_diamond_;
+  ::google::protobuf::int32 gold_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
@@ -931,170 +1015,6 @@ class Duplicate_AutoFightRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Duplicate_AutoFightRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Duplicate_BuyCountReq : public ::google::protobuf::Message {
- public:
-  Duplicate_BuyCountReq();
-  virtual ~Duplicate_BuyCountReq();
-
-  Duplicate_BuyCountReq(const Duplicate_BuyCountReq& from);
-
-  inline Duplicate_BuyCountReq& operator=(const Duplicate_BuyCountReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Duplicate_BuyCountReq& default_instance();
-
-  void Swap(Duplicate_BuyCountReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Duplicate_BuyCountReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Duplicate_BuyCountReq& from);
-  void MergeFrom(const Duplicate_BuyCountReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required int32 duplicate_id = 1;
-  inline bool has_duplicate_id() const;
-  inline void clear_duplicate_id();
-  static const int kDuplicateIdFieldNumber = 1;
-  inline ::google::protobuf::int32 duplicate_id() const;
-  inline void set_duplicate_id(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_BuyCountReq)
- private:
-  inline void set_has_duplicate_id();
-  inline void clear_has_duplicate_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 duplicate_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
-
-  void InitAsDefaultInstance();
-  static Duplicate_BuyCountReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Duplicate_BuyCountRsp : public ::google::protobuf::Message {
- public:
-  Duplicate_BuyCountRsp();
-  virtual ~Duplicate_BuyCountRsp();
-
-  Duplicate_BuyCountRsp(const Duplicate_BuyCountRsp& from);
-
-  inline Duplicate_BuyCountRsp& operator=(const Duplicate_BuyCountRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Duplicate_BuyCountRsp& default_instance();
-
-  void Swap(Duplicate_BuyCountRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Duplicate_BuyCountRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Duplicate_BuyCountRsp& from);
-  void MergeFrom(const Duplicate_BuyCountRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required int32 retcode = 1;
-  inline bool has_retcode() const;
-  inline void clear_retcode();
-  static const int kRetcodeFieldNumber = 1;
-  inline ::google::protobuf::int32 retcode() const;
-  inline void set_retcode(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_BuyCountRsp)
- private:
-  inline void set_has_retcode();
-  inline void clear_has_retcode();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 retcode_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
-
-  void InitAsDefaultInstance();
-  static Duplicate_BuyCountRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1262,213 +1182,6 @@ class Duplicate_FlopRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Duplicate_SweepReq : public ::google::protobuf::Message {
- public:
-  Duplicate_SweepReq();
-  virtual ~Duplicate_SweepReq();
-
-  Duplicate_SweepReq(const Duplicate_SweepReq& from);
-
-  inline Duplicate_SweepReq& operator=(const Duplicate_SweepReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Duplicate_SweepReq& default_instance();
-
-  void Swap(Duplicate_SweepReq* other);
-
-  // implements Message ----------------------------------------------
-
-  Duplicate_SweepReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Duplicate_SweepReq& from);
-  void MergeFrom(const Duplicate_SweepReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required int32 duplicate_id = 1;
-  inline bool has_duplicate_id() const;
-  inline void clear_duplicate_id();
-  static const int kDuplicateIdFieldNumber = 1;
-  inline ::google::protobuf::int32 duplicate_id() const;
-  inline void set_duplicate_id(::google::protobuf::int32 value);
-
-  // required int32 sweep_type = 2;
-  inline bool has_sweep_type() const;
-  inline void clear_sweep_type();
-  static const int kSweepTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 sweep_type() const;
-  inline void set_sweep_type(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_SweepReq)
- private:
-  inline void set_has_duplicate_id();
-  inline void clear_has_duplicate_id();
-  inline void set_has_sweep_type();
-  inline void clear_has_sweep_type();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 duplicate_id_;
-  ::google::protobuf::int32 sweep_type_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
-
-  void InitAsDefaultInstance();
-  static Duplicate_SweepReq* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Duplicate_SweepRsp : public ::google::protobuf::Message {
- public:
-  Duplicate_SweepRsp();
-  virtual ~Duplicate_SweepRsp();
-
-  Duplicate_SweepRsp(const Duplicate_SweepRsp& from);
-
-  inline Duplicate_SweepRsp& operator=(const Duplicate_SweepRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Duplicate_SweepRsp& default_instance();
-
-  void Swap(Duplicate_SweepRsp* other);
-
-  // implements Message ----------------------------------------------
-
-  Duplicate_SweepRsp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Duplicate_SweepRsp& from);
-  void MergeFrom(const Duplicate_SweepRsp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required int32 retcode = 1;
-  inline bool has_retcode() const;
-  inline void clear_retcode();
-  static const int kRetcodeFieldNumber = 1;
-  inline ::google::protobuf::int32 retcode() const;
-  inline void set_retcode(::google::protobuf::int32 value);
-
-  // optional int32 sweep_type = 2;
-  inline bool has_sweep_type() const;
-  inline void clear_sweep_type();
-  static const int kSweepTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 sweep_type() const;
-  inline void set_sweep_type(::google::protobuf::int32 value);
-
-  // repeated .ProtoBuf.RewardItemProto reward = 3;
-  inline int reward_size() const;
-  inline void clear_reward();
-  static const int kRewardFieldNumber = 3;
-  inline const ::ProtoBuf::RewardItemProto& reward(int index) const;
-  inline ::ProtoBuf::RewardItemProto* mutable_reward(int index);
-  inline ::ProtoBuf::RewardItemProto* add_reward();
-  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::RewardItemProto >&
-      reward() const;
-  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::RewardItemProto >*
-      mutable_reward();
-
-  // optional int32 reson = 4;
-  inline bool has_reson() const;
-  inline void clear_reson();
-  static const int kResonFieldNumber = 4;
-  inline ::google::protobuf::int32 reson() const;
-  inline void set_reson(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_SweepRsp)
- private:
-  inline void set_has_retcode();
-  inline void clear_has_retcode();
-  inline void set_has_sweep_type();
-  inline void clear_has_sweep_type();
-  inline void set_has_reson();
-  inline void clear_has_reson();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 retcode_;
-  ::google::protobuf::int32 sweep_type_;
-  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::RewardItemProto > reward_;
-  ::google::protobuf::int32 reson_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
-
-  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
-  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
-
-  void InitAsDefaultInstance();
-  static Duplicate_SweepRsp* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class Duplicate_UpdateRsp : public ::google::protobuf::Message {
  public:
   Duplicate_UpdateRsp();
@@ -1535,15 +1248,41 @@ class Duplicate_UpdateRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateProto >*
       mutable_info();
 
+  // repeated .ProtoBuf.DuplicateGroupProto group = 2;
+  inline int group_size() const;
+  inline void clear_group();
+  static const int kGroupFieldNumber = 2;
+  inline const ::ProtoBuf::DuplicateGroupProto& group(int index) const;
+  inline ::ProtoBuf::DuplicateGroupProto* mutable_group(int index);
+  inline ::ProtoBuf::DuplicateGroupProto* add_group();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >&
+      group() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >*
+      mutable_group();
+
+  // repeated int32 open_list = 3;
+  inline int open_list_size() const;
+  inline void clear_open_list();
+  static const int kOpenListFieldNumber = 3;
+  inline ::google::protobuf::int32 open_list(int index) const;
+  inline void set_open_list(int index, ::google::protobuf::int32 value);
+  inline void add_open_list(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      open_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_open_list();
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_UpdateRsp)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateProto > info_;
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto > group_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > open_list_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
@@ -2046,14 +1785,14 @@ class Duplicate_EnterAreaRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class LogicToCenter_CreateDuplicateReq : public ::google::protobuf::Message {
+class Duplicate_BuyCountReq : public ::google::protobuf::Message {
  public:
-  LogicToCenter_CreateDuplicateReq();
-  virtual ~LogicToCenter_CreateDuplicateReq();
+  Duplicate_BuyCountReq();
+  virtual ~Duplicate_BuyCountReq();
 
-  LogicToCenter_CreateDuplicateReq(const LogicToCenter_CreateDuplicateReq& from);
+  Duplicate_BuyCountReq(const Duplicate_BuyCountReq& from);
 
-  inline LogicToCenter_CreateDuplicateReq& operator=(const LogicToCenter_CreateDuplicateReq& from) {
+  inline Duplicate_BuyCountReq& operator=(const Duplicate_BuyCountReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2067,17 +1806,1284 @@ class LogicToCenter_CreateDuplicateReq : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LogicToCenter_CreateDuplicateReq& default_instance();
+  static const Duplicate_BuyCountReq& default_instance();
 
-  void Swap(LogicToCenter_CreateDuplicateReq* other);
+  void Swap(Duplicate_BuyCountReq* other);
 
   // implements Message ----------------------------------------------
 
-  LogicToCenter_CreateDuplicateReq* New() const;
+  Duplicate_BuyCountReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LogicToCenter_CreateDuplicateReq& from);
-  void MergeFrom(const LogicToCenter_CreateDuplicateReq& from);
+  void CopyFrom(const Duplicate_BuyCountReq& from);
+  void MergeFrom(const Duplicate_BuyCountReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 group_id = 1;
+  inline bool has_group_id() const;
+  inline void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  inline ::google::protobuf::int32 group_id() const;
+  inline void set_group_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_BuyCountReq)
+ private:
+  inline void set_has_group_id();
+  inline void clear_has_group_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 group_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_BuyCountReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_BuyCountRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_BuyCountRsp();
+  virtual ~Duplicate_BuyCountRsp();
+
+  Duplicate_BuyCountRsp(const Duplicate_BuyCountRsp& from);
+
+  inline Duplicate_BuyCountRsp& operator=(const Duplicate_BuyCountRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_BuyCountRsp& default_instance();
+
+  void Swap(Duplicate_BuyCountRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_BuyCountRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_BuyCountRsp& from);
+  void MergeFrom(const Duplicate_BuyCountRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::int32 retcode() const;
+  inline void set_retcode(::google::protobuf::int32 value);
+
+  // optional int32 buy_num = 2;
+  inline bool has_buy_num() const;
+  inline void clear_buy_num();
+  static const int kBuyNumFieldNumber = 2;
+  inline ::google::protobuf::int32 buy_num() const;
+  inline void set_buy_num(::google::protobuf::int32 value);
+
+  // optional int32 group_id = 3;
+  inline bool has_group_id() const;
+  inline void clear_group_id();
+  static const int kGroupIdFieldNumber = 3;
+  inline ::google::protobuf::int32 group_id() const;
+  inline void set_group_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_BuyCountRsp)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+  inline void set_has_buy_num();
+  inline void clear_has_buy_num();
+  inline void set_has_group_id();
+  inline void clear_has_group_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 retcode_;
+  ::google::protobuf::int32 buy_num_;
+  ::google::protobuf::int32 group_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_BuyCountRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_AutoChallengeReq : public ::google::protobuf::Message {
+ public:
+  Duplicate_AutoChallengeReq();
+  virtual ~Duplicate_AutoChallengeReq();
+
+  Duplicate_AutoChallengeReq(const Duplicate_AutoChallengeReq& from);
+
+  inline Duplicate_AutoChallengeReq& operator=(const Duplicate_AutoChallengeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_AutoChallengeReq& default_instance();
+
+  void Swap(Duplicate_AutoChallengeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_AutoChallengeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_AutoChallengeReq& from);
+  void MergeFrom(const Duplicate_AutoChallengeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_AutoChallengeReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_AutoChallengeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_AutoChallengeRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_AutoChallengeRsp();
+  virtual ~Duplicate_AutoChallengeRsp();
+
+  Duplicate_AutoChallengeRsp(const Duplicate_AutoChallengeRsp& from);
+
+  inline Duplicate_AutoChallengeRsp& operator=(const Duplicate_AutoChallengeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_AutoChallengeRsp& default_instance();
+
+  void Swap(Duplicate_AutoChallengeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_AutoChallengeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_AutoChallengeRsp& from);
+  void MergeFrom(const Duplicate_AutoChallengeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::int32 retcode() const;
+  inline void set_retcode(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_AutoChallengeRsp)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 retcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_AutoChallengeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_FightDataRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_FightDataRsp();
+  virtual ~Duplicate_FightDataRsp();
+
+  Duplicate_FightDataRsp(const Duplicate_FightDataRsp& from);
+
+  inline Duplicate_FightDataRsp& operator=(const Duplicate_FightDataRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_FightDataRsp& default_instance();
+
+  void Swap(Duplicate_FightDataRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_FightDataRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_FightDataRsp& from);
+  void MergeFrom(const Duplicate_FightDataRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .ProtoBuf.DupFightDataProto fight_data = 1;
+  inline int fight_data_size() const;
+  inline void clear_fight_data();
+  static const int kFightDataFieldNumber = 1;
+  inline const ::ProtoBuf::DupFightDataProto& fight_data(int index) const;
+  inline ::ProtoBuf::DupFightDataProto* mutable_fight_data(int index);
+  inline ::ProtoBuf::DupFightDataProto* add_fight_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupFightDataProto >&
+      fight_data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupFightDataProto >*
+      mutable_fight_data();
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_FightDataRsp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupFightDataProto > fight_data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_FightDataRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_MonsWaveRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_MonsWaveRsp();
+  virtual ~Duplicate_MonsWaveRsp();
+
+  Duplicate_MonsWaveRsp(const Duplicate_MonsWaveRsp& from);
+
+  inline Duplicate_MonsWaveRsp& operator=(const Duplicate_MonsWaveRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_MonsWaveRsp& default_instance();
+
+  void Swap(Duplicate_MonsWaveRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_MonsWaveRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_MonsWaveRsp& from);
+  void MergeFrom(const Duplicate_MonsWaveRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 wave = 1;
+  inline bool has_wave() const;
+  inline void clear_wave();
+  static const int kWaveFieldNumber = 1;
+  inline ::google::protobuf::int32 wave() const;
+  inline void set_wave(::google::protobuf::int32 value);
+
+  // required int32 sec = 2;
+  inline bool has_sec() const;
+  inline void clear_sec();
+  static const int kSecFieldNumber = 2;
+  inline ::google::protobuf::int32 sec() const;
+  inline void set_sec(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_MonsWaveRsp)
+ private:
+  inline void set_has_wave();
+  inline void clear_has_wave();
+  inline void set_has_sec();
+  inline void clear_has_sec();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 wave_;
+  ::google::protobuf::int32 sec_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_MonsWaveRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_MonsNumRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_MonsNumRsp();
+  virtual ~Duplicate_MonsNumRsp();
+
+  Duplicate_MonsNumRsp(const Duplicate_MonsNumRsp& from);
+
+  inline Duplicate_MonsNumRsp& operator=(const Duplicate_MonsNumRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_MonsNumRsp& default_instance();
+
+  void Swap(Duplicate_MonsNumRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_MonsNumRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_MonsNumRsp& from);
+  void MergeFrom(const Duplicate_MonsNumRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 num = 1;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 1;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_MonsNumRsp)
+ private:
+  inline void set_has_num();
+  inline void clear_has_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_MonsNumRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_MonsStateRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_MonsStateRsp();
+  virtual ~Duplicate_MonsStateRsp();
+
+  Duplicate_MonsStateRsp(const Duplicate_MonsStateRsp& from);
+
+  inline Duplicate_MonsStateRsp& operator=(const Duplicate_MonsStateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_MonsStateRsp& default_instance();
+
+  void Swap(Duplicate_MonsStateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_MonsStateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_MonsStateRsp& from);
+  void MergeFrom(const Duplicate_MonsStateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .ProtoBuf.DupMonsStateProto mon_state = 1;
+  inline int mon_state_size() const;
+  inline void clear_mon_state();
+  static const int kMonStateFieldNumber = 1;
+  inline const ::ProtoBuf::DupMonsStateProto& mon_state(int index) const;
+  inline ::ProtoBuf::DupMonsStateProto* mutable_mon_state(int index);
+  inline ::ProtoBuf::DupMonsStateProto* add_mon_state();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupMonsStateProto >&
+      mon_state() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupMonsStateProto >*
+      mutable_mon_state();
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_MonsStateRsp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupMonsStateProto > mon_state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_MonsStateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_ReliveNumRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_ReliveNumRsp();
+  virtual ~Duplicate_ReliveNumRsp();
+
+  Duplicate_ReliveNumRsp(const Duplicate_ReliveNumRsp& from);
+
+  inline Duplicate_ReliveNumRsp& operator=(const Duplicate_ReliveNumRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_ReliveNumRsp& default_instance();
+
+  void Swap(Duplicate_ReliveNumRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_ReliveNumRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_ReliveNumRsp& from);
+  void MergeFrom(const Duplicate_ReliveNumRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 count = 1;
+  inline bool has_count() const;
+  inline void clear_count();
+  static const int kCountFieldNumber = 1;
+  inline ::google::protobuf::int32 count() const;
+  inline void set_count(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_ReliveNumRsp)
+ private:
+  inline void set_has_count();
+  inline void clear_has_count();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 count_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_ReliveNumRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_TowerHpRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_TowerHpRsp();
+  virtual ~Duplicate_TowerHpRsp();
+
+  Duplicate_TowerHpRsp(const Duplicate_TowerHpRsp& from);
+
+  inline Duplicate_TowerHpRsp& operator=(const Duplicate_TowerHpRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_TowerHpRsp& default_instance();
+
+  void Swap(Duplicate_TowerHpRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_TowerHpRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_TowerHpRsp& from);
+  void MergeFrom(const Duplicate_TowerHpRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 hp = 1;
+  inline bool has_hp() const;
+  inline void clear_hp();
+  static const int kHpFieldNumber = 1;
+  inline ::google::protobuf::int32 hp() const;
+  inline void set_hp(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_TowerHpRsp)
+ private:
+  inline void set_has_hp();
+  inline void clear_has_hp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 hp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_TowerHpRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Duplicate_TransMonsNumRsp : public ::google::protobuf::Message {
+ public:
+  Duplicate_TransMonsNumRsp();
+  virtual ~Duplicate_TransMonsNumRsp();
+
+  Duplicate_TransMonsNumRsp(const Duplicate_TransMonsNumRsp& from);
+
+  inline Duplicate_TransMonsNumRsp& operator=(const Duplicate_TransMonsNumRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Duplicate_TransMonsNumRsp& default_instance();
+
+  void Swap(Duplicate_TransMonsNumRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Duplicate_TransMonsNumRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Duplicate_TransMonsNumRsp& from);
+  void MergeFrom(const Duplicate_TransMonsNumRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 trans_num = 1;
+  inline bool has_trans_num() const;
+  inline void clear_trans_num();
+  static const int kTransNumFieldNumber = 1;
+  inline ::google::protobuf::int32 trans_num() const;
+  inline void set_trans_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.Duplicate_TransMonsNumRsp)
+ private:
+  inline void set_has_trans_num();
+  inline void clear_has_trans_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 trans_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static Duplicate_TransMonsNumRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupBeforAreaProto : public ::google::protobuf::Message {
+ public:
+  DupBeforAreaProto();
+  virtual ~DupBeforAreaProto();
+
+  DupBeforAreaProto(const DupBeforAreaProto& from);
+
+  inline DupBeforAreaProto& operator=(const DupBeforAreaProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupBeforAreaProto& default_instance();
+
+  void Swap(DupBeforAreaProto* other);
+
+  // implements Message ----------------------------------------------
+
+  DupBeforAreaProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupBeforAreaProto& from);
+  void MergeFrom(const DupBeforAreaProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 charId = 1;
+  inline bool has_charid() const;
+  inline void clear_charid();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 charid() const;
+  inline void set_charid(::google::protobuf::uint32 value);
+
+  // required uint32 areaId = 2;
+  inline bool has_areaid() const;
+  inline void clear_areaid();
+  static const int kAreaIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 areaid() const;
+  inline void set_areaid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.DupBeforAreaProto)
+ private:
+  inline void set_has_charid();
+  inline void clear_has_charid();
+  inline void set_has_areaid();
+  inline void clear_has_areaid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 charid_;
+  ::google::protobuf::uint32 areaid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupBeforAreaProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToCenter_EnterDupReq : public ::google::protobuf::Message {
+ public:
+  LogicToCenter_EnterDupReq();
+  virtual ~LogicToCenter_EnterDupReq();
+
+  LogicToCenter_EnterDupReq(const LogicToCenter_EnterDupReq& from);
+
+  inline LogicToCenter_EnterDupReq& operator=(const LogicToCenter_EnterDupReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToCenter_EnterDupReq& default_instance();
+
+  void Swap(LogicToCenter_EnterDupReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToCenter_EnterDupReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToCenter_EnterDupReq& from);
+  void MergeFrom(const LogicToCenter_EnterDupReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 charId = 1;
+  inline bool has_charid() const;
+  inline void clear_charid();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 charid() const;
+  inline void set_charid(::google::protobuf::uint32 value);
+
+  // required uint32 duplicate_id = 2;
+  inline bool has_duplicate_id() const;
+  inline void clear_duplicate_id();
+  static const int kDuplicateIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 duplicate_id() const;
+  inline void set_duplicate_id(::google::protobuf::uint32 value);
+
+  // required int32 key_type = 3;
+  inline bool has_key_type() const;
+  inline void clear_key_type();
+  static const int kKeyTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 key_type() const;
+  inline void set_key_type(::google::protobuf::int32 value);
+
+  // required uint64 key_value = 4;
+  inline bool has_key_value() const;
+  inline void clear_key_value();
+  static const int kKeyValueFieldNumber = 4;
+  inline ::google::protobuf::uint64 key_value() const;
+  inline void set_key_value(::google::protobuf::uint64 value);
+
+  // repeated .ProtoBuf.DupBeforAreaProto area = 5;
+  inline int area_size() const;
+  inline void clear_area();
+  static const int kAreaFieldNumber = 5;
+  inline const ::ProtoBuf::DupBeforAreaProto& area(int index) const;
+  inline ::ProtoBuf::DupBeforAreaProto* mutable_area(int index);
+  inline ::ProtoBuf::DupBeforAreaProto* add_area();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >&
+      area() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >*
+      mutable_area();
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_EnterDupReq)
+ private:
+  inline void set_has_charid();
+  inline void clear_has_charid();
+  inline void set_has_duplicate_id();
+  inline void clear_has_duplicate_id();
+  inline void set_has_key_type();
+  inline void clear_has_key_type();
+  inline void set_has_key_value();
+  inline void clear_has_key_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 charid_;
+  ::google::protobuf::uint32 duplicate_id_;
+  ::google::protobuf::uint64 key_value_;
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto > area_;
+  ::google::protobuf::int32 key_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToCenter_EnterDupReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CenterToLogic_EnterDupRsp : public ::google::protobuf::Message {
+ public:
+  CenterToLogic_EnterDupRsp();
+  virtual ~CenterToLogic_EnterDupRsp();
+
+  CenterToLogic_EnterDupRsp(const CenterToLogic_EnterDupRsp& from);
+
+  inline CenterToLogic_EnterDupRsp& operator=(const CenterToLogic_EnterDupRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CenterToLogic_EnterDupRsp& default_instance();
+
+  void Swap(CenterToLogic_EnterDupRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CenterToLogic_EnterDupRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CenterToLogic_EnterDupRsp& from);
+  void MergeFrom(const CenterToLogic_EnterDupRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::int32 retcode() const;
+  inline void set_retcode(::google::protobuf::int32 value);
+
+  // required uint32 charId = 2;
+  inline bool has_charid() const;
+  inline void clear_charid();
+  static const int kCharIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 charid() const;
+  inline void set_charid(::google::protobuf::uint32 value);
+
+  // required uint32 duplicate_id = 3;
+  inline bool has_duplicate_id() const;
+  inline void clear_duplicate_id();
+  static const int kDuplicateIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 duplicate_id() const;
+  inline void set_duplicate_id(::google::protobuf::uint32 value);
+
+  // required int32 key_type = 4;
+  inline bool has_key_type() const;
+  inline void clear_key_type();
+  static const int kKeyTypeFieldNumber = 4;
+  inline ::google::protobuf::int32 key_type() const;
+  inline void set_key_type(::google::protobuf::int32 value);
+
+  // required uint64 key_value = 5;
+  inline bool has_key_value() const;
+  inline void clear_key_value();
+  static const int kKeyValueFieldNumber = 5;
+  inline ::google::protobuf::uint64 key_value() const;
+  inline void set_key_value(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.CenterToLogic_EnterDupRsp)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+  inline void set_has_charid();
+  inline void clear_has_charid();
+  inline void set_has_duplicate_id();
+  inline void clear_has_duplicate_id();
+  inline void set_has_key_type();
+  inline void clear_has_key_type();
+  inline void set_has_key_value();
+  inline void clear_has_key_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 retcode_;
+  ::google::protobuf::uint32 charid_;
+  ::google::protobuf::uint32 duplicate_id_;
+  ::google::protobuf::int32 key_type_;
+  ::google::protobuf::uint64 key_value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static CenterToLogic_EnterDupRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToCenter_CreateSceneReq : public ::google::protobuf::Message {
+ public:
+  LogicToCenter_CreateSceneReq();
+  virtual ~LogicToCenter_CreateSceneReq();
+
+  LogicToCenter_CreateSceneReq(const LogicToCenter_CreateSceneReq& from);
+
+  inline LogicToCenter_CreateSceneReq& operator=(const LogicToCenter_CreateSceneReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToCenter_CreateSceneReq& default_instance();
+
+  void Swap(LogicToCenter_CreateSceneReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToCenter_CreateSceneReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToCenter_CreateSceneReq& from);
+  void MergeFrom(const LogicToCenter_CreateSceneReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2114,38 +3120,58 @@ class LogicToCenter_CreateDuplicateReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 duplicate_id() const;
   inline void set_duplicate_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_CreateDuplicateReq)
+  // required int32 key_type = 3;
+  inline bool has_key_type() const;
+  inline void clear_key_type();
+  static const int kKeyTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 key_type() const;
+  inline void set_key_type(::google::protobuf::int32 value);
+
+  // required uint64 key_value = 4;
+  inline bool has_key_value() const;
+  inline void clear_key_value();
+  static const int kKeyValueFieldNumber = 4;
+  inline ::google::protobuf::uint64 key_value() const;
+  inline void set_key_value(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_CreateSceneReq)
  private:
   inline void set_has_char_id();
   inline void clear_has_char_id();
   inline void set_has_duplicate_id();
   inline void clear_has_duplicate_id();
+  inline void set_has_key_type();
+  inline void clear_has_key_type();
+  inline void set_has_key_value();
+  inline void clear_has_key_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint32 char_id_;
   ::google::protobuf::uint32 duplicate_id_;
+  ::google::protobuf::uint64 key_value_;
+  ::google::protobuf::int32 key_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
 
   void InitAsDefaultInstance();
-  static LogicToCenter_CreateDuplicateReq* default_instance_;
+  static LogicToCenter_CreateSceneReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class CenterToLogic_CreateDuplicateRsp : public ::google::protobuf::Message {
+class CenterToLogic_CreateSceneRsp : public ::google::protobuf::Message {
  public:
-  CenterToLogic_CreateDuplicateRsp();
-  virtual ~CenterToLogic_CreateDuplicateRsp();
+  CenterToLogic_CreateSceneRsp();
+  virtual ~CenterToLogic_CreateSceneRsp();
 
-  CenterToLogic_CreateDuplicateRsp(const CenterToLogic_CreateDuplicateRsp& from);
+  CenterToLogic_CreateSceneRsp(const CenterToLogic_CreateSceneRsp& from);
 
-  inline CenterToLogic_CreateDuplicateRsp& operator=(const CenterToLogic_CreateDuplicateRsp& from) {
+  inline CenterToLogic_CreateSceneRsp& operator=(const CenterToLogic_CreateSceneRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2159,17 +3185,17 @@ class CenterToLogic_CreateDuplicateRsp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const CenterToLogic_CreateDuplicateRsp& default_instance();
+  static const CenterToLogic_CreateSceneRsp& default_instance();
 
-  void Swap(CenterToLogic_CreateDuplicateRsp* other);
+  void Swap(CenterToLogic_CreateSceneRsp* other);
 
   // implements Message ----------------------------------------------
 
-  CenterToLogic_CreateDuplicateRsp* New() const;
+  CenterToLogic_CreateSceneRsp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const CenterToLogic_CreateDuplicateRsp& from);
-  void MergeFrom(const CenterToLogic_CreateDuplicateRsp& from);
+  void CopyFrom(const CenterToLogic_CreateSceneRsp& from);
+  void MergeFrom(const CenterToLogic_CreateSceneRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2213,14 +3239,40 @@ class CenterToLogic_CreateDuplicateRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 duplicate_id() const;
   inline void set_duplicate_id(::google::protobuf::uint32 value);
 
-  // optional uint32 scene_id = 4;
+  // required int32 key_type = 4;
+  inline bool has_key_type() const;
+  inline void clear_key_type();
+  static const int kKeyTypeFieldNumber = 4;
+  inline ::google::protobuf::int32 key_type() const;
+  inline void set_key_type(::google::protobuf::int32 value);
+
+  // required uint64 key_value = 5;
+  inline bool has_key_value() const;
+  inline void clear_key_value();
+  static const int kKeyValueFieldNumber = 5;
+  inline ::google::protobuf::uint64 key_value() const;
+  inline void set_key_value(::google::protobuf::uint64 value);
+
+  // optional uint32 scene_id = 6;
   inline bool has_scene_id() const;
   inline void clear_scene_id();
-  static const int kSceneIdFieldNumber = 4;
+  static const int kSceneIdFieldNumber = 6;
   inline ::google::protobuf::uint32 scene_id() const;
   inline void set_scene_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:ProtoBuf.CenterToLogic_CreateDuplicateRsp)
+  // repeated .ProtoBuf.DupBeforAreaProto area = 7;
+  inline int area_size() const;
+  inline void clear_area();
+  static const int kAreaFieldNumber = 7;
+  inline const ::ProtoBuf::DupBeforAreaProto& area(int index) const;
+  inline ::ProtoBuf::DupBeforAreaProto* mutable_area(int index);
+  inline ::ProtoBuf::DupBeforAreaProto* add_area();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >&
+      area() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >*
+      mutable_area();
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.CenterToLogic_CreateSceneRsp)
  private:
   inline void set_has_retcode();
   inline void clear_has_retcode();
@@ -2228,6 +3280,10 @@ class CenterToLogic_CreateDuplicateRsp : public ::google::protobuf::Message {
   inline void clear_has_char_id();
   inline void set_has_duplicate_id();
   inline void clear_has_duplicate_id();
+  inline void set_has_key_type();
+  inline void clear_has_key_type();
+  inline void set_has_key_value();
+  inline void clear_has_key_value();
   inline void set_has_scene_id();
   inline void clear_has_scene_id();
 
@@ -2236,28 +3292,31 @@ class CenterToLogic_CreateDuplicateRsp : public ::google::protobuf::Message {
   ::google::protobuf::int32 retcode_;
   ::google::protobuf::uint32 char_id_;
   ::google::protobuf::uint32 duplicate_id_;
+  ::google::protobuf::int32 key_type_;
+  ::google::protobuf::uint64 key_value_;
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto > area_;
   ::google::protobuf::uint32 scene_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
 
   void InitAsDefaultInstance();
-  static CenterToLogic_CreateDuplicateRsp* default_instance_;
+  static CenterToLogic_CreateSceneRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class LogicToCenter_EnterDuplicateRes : public ::google::protobuf::Message {
+class LogicToCenter_CreateDuplicateRsp : public ::google::protobuf::Message {
  public:
-  LogicToCenter_EnterDuplicateRes();
-  virtual ~LogicToCenter_EnterDuplicateRes();
+  LogicToCenter_CreateDuplicateRsp();
+  virtual ~LogicToCenter_CreateDuplicateRsp();
 
-  LogicToCenter_EnterDuplicateRes(const LogicToCenter_EnterDuplicateRes& from);
+  LogicToCenter_CreateDuplicateRsp(const LogicToCenter_CreateDuplicateRsp& from);
 
-  inline LogicToCenter_EnterDuplicateRes& operator=(const LogicToCenter_EnterDuplicateRes& from) {
+  inline LogicToCenter_CreateDuplicateRsp& operator=(const LogicToCenter_CreateDuplicateRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2271,17 +3330,231 @@ class LogicToCenter_EnterDuplicateRes : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LogicToCenter_EnterDuplicateRes& default_instance();
+  static const LogicToCenter_CreateDuplicateRsp& default_instance();
 
-  void Swap(LogicToCenter_EnterDuplicateRes* other);
+  void Swap(LogicToCenter_CreateDuplicateRsp* other);
 
   // implements Message ----------------------------------------------
 
-  LogicToCenter_EnterDuplicateRes* New() const;
+  LogicToCenter_CreateDuplicateRsp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LogicToCenter_EnterDuplicateRes& from);
-  void MergeFrom(const LogicToCenter_EnterDuplicateRes& from);
+  void CopyFrom(const LogicToCenter_CreateDuplicateRsp& from);
+  void MergeFrom(const LogicToCenter_CreateDuplicateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::int32 retcode() const;
+  inline void set_retcode(::google::protobuf::int32 value);
+
+  // required uint32 scene_id = 2;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_CreateDuplicateRsp)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 retcode_;
+  ::google::protobuf::uint32 scene_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToCenter_CreateDuplicateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CenterToLogic_DuplicateNotifyPrepare : public ::google::protobuf::Message {
+ public:
+  CenterToLogic_DuplicateNotifyPrepare();
+  virtual ~CenterToLogic_DuplicateNotifyPrepare();
+
+  CenterToLogic_DuplicateNotifyPrepare(const CenterToLogic_DuplicateNotifyPrepare& from);
+
+  inline CenterToLogic_DuplicateNotifyPrepare& operator=(const CenterToLogic_DuplicateNotifyPrepare& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CenterToLogic_DuplicateNotifyPrepare& default_instance();
+
+  void Swap(CenterToLogic_DuplicateNotifyPrepare* other);
+
+  // implements Message ----------------------------------------------
+
+  CenterToLogic_DuplicateNotifyPrepare* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CenterToLogic_DuplicateNotifyPrepare& from);
+  void MergeFrom(const CenterToLogic_DuplicateNotifyPrepare& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 char_id = 1;
+  inline bool has_char_id() const;
+  inline void clear_char_id();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 char_id() const;
+  inline void set_char_id(::google::protobuf::uint32 value);
+
+  // required uint32 duplicate_id = 2;
+  inline bool has_duplicate_id() const;
+  inline void clear_duplicate_id();
+  static const int kDuplicateIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 duplicate_id() const;
+  inline void set_duplicate_id(::google::protobuf::uint32 value);
+
+  // required uint32 scene_id = 3;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint32 value);
+
+  // required int32 key_type = 4;
+  inline bool has_key_type() const;
+  inline void clear_key_type();
+  static const int kKeyTypeFieldNumber = 4;
+  inline ::google::protobuf::int32 key_type() const;
+  inline void set_key_type(::google::protobuf::int32 value);
+
+  // required uint64 key_value = 5;
+  inline bool has_key_value() const;
+  inline void clear_key_value();
+  static const int kKeyValueFieldNumber = 5;
+  inline ::google::protobuf::uint64 key_value() const;
+  inline void set_key_value(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.CenterToLogic_DuplicateNotifyPrepare)
+ private:
+  inline void set_has_char_id();
+  inline void clear_has_char_id();
+  inline void set_has_duplicate_id();
+  inline void clear_has_duplicate_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_key_type();
+  inline void clear_has_key_type();
+  inline void set_has_key_value();
+  inline void clear_has_key_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 char_id_;
+  ::google::protobuf::uint32 duplicate_id_;
+  ::google::protobuf::uint32 scene_id_;
+  ::google::protobuf::int32 key_type_;
+  ::google::protobuf::uint64 key_value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static CenterToLogic_DuplicateNotifyPrepare* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToCenter_DuplicatePrepareRsp : public ::google::protobuf::Message {
+ public:
+  LogicToCenter_DuplicatePrepareRsp();
+  virtual ~LogicToCenter_DuplicatePrepareRsp();
+
+  LogicToCenter_DuplicatePrepareRsp(const LogicToCenter_DuplicatePrepareRsp& from);
+
+  inline LogicToCenter_DuplicatePrepareRsp& operator=(const LogicToCenter_DuplicatePrepareRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToCenter_DuplicatePrepareRsp& default_instance();
+
+  void Swap(LogicToCenter_DuplicatePrepareRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToCenter_DuplicatePrepareRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToCenter_DuplicatePrepareRsp& from);
+  void MergeFrom(const LogicToCenter_DuplicatePrepareRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2332,21 +3605,7 @@ class LogicToCenter_EnterDuplicateRes : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 scene_id() const;
   inline void set_scene_id(::google::protobuf::uint32 value);
 
-  // optional uint64 start_time = 5;
-  inline bool has_start_time() const;
-  inline void clear_start_time();
-  static const int kStartTimeFieldNumber = 5;
-  inline ::google::protobuf::uint64 start_time() const;
-  inline void set_start_time(::google::protobuf::uint64 value);
-
-  // optional uint32 limit_time = 6;
-  inline bool has_limit_time() const;
-  inline void clear_limit_time();
-  static const int kLimitTimeFieldNumber = 6;
-  inline ::google::protobuf::uint32 limit_time() const;
-  inline void set_limit_time(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_EnterDuplicateRes)
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_DuplicatePrepareRsp)
  private:
   inline void set_has_retcode();
   inline void clear_has_retcode();
@@ -2356,10 +3615,6 @@ class LogicToCenter_EnterDuplicateRes : public ::google::protobuf::Message {
   inline void clear_has_duplicate_id();
   inline void set_has_scene_id();
   inline void clear_has_scene_id();
-  inline void set_has_start_time();
-  inline void clear_has_start_time();
-  inline void set_has_limit_time();
-  inline void clear_has_limit_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2367,18 +3622,384 @@ class LogicToCenter_EnterDuplicateRes : public ::google::protobuf::Message {
   ::google::protobuf::uint32 char_id_;
   ::google::protobuf::uint32 duplicate_id_;
   ::google::protobuf::uint32 scene_id_;
-  ::google::protobuf::uint64 start_time_;
-  ::google::protobuf::uint32 limit_time_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
   friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
 
   void InitAsDefaultInstance();
-  static LogicToCenter_EnterDuplicateRes* default_instance_;
+  static LogicToCenter_DuplicatePrepareRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CenterToLogic_DuplicateEnterNotify : public ::google::protobuf::Message {
+ public:
+  CenterToLogic_DuplicateEnterNotify();
+  virtual ~CenterToLogic_DuplicateEnterNotify();
+
+  CenterToLogic_DuplicateEnterNotify(const CenterToLogic_DuplicateEnterNotify& from);
+
+  inline CenterToLogic_DuplicateEnterNotify& operator=(const CenterToLogic_DuplicateEnterNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CenterToLogic_DuplicateEnterNotify& default_instance();
+
+  void Swap(CenterToLogic_DuplicateEnterNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  CenterToLogic_DuplicateEnterNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CenterToLogic_DuplicateEnterNotify& from);
+  void MergeFrom(const CenterToLogic_DuplicateEnterNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 char_id = 1;
+  inline bool has_char_id() const;
+  inline void clear_char_id();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 char_id() const;
+  inline void set_char_id(::google::protobuf::uint32 value);
+
+  // required uint32 duplicate_id = 2;
+  inline bool has_duplicate_id() const;
+  inline void clear_duplicate_id();
+  static const int kDuplicateIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 duplicate_id() const;
+  inline void set_duplicate_id(::google::protobuf::uint32 value);
+
+  // required uint32 scene_id = 3;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.CenterToLogic_DuplicateEnterNotify)
+ private:
+  inline void set_has_char_id();
+  inline void clear_has_char_id();
+  inline void set_has_duplicate_id();
+  inline void clear_has_duplicate_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 char_id_;
+  ::google::protobuf::uint32 duplicate_id_;
+  ::google::protobuf::uint32 scene_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static CenterToLogic_DuplicateEnterNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToCenter_DuplicateEnterRsp : public ::google::protobuf::Message {
+ public:
+  LogicToCenter_DuplicateEnterRsp();
+  virtual ~LogicToCenter_DuplicateEnterRsp();
+
+  LogicToCenter_DuplicateEnterRsp(const LogicToCenter_DuplicateEnterRsp& from);
+
+  inline LogicToCenter_DuplicateEnterRsp& operator=(const LogicToCenter_DuplicateEnterRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToCenter_DuplicateEnterRsp& default_instance();
+
+  void Swap(LogicToCenter_DuplicateEnterRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToCenter_DuplicateEnterRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToCenter_DuplicateEnterRsp& from);
+  void MergeFrom(const LogicToCenter_DuplicateEnterRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 char_id = 1;
+  inline bool has_char_id() const;
+  inline void clear_char_id();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 char_id() const;
+  inline void set_char_id(::google::protobuf::uint32 value);
+
+  // required uint32 scene_id = 2;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_DuplicateEnterRsp)
+ private:
+  inline void set_has_char_id();
+  inline void clear_has_char_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 char_id_;
+  ::google::protobuf::uint32 scene_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToCenter_DuplicateEnterRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToCenter_DuplicateLeaveRsp : public ::google::protobuf::Message {
+ public:
+  LogicToCenter_DuplicateLeaveRsp();
+  virtual ~LogicToCenter_DuplicateLeaveRsp();
+
+  LogicToCenter_DuplicateLeaveRsp(const LogicToCenter_DuplicateLeaveRsp& from);
+
+  inline LogicToCenter_DuplicateLeaveRsp& operator=(const LogicToCenter_DuplicateLeaveRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToCenter_DuplicateLeaveRsp& default_instance();
+
+  void Swap(LogicToCenter_DuplicateLeaveRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToCenter_DuplicateLeaveRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToCenter_DuplicateLeaveRsp& from);
+  void MergeFrom(const LogicToCenter_DuplicateLeaveRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 char_id = 1;
+  inline bool has_char_id() const;
+  inline void clear_char_id();
+  static const int kCharIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 char_id() const;
+  inline void set_char_id(::google::protobuf::uint32 value);
+
+  // required uint32 scene_id = 2;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_DuplicateLeaveRsp)
+ private:
+  inline void set_has_char_id();
+  inline void clear_has_char_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 char_id_;
+  ::google::protobuf::uint32 scene_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToCenter_DuplicateLeaveRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToCenter_DuplicateBegin : public ::google::protobuf::Message {
+ public:
+  LogicToCenter_DuplicateBegin();
+  virtual ~LogicToCenter_DuplicateBegin();
+
+  LogicToCenter_DuplicateBegin(const LogicToCenter_DuplicateBegin& from);
+
+  inline LogicToCenter_DuplicateBegin& operator=(const LogicToCenter_DuplicateBegin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToCenter_DuplicateBegin& default_instance();
+
+  void Swap(LogicToCenter_DuplicateBegin* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToCenter_DuplicateBegin* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToCenter_DuplicateBegin& from);
+  void MergeFrom(const LogicToCenter_DuplicateBegin& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 scene_id = 1;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.LogicToCenter_DuplicateBegin)
+ private:
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 scene_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fDuplicate_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fDuplicate_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToCenter_DuplicateBegin* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2549,6 +4170,124 @@ class LogicToCenter_DuplicateDestory : public ::google::protobuf::Message {
 
 // ===================================================================
 
+// DupMonsStateProto
+
+// required uint32 mons_id = 1;
+inline bool DupMonsStateProto::has_mons_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupMonsStateProto::set_has_mons_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupMonsStateProto::clear_has_mons_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupMonsStateProto::clear_mons_id() {
+  mons_id_ = 0u;
+  clear_has_mons_id();
+}
+inline ::google::protobuf::uint32 DupMonsStateProto::mons_id() const {
+  return mons_id_;
+}
+inline void DupMonsStateProto::set_mons_id(::google::protobuf::uint32 value) {
+  set_has_mons_id();
+  mons_id_ = value;
+}
+
+// required int32 state = 2;
+inline bool DupMonsStateProto::has_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupMonsStateProto::set_has_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupMonsStateProto::clear_has_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupMonsStateProto::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 DupMonsStateProto::state() const {
+  return state_;
+}
+inline void DupMonsStateProto::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupFightDataProto
+
+// required uint32 cid = 1;
+inline bool DupFightDataProto::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupFightDataProto::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupFightDataProto::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupFightDataProto::clear_cid() {
+  cid_ = 0u;
+  clear_has_cid();
+}
+inline ::google::protobuf::uint32 DupFightDataProto::cid() const {
+  return cid_;
+}
+inline void DupFightDataProto::set_cid(::google::protobuf::uint32 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint64 atk = 2;
+inline bool DupFightDataProto::has_atk() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupFightDataProto::set_has_atk() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupFightDataProto::clear_has_atk() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupFightDataProto::clear_atk() {
+  atk_ = GOOGLE_ULONGLONG(0);
+  clear_has_atk();
+}
+inline ::google::protobuf::uint64 DupFightDataProto::atk() const {
+  return atk_;
+}
+inline void DupFightDataProto::set_atk(::google::protobuf::uint64 value) {
+  set_has_atk();
+  atk_ = value;
+}
+
+// required uint64 be_atk = 3;
+inline bool DupFightDataProto::has_be_atk() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DupFightDataProto::set_has_be_atk() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DupFightDataProto::clear_has_be_atk() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DupFightDataProto::clear_be_atk() {
+  be_atk_ = GOOGLE_ULONGLONG(0);
+  clear_has_be_atk();
+}
+inline ::google::protobuf::uint64 DupFightDataProto::be_atk() const {
+  return be_atk_;
+}
+inline void DupFightDataProto::set_be_atk(::google::protobuf::uint64 value) {
+  set_has_be_atk();
+  be_atk_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // Duplicate_InfoReq
 
 // -------------------------------------------------------------------
@@ -2602,6 +4341,56 @@ Duplicate_InfoRsp::mutable_info() {
   return &info_;
 }
 
+// repeated .ProtoBuf.DuplicateGroupProto group = 3;
+inline int Duplicate_InfoRsp::group_size() const {
+  return group_.size();
+}
+inline void Duplicate_InfoRsp::clear_group() {
+  group_.Clear();
+}
+inline const ::ProtoBuf::DuplicateGroupProto& Duplicate_InfoRsp::group(int index) const {
+  return group_.Get(index);
+}
+inline ::ProtoBuf::DuplicateGroupProto* Duplicate_InfoRsp::mutable_group(int index) {
+  return group_.Mutable(index);
+}
+inline ::ProtoBuf::DuplicateGroupProto* Duplicate_InfoRsp::add_group() {
+  return group_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >&
+Duplicate_InfoRsp::group() const {
+  return group_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >*
+Duplicate_InfoRsp::mutable_group() {
+  return &group_;
+}
+
+// repeated int32 open_list = 4;
+inline int Duplicate_InfoRsp::open_list_size() const {
+  return open_list_.size();
+}
+inline void Duplicate_InfoRsp::clear_open_list() {
+  open_list_.Clear();
+}
+inline ::google::protobuf::int32 Duplicate_InfoRsp::open_list(int index) const {
+  return open_list_.Get(index);
+}
+inline void Duplicate_InfoRsp::set_open_list(int index, ::google::protobuf::int32 value) {
+  open_list_.Set(index, value);
+}
+inline void Duplicate_InfoRsp::add_open_list(::google::protobuf::int32 value) {
+  open_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Duplicate_InfoRsp::open_list() const {
+  return open_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Duplicate_InfoRsp::mutable_open_list() {
+  return &open_list_;
+}
+
 // -------------------------------------------------------------------
 
 // Duplicate_EnterReq
@@ -2626,6 +4415,66 @@ inline ::google::protobuf::int32 Duplicate_EnterReq::duplicate_id() const {
 inline void Duplicate_EnterReq::set_duplicate_id(::google::protobuf::int32 value) {
   set_has_duplicate_id();
   duplicate_id_ = value;
+}
+
+// optional int32 area_id = 2;
+inline bool Duplicate_EnterReq::has_area_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Duplicate_EnterReq::set_has_area_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Duplicate_EnterReq::clear_has_area_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Duplicate_EnterReq::clear_area_id() {
+  area_id_ = 0;
+  clear_has_area_id();
+}
+inline ::google::protobuf::int32 Duplicate_EnterReq::area_id() const {
+  return area_id_;
+}
+inline void Duplicate_EnterReq::set_area_id(::google::protobuf::int32 value) {
+  set_has_area_id();
+  area_id_ = value;
+}
+
+// optional .ProtoBuf.Vector3PB cur_pos = 3;
+inline bool Duplicate_EnterReq::has_cur_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Duplicate_EnterReq::set_has_cur_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Duplicate_EnterReq::clear_has_cur_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Duplicate_EnterReq::clear_cur_pos() {
+  if (cur_pos_ != NULL) cur_pos_->::ProtoBuf::Vector3PB::Clear();
+  clear_has_cur_pos();
+}
+inline const ::ProtoBuf::Vector3PB& Duplicate_EnterReq::cur_pos() const {
+  return cur_pos_ != NULL ? *cur_pos_ : *default_instance_->cur_pos_;
+}
+inline ::ProtoBuf::Vector3PB* Duplicate_EnterReq::mutable_cur_pos() {
+  set_has_cur_pos();
+  if (cur_pos_ == NULL) cur_pos_ = new ::ProtoBuf::Vector3PB;
+  return cur_pos_;
+}
+inline ::ProtoBuf::Vector3PB* Duplicate_EnterReq::release_cur_pos() {
+  clear_has_cur_pos();
+  ::ProtoBuf::Vector3PB* temp = cur_pos_;
+  cur_pos_ = NULL;
+  return temp;
+}
+inline void Duplicate_EnterReq::set_allocated_cur_pos(::ProtoBuf::Vector3PB* cur_pos) {
+  delete cur_pos_;
+  cur_pos_ = cur_pos;
+  if (cur_pos) {
+    set_has_cur_pos();
+  } else {
+    clear_has_cur_pos();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -2701,34 +4550,92 @@ Duplicate_EnterRsp::mutable_area() {
   return &area_;
 }
 
-// -------------------------------------------------------------------
+// optional int32 mons_num = 4;
+inline bool Duplicate_EnterRsp::has_mons_num() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Duplicate_EnterRsp::set_has_mons_num() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Duplicate_EnterRsp::clear_has_mons_num() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Duplicate_EnterRsp::clear_mons_num() {
+  mons_num_ = 0;
+  clear_has_mons_num();
+}
+inline ::google::protobuf::int32 Duplicate_EnterRsp::mons_num() const {
+  return mons_num_;
+}
+inline void Duplicate_EnterRsp::set_mons_num(::google::protobuf::int32 value) {
+  set_has_mons_num();
+  mons_num_ = value;
+}
 
-// Duplicate_ExitReq
+// optional int32 dup_sec = 5;
+inline bool Duplicate_EnterRsp::has_dup_sec() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Duplicate_EnterRsp::set_has_dup_sec() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Duplicate_EnterRsp::clear_has_dup_sec() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Duplicate_EnterRsp::clear_dup_sec() {
+  dup_sec_ = 0;
+  clear_has_dup_sec();
+}
+inline ::google::protobuf::int32 Duplicate_EnterRsp::dup_sec() const {
+  return dup_sec_;
+}
+inline void Duplicate_EnterRsp::set_dup_sec(::google::protobuf::int32 value) {
+  set_has_dup_sec();
+  dup_sec_ = value;
+}
 
-// -------------------------------------------------------------------
+// optional int32 tower_hp = 6;
+inline bool Duplicate_EnterRsp::has_tower_hp() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Duplicate_EnterRsp::set_has_tower_hp() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Duplicate_EnterRsp::clear_has_tower_hp() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Duplicate_EnterRsp::clear_tower_hp() {
+  tower_hp_ = 0;
+  clear_has_tower_hp();
+}
+inline ::google::protobuf::int32 Duplicate_EnterRsp::tower_hp() const {
+  return tower_hp_;
+}
+inline void Duplicate_EnterRsp::set_tower_hp(::google::protobuf::int32 value) {
+  set_has_tower_hp();
+  tower_hp_ = value;
+}
 
-// Duplicate_ExitRsp
-
-// required int32 retcode = 1;
-inline bool Duplicate_ExitRsp::has_retcode() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// optional int32 trans_num = 7;
+inline bool Duplicate_EnterRsp::has_trans_num() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void Duplicate_ExitRsp::set_has_retcode() {
-  _has_bits_[0] |= 0x00000001u;
+inline void Duplicate_EnterRsp::set_has_trans_num() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void Duplicate_ExitRsp::clear_has_retcode() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void Duplicate_EnterRsp::clear_has_trans_num() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-inline void Duplicate_ExitRsp::clear_retcode() {
-  retcode_ = 0;
-  clear_has_retcode();
+inline void Duplicate_EnterRsp::clear_trans_num() {
+  trans_num_ = 0;
+  clear_has_trans_num();
 }
-inline ::google::protobuf::int32 Duplicate_ExitRsp::retcode() const {
-  return retcode_;
+inline ::google::protobuf::int32 Duplicate_EnterRsp::trans_num() const {
+  return trans_num_;
 }
-inline void Duplicate_ExitRsp::set_retcode(::google::protobuf::int32 value) {
-  set_has_retcode();
-  retcode_ = value;
+inline void Duplicate_EnterRsp::set_trans_num(::google::protobuf::int32 value) {
+  set_has_trans_num();
+  trans_num_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -2801,81 +4708,15 @@ inline void Duplicate_ResultRsp::set_star(::google::protobuf::int32 value) {
   star_ = value;
 }
 
-// optional int32 sec = 4;
-inline bool Duplicate_ResultRsp::has_sec() const {
+// optional int32 exp = 4;
+inline bool Duplicate_ResultRsp::has_exp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void Duplicate_ResultRsp::set_has_sec() {
+inline void Duplicate_ResultRsp::set_has_exp() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void Duplicate_ResultRsp::clear_has_sec() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void Duplicate_ResultRsp::clear_sec() {
-  sec_ = 0;
-  clear_has_sec();
-}
-inline ::google::protobuf::int32 Duplicate_ResultRsp::sec() const {
-  return sec_;
-}
-inline void Duplicate_ResultRsp::set_sec(::google::protobuf::int32 value) {
-  set_has_sec();
-  sec_ = value;
-}
-
-// optional int32 kill_mon = 5;
-inline bool Duplicate_ResultRsp::has_kill_mon() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void Duplicate_ResultRsp::set_has_kill_mon() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void Duplicate_ResultRsp::clear_has_kill_mon() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void Duplicate_ResultRsp::clear_kill_mon() {
-  kill_mon_ = 0;
-  clear_has_kill_mon();
-}
-inline ::google::protobuf::int32 Duplicate_ResultRsp::kill_mon() const {
-  return kill_mon_;
-}
-inline void Duplicate_ResultRsp::set_kill_mon(::google::protobuf::int32 value) {
-  set_has_kill_mon();
-  kill_mon_ = value;
-}
-
-// optional int32 die_count = 6;
-inline bool Duplicate_ResultRsp::has_die_count() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void Duplicate_ResultRsp::set_has_die_count() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void Duplicate_ResultRsp::clear_has_die_count() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void Duplicate_ResultRsp::clear_die_count() {
-  die_count_ = 0;
-  clear_has_die_count();
-}
-inline ::google::protobuf::int32 Duplicate_ResultRsp::die_count() const {
-  return die_count_;
-}
-inline void Duplicate_ResultRsp::set_die_count(::google::protobuf::int32 value) {
-  set_has_die_count();
-  die_count_ = value;
-}
-
-// optional int32 exp = 7;
-inline bool Duplicate_ResultRsp::has_exp() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void Duplicate_ResultRsp::set_has_exp() {
-  _has_bits_[0] |= 0x00000040u;
-}
 inline void Duplicate_ResultRsp::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void Duplicate_ResultRsp::clear_exp() {
   exp_ = 0;
@@ -2889,15 +4730,15 @@ inline void Duplicate_ResultRsp::set_exp(::google::protobuf::int32 value) {
   exp_ = value;
 }
 
-// optional int32 gold = 8;
+// optional int32 gold = 5;
 inline bool Duplicate_ResultRsp::has_gold() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void Duplicate_ResultRsp::set_has_gold() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void Duplicate_ResultRsp::clear_has_gold() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void Duplicate_ResultRsp::clear_gold() {
   gold_ = 0;
@@ -2911,81 +4752,15 @@ inline void Duplicate_ResultRsp::set_gold(::google::protobuf::int32 value) {
   gold_ = value;
 }
 
-// optional int32 bind_gold = 9;
-inline bool Duplicate_ResultRsp::has_bind_gold() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void Duplicate_ResultRsp::set_has_bind_gold() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void Duplicate_ResultRsp::clear_has_bind_gold() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void Duplicate_ResultRsp::clear_bind_gold() {
-  bind_gold_ = 0;
-  clear_has_bind_gold();
-}
-inline ::google::protobuf::int32 Duplicate_ResultRsp::bind_gold() const {
-  return bind_gold_;
-}
-inline void Duplicate_ResultRsp::set_bind_gold(::google::protobuf::int32 value) {
-  set_has_bind_gold();
-  bind_gold_ = value;
-}
-
-// optional int32 diamond = 10;
-inline bool Duplicate_ResultRsp::has_diamond() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void Duplicate_ResultRsp::set_has_diamond() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void Duplicate_ResultRsp::clear_has_diamond() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void Duplicate_ResultRsp::clear_diamond() {
-  diamond_ = 0;
-  clear_has_diamond();
-}
-inline ::google::protobuf::int32 Duplicate_ResultRsp::diamond() const {
-  return diamond_;
-}
-inline void Duplicate_ResultRsp::set_diamond(::google::protobuf::int32 value) {
-  set_has_diamond();
-  diamond_ = value;
-}
-
-// optional int32 bind_diamond = 11;
-inline bool Duplicate_ResultRsp::has_bind_diamond() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void Duplicate_ResultRsp::set_has_bind_diamond() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void Duplicate_ResultRsp::clear_has_bind_diamond() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void Duplicate_ResultRsp::clear_bind_diamond() {
-  bind_diamond_ = 0;
-  clear_has_bind_diamond();
-}
-inline ::google::protobuf::int32 Duplicate_ResultRsp::bind_diamond() const {
-  return bind_diamond_;
-}
-inline void Duplicate_ResultRsp::set_bind_diamond(::google::protobuf::int32 value) {
-  set_has_bind_diamond();
-  bind_diamond_ = value;
-}
-
-// optional .ProtoBuf.RewardItemProto reward = 12;
+// optional .ProtoBuf.RewardItemProto reward = 6;
 inline bool Duplicate_ResultRsp::has_reward() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void Duplicate_ResultRsp::set_has_reward() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void Duplicate_ResultRsp::clear_has_reward() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void Duplicate_ResultRsp::clear_reward() {
   if (reward_ != NULL) reward_->::ProtoBuf::RewardItemProto::Clear();
@@ -3015,15 +4790,15 @@ inline void Duplicate_ResultRsp::set_allocated_reward(::ProtoBuf::RewardItemProt
   }
 }
 
-// optional .ProtoBuf.RewardItemProto flop = 13;
+// optional .ProtoBuf.RewardItemProto flop = 7;
 inline bool Duplicate_ResultRsp::has_flop() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void Duplicate_ResultRsp::set_has_flop() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void Duplicate_ResultRsp::clear_has_flop() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void Duplicate_ResultRsp::clear_flop() {
   if (flop_ != NULL) flop_->::ProtoBuf::RewardItemProto::Clear();
@@ -3085,58 +4860,6 @@ inline void Duplicate_AutoFightRsp::set_result(::google::protobuf::int32 value) 
 
 // -------------------------------------------------------------------
 
-// Duplicate_BuyCountReq
-
-// required int32 duplicate_id = 1;
-inline bool Duplicate_BuyCountReq::has_duplicate_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Duplicate_BuyCountReq::set_has_duplicate_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Duplicate_BuyCountReq::clear_has_duplicate_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Duplicate_BuyCountReq::clear_duplicate_id() {
-  duplicate_id_ = 0;
-  clear_has_duplicate_id();
-}
-inline ::google::protobuf::int32 Duplicate_BuyCountReq::duplicate_id() const {
-  return duplicate_id_;
-}
-inline void Duplicate_BuyCountReq::set_duplicate_id(::google::protobuf::int32 value) {
-  set_has_duplicate_id();
-  duplicate_id_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Duplicate_BuyCountRsp
-
-// required int32 retcode = 1;
-inline bool Duplicate_BuyCountRsp::has_retcode() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Duplicate_BuyCountRsp::set_has_retcode() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Duplicate_BuyCountRsp::clear_has_retcode() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Duplicate_BuyCountRsp::clear_retcode() {
-  retcode_ = 0;
-  clear_has_retcode();
-}
-inline ::google::protobuf::int32 Duplicate_BuyCountRsp::retcode() const {
-  return retcode_;
-}
-inline void Duplicate_BuyCountRsp::set_retcode(::google::protobuf::int32 value) {
-  set_has_retcode();
-  retcode_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // Duplicate_FlopReq
 
 // -------------------------------------------------------------------
@@ -3189,149 +4912,6 @@ inline void Duplicate_FlopRsp::set_index(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// Duplicate_SweepReq
-
-// required int32 duplicate_id = 1;
-inline bool Duplicate_SweepReq::has_duplicate_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Duplicate_SweepReq::set_has_duplicate_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Duplicate_SweepReq::clear_has_duplicate_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Duplicate_SweepReq::clear_duplicate_id() {
-  duplicate_id_ = 0;
-  clear_has_duplicate_id();
-}
-inline ::google::protobuf::int32 Duplicate_SweepReq::duplicate_id() const {
-  return duplicate_id_;
-}
-inline void Duplicate_SweepReq::set_duplicate_id(::google::protobuf::int32 value) {
-  set_has_duplicate_id();
-  duplicate_id_ = value;
-}
-
-// required int32 sweep_type = 2;
-inline bool Duplicate_SweepReq::has_sweep_type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Duplicate_SweepReq::set_has_sweep_type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Duplicate_SweepReq::clear_has_sweep_type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Duplicate_SweepReq::clear_sweep_type() {
-  sweep_type_ = 0;
-  clear_has_sweep_type();
-}
-inline ::google::protobuf::int32 Duplicate_SweepReq::sweep_type() const {
-  return sweep_type_;
-}
-inline void Duplicate_SweepReq::set_sweep_type(::google::protobuf::int32 value) {
-  set_has_sweep_type();
-  sweep_type_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Duplicate_SweepRsp
-
-// required int32 retcode = 1;
-inline bool Duplicate_SweepRsp::has_retcode() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Duplicate_SweepRsp::set_has_retcode() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Duplicate_SweepRsp::clear_has_retcode() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Duplicate_SweepRsp::clear_retcode() {
-  retcode_ = 0;
-  clear_has_retcode();
-}
-inline ::google::protobuf::int32 Duplicate_SweepRsp::retcode() const {
-  return retcode_;
-}
-inline void Duplicate_SweepRsp::set_retcode(::google::protobuf::int32 value) {
-  set_has_retcode();
-  retcode_ = value;
-}
-
-// optional int32 sweep_type = 2;
-inline bool Duplicate_SweepRsp::has_sweep_type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Duplicate_SweepRsp::set_has_sweep_type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Duplicate_SweepRsp::clear_has_sweep_type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Duplicate_SweepRsp::clear_sweep_type() {
-  sweep_type_ = 0;
-  clear_has_sweep_type();
-}
-inline ::google::protobuf::int32 Duplicate_SweepRsp::sweep_type() const {
-  return sweep_type_;
-}
-inline void Duplicate_SweepRsp::set_sweep_type(::google::protobuf::int32 value) {
-  set_has_sweep_type();
-  sweep_type_ = value;
-}
-
-// repeated .ProtoBuf.RewardItemProto reward = 3;
-inline int Duplicate_SweepRsp::reward_size() const {
-  return reward_.size();
-}
-inline void Duplicate_SweepRsp::clear_reward() {
-  reward_.Clear();
-}
-inline const ::ProtoBuf::RewardItemProto& Duplicate_SweepRsp::reward(int index) const {
-  return reward_.Get(index);
-}
-inline ::ProtoBuf::RewardItemProto* Duplicate_SweepRsp::mutable_reward(int index) {
-  return reward_.Mutable(index);
-}
-inline ::ProtoBuf::RewardItemProto* Duplicate_SweepRsp::add_reward() {
-  return reward_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::RewardItemProto >&
-Duplicate_SweepRsp::reward() const {
-  return reward_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::RewardItemProto >*
-Duplicate_SweepRsp::mutable_reward() {
-  return &reward_;
-}
-
-// optional int32 reson = 4;
-inline bool Duplicate_SweepRsp::has_reson() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Duplicate_SweepRsp::set_has_reson() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Duplicate_SweepRsp::clear_has_reson() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void Duplicate_SweepRsp::clear_reson() {
-  reson_ = 0;
-  clear_has_reson();
-}
-inline ::google::protobuf::int32 Duplicate_SweepRsp::reson() const {
-  return reson_;
-}
-inline void Duplicate_SweepRsp::set_reson(::google::protobuf::int32 value) {
-  set_has_reson();
-  reson_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // Duplicate_UpdateRsp
 
 // repeated .ProtoBuf.DuplicateProto info = 1;
@@ -3357,6 +4937,56 @@ Duplicate_UpdateRsp::info() const {
 inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateProto >*
 Duplicate_UpdateRsp::mutable_info() {
   return &info_;
+}
+
+// repeated .ProtoBuf.DuplicateGroupProto group = 2;
+inline int Duplicate_UpdateRsp::group_size() const {
+  return group_.size();
+}
+inline void Duplicate_UpdateRsp::clear_group() {
+  group_.Clear();
+}
+inline const ::ProtoBuf::DuplicateGroupProto& Duplicate_UpdateRsp::group(int index) const {
+  return group_.Get(index);
+}
+inline ::ProtoBuf::DuplicateGroupProto* Duplicate_UpdateRsp::mutable_group(int index) {
+  return group_.Mutable(index);
+}
+inline ::ProtoBuf::DuplicateGroupProto* Duplicate_UpdateRsp::add_group() {
+  return group_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >&
+Duplicate_UpdateRsp::group() const {
+  return group_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >*
+Duplicate_UpdateRsp::mutable_group() {
+  return &group_;
+}
+
+// repeated int32 open_list = 3;
+inline int Duplicate_UpdateRsp::open_list_size() const {
+  return open_list_.size();
+}
+inline void Duplicate_UpdateRsp::clear_open_list() {
+  open_list_.Clear();
+}
+inline ::google::protobuf::int32 Duplicate_UpdateRsp::open_list(int index) const {
+  return open_list_.Get(index);
+}
+inline void Duplicate_UpdateRsp::set_open_list(int index, ::google::protobuf::int32 value) {
+  open_list_.Set(index, value);
+}
+inline void Duplicate_UpdateRsp::add_open_list(::google::protobuf::int32 value) {
+  open_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Duplicate_UpdateRsp::open_list() const {
+  return open_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Duplicate_UpdateRsp::mutable_open_list() {
+  return &open_list_;
 }
 
 // -------------------------------------------------------------------
@@ -3517,278 +5147,1316 @@ inline void Duplicate_EnterAreaRsp::set_retcode(::google::protobuf::int32 value)
 
 // -------------------------------------------------------------------
 
-// LogicToCenter_CreateDuplicateReq
+// Duplicate_BuyCountReq
 
-// required uint32 char_id = 1;
-inline bool LogicToCenter_CreateDuplicateReq::has_char_id() const {
+// required int32 group_id = 1;
+inline bool Duplicate_BuyCountReq::has_group_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LogicToCenter_CreateDuplicateReq::set_has_char_id() {
+inline void Duplicate_BuyCountReq::set_has_group_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LogicToCenter_CreateDuplicateReq::clear_has_char_id() {
+inline void Duplicate_BuyCountReq::clear_has_group_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LogicToCenter_CreateDuplicateReq::clear_char_id() {
+inline void Duplicate_BuyCountReq::clear_group_id() {
+  group_id_ = 0;
+  clear_has_group_id();
+}
+inline ::google::protobuf::int32 Duplicate_BuyCountReq::group_id() const {
+  return group_id_;
+}
+inline void Duplicate_BuyCountReq::set_group_id(::google::protobuf::int32 value) {
+  set_has_group_id();
+  group_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_BuyCountRsp
+
+// required int32 retcode = 1;
+inline bool Duplicate_BuyCountRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_BuyCountRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_BuyCountRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_BuyCountRsp::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::google::protobuf::int32 Duplicate_BuyCountRsp::retcode() const {
+  return retcode_;
+}
+inline void Duplicate_BuyCountRsp::set_retcode(::google::protobuf::int32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// optional int32 buy_num = 2;
+inline bool Duplicate_BuyCountRsp::has_buy_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Duplicate_BuyCountRsp::set_has_buy_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Duplicate_BuyCountRsp::clear_has_buy_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Duplicate_BuyCountRsp::clear_buy_num() {
+  buy_num_ = 0;
+  clear_has_buy_num();
+}
+inline ::google::protobuf::int32 Duplicate_BuyCountRsp::buy_num() const {
+  return buy_num_;
+}
+inline void Duplicate_BuyCountRsp::set_buy_num(::google::protobuf::int32 value) {
+  set_has_buy_num();
+  buy_num_ = value;
+}
+
+// optional int32 group_id = 3;
+inline bool Duplicate_BuyCountRsp::has_group_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Duplicate_BuyCountRsp::set_has_group_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Duplicate_BuyCountRsp::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Duplicate_BuyCountRsp::clear_group_id() {
+  group_id_ = 0;
+  clear_has_group_id();
+}
+inline ::google::protobuf::int32 Duplicate_BuyCountRsp::group_id() const {
+  return group_id_;
+}
+inline void Duplicate_BuyCountRsp::set_group_id(::google::protobuf::int32 value) {
+  set_has_group_id();
+  group_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_AutoChallengeReq
+
+// -------------------------------------------------------------------
+
+// Duplicate_AutoChallengeRsp
+
+// required int32 retcode = 1;
+inline bool Duplicate_AutoChallengeRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_AutoChallengeRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_AutoChallengeRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_AutoChallengeRsp::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::google::protobuf::int32 Duplicate_AutoChallengeRsp::retcode() const {
+  return retcode_;
+}
+inline void Duplicate_AutoChallengeRsp::set_retcode(::google::protobuf::int32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_FightDataRsp
+
+// repeated .ProtoBuf.DupFightDataProto fight_data = 1;
+inline int Duplicate_FightDataRsp::fight_data_size() const {
+  return fight_data_.size();
+}
+inline void Duplicate_FightDataRsp::clear_fight_data() {
+  fight_data_.Clear();
+}
+inline const ::ProtoBuf::DupFightDataProto& Duplicate_FightDataRsp::fight_data(int index) const {
+  return fight_data_.Get(index);
+}
+inline ::ProtoBuf::DupFightDataProto* Duplicate_FightDataRsp::mutable_fight_data(int index) {
+  return fight_data_.Mutable(index);
+}
+inline ::ProtoBuf::DupFightDataProto* Duplicate_FightDataRsp::add_fight_data() {
+  return fight_data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupFightDataProto >&
+Duplicate_FightDataRsp::fight_data() const {
+  return fight_data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupFightDataProto >*
+Duplicate_FightDataRsp::mutable_fight_data() {
+  return &fight_data_;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_MonsWaveRsp
+
+// required int32 wave = 1;
+inline bool Duplicate_MonsWaveRsp::has_wave() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_MonsWaveRsp::set_has_wave() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_MonsWaveRsp::clear_has_wave() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_MonsWaveRsp::clear_wave() {
+  wave_ = 0;
+  clear_has_wave();
+}
+inline ::google::protobuf::int32 Duplicate_MonsWaveRsp::wave() const {
+  return wave_;
+}
+inline void Duplicate_MonsWaveRsp::set_wave(::google::protobuf::int32 value) {
+  set_has_wave();
+  wave_ = value;
+}
+
+// required int32 sec = 2;
+inline bool Duplicate_MonsWaveRsp::has_sec() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Duplicate_MonsWaveRsp::set_has_sec() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Duplicate_MonsWaveRsp::clear_has_sec() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Duplicate_MonsWaveRsp::clear_sec() {
+  sec_ = 0;
+  clear_has_sec();
+}
+inline ::google::protobuf::int32 Duplicate_MonsWaveRsp::sec() const {
+  return sec_;
+}
+inline void Duplicate_MonsWaveRsp::set_sec(::google::protobuf::int32 value) {
+  set_has_sec();
+  sec_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_MonsNumRsp
+
+// required int32 num = 1;
+inline bool Duplicate_MonsNumRsp::has_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_MonsNumRsp::set_has_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_MonsNumRsp::clear_has_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_MonsNumRsp::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 Duplicate_MonsNumRsp::num() const {
+  return num_;
+}
+inline void Duplicate_MonsNumRsp::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_MonsStateRsp
+
+// repeated .ProtoBuf.DupMonsStateProto mon_state = 1;
+inline int Duplicate_MonsStateRsp::mon_state_size() const {
+  return mon_state_.size();
+}
+inline void Duplicate_MonsStateRsp::clear_mon_state() {
+  mon_state_.Clear();
+}
+inline const ::ProtoBuf::DupMonsStateProto& Duplicate_MonsStateRsp::mon_state(int index) const {
+  return mon_state_.Get(index);
+}
+inline ::ProtoBuf::DupMonsStateProto* Duplicate_MonsStateRsp::mutable_mon_state(int index) {
+  return mon_state_.Mutable(index);
+}
+inline ::ProtoBuf::DupMonsStateProto* Duplicate_MonsStateRsp::add_mon_state() {
+  return mon_state_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupMonsStateProto >&
+Duplicate_MonsStateRsp::mon_state() const {
+  return mon_state_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupMonsStateProto >*
+Duplicate_MonsStateRsp::mutable_mon_state() {
+  return &mon_state_;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_ReliveNumRsp
+
+// required int32 count = 1;
+inline bool Duplicate_ReliveNumRsp::has_count() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_ReliveNumRsp::set_has_count() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_ReliveNumRsp::clear_has_count() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_ReliveNumRsp::clear_count() {
+  count_ = 0;
+  clear_has_count();
+}
+inline ::google::protobuf::int32 Duplicate_ReliveNumRsp::count() const {
+  return count_;
+}
+inline void Duplicate_ReliveNumRsp::set_count(::google::protobuf::int32 value) {
+  set_has_count();
+  count_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_TowerHpRsp
+
+// required int32 hp = 1;
+inline bool Duplicate_TowerHpRsp::has_hp() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_TowerHpRsp::set_has_hp() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_TowerHpRsp::clear_has_hp() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_TowerHpRsp::clear_hp() {
+  hp_ = 0;
+  clear_has_hp();
+}
+inline ::google::protobuf::int32 Duplicate_TowerHpRsp::hp() const {
+  return hp_;
+}
+inline void Duplicate_TowerHpRsp::set_hp(::google::protobuf::int32 value) {
+  set_has_hp();
+  hp_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Duplicate_TransMonsNumRsp
+
+// required int32 trans_num = 1;
+inline bool Duplicate_TransMonsNumRsp::has_trans_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Duplicate_TransMonsNumRsp::set_has_trans_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Duplicate_TransMonsNumRsp::clear_has_trans_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Duplicate_TransMonsNumRsp::clear_trans_num() {
+  trans_num_ = 0;
+  clear_has_trans_num();
+}
+inline ::google::protobuf::int32 Duplicate_TransMonsNumRsp::trans_num() const {
+  return trans_num_;
+}
+inline void Duplicate_TransMonsNumRsp::set_trans_num(::google::protobuf::int32 value) {
+  set_has_trans_num();
+  trans_num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupBeforAreaProto
+
+// required uint32 charId = 1;
+inline bool DupBeforAreaProto::has_charid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupBeforAreaProto::set_has_charid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupBeforAreaProto::clear_has_charid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupBeforAreaProto::clear_charid() {
+  charid_ = 0u;
+  clear_has_charid();
+}
+inline ::google::protobuf::uint32 DupBeforAreaProto::charid() const {
+  return charid_;
+}
+inline void DupBeforAreaProto::set_charid(::google::protobuf::uint32 value) {
+  set_has_charid();
+  charid_ = value;
+}
+
+// required uint32 areaId = 2;
+inline bool DupBeforAreaProto::has_areaid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupBeforAreaProto::set_has_areaid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupBeforAreaProto::clear_has_areaid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupBeforAreaProto::clear_areaid() {
+  areaid_ = 0u;
+  clear_has_areaid();
+}
+inline ::google::protobuf::uint32 DupBeforAreaProto::areaid() const {
+  return areaid_;
+}
+inline void DupBeforAreaProto::set_areaid(::google::protobuf::uint32 value) {
+  set_has_areaid();
+  areaid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_EnterDupReq
+
+// required uint32 charId = 1;
+inline bool LogicToCenter_EnterDupReq::has_charid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_EnterDupReq::set_has_charid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_EnterDupReq::clear_has_charid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_EnterDupReq::clear_charid() {
+  charid_ = 0u;
+  clear_has_charid();
+}
+inline ::google::protobuf::uint32 LogicToCenter_EnterDupReq::charid() const {
+  return charid_;
+}
+inline void LogicToCenter_EnterDupReq::set_charid(::google::protobuf::uint32 value) {
+  set_has_charid();
+  charid_ = value;
+}
+
+// required uint32 duplicate_id = 2;
+inline bool LogicToCenter_EnterDupReq::has_duplicate_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogicToCenter_EnterDupReq::set_has_duplicate_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogicToCenter_EnterDupReq::clear_has_duplicate_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogicToCenter_EnterDupReq::clear_duplicate_id() {
+  duplicate_id_ = 0u;
+  clear_has_duplicate_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_EnterDupReq::duplicate_id() const {
+  return duplicate_id_;
+}
+inline void LogicToCenter_EnterDupReq::set_duplicate_id(::google::protobuf::uint32 value) {
+  set_has_duplicate_id();
+  duplicate_id_ = value;
+}
+
+// required int32 key_type = 3;
+inline bool LogicToCenter_EnterDupReq::has_key_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LogicToCenter_EnterDupReq::set_has_key_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LogicToCenter_EnterDupReq::clear_has_key_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LogicToCenter_EnterDupReq::clear_key_type() {
+  key_type_ = 0;
+  clear_has_key_type();
+}
+inline ::google::protobuf::int32 LogicToCenter_EnterDupReq::key_type() const {
+  return key_type_;
+}
+inline void LogicToCenter_EnterDupReq::set_key_type(::google::protobuf::int32 value) {
+  set_has_key_type();
+  key_type_ = value;
+}
+
+// required uint64 key_value = 4;
+inline bool LogicToCenter_EnterDupReq::has_key_value() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LogicToCenter_EnterDupReq::set_has_key_value() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LogicToCenter_EnterDupReq::clear_has_key_value() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LogicToCenter_EnterDupReq::clear_key_value() {
+  key_value_ = GOOGLE_ULONGLONG(0);
+  clear_has_key_value();
+}
+inline ::google::protobuf::uint64 LogicToCenter_EnterDupReq::key_value() const {
+  return key_value_;
+}
+inline void LogicToCenter_EnterDupReq::set_key_value(::google::protobuf::uint64 value) {
+  set_has_key_value();
+  key_value_ = value;
+}
+
+// repeated .ProtoBuf.DupBeforAreaProto area = 5;
+inline int LogicToCenter_EnterDupReq::area_size() const {
+  return area_.size();
+}
+inline void LogicToCenter_EnterDupReq::clear_area() {
+  area_.Clear();
+}
+inline const ::ProtoBuf::DupBeforAreaProto& LogicToCenter_EnterDupReq::area(int index) const {
+  return area_.Get(index);
+}
+inline ::ProtoBuf::DupBeforAreaProto* LogicToCenter_EnterDupReq::mutable_area(int index) {
+  return area_.Mutable(index);
+}
+inline ::ProtoBuf::DupBeforAreaProto* LogicToCenter_EnterDupReq::add_area() {
+  return area_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >&
+LogicToCenter_EnterDupReq::area() const {
+  return area_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >*
+LogicToCenter_EnterDupReq::mutable_area() {
+  return &area_;
+}
+
+// -------------------------------------------------------------------
+
+// CenterToLogic_EnterDupRsp
+
+// required int32 retcode = 1;
+inline bool CenterToLogic_EnterDupRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CenterToLogic_EnterDupRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::google::protobuf::int32 CenterToLogic_EnterDupRsp::retcode() const {
+  return retcode_;
+}
+inline void CenterToLogic_EnterDupRsp::set_retcode(::google::protobuf::int32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// required uint32 charId = 2;
+inline bool CenterToLogic_EnterDupRsp::has_charid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CenterToLogic_EnterDupRsp::set_has_charid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_has_charid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_charid() {
+  charid_ = 0u;
+  clear_has_charid();
+}
+inline ::google::protobuf::uint32 CenterToLogic_EnterDupRsp::charid() const {
+  return charid_;
+}
+inline void CenterToLogic_EnterDupRsp::set_charid(::google::protobuf::uint32 value) {
+  set_has_charid();
+  charid_ = value;
+}
+
+// required uint32 duplicate_id = 3;
+inline bool CenterToLogic_EnterDupRsp::has_duplicate_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CenterToLogic_EnterDupRsp::set_has_duplicate_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_has_duplicate_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_duplicate_id() {
+  duplicate_id_ = 0u;
+  clear_has_duplicate_id();
+}
+inline ::google::protobuf::uint32 CenterToLogic_EnterDupRsp::duplicate_id() const {
+  return duplicate_id_;
+}
+inline void CenterToLogic_EnterDupRsp::set_duplicate_id(::google::protobuf::uint32 value) {
+  set_has_duplicate_id();
+  duplicate_id_ = value;
+}
+
+// required int32 key_type = 4;
+inline bool CenterToLogic_EnterDupRsp::has_key_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CenterToLogic_EnterDupRsp::set_has_key_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_has_key_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_key_type() {
+  key_type_ = 0;
+  clear_has_key_type();
+}
+inline ::google::protobuf::int32 CenterToLogic_EnterDupRsp::key_type() const {
+  return key_type_;
+}
+inline void CenterToLogic_EnterDupRsp::set_key_type(::google::protobuf::int32 value) {
+  set_has_key_type();
+  key_type_ = value;
+}
+
+// required uint64 key_value = 5;
+inline bool CenterToLogic_EnterDupRsp::has_key_value() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CenterToLogic_EnterDupRsp::set_has_key_value() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_has_key_value() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CenterToLogic_EnterDupRsp::clear_key_value() {
+  key_value_ = GOOGLE_ULONGLONG(0);
+  clear_has_key_value();
+}
+inline ::google::protobuf::uint64 CenterToLogic_EnterDupRsp::key_value() const {
+  return key_value_;
+}
+inline void CenterToLogic_EnterDupRsp::set_key_value(::google::protobuf::uint64 value) {
+  set_has_key_value();
+  key_value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_CreateSceneReq
+
+// required uint32 char_id = 1;
+inline bool LogicToCenter_CreateSceneReq::has_char_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_CreateSceneReq::set_has_char_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_CreateSceneReq::clear_has_char_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_CreateSceneReq::clear_char_id() {
   char_id_ = 0u;
   clear_has_char_id();
 }
-inline ::google::protobuf::uint32 LogicToCenter_CreateDuplicateReq::char_id() const {
+inline ::google::protobuf::uint32 LogicToCenter_CreateSceneReq::char_id() const {
   return char_id_;
 }
-inline void LogicToCenter_CreateDuplicateReq::set_char_id(::google::protobuf::uint32 value) {
+inline void LogicToCenter_CreateSceneReq::set_char_id(::google::protobuf::uint32 value) {
   set_has_char_id();
   char_id_ = value;
 }
 
 // required uint32 duplicate_id = 2;
-inline bool LogicToCenter_CreateDuplicateReq::has_duplicate_id() const {
+inline bool LogicToCenter_CreateSceneReq::has_duplicate_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LogicToCenter_CreateDuplicateReq::set_has_duplicate_id() {
+inline void LogicToCenter_CreateSceneReq::set_has_duplicate_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LogicToCenter_CreateDuplicateReq::clear_has_duplicate_id() {
+inline void LogicToCenter_CreateSceneReq::clear_has_duplicate_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LogicToCenter_CreateDuplicateReq::clear_duplicate_id() {
+inline void LogicToCenter_CreateSceneReq::clear_duplicate_id() {
   duplicate_id_ = 0u;
   clear_has_duplicate_id();
 }
-inline ::google::protobuf::uint32 LogicToCenter_CreateDuplicateReq::duplicate_id() const {
+inline ::google::protobuf::uint32 LogicToCenter_CreateSceneReq::duplicate_id() const {
   return duplicate_id_;
 }
-inline void LogicToCenter_CreateDuplicateReq::set_duplicate_id(::google::protobuf::uint32 value) {
+inline void LogicToCenter_CreateSceneReq::set_duplicate_id(::google::protobuf::uint32 value) {
   set_has_duplicate_id();
   duplicate_id_ = value;
 }
 
+// required int32 key_type = 3;
+inline bool LogicToCenter_CreateSceneReq::has_key_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LogicToCenter_CreateSceneReq::set_has_key_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LogicToCenter_CreateSceneReq::clear_has_key_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LogicToCenter_CreateSceneReq::clear_key_type() {
+  key_type_ = 0;
+  clear_has_key_type();
+}
+inline ::google::protobuf::int32 LogicToCenter_CreateSceneReq::key_type() const {
+  return key_type_;
+}
+inline void LogicToCenter_CreateSceneReq::set_key_type(::google::protobuf::int32 value) {
+  set_has_key_type();
+  key_type_ = value;
+}
+
+// required uint64 key_value = 4;
+inline bool LogicToCenter_CreateSceneReq::has_key_value() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LogicToCenter_CreateSceneReq::set_has_key_value() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LogicToCenter_CreateSceneReq::clear_has_key_value() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LogicToCenter_CreateSceneReq::clear_key_value() {
+  key_value_ = GOOGLE_ULONGLONG(0);
+  clear_has_key_value();
+}
+inline ::google::protobuf::uint64 LogicToCenter_CreateSceneReq::key_value() const {
+  return key_value_;
+}
+inline void LogicToCenter_CreateSceneReq::set_key_value(::google::protobuf::uint64 value) {
+  set_has_key_value();
+  key_value_ = value;
+}
+
 // -------------------------------------------------------------------
 
-// CenterToLogic_CreateDuplicateRsp
+// CenterToLogic_CreateSceneRsp
 
 // required int32 retcode = 1;
-inline bool CenterToLogic_CreateDuplicateRsp::has_retcode() const {
+inline bool CenterToLogic_CreateSceneRsp::has_retcode() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_has_retcode() {
+inline void CenterToLogic_CreateSceneRsp::set_has_retcode() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_has_retcode() {
+inline void CenterToLogic_CreateSceneRsp::clear_has_retcode() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_retcode() {
+inline void CenterToLogic_CreateSceneRsp::clear_retcode() {
   retcode_ = 0;
   clear_has_retcode();
 }
-inline ::google::protobuf::int32 CenterToLogic_CreateDuplicateRsp::retcode() const {
+inline ::google::protobuf::int32 CenterToLogic_CreateSceneRsp::retcode() const {
   return retcode_;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_retcode(::google::protobuf::int32 value) {
+inline void CenterToLogic_CreateSceneRsp::set_retcode(::google::protobuf::int32 value) {
   set_has_retcode();
   retcode_ = value;
 }
 
 // required uint32 char_id = 2;
-inline bool CenterToLogic_CreateDuplicateRsp::has_char_id() const {
+inline bool CenterToLogic_CreateSceneRsp::has_char_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_has_char_id() {
+inline void CenterToLogic_CreateSceneRsp::set_has_char_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_has_char_id() {
+inline void CenterToLogic_CreateSceneRsp::clear_has_char_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_char_id() {
+inline void CenterToLogic_CreateSceneRsp::clear_char_id() {
   char_id_ = 0u;
   clear_has_char_id();
 }
-inline ::google::protobuf::uint32 CenterToLogic_CreateDuplicateRsp::char_id() const {
+inline ::google::protobuf::uint32 CenterToLogic_CreateSceneRsp::char_id() const {
   return char_id_;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_char_id(::google::protobuf::uint32 value) {
+inline void CenterToLogic_CreateSceneRsp::set_char_id(::google::protobuf::uint32 value) {
   set_has_char_id();
   char_id_ = value;
 }
 
 // required uint32 duplicate_id = 3;
-inline bool CenterToLogic_CreateDuplicateRsp::has_duplicate_id() const {
+inline bool CenterToLogic_CreateSceneRsp::has_duplicate_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_has_duplicate_id() {
+inline void CenterToLogic_CreateSceneRsp::set_has_duplicate_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_has_duplicate_id() {
+inline void CenterToLogic_CreateSceneRsp::clear_has_duplicate_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_duplicate_id() {
+inline void CenterToLogic_CreateSceneRsp::clear_duplicate_id() {
   duplicate_id_ = 0u;
   clear_has_duplicate_id();
 }
-inline ::google::protobuf::uint32 CenterToLogic_CreateDuplicateRsp::duplicate_id() const {
+inline ::google::protobuf::uint32 CenterToLogic_CreateSceneRsp::duplicate_id() const {
   return duplicate_id_;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_duplicate_id(::google::protobuf::uint32 value) {
+inline void CenterToLogic_CreateSceneRsp::set_duplicate_id(::google::protobuf::uint32 value) {
   set_has_duplicate_id();
   duplicate_id_ = value;
 }
 
-// optional uint32 scene_id = 4;
-inline bool CenterToLogic_CreateDuplicateRsp::has_scene_id() const {
+// required int32 key_type = 4;
+inline bool CenterToLogic_CreateSceneRsp::has_key_type() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_has_scene_id() {
+inline void CenterToLogic_CreateSceneRsp::set_has_key_type() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_has_scene_id() {
+inline void CenterToLogic_CreateSceneRsp::clear_has_key_type() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void CenterToLogic_CreateDuplicateRsp::clear_scene_id() {
+inline void CenterToLogic_CreateSceneRsp::clear_key_type() {
+  key_type_ = 0;
+  clear_has_key_type();
+}
+inline ::google::protobuf::int32 CenterToLogic_CreateSceneRsp::key_type() const {
+  return key_type_;
+}
+inline void CenterToLogic_CreateSceneRsp::set_key_type(::google::protobuf::int32 value) {
+  set_has_key_type();
+  key_type_ = value;
+}
+
+// required uint64 key_value = 5;
+inline bool CenterToLogic_CreateSceneRsp::has_key_value() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CenterToLogic_CreateSceneRsp::set_has_key_value() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CenterToLogic_CreateSceneRsp::clear_has_key_value() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CenterToLogic_CreateSceneRsp::clear_key_value() {
+  key_value_ = GOOGLE_ULONGLONG(0);
+  clear_has_key_value();
+}
+inline ::google::protobuf::uint64 CenterToLogic_CreateSceneRsp::key_value() const {
+  return key_value_;
+}
+inline void CenterToLogic_CreateSceneRsp::set_key_value(::google::protobuf::uint64 value) {
+  set_has_key_value();
+  key_value_ = value;
+}
+
+// optional uint32 scene_id = 6;
+inline bool CenterToLogic_CreateSceneRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CenterToLogic_CreateSceneRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CenterToLogic_CreateSceneRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CenterToLogic_CreateSceneRsp::clear_scene_id() {
   scene_id_ = 0u;
   clear_has_scene_id();
 }
-inline ::google::protobuf::uint32 CenterToLogic_CreateDuplicateRsp::scene_id() const {
+inline ::google::protobuf::uint32 CenterToLogic_CreateSceneRsp::scene_id() const {
   return scene_id_;
 }
-inline void CenterToLogic_CreateDuplicateRsp::set_scene_id(::google::protobuf::uint32 value) {
+inline void CenterToLogic_CreateSceneRsp::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// repeated .ProtoBuf.DupBeforAreaProto area = 7;
+inline int CenterToLogic_CreateSceneRsp::area_size() const {
+  return area_.size();
+}
+inline void CenterToLogic_CreateSceneRsp::clear_area() {
+  area_.Clear();
+}
+inline const ::ProtoBuf::DupBeforAreaProto& CenterToLogic_CreateSceneRsp::area(int index) const {
+  return area_.Get(index);
+}
+inline ::ProtoBuf::DupBeforAreaProto* CenterToLogic_CreateSceneRsp::mutable_area(int index) {
+  return area_.Mutable(index);
+}
+inline ::ProtoBuf::DupBeforAreaProto* CenterToLogic_CreateSceneRsp::add_area() {
+  return area_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >&
+CenterToLogic_CreateSceneRsp::area() const {
+  return area_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DupBeforAreaProto >*
+CenterToLogic_CreateSceneRsp::mutable_area() {
+  return &area_;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_CreateDuplicateRsp
+
+// required int32 retcode = 1;
+inline bool LogicToCenter_CreateDuplicateRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_CreateDuplicateRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_CreateDuplicateRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_CreateDuplicateRsp::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::google::protobuf::int32 LogicToCenter_CreateDuplicateRsp::retcode() const {
+  return retcode_;
+}
+inline void LogicToCenter_CreateDuplicateRsp::set_retcode(::google::protobuf::int32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// required uint32 scene_id = 2;
+inline bool LogicToCenter_CreateDuplicateRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogicToCenter_CreateDuplicateRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogicToCenter_CreateDuplicateRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogicToCenter_CreateDuplicateRsp::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_CreateDuplicateRsp::scene_id() const {
+  return scene_id_;
+}
+inline void LogicToCenter_CreateDuplicateRsp::set_scene_id(::google::protobuf::uint32 value) {
   set_has_scene_id();
   scene_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// LogicToCenter_EnterDuplicateRes
+// CenterToLogic_DuplicateNotifyPrepare
 
-// required int32 retcode = 1;
-inline bool LogicToCenter_EnterDuplicateRes::has_retcode() const {
+// required uint32 char_id = 1;
+inline bool CenterToLogic_DuplicateNotifyPrepare::has_char_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_has_retcode() {
+inline void CenterToLogic_DuplicateNotifyPrepare::set_has_char_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_has_retcode() {
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_has_char_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_retcode() {
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_char_id() {
+  char_id_ = 0u;
+  clear_has_char_id();
+}
+inline ::google::protobuf::uint32 CenterToLogic_DuplicateNotifyPrepare::char_id() const {
+  return char_id_;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_char_id(::google::protobuf::uint32 value) {
+  set_has_char_id();
+  char_id_ = value;
+}
+
+// required uint32 duplicate_id = 2;
+inline bool CenterToLogic_DuplicateNotifyPrepare::has_duplicate_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_has_duplicate_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_has_duplicate_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_duplicate_id() {
+  duplicate_id_ = 0u;
+  clear_has_duplicate_id();
+}
+inline ::google::protobuf::uint32 CenterToLogic_DuplicateNotifyPrepare::duplicate_id() const {
+  return duplicate_id_;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_duplicate_id(::google::protobuf::uint32 value) {
+  set_has_duplicate_id();
+  duplicate_id_ = value;
+}
+
+// required uint32 scene_id = 3;
+inline bool CenterToLogic_DuplicateNotifyPrepare::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 CenterToLogic_DuplicateNotifyPrepare::scene_id() const {
+  return scene_id_;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// required int32 key_type = 4;
+inline bool CenterToLogic_DuplicateNotifyPrepare::has_key_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_has_key_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_has_key_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_key_type() {
+  key_type_ = 0;
+  clear_has_key_type();
+}
+inline ::google::protobuf::int32 CenterToLogic_DuplicateNotifyPrepare::key_type() const {
+  return key_type_;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_key_type(::google::protobuf::int32 value) {
+  set_has_key_type();
+  key_type_ = value;
+}
+
+// required uint64 key_value = 5;
+inline bool CenterToLogic_DuplicateNotifyPrepare::has_key_value() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_has_key_value() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_has_key_value() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::clear_key_value() {
+  key_value_ = GOOGLE_ULONGLONG(0);
+  clear_has_key_value();
+}
+inline ::google::protobuf::uint64 CenterToLogic_DuplicateNotifyPrepare::key_value() const {
+  return key_value_;
+}
+inline void CenterToLogic_DuplicateNotifyPrepare::set_key_value(::google::protobuf::uint64 value) {
+  set_has_key_value();
+  key_value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_DuplicatePrepareRsp
+
+// required int32 retcode = 1;
+inline bool LogicToCenter_DuplicatePrepareRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_DuplicatePrepareRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_DuplicatePrepareRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_DuplicatePrepareRsp::clear_retcode() {
   retcode_ = 0;
   clear_has_retcode();
 }
-inline ::google::protobuf::int32 LogicToCenter_EnterDuplicateRes::retcode() const {
+inline ::google::protobuf::int32 LogicToCenter_DuplicatePrepareRsp::retcode() const {
   return retcode_;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_retcode(::google::protobuf::int32 value) {
+inline void LogicToCenter_DuplicatePrepareRsp::set_retcode(::google::protobuf::int32 value) {
   set_has_retcode();
   retcode_ = value;
 }
 
 // required uint32 char_id = 2;
-inline bool LogicToCenter_EnterDuplicateRes::has_char_id() const {
+inline bool LogicToCenter_DuplicatePrepareRsp::has_char_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_has_char_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::set_has_char_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_has_char_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::clear_has_char_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_char_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::clear_char_id() {
   char_id_ = 0u;
   clear_has_char_id();
 }
-inline ::google::protobuf::uint32 LogicToCenter_EnterDuplicateRes::char_id() const {
+inline ::google::protobuf::uint32 LogicToCenter_DuplicatePrepareRsp::char_id() const {
   return char_id_;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_char_id(::google::protobuf::uint32 value) {
+inline void LogicToCenter_DuplicatePrepareRsp::set_char_id(::google::protobuf::uint32 value) {
   set_has_char_id();
   char_id_ = value;
 }
 
 // required uint32 duplicate_id = 3;
-inline bool LogicToCenter_EnterDuplicateRes::has_duplicate_id() const {
+inline bool LogicToCenter_DuplicatePrepareRsp::has_duplicate_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_has_duplicate_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::set_has_duplicate_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_has_duplicate_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::clear_has_duplicate_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_duplicate_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::clear_duplicate_id() {
   duplicate_id_ = 0u;
   clear_has_duplicate_id();
 }
-inline ::google::protobuf::uint32 LogicToCenter_EnterDuplicateRes::duplicate_id() const {
+inline ::google::protobuf::uint32 LogicToCenter_DuplicatePrepareRsp::duplicate_id() const {
   return duplicate_id_;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_duplicate_id(::google::protobuf::uint32 value) {
+inline void LogicToCenter_DuplicatePrepareRsp::set_duplicate_id(::google::protobuf::uint32 value) {
   set_has_duplicate_id();
   duplicate_id_ = value;
 }
 
 // required uint32 scene_id = 4;
-inline bool LogicToCenter_EnterDuplicateRes::has_scene_id() const {
+inline bool LogicToCenter_DuplicatePrepareRsp::has_scene_id() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_has_scene_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::set_has_scene_id() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_has_scene_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::clear_has_scene_id() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_scene_id() {
+inline void LogicToCenter_DuplicatePrepareRsp::clear_scene_id() {
   scene_id_ = 0u;
   clear_has_scene_id();
 }
-inline ::google::protobuf::uint32 LogicToCenter_EnterDuplicateRes::scene_id() const {
+inline ::google::protobuf::uint32 LogicToCenter_DuplicatePrepareRsp::scene_id() const {
   return scene_id_;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_scene_id(::google::protobuf::uint32 value) {
+inline void LogicToCenter_DuplicatePrepareRsp::set_scene_id(::google::protobuf::uint32 value) {
   set_has_scene_id();
   scene_id_ = value;
 }
 
-// optional uint64 start_time = 5;
-inline bool LogicToCenter_EnterDuplicateRes::has_start_time() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+// -------------------------------------------------------------------
+
+// CenterToLogic_DuplicateEnterNotify
+
+// required uint32 char_id = 1;
+inline bool CenterToLogic_DuplicateEnterNotify::has_char_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_has_start_time() {
-  _has_bits_[0] |= 0x00000010u;
+inline void CenterToLogic_DuplicateEnterNotify::set_has_char_id() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_has_start_time() {
-  _has_bits_[0] &= ~0x00000010u;
+inline void CenterToLogic_DuplicateEnterNotify::clear_has_char_id() {
+  _has_bits_[0] &= ~0x00000001u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_start_time() {
-  start_time_ = GOOGLE_ULONGLONG(0);
-  clear_has_start_time();
+inline void CenterToLogic_DuplicateEnterNotify::clear_char_id() {
+  char_id_ = 0u;
+  clear_has_char_id();
 }
-inline ::google::protobuf::uint64 LogicToCenter_EnterDuplicateRes::start_time() const {
-  return start_time_;
+inline ::google::protobuf::uint32 CenterToLogic_DuplicateEnterNotify::char_id() const {
+  return char_id_;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_start_time(::google::protobuf::uint64 value) {
-  set_has_start_time();
-  start_time_ = value;
+inline void CenterToLogic_DuplicateEnterNotify::set_char_id(::google::protobuf::uint32 value) {
+  set_has_char_id();
+  char_id_ = value;
 }
 
-// optional uint32 limit_time = 6;
-inline bool LogicToCenter_EnterDuplicateRes::has_limit_time() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+// required uint32 duplicate_id = 2;
+inline bool CenterToLogic_DuplicateEnterNotify::has_duplicate_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_has_limit_time() {
-  _has_bits_[0] |= 0x00000020u;
+inline void CenterToLogic_DuplicateEnterNotify::set_has_duplicate_id() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_has_limit_time() {
-  _has_bits_[0] &= ~0x00000020u;
+inline void CenterToLogic_DuplicateEnterNotify::clear_has_duplicate_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-inline void LogicToCenter_EnterDuplicateRes::clear_limit_time() {
-  limit_time_ = 0u;
-  clear_has_limit_time();
+inline void CenterToLogic_DuplicateEnterNotify::clear_duplicate_id() {
+  duplicate_id_ = 0u;
+  clear_has_duplicate_id();
 }
-inline ::google::protobuf::uint32 LogicToCenter_EnterDuplicateRes::limit_time() const {
-  return limit_time_;
+inline ::google::protobuf::uint32 CenterToLogic_DuplicateEnterNotify::duplicate_id() const {
+  return duplicate_id_;
 }
-inline void LogicToCenter_EnterDuplicateRes::set_limit_time(::google::protobuf::uint32 value) {
-  set_has_limit_time();
-  limit_time_ = value;
+inline void CenterToLogic_DuplicateEnterNotify::set_duplicate_id(::google::protobuf::uint32 value) {
+  set_has_duplicate_id();
+  duplicate_id_ = value;
+}
+
+// required uint32 scene_id = 3;
+inline bool CenterToLogic_DuplicateEnterNotify::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CenterToLogic_DuplicateEnterNotify::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CenterToLogic_DuplicateEnterNotify::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CenterToLogic_DuplicateEnterNotify::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 CenterToLogic_DuplicateEnterNotify::scene_id() const {
+  return scene_id_;
+}
+inline void CenterToLogic_DuplicateEnterNotify::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_DuplicateEnterRsp
+
+// required uint32 char_id = 1;
+inline bool LogicToCenter_DuplicateEnterRsp::has_char_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_DuplicateEnterRsp::set_has_char_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_DuplicateEnterRsp::clear_has_char_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_DuplicateEnterRsp::clear_char_id() {
+  char_id_ = 0u;
+  clear_has_char_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_DuplicateEnterRsp::char_id() const {
+  return char_id_;
+}
+inline void LogicToCenter_DuplicateEnterRsp::set_char_id(::google::protobuf::uint32 value) {
+  set_has_char_id();
+  char_id_ = value;
+}
+
+// required uint32 scene_id = 2;
+inline bool LogicToCenter_DuplicateEnterRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogicToCenter_DuplicateEnterRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogicToCenter_DuplicateEnterRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogicToCenter_DuplicateEnterRsp::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_DuplicateEnterRsp::scene_id() const {
+  return scene_id_;
+}
+inline void LogicToCenter_DuplicateEnterRsp::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_DuplicateLeaveRsp
+
+// required uint32 char_id = 1;
+inline bool LogicToCenter_DuplicateLeaveRsp::has_char_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::set_has_char_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::clear_has_char_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::clear_char_id() {
+  char_id_ = 0u;
+  clear_has_char_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_DuplicateLeaveRsp::char_id() const {
+  return char_id_;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::set_char_id(::google::protobuf::uint32 value) {
+  set_has_char_id();
+  char_id_ = value;
+}
+
+// required uint32 scene_id = 2;
+inline bool LogicToCenter_DuplicateLeaveRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_DuplicateLeaveRsp::scene_id() const {
+  return scene_id_;
+}
+inline void LogicToCenter_DuplicateLeaveRsp::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToCenter_DuplicateBegin
+
+// required uint32 scene_id = 1;
+inline bool LogicToCenter_DuplicateBegin::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToCenter_DuplicateBegin::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToCenter_DuplicateBegin::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToCenter_DuplicateBegin::clear_scene_id() {
+  scene_id_ = 0u;
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint32 LogicToCenter_DuplicateBegin::scene_id() const {
+  return scene_id_;
+}
+inline void LogicToCenter_DuplicateBegin::set_scene_id(::google::protobuf::uint32 value) {
+  set_has_scene_id();
+  scene_id_ = value;
 }
 
 // -------------------------------------------------------------------

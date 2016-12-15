@@ -218,35 +218,53 @@ namespace ProtoBuf
       [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_ENTER", Value=202)]
       LOGIC_TO_CLIENT_DUPLICATE_ENTER = 202,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_EXIT", Value=203)]
-      LOGIC_TO_CLIENT_DUPLICATE_EXIT = 203,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_RESULT", Value=203)]
+      LOGIC_TO_CLIENT_DUPLICATE_RESULT = 203,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_RESULT", Value=204)]
-      LOGIC_TO_CLIENT_DUPLICATE_RESULT = 204,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_AUTO_FIGHT", Value=204)]
+      LOGIC_TO_CLIENT_DUPLICATE_AUTO_FIGHT = 204,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_AUTO_FIGHT", Value=205)]
-      LOGIC_TO_CLIENT_DUPLICATE_AUTO_FIGHT = 205,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_LOTTERY", Value=205)]
+      LOGIC_TO_CLIENT_DUPLICATE_LOTTERY = 205,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_LOTTERY", Value=206)]
-      LOGIC_TO_CLIENT_DUPLICATE_LOTTERY = 206,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_BUY_NUM", Value=206)]
+      LOGIC_TO_CLIENT_DUPLICATE_BUY_NUM = 206,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_BUY_NUM", Value=207)]
-      LOGIC_TO_CLIENT_DUPLICATE_BUY_NUM = 207,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_UPDATE", Value=207)]
+      LOGIC_TO_CLIENT_DUPLICATE_UPDATE = 207,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_SWEEP", Value=208)]
-      LOGIC_TO_CLIENT_DUPLICATE_SWEEP = 208,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_RELIVE", Value=208)]
+      LOGIC_TO_CLIENT_DUPLICATE_RELIVE = 208,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_UPDATE", Value=209)]
-      LOGIC_TO_CLIENT_DUPLICATE_UPDATE = 209,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_LEAVE", Value=209)]
+      LOGIC_TO_CLIENT_DUPLICATE_LEAVE = 209,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_RELIVE", Value=210)]
-      LOGIC_TO_CLIENT_DUPLICATE_RELIVE = 210,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_ENTER_AREA", Value=210)]
+      LOGIC_TO_CLIENT_DUPLICATE_ENTER_AREA = 210,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_LEAVE", Value=211)]
-      LOGIC_TO_CLIENT_DUPLICATE_LEAVE = 211,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_FIGHT_DATA", Value=211)]
+      LOGIC_TO_CLIENT_DUPLICATE_FIGHT_DATA = 211,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_ENTER_AREA", Value=212)]
-      LOGIC_TO_CLIENT_DUPLICATE_ENTER_AREA = 212,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_MONSTER_WAVE", Value=212)]
+      LOGIC_TO_CLIENT_DUPLICATE_MONSTER_WAVE = 212,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_MONSTER_NUM", Value=213)]
+      LOGIC_TO_CLIENT_DUPLICATE_MONSTER_NUM = 213,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_AUTO_CHALLENGE", Value=214)]
+      LOGIC_TO_CLIENT_DUPLICATE_AUTO_CHALLENGE = 214,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_RELIVE_NUM", Value=215)]
+      LOGIC_TO_CLIENT_DUPLICATE_RELIVE_NUM = 215,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGOC_TO_CLIENT_DUPLICATE_TOWER_HP", Value=216)]
+      LOGOC_TO_CLIENT_DUPLICATE_TOWER_HP = 216,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_ALREDY_TRANS", Value=217)]
+      LOGIC_TO_CLIENT_DUPLICATE_ALREDY_TRANS = 217,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_DUPLICATE_MONSTER_STATE", Value=218)]
+      LOGIC_TO_CLIENT_DUPLICATE_MONSTER_STATE = 218,
             
       [global::ProtoBuf.ProtoEnum(Name=@"SERVER_TO_CLIENT_DUPLICATE_END", Value=220)]
       SERVER_TO_CLIENT_DUPLICATE_END = 220,
@@ -520,6 +538,60 @@ namespace ProtoBuf
             
       [global::ProtoBuf.ProtoEnum(Name=@"SERVER_TO_CLIENT_MALL_END", Value=660)]
       SERVER_TO_CLIENT_MALL_END = 660,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"SERVER_TO_CLIENT_ROOM_BEGIN", Value=680)]
+      SERVER_TO_CLIENT_ROOM_BEGIN = 680,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_CREATE", Value=681)]
+      LOGIC_TO_CLIENT_ROOM_CREATE = 681,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_SET_PWD", Value=682)]
+      LOGIC_TO_CLIENT_ROOM_SET_PWD = 682,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_JOIN", Value=683)]
+      LOGIC_TO_CLIENT_ROOM_JOIN = 683,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_INVITE_FRIEND", Value=684)]
+      LOGIC_TO_CLIENT_ROOM_INVITE_FRIEND = 684,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_INVITE_REPLY", Value=685)]
+      LOGIC_TO_CLIENT_ROOM_INVITE_REPLY = 685,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_KICK", Value=686)]
+      LOGIC_TO_CLIENT_ROOM_KICK = 686,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_LEAVE", Value=687)]
+      LOGIC_TO_CLIENT_ROOM_LEAVE = 687,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_AUTO_JOIN", Value=688)]
+      LOGIC_TO_CLIENT_ROOM_AUTO_JOIN = 688,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_LEAVE", Value=689)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_LEAVE = 689,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_JOIN", Value=690)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_JOIN = 690,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_UPDATE", Value=691)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_UPDATE = 691,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_INVITE", Value=692)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_INVITE = 692,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_REFUSE", Value=693)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_REFUSE = 693,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_KICK", Value=694)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_KICK = 694,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_MEMBER_KICK", Value=695)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_MEMBER_KICK = 695,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_ROOM_NOTIFY_DISMISS", Value=696)]
+      LOGIC_TO_CLIENT_ROOM_NOTIFY_DISMISS = 696,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"SERVER_TO_CLIENT_ROOM_END", Value=720)]
+      SERVER_TO_CLIENT_ROOM_END = 720,
             
       [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CLIENT_PROTOCOL_COUNT", Value=1024)]
       LOGIC_TO_CLIENT_PROTOCOL_COUNT = 1024

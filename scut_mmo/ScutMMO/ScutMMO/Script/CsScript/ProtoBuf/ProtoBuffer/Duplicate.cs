@@ -13,6 +13,61 @@
 // Note: requires additional types generated from: Common/ComDefine.proto
 namespace ProtoBuf
 {
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"DupMonsStateProto")]
+  public partial class DupMonsStateProto : global::ProtoBuf.IExtensible
+  {
+    public DupMonsStateProto() {}
+    
+    private uint _mons_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"mons_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint mons_id
+    {
+      get { return _mons_id; }
+      set { _mons_id = value; }
+    }
+    private int _state;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"state", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int state
+    {
+      get { return _state; }
+      set { _state = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"DupFightDataProto")]
+  public partial class DupFightDataProto : global::ProtoBuf.IExtensible
+  {
+    public DupFightDataProto() {}
+    
+    private uint _cid;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"cid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint cid
+    {
+      get { return _cid; }
+      set { _cid = value; }
+    }
+    private ulong _atk;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"atk", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong atk
+    {
+      get { return _atk; }
+      set { _atk = value; }
+    }
+    private ulong _be_atk;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"be_atk", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong be_atk
+    {
+      get { return _be_atk; }
+      set { _be_atk = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_InfoReq")]
   public partial class Duplicate_InfoReq : global::ProtoBuf.IExtensible
   {
@@ -42,6 +97,20 @@ namespace ProtoBuf
       get { return _info; }
     }
   
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto> _group = new global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto>();
+    [global::ProtoBuf.ProtoMember(3, Name=@"group", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto> group
+    {
+      get { return _group; }
+    }
+  
+    private readonly global::System.Collections.Generic.List<int> _open_list = new global::System.Collections.Generic.List<int>();
+    [global::ProtoBuf.ProtoMember(4, Name=@"open_list", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public global::System.Collections.Generic.List<int> open_list
+    {
+      get { return _open_list; }
+    }
+  
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -58,6 +127,22 @@ namespace ProtoBuf
     {
       get { return _duplicate_id; }
       set { _duplicate_id = value; }
+    }
+    private int _area_id = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"area_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int area_id
+    {
+      get { return _area_id; }
+      set { _area_id = value; }
+    }
+    private ProtoBuf.Vector3PB _cur_pos = null;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"cur_pos", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public ProtoBuf.Vector3PB cur_pos
+    {
+      get { return _cur_pos; }
+      set { _cur_pos = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -91,32 +176,37 @@ namespace ProtoBuf
       get { return _area; }
     }
   
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_ExitReq")]
-  public partial class Duplicate_ExitReq : global::ProtoBuf.IExtensible
-  {
-    public Duplicate_ExitReq() {}
-    
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_ExitRsp")]
-  public partial class Duplicate_ExitRsp : global::ProtoBuf.IExtensible
-  {
-    public Duplicate_ExitRsp() {}
-    
-    private int _retcode;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int retcode
+    private int _mons_num = default(int);
+    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"mons_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int mons_num
     {
-      get { return _retcode; }
-      set { _retcode = value; }
+      get { return _mons_num; }
+      set { _mons_num = value; }
+    }
+    private int _dup_sec = default(int);
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"dup_sec", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int dup_sec
+    {
+      get { return _dup_sec; }
+      set { _dup_sec = value; }
+    }
+    private int _tower_hp = default(int);
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"tower_hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int tower_hp
+    {
+      get { return _tower_hp; }
+      set { _tower_hp = value; }
+    }
+    private int _trans_num = default(int);
+    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"trans_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int trans_num
+    {
+      get { return _trans_num; }
+      set { _trans_num = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -150,32 +240,8 @@ namespace ProtoBuf
       get { return _star; }
       set { _star = value; }
     }
-    private int _sec = default(int);
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"sec", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int sec
-    {
-      get { return _sec; }
-      set { _sec = value; }
-    }
-    private int _kill_mon = default(int);
-    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"kill_mon", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int kill_mon
-    {
-      get { return _kill_mon; }
-      set { _kill_mon = value; }
-    }
-    private int _die_count = default(int);
-    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"die_count", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int die_count
-    {
-      get { return _die_count; }
-      set { _die_count = value; }
-    }
     private int _exp = default(int);
-    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"exp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"exp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     [global::System.ComponentModel.DefaultValue(default(int))]
     public int exp
     {
@@ -183,39 +249,15 @@ namespace ProtoBuf
       set { _exp = value; }
     }
     private int _gold = default(int);
-    [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     [global::System.ComponentModel.DefaultValue(default(int))]
     public int gold
     {
       get { return _gold; }
       set { _gold = value; }
     }
-    private int _bind_gold = default(int);
-    [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"bind_gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int bind_gold
-    {
-      get { return _bind_gold; }
-      set { _bind_gold = value; }
-    }
-    private int _diamond = default(int);
-    [global::ProtoBuf.ProtoMember(10, IsRequired = false, Name=@"diamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int diamond
-    {
-      get { return _diamond; }
-      set { _diamond = value; }
-    }
-    private int _bind_diamond = default(int);
-    [global::ProtoBuf.ProtoMember(11, IsRequired = false, Name=@"bind_diamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int bind_diamond
-    {
-      get { return _bind_diamond; }
-      set { _bind_diamond = value; }
-    }
     private ProtoBuf.RewardItemProto _reward = null;
-    [global::ProtoBuf.ProtoMember(12, IsRequired = false, Name=@"reward", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"reward", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
     public ProtoBuf.RewardItemProto reward
     {
@@ -223,7 +265,7 @@ namespace ProtoBuf
       set { _reward = value; }
     }
     private ProtoBuf.RewardItemProto _flop = null;
-    [global::ProtoBuf.ProtoMember(13, IsRequired = false, Name=@"flop", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"flop", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
     public ProtoBuf.RewardItemProto flop
     {
@@ -256,40 +298,6 @@ namespace ProtoBuf
     {
       get { return _result; }
       set { _result = value; }
-    }
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_BuyCountReq")]
-  public partial class Duplicate_BuyCountReq : global::ProtoBuf.IExtensible
-  {
-    public Duplicate_BuyCountReq() {}
-    
-    private int _duplicate_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"duplicate_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int duplicate_id
-    {
-      get { return _duplicate_id; }
-      set { _duplicate_id = value; }
-    }
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_BuyCountRsp")]
-  public partial class Duplicate_BuyCountRsp : global::ProtoBuf.IExtensible
-  {
-    public Duplicate_BuyCountRsp() {}
-    
-    private int _retcode;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int retcode
-    {
-      get { return _retcode; }
-      set { _retcode = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -331,70 +339,6 @@ namespace ProtoBuf
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_SweepReq")]
-  public partial class Duplicate_SweepReq : global::ProtoBuf.IExtensible
-  {
-    public Duplicate_SweepReq() {}
-    
-    private int _duplicate_id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"duplicate_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int duplicate_id
-    {
-      get { return _duplicate_id; }
-      set { _duplicate_id = value; }
-    }
-    private int _sweep_type;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"sweep_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int sweep_type
-    {
-      get { return _sweep_type; }
-      set { _sweep_type = value; }
-    }
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_SweepRsp")]
-  public partial class Duplicate_SweepRsp : global::ProtoBuf.IExtensible
-  {
-    public Duplicate_SweepRsp() {}
-    
-    private int _retcode;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int retcode
-    {
-      get { return _retcode; }
-      set { _retcode = value; }
-    }
-    private int _sweep_type = default(int);
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"sweep_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int sweep_type
-    {
-      get { return _sweep_type; }
-      set { _sweep_type = value; }
-    }
-    private readonly global::System.Collections.Generic.List<ProtoBuf.RewardItemProto> _reward = new global::System.Collections.Generic.List<ProtoBuf.RewardItemProto>();
-    [global::ProtoBuf.ProtoMember(3, Name=@"reward", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<ProtoBuf.RewardItemProto> reward
-    {
-      get { return _reward; }
-    }
-  
-    private int _reson = default(int);
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"reson", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int reson
-    {
-      get { return _reson; }
-      set { _reson = value; }
-    }
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_UpdateRsp")]
   public partial class Duplicate_UpdateRsp : global::ProtoBuf.IExtensible
   {
@@ -405,6 +349,20 @@ namespace ProtoBuf
     public global::System.Collections.Generic.List<ProtoBuf.DuplicateProto> info
     {
       get { return _info; }
+    }
+  
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto> _group = new global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto>();
+    [global::ProtoBuf.ProtoMember(2, Name=@"group", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto> group
+    {
+      get { return _group; }
+    }
+  
+    private readonly global::System.Collections.Generic.List<int> _open_list = new global::System.Collections.Generic.List<int>();
+    [global::ProtoBuf.ProtoMember(3, Name=@"open_list", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public global::System.Collections.Generic.List<int> open_list
+    {
+      get { return _open_list; }
     }
   
     private global::ProtoBuf.IExtension extensionObject;
@@ -515,10 +473,327 @@ namespace ProtoBuf
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_CreateDuplicateReq")]
-  public partial class LogicToCenter_CreateDuplicateReq : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_BuyCountReq")]
+  public partial class Duplicate_BuyCountReq : global::ProtoBuf.IExtensible
   {
-    public LogicToCenter_CreateDuplicateReq() {}
+    public Duplicate_BuyCountReq() {}
+    
+    private int _group_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"group_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int group_id
+    {
+      get { return _group_id; }
+      set { _group_id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_BuyCountRsp")]
+  public partial class Duplicate_BuyCountRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_BuyCountRsp() {}
+    
+    private int _retcode;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int retcode
+    {
+      get { return _retcode; }
+      set { _retcode = value; }
+    }
+    private int _buy_num = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"buy_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int buy_num
+    {
+      get { return _buy_num; }
+      set { _buy_num = value; }
+    }
+    private int _group_id = default(int);
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"group_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int group_id
+    {
+      get { return _group_id; }
+      set { _group_id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_AutoChallengeReq")]
+  public partial class Duplicate_AutoChallengeReq : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_AutoChallengeReq() {}
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_AutoChallengeRsp")]
+  public partial class Duplicate_AutoChallengeRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_AutoChallengeRsp() {}
+    
+    private int _retcode;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int retcode
+    {
+      get { return _retcode; }
+      set { _retcode = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_FightDataRsp")]
+  public partial class Duplicate_FightDataRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_FightDataRsp() {}
+    
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DupFightDataProto> _fight_data = new global::System.Collections.Generic.List<ProtoBuf.DupFightDataProto>();
+    [global::ProtoBuf.ProtoMember(1, Name=@"fight_data", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DupFightDataProto> fight_data
+    {
+      get { return _fight_data; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_MonsWaveRsp")]
+  public partial class Duplicate_MonsWaveRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_MonsWaveRsp() {}
+    
+    private int _wave;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"wave", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int wave
+    {
+      get { return _wave; }
+      set { _wave = value; }
+    }
+    private int _sec;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"sec", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int sec
+    {
+      get { return _sec; }
+      set { _sec = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_MonsNumRsp")]
+  public partial class Duplicate_MonsNumRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_MonsNumRsp() {}
+    
+    private int _num;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int num
+    {
+      get { return _num; }
+      set { _num = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_MonsStateRsp")]
+  public partial class Duplicate_MonsStateRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_MonsStateRsp() {}
+    
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DupMonsStateProto> _mon_state = new global::System.Collections.Generic.List<ProtoBuf.DupMonsStateProto>();
+    [global::ProtoBuf.ProtoMember(1, Name=@"mon_state", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DupMonsStateProto> mon_state
+    {
+      get { return _mon_state; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_ReliveNumRsp")]
+  public partial class Duplicate_ReliveNumRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_ReliveNumRsp() {}
+    
+    private int _count;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"count", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int count
+    {
+      get { return _count; }
+      set { _count = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_TowerHpRsp")]
+  public partial class Duplicate_TowerHpRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_TowerHpRsp() {}
+    
+    private int _hp;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int hp
+    {
+      get { return _hp; }
+      set { _hp = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Duplicate_TransMonsNumRsp")]
+  public partial class Duplicate_TransMonsNumRsp : global::ProtoBuf.IExtensible
+  {
+    public Duplicate_TransMonsNumRsp() {}
+    
+    private int _trans_num;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"trans_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int trans_num
+    {
+      get { return _trans_num; }
+      set { _trans_num = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"DupBeforAreaProto")]
+  public partial class DupBeforAreaProto : global::ProtoBuf.IExtensible
+  {
+    public DupBeforAreaProto() {}
+    
+    private uint _charId;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"charId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint charId
+    {
+      get { return _charId; }
+      set { _charId = value; }
+    }
+    private uint _areaId;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"areaId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint areaId
+    {
+      get { return _areaId; }
+      set { _areaId = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_EnterDupReq")]
+  public partial class LogicToCenter_EnterDupReq : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_EnterDupReq() {}
+    
+    private uint _charId;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"charId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint charId
+    {
+      get { return _charId; }
+      set { _charId = value; }
+    }
+    private uint _duplicate_id;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"duplicate_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint duplicate_id
+    {
+      get { return _duplicate_id; }
+      set { _duplicate_id = value; }
+    }
+    private int _key_type;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"key_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int key_type
+    {
+      get { return _key_type; }
+      set { _key_type = value; }
+    }
+    private ulong _key_value;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"key_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong key_value
+    {
+      get { return _key_value; }
+      set { _key_value = value; }
+    }
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DupBeforAreaProto> _area = new global::System.Collections.Generic.List<ProtoBuf.DupBeforAreaProto>();
+    [global::ProtoBuf.ProtoMember(5, Name=@"area", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DupBeforAreaProto> area
+    {
+      get { return _area; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CenterToLogic_EnterDupRsp")]
+  public partial class CenterToLogic_EnterDupRsp : global::ProtoBuf.IExtensible
+  {
+    public CenterToLogic_EnterDupRsp() {}
+    
+    private int _retcode;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int retcode
+    {
+      get { return _retcode; }
+      set { _retcode = value; }
+    }
+    private uint _charId;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"charId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint charId
+    {
+      get { return _charId; }
+      set { _charId = value; }
+    }
+    private uint _duplicate_id;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"duplicate_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint duplicate_id
+    {
+      get { return _duplicate_id; }
+      set { _duplicate_id = value; }
+    }
+    private int _key_type;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"key_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int key_type
+    {
+      get { return _key_type; }
+      set { _key_type = value; }
+    }
+    private ulong _key_value;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"key_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong key_value
+    {
+      get { return _key_value; }
+      set { _key_value = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_CreateSceneReq")]
+  public partial class LogicToCenter_CreateSceneReq : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_CreateSceneReq() {}
     
     private uint _char_id;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"char_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
@@ -534,15 +809,29 @@ namespace ProtoBuf
       get { return _duplicate_id; }
       set { _duplicate_id = value; }
     }
+    private int _key_type;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"key_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int key_type
+    {
+      get { return _key_type; }
+      set { _key_type = value; }
+    }
+    private ulong _key_value;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"key_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong key_value
+    {
+      get { return _key_value; }
+      set { _key_value = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CenterToLogic_CreateDuplicateRsp")]
-  public partial class CenterToLogic_CreateDuplicateRsp : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CenterToLogic_CreateSceneRsp")]
+  public partial class CenterToLogic_CreateSceneRsp : global::ProtoBuf.IExtensible
   {
-    public CenterToLogic_CreateDuplicateRsp() {}
+    public CenterToLogic_CreateSceneRsp() {}
     
     private int _retcode;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
@@ -565,9 +854,54 @@ namespace ProtoBuf
       get { return _duplicate_id; }
       set { _duplicate_id = value; }
     }
+    private int _key_type;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"key_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int key_type
+    {
+      get { return _key_type; }
+      set { _key_type = value; }
+    }
+    private ulong _key_value;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"key_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong key_value
+    {
+      get { return _key_value; }
+      set { _key_value = value; }
+    }
     private uint _scene_id = default(uint);
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     [global::System.ComponentModel.DefaultValue(default(uint))]
+    public uint scene_id
+    {
+      get { return _scene_id; }
+      set { _scene_id = value; }
+    }
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DupBeforAreaProto> _area = new global::System.Collections.Generic.List<ProtoBuf.DupBeforAreaProto>();
+    [global::ProtoBuf.ProtoMember(7, Name=@"area", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DupBeforAreaProto> area
+    {
+      get { return _area; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_CreateDuplicateRsp")]
+  public partial class LogicToCenter_CreateDuplicateRsp : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_CreateDuplicateRsp() {}
+    
+    private int _retcode;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int retcode
+    {
+      get { return _retcode; }
+      set { _retcode = value; }
+    }
+    private uint _scene_id;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public uint scene_id
     {
       get { return _scene_id; }
@@ -578,10 +912,55 @@ namespace ProtoBuf
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_EnterDuplicateRes")]
-  public partial class LogicToCenter_EnterDuplicateRes : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CenterToLogic_DuplicateNotifyPrepare")]
+  public partial class CenterToLogic_DuplicateNotifyPrepare : global::ProtoBuf.IExtensible
   {
-    public LogicToCenter_EnterDuplicateRes() {}
+    public CenterToLogic_DuplicateNotifyPrepare() {}
+    
+    private uint _char_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"char_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint char_id
+    {
+      get { return _char_id; }
+      set { _char_id = value; }
+    }
+    private uint _duplicate_id;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"duplicate_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint duplicate_id
+    {
+      get { return _duplicate_id; }
+      set { _duplicate_id = value; }
+    }
+    private uint _scene_id;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint scene_id
+    {
+      get { return _scene_id; }
+      set { _scene_id = value; }
+    }
+    private int _key_type;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"key_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int key_type
+    {
+      get { return _key_type; }
+      set { _key_type = value; }
+    }
+    private ulong _key_value;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"key_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public ulong key_value
+    {
+      get { return _key_value; }
+      set { _key_value = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_DuplicatePrepareRsp")]
+  public partial class LogicToCenter_DuplicatePrepareRsp : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_DuplicatePrepareRsp() {}
     
     private int _retcode;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"retcode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
@@ -611,21 +990,101 @@ namespace ProtoBuf
       get { return _scene_id; }
       set { _scene_id = value; }
     }
-    private ulong _start_time = default(ulong);
-    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"start_time", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(ulong))]
-    public ulong start_time
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CenterToLogic_DuplicateEnterNotify")]
+  public partial class CenterToLogic_DuplicateEnterNotify : global::ProtoBuf.IExtensible
+  {
+    public CenterToLogic_DuplicateEnterNotify() {}
+    
+    private uint _char_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"char_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint char_id
     {
-      get { return _start_time; }
-      set { _start_time = value; }
+      get { return _char_id; }
+      set { _char_id = value; }
     }
-    private uint _limit_time = default(uint);
-    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"limit_time", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint limit_time
+    private uint _duplicate_id;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"duplicate_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint duplicate_id
     {
-      get { return _limit_time; }
-      set { _limit_time = value; }
+      get { return _duplicate_id; }
+      set { _duplicate_id = value; }
+    }
+    private uint _scene_id;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint scene_id
+    {
+      get { return _scene_id; }
+      set { _scene_id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_DuplicateEnterRsp")]
+  public partial class LogicToCenter_DuplicateEnterRsp : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_DuplicateEnterRsp() {}
+    
+    private uint _char_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"char_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint char_id
+    {
+      get { return _char_id; }
+      set { _char_id = value; }
+    }
+    private uint _scene_id;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint scene_id
+    {
+      get { return _scene_id; }
+      set { _scene_id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_DuplicateLeaveRsp")]
+  public partial class LogicToCenter_DuplicateLeaveRsp : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_DuplicateLeaveRsp() {}
+    
+    private uint _char_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"char_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint char_id
+    {
+      get { return _char_id; }
+      set { _char_id = value; }
+    }
+    private uint _scene_id;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint scene_id
+    {
+      get { return _scene_id; }
+      set { _scene_id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogicToCenter_DuplicateBegin")]
+  public partial class LogicToCenter_DuplicateBegin : global::ProtoBuf.IExtensible
+  {
+    public LogicToCenter_DuplicateBegin() {}
+    
+    private uint _scene_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"scene_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint scene_id
+    {
+      get { return _scene_id; }
+      set { _scene_id = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

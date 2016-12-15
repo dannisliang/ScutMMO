@@ -146,23 +146,47 @@ namespace ProtoBuf
       [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_DUPLICATE_BEGIN", Value=170)]
       SERVER_INTERNAL_DUPLICATE_BEGIN = 170,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_CREATE_DUPLICATE_REQ", Value=171)]
-      LOGIC_TO_CENTER_CREATE_DUPLICATE_REQ = 171,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_ENTER_DUP_REQ", Value=171)]
+      LOGIC_TO_CENTER_DUPLICATE_ENTER_DUP_REQ = 171,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CENTER_TO_LOGIC_CREATE_DUPLICATE_RSP", Value=172)]
-      CENTER_TO_LOGIC_CREATE_DUPLICATE_RSP = 172,
+      [global::ProtoBuf.ProtoEnum(Name=@"CENTER_TO_LOGIC_DUPLICATE_ENTER_DUP_RSP", Value=172)]
+      CENTER_TO_LOGIC_DUPLICATE_ENTER_DUP_RSP = 172,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ENTER_DUPLICATE_RES", Value=173)]
-      LOGIC_TO_CENTER_ENTER_DUPLICATE_RES = 173,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_CREATE_DUPLICATE_SCENE_REQ", Value=173)]
+      LOGIC_TO_CENTER_CREATE_DUPLICATE_SCENE_REQ = 173,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_END", Value=174)]
-      LOGIC_TO_CENTER_DUPLICATE_END = 174,
+      [global::ProtoBuf.ProtoEnum(Name=@"CENTER_TO_LOGIC_CREATE_DUPLICATE_SCENE_RSP", Value=174)]
+      CENTER_TO_LOGIC_CREATE_DUPLICATE_SCENE_RSP = 174,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_DESTORY", Value=175)]
-      LOGIC_TO_CENTER_DUPLICATE_DESTORY = 175,
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_CREATE_DUPLICATE_RSP", Value=175)]
+      LOGIC_TO_CENTER_CREATE_DUPLICATE_RSP = 175,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_DUPLICATE_END", Value=180)]
-      SERVER_INTERNAL_DUPLICATE_END = 180,
+      [global::ProtoBuf.ProtoEnum(Name=@"CENTER_TO_LOGIC_DUPLICATE_NOTIFY_PREPARE", Value=176)]
+      CENTER_TO_LOGIC_DUPLICATE_NOTIFY_PREPARE = 176,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_PREPARE_RSP", Value=177)]
+      LOGIC_TO_CENTER_DUPLICATE_PREPARE_RSP = 177,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CENTER_TO_LOGIC_DUPLICATE_NOTIFY_ENTER", Value=178)]
+      CENTER_TO_LOGIC_DUPLICATE_NOTIFY_ENTER = 178,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_ENTER_RSP", Value=179)]
+      LOGIC_TO_CENTER_DUPLICATE_ENTER_RSP = 179,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_LEAVE_RSP", Value=180)]
+      LOGIC_TO_CENTER_DUPLICATE_LEAVE_RSP = 180,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_BEGIN_RSP", Value=181)]
+      LOGIC_TO_CENTER_DUPLICATE_BEGIN_RSP = 181,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_END_RSP", Value=182)]
+      LOGIC_TO_CENTER_DUPLICATE_END_RSP = 182,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_DUPLICATE_DESTORY_RSP", Value=183)]
+      LOGIC_TO_CENTER_DUPLICATE_DESTORY_RSP = 183,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_DUPLICATE_END", Value=190)]
+      SERVER_INTERNAL_DUPLICATE_END = 190,
             
       [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_MAIL_BEGIN", Value=200)]
       SERVER_INTERNAL_MAIL_BEGIN = 200,
@@ -237,7 +261,40 @@ namespace ProtoBuf
       CENTER_TO_LOGIC_WEEK_UPDATE_NOTIFY = 333,
             
       [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_ACTIVITY_END", Value=400)]
-      SERVER_INTERNAL_ACTIVITY_END = 400
+      SERVER_INTERNAL_ACTIVITY_END = 400,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_ROOM_BEGIN", Value=450)]
+      SERVER_INTERNAL_ROOM_BEGIN = 450,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_CREATE", Value=451)]
+      LOGIC_TO_CENTER_ROOM_CREATE = 451,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_SET_PWD", Value=452)]
+      LOGIC_TO_CENTER_ROOM_SET_PWD = 452,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_JOIN", Value=453)]
+      LOGIC_TO_CENTER_ROOM_JOIN = 453,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_INVITE_FRIEND", Value=454)]
+      LOGIC_TO_CENTER_ROOM_INVITE_FRIEND = 454,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_INVITE_REPLY", Value=455)]
+      LOGIC_TO_CENTER_ROOM_INVITE_REPLY = 455,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_KICK", Value=456)]
+      LOGIC_TO_CENTER_ROOM_KICK = 456,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_LEAVE", Value=457)]
+      LOGIC_TO_CENTER_ROOM_LEAVE = 457,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"LOGIC_TO_CENTER_ROOM_AUTO_JOIN", Value=458)]
+      LOGIC_TO_CENTER_ROOM_AUTO_JOIN = 458,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CENTER_TO_LOGIC_ROOM_CHAR_ROOM_NOTIFY", Value=459)]
+      CENTER_TO_LOGIC_ROOM_CHAR_ROOM_NOTIFY = 459,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"SERVER_INTERNAL_ROOM_END", Value=480)]
+      SERVER_INTERNAL_ROOM_END = 480
     }
   
     [global::ProtoBuf.ProtoContract(Name=@"DBProxyServerCmd")]

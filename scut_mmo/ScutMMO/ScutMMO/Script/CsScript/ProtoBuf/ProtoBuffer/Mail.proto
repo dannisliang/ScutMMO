@@ -26,10 +26,10 @@ message WCAskMailRsp
 {
 	optional uint32 mailId 							= 1;
 	optional bytes content							= 2;			//邮件正文内容
-	optional uint32 gold							= 3;			//金币
-	optional uint32 diamond							= 4;			//钻石
-	optional uint32 bindGold						= 5;			//绑定金币
-	optional uint32 bindDiamond						= 6;			//绑定钻石
+	optional int32 gold							= 3;			//金币
+	optional int32 diamond							= 4;			//钻石
+	optional int32 bindGold						= 5;			//绑定金币
+	optional int32 bindDiamond						= 6;			//绑定钻石
 	optional uint32 sellType						= 7;			//出售的货币类型
 	optional uint32 sellNum							= 8;			//出售的价格
 	optional MailAttachmentList attachmentList		= 9;			//附件具体内容
@@ -134,7 +134,7 @@ message GWSendMailReq
 	optional bytes title = 5;
 	optional bytes content = 6;
 	optional uint32 sellType = 7;
-	optional uint32 sellNum = 8;
+	optional int32 sellNum = 8;
 	optional MailAttachmentList attachment = 9;
 }
 
@@ -143,12 +143,12 @@ message WGGetMailAttachmentReq
 	optional uint32 charId = 1;
 	optional uint32 mailId = 2;
 	optional uint32 mailType = 3;
-	optional uint32 gold = 4;
-	optional uint32 bindGold = 5;
-	optional uint32 diamond = 6;
-	optional uint32 bindDiamond = 7;
+	optional int32 gold = 4;
+	optional int32 bindGold = 5;
+	optional int32 diamond = 6;
+	optional int32 bindDiamond = 7;
 	optional uint32 sellType = 8;
-	optional uint32 sellNum = 9;
+	optional int32 sellNum = 9;
 	optional MailAttachmentList attachment = 10;
 }
 
@@ -164,10 +164,10 @@ message GWUpdateMailNotify
 message OneMailAttachmentData
 {
 	optional uint32 mailId = 1;
-	optional uint32 gold = 2;
-	optional uint32 bindGold = 3;
-	optional uint32 diamond = 4;
-	optional uint32 bindDiamond = 5;
+	optional int32 gold = 2;
+	optional int32 bindGold = 3;
+	optional int32 diamond = 4;
+	optional int32 bindDiamond = 5;
 	optional MailAttachmentList attachment = 6;
 }
 
@@ -184,9 +184,9 @@ message GWSendSystemMailReq
 	optional uint32 destId = 1; //接收方ID
 	optional bytes title = 2; 
 	optional bytes content = 3;
-	optional uint32 gold = 4;
-	optional uint32 bindGold = 5;
-	optional uint32 diamond = 6;
-	optional uint32 bindDiamond = 7;
+	optional int32 gold = 4;
+	optional int32 bindGold = 5;
+	optional int32 diamond = 6;
+	optional int32 bindDiamond = 7;
 	optional MailAttachmentList attachment = 8;
 }

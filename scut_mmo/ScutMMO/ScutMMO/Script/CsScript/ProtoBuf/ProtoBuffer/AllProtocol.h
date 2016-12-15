@@ -32,6 +32,7 @@
 #include "Achievement.pb.h"
 #include "Deputy.pb.h"
 #include "Mall.pb.h"
+#include "Room.pb.h"
 
 
 #ifdef _MSC_VER

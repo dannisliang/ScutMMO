@@ -35,26 +35,27 @@ public class ConfigMgr
 	public AvocationAvocationskillConfigTable      AvocationAvocationskill;
 	public AvocationComposeConfigTable      AvocationCompose;
 	public DropDropConfigTable      DropDrop;
-	public AchievementAchievementConfigTable      AchievementAchievement;
-	public AchievementAchievementrewardConfigTable      AchievementAchievementreward;
+	public MapMapConfigTable      MapMap;
 	public RoleBornConfigTable      RoleBorn;
 	public RoleMasterConfigTable      RoleMaster;
 	public RoleAssassinConfigTable      RoleAssassin;
 	public RoleExpConfigTable      RoleExp;
 	public RoleShooterConfigTable      RoleShooter;
 	public RoleWarriorConfigTable      RoleWarrior;
-	public NpcNpcConfigTable      NpcNpc;
-	public NpcNpcfunctionConfigTable      NpcNpcfunction;
+	public MallMallConfigTable      MallMall;
+	public MallMalltypeConfigTable      MallMalltype;
 	public ItemItemConfigTable      ItemItem;
 	public TeleportBornConfigTable      TeleportBorn;
 	public TeleportSafeareaConfigTable      TeleportSafearea;
 	public TeleportTeleportConfigTable      TeleportTeleport;
 	public ComposeComposeConfigTable      ComposeCompose;
-	public MapMapConfigTable      MapMap;
+	public NpcNpcConfigTable      NpcNpc;
+	public NpcNpcfunctionConfigTable      NpcNpcfunction;
 	public MonsterMonsterConfigTable      MonsterMonster;
-	public MallMallConfigTable      MallMall;
-	public MallMalltypeConfigTable      MallMalltype;
-	public TasktrackerTasktrackerConfigTable      TasktrackerTasktracker;
+	public PetPetConfigTable      PetPet;
+	public PetPetskillConfigTable      PetPetskill;
+	public AchievementAchievementConfigTable      AchievementAchievement;
+	public AchievementAchievementrewardConfigTable      AchievementAchievementreward;
 	public EquipFashionConfigTable      EquipFashion;
 	public EquipSuitConfigTable      EquipSuit;
 	public EquipRefineConfigTable      EquipRefine;
@@ -72,6 +73,7 @@ public class ConfigMgr
 	public RandomnameManfirstConfigTable      RandomnameManfirst;
 	public RandomnameWomansecondConfigTable      RandomnameWomansecond;
 	public ConstantConstantConfigTable      ConstantConstant;
+	public TasktrackerTasktrackerConfigTable      TasktrackerTasktracker;
 	public BoxDropConfigTable      BoxDrop;
 	public SkillSummonConfigTable      SkillSummon;
 	public SkillBuffConfigTable      SkillBuff;
@@ -99,10 +101,8 @@ public class ConfigMgr
             AvocationCompose.Load();
             DropDrop = new DropDropConfigTable();
             DropDrop.Load();
-            AchievementAchievement = new AchievementAchievementConfigTable();
-            AchievementAchievement.Load();
-            AchievementAchievementreward = new AchievementAchievementrewardConfigTable();
-            AchievementAchievementreward.Load();
+            MapMap = new MapMapConfigTable();
+            MapMap.Load();
             RoleBorn = new RoleBornConfigTable();
             RoleBorn.Load();
             RoleMaster = new RoleMasterConfigTable();
@@ -115,10 +115,10 @@ public class ConfigMgr
             RoleShooter.Load();
             RoleWarrior = new RoleWarriorConfigTable();
             RoleWarrior.Load();
-            NpcNpc = new NpcNpcConfigTable();
-            NpcNpc.Load();
-            NpcNpcfunction = new NpcNpcfunctionConfigTable();
-            NpcNpcfunction.Load();
+            MallMall = new MallMallConfigTable();
+            MallMall.Load();
+            MallMalltype = new MallMalltypeConfigTable();
+            MallMalltype.Load();
             ItemItem = new ItemItemConfigTable();
             ItemItem.Load();
             TeleportBorn = new TeleportBornConfigTable();
@@ -129,16 +129,20 @@ public class ConfigMgr
             TeleportTeleport.Load();
             ComposeCompose = new ComposeComposeConfigTable();
             ComposeCompose.Load();
-            MapMap = new MapMapConfigTable();
-            MapMap.Load();
+            NpcNpc = new NpcNpcConfigTable();
+            NpcNpc.Load();
+            NpcNpcfunction = new NpcNpcfunctionConfigTable();
+            NpcNpcfunction.Load();
             MonsterMonster = new MonsterMonsterConfigTable();
             MonsterMonster.Load();
-            MallMall = new MallMallConfigTable();
-            MallMall.Load();
-            MallMalltype = new MallMalltypeConfigTable();
-            MallMalltype.Load();
-            TasktrackerTasktracker = new TasktrackerTasktrackerConfigTable();
-            TasktrackerTasktracker.Load();
+            PetPet = new PetPetConfigTable();
+            PetPet.Load();
+            PetPetskill = new PetPetskillConfigTable();
+            PetPetskill.Load();
+            AchievementAchievement = new AchievementAchievementConfigTable();
+            AchievementAchievement.Load();
+            AchievementAchievementreward = new AchievementAchievementrewardConfigTable();
+            AchievementAchievementreward.Load();
             EquipFashion = new EquipFashionConfigTable();
             EquipFashion.Load();
             EquipSuit = new EquipSuitConfigTable();
@@ -173,6 +177,8 @@ public class ConfigMgr
             RandomnameWomansecond.Load();
             ConstantConstant = new ConstantConstantConfigTable();
             ConstantConstant.Load();
+            TasktrackerTasktracker = new TasktrackerTasktrackerConfigTable();
+            TasktrackerTasktracker.Load();
             BoxDrop = new BoxDropConfigTable();
             BoxDrop.Load();
             SkillSummon = new SkillSummonConfigTable();
@@ -201,26 +207,27 @@ public class ConfigMgr
 	public static AvocationAvocationskillConfig GetAvocationAvocationskillCfg(int key) { if(!_gi.AvocationAvocationskill.configs.ContainsKey(key)) return null; return _gi.AvocationAvocationskill.configs[key]; }
 	public static AvocationComposeConfig GetAvocationComposeCfg(int key) { if(!_gi.AvocationCompose.configs.ContainsKey(key)) return null; return _gi.AvocationCompose.configs[key]; }
 	public static DropDropConfig GetDropDropCfg(int key) { if(!_gi.DropDrop.configs.ContainsKey(key)) return null; return _gi.DropDrop.configs[key]; }
-	public static AchievementAchievementConfig GetAchievementAchievementCfg(int key) { if(!_gi.AchievementAchievement.configs.ContainsKey(key)) return null; return _gi.AchievementAchievement.configs[key]; }
-	public static AchievementAchievementrewardConfig GetAchievementAchievementrewardCfg(int key) { if(!_gi.AchievementAchievementreward.configs.ContainsKey(key)) return null; return _gi.AchievementAchievementreward.configs[key]; }
+	public static MapMapConfig GetMapMapCfg(int key) { if(!_gi.MapMap.configs.ContainsKey(key)) return null; return _gi.MapMap.configs[key]; }
 	public static RoleBornConfig GetRoleBornCfg(int key) { if(!_gi.RoleBorn.configs.ContainsKey(key)) return null; return _gi.RoleBorn.configs[key]; }
 	public static RoleMasterConfig GetRoleMasterCfg(int key) { if(!_gi.RoleMaster.configs.ContainsKey(key)) return null; return _gi.RoleMaster.configs[key]; }
 	public static RoleAssassinConfig GetRoleAssassinCfg(int key) { if(!_gi.RoleAssassin.configs.ContainsKey(key)) return null; return _gi.RoleAssassin.configs[key]; }
 	public static RoleExpConfig GetRoleExpCfg(int key) { if(!_gi.RoleExp.configs.ContainsKey(key)) return null; return _gi.RoleExp.configs[key]; }
 	public static RoleShooterConfig GetRoleShooterCfg(int key) { if(!_gi.RoleShooter.configs.ContainsKey(key)) return null; return _gi.RoleShooter.configs[key]; }
 	public static RoleWarriorConfig GetRoleWarriorCfg(int key) { if(!_gi.RoleWarrior.configs.ContainsKey(key)) return null; return _gi.RoleWarrior.configs[key]; }
-	public static NpcNpcConfig GetNpcNpcCfg(int key) { if(!_gi.NpcNpc.configs.ContainsKey(key)) return null; return _gi.NpcNpc.configs[key]; }
-	public static NpcNpcfunctionConfig GetNpcNpcfunctionCfg(int key) { if(!_gi.NpcNpcfunction.configs.ContainsKey(key)) return null; return _gi.NpcNpcfunction.configs[key]; }
+	public static MallMallConfig GetMallMallCfg(int key) { if(!_gi.MallMall.configs.ContainsKey(key)) return null; return _gi.MallMall.configs[key]; }
+	public static MallMalltypeConfig GetMallMalltypeCfg(int key) { if(!_gi.MallMalltype.configs.ContainsKey(key)) return null; return _gi.MallMalltype.configs[key]; }
 	public static ItemItemConfig GetItemItemCfg(int key) { if(!_gi.ItemItem.configs.ContainsKey(key)) return null; return _gi.ItemItem.configs[key]; }
 	public static TeleportBornConfig GetTeleportBornCfg(int key) { if(!_gi.TeleportBorn.configs.ContainsKey(key)) return null; return _gi.TeleportBorn.configs[key]; }
 	public static TeleportSafeareaConfig GetTeleportSafeareaCfg(int key) { if(!_gi.TeleportSafearea.configs.ContainsKey(key)) return null; return _gi.TeleportSafearea.configs[key]; }
 	public static TeleportTeleportConfig GetTeleportTeleportCfg(int key) { if(!_gi.TeleportTeleport.configs.ContainsKey(key)) return null; return _gi.TeleportTeleport.configs[key]; }
 	public static ComposeComposeConfig GetComposeComposeCfg(int key) { if(!_gi.ComposeCompose.configs.ContainsKey(key)) return null; return _gi.ComposeCompose.configs[key]; }
-	public static MapMapConfig GetMapMapCfg(int key) { if(!_gi.MapMap.configs.ContainsKey(key)) return null; return _gi.MapMap.configs[key]; }
+	public static NpcNpcConfig GetNpcNpcCfg(int key) { if(!_gi.NpcNpc.configs.ContainsKey(key)) return null; return _gi.NpcNpc.configs[key]; }
+	public static NpcNpcfunctionConfig GetNpcNpcfunctionCfg(int key) { if(!_gi.NpcNpcfunction.configs.ContainsKey(key)) return null; return _gi.NpcNpcfunction.configs[key]; }
 	public static MonsterMonsterConfig GetMonsterMonsterCfg(int key) { if(!_gi.MonsterMonster.configs.ContainsKey(key)) return null; return _gi.MonsterMonster.configs[key]; }
-	public static MallMallConfig GetMallMallCfg(int key) { if(!_gi.MallMall.configs.ContainsKey(key)) return null; return _gi.MallMall.configs[key]; }
-	public static MallMalltypeConfig GetMallMalltypeCfg(int key) { if(!_gi.MallMalltype.configs.ContainsKey(key)) return null; return _gi.MallMalltype.configs[key]; }
-	public static TasktrackerTasktrackerConfig GetTasktrackerTasktrackerCfg(int key) { if(!_gi.TasktrackerTasktracker.configs.ContainsKey(key)) return null; return _gi.TasktrackerTasktracker.configs[key]; }
+	public static PetPetConfig GetPetPetCfg(int key) { if(!_gi.PetPet.configs.ContainsKey(key)) return null; return _gi.PetPet.configs[key]; }
+	public static PetPetskillConfig GetPetPetskillCfg(int key) { if(!_gi.PetPetskill.configs.ContainsKey(key)) return null; return _gi.PetPetskill.configs[key]; }
+	public static AchievementAchievementConfig GetAchievementAchievementCfg(int key) { if(!_gi.AchievementAchievement.configs.ContainsKey(key)) return null; return _gi.AchievementAchievement.configs[key]; }
+	public static AchievementAchievementrewardConfig GetAchievementAchievementrewardCfg(int key) { if(!_gi.AchievementAchievementreward.configs.ContainsKey(key)) return null; return _gi.AchievementAchievementreward.configs[key]; }
 	public static EquipFashionConfig GetEquipFashionCfg(int key) { if(!_gi.EquipFashion.configs.ContainsKey(key)) return null; return _gi.EquipFashion.configs[key]; }
 	public static EquipSuitConfig GetEquipSuitCfg(int key) { if(!_gi.EquipSuit.configs.ContainsKey(key)) return null; return _gi.EquipSuit.configs[key]; }
 	public static EquipRefineConfig GetEquipRefineCfg(int key) { if(!_gi.EquipRefine.configs.ContainsKey(key)) return null; return _gi.EquipRefine.configs[key]; }
@@ -238,6 +245,7 @@ public class ConfigMgr
 	public static RandomnameManfirstConfig GetRandomnameManfirstCfg(int key) { if(!_gi.RandomnameManfirst.configs.ContainsKey(key)) return null; return _gi.RandomnameManfirst.configs[key]; }
 	public static RandomnameWomansecondConfig GetRandomnameWomansecondCfg(int key) { if(!_gi.RandomnameWomansecond.configs.ContainsKey(key)) return null; return _gi.RandomnameWomansecond.configs[key]; }
 	public static ConstantConstantConfig GetConstantConstantCfg(int key) { if(!_gi.ConstantConstant.configs.ContainsKey(key)) return null; return _gi.ConstantConstant.configs[key]; }
+	public static TasktrackerTasktrackerConfig GetTasktrackerTasktrackerCfg(int key) { if(!_gi.TasktrackerTasktracker.configs.ContainsKey(key)) return null; return _gi.TasktrackerTasktracker.configs[key]; }
 	public static BoxDropConfig GetBoxDropCfg(int key) { if(!_gi.BoxDrop.configs.ContainsKey(key)) return null; return _gi.BoxDrop.configs[key]; }
 	public static SkillSummonConfig GetSkillSummonCfg(int key) { if(!_gi.SkillSummon.configs.ContainsKey(key)) return null; return _gi.SkillSummon.configs[key]; }
 	public static SkillBuffConfig GetSkillBuffCfg(int key) { if(!_gi.SkillBuff.configs.ContainsKey(key)) return null; return _gi.SkillBuff.configs[key]; }

@@ -176,32 +176,29 @@ namespace ProtoBuf
       [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_ENTER", Value=312)]
       CLIENT_TO_LOGIC_DUPLICATE_ENTER = 312,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_EXIT", Value=313)]
-      CLIENT_TO_LOGIC_DUPLICATE_EXIT = 313,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_RESULT", Value=313)]
+      CLIENT_TO_LOGIC_DUPLICATE_RESULT = 313,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_RESULT", Value=314)]
-      CLIENT_TO_LOGIC_DUPLICATE_RESULT = 314,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_AUTO_FIGHT", Value=314)]
+      CLIENT_TO_LOGIC_DUPLICATE_AUTO_FIGHT = 314,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_AUTO_FIGHT", Value=315)]
-      CLIENT_TO_LOGIC_DUPLICATE_AUTO_FIGHT = 315,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_LOTTERY", Value=315)]
+      CLIENT_TO_LOGIC_DUPLICATE_LOTTERY = 315,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_LOTTERY", Value=316)]
-      CLIENT_TO_LOGIC_DUPLICATE_LOTTERY = 316,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_BUY_NUM", Value=316)]
+      CLIENT_TO_LOGIC_DUPLICATE_BUY_NUM = 316,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_BUY_NUM", Value=317)]
-      CLIENT_TO_LOGIC_DUPLICATE_BUY_NUM = 317,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_RELIVE", Value=317)]
+      CLIENT_TO_LOGIC_DUPLICATE_RELIVE = 317,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_SWEEP", Value=318)]
-      CLIENT_TO_LOGIC_DUPLICATE_SWEEP = 318,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_LEAVE", Value=318)]
+      CLIENT_TO_LOGIC_DUPLICATE_LEAVE = 318,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_RELIVE", Value=319)]
-      CLIENT_TO_LOGIC_DUPLICATE_RELIVE = 319,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_ENTER_AREA", Value=319)]
+      CLIENT_TO_LOGIC_DUPLICATE_ENTER_AREA = 319,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_LEAVE", Value=320)]
-      CLIENT_TO_LOGIC_DUPLICATE_LEAVE = 320,
-            
-      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_ENTER_AREA", Value=321)]
-      CLIENT_TO_LOGIC_DUPLICATE_ENTER_AREA = 321,
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_DUPLICATE_AUTO_CHALLENGE", Value=320)]
+      CLIENT_TO_LOGIC_DUPLICATE_AUTO_CHALLENGE = 320,
             
       [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_SERVER_DUPLICATE_END", Value=350)]
       CLIENT_TO_SERVER_DUPLICATE_END = 350,
@@ -447,7 +444,37 @@ namespace ProtoBuf
       CLIENT_TO_CENTER_GET_TIME = 783,
             
       [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_SERVER_CENTER_END", Value=800)]
-      CLIENT_TO_SERVER_CENTER_END = 800
+      CLIENT_TO_SERVER_CENTER_END = 800,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_SERVER_ROOM_BEGIN", Value=820)]
+      CLIENT_TO_SERVER_ROOM_BEGIN = 820,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_CREATE", Value=821)]
+      CLIENT_TO_LOGIC_ROOM_CREATE = 821,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_SET_PWD", Value=822)]
+      CLIENT_TO_LOGIC_ROOM_SET_PWD = 822,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_JOIN", Value=823)]
+      CLIENT_TO_LOGIC_ROOM_JOIN = 823,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_INVITE_FRIEND", Value=824)]
+      CLIENT_TO_LOGIC_ROOM_INVITE_FRIEND = 824,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_INVITE_REPLY", Value=825)]
+      CLIENT_TO_LOGIC_ROOM_INVITE_REPLY = 825,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_BE_LEAVE", Value=826)]
+      CLIENT_TO_LOGIC_ROOM_BE_LEAVE = 826,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_LEAVE", Value=827)]
+      CLIENT_TO_LOGIC_ROOM_LEAVE = 827,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_LOGIC_ROOM_AUTO_JOIN", Value=828)]
+      CLIENT_TO_LOGIC_ROOM_AUTO_JOIN = 828,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"CLIENT_TO_SERVER_ROOM_END", Value=860)]
+      CLIENT_TO_SERVER_ROOM_END = 860
     }
   
 }

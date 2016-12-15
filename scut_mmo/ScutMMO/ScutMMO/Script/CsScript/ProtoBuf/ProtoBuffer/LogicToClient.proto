@@ -38,17 +38,18 @@ message CreaturesCreateData
 	    required uint32 prof     = 3;   //职业
 	    required uint32 level    = 4;   //等级
 	    required uint32 hp       = 5;  //生命
-	    required float posX		 = 6;  //上线位置X
-	    required float posY    	 = 7;  //上线位置Y
-	    required float posZ    	 = 8;  //上线位置Y
-		required uint32 playerrace  = 9;  //种族
-		required uint32 gender   = 10;  //性别
-		required uint32 namebody = 11;  //玩家外观编号(衣服)
-		required uint32 nameweapon = 12;  //玩家武器外观编号（武器）
-		required uint32 curstate = 13; //玩家状态
-		optional float mspeed = 14;  //玩家速度
-		optional uint32 pk_mode = 15; //pk模式
-		optional uint32 pk_killing_value = 16; //pk值
+		required uint32 maxhp    = 6;  //生命
+	    required float posX		 = 7;  //上线位置X
+	    required float posY    	 = 8;  //上线位置Y
+	    required float posZ    	 = 9;  //上线位置Y
+		required uint32 playerrace  = 10;  //种族
+		required uint32 gender   = 11;  //性别
+		required uint32 namebody = 12;  //玩家外观编号(衣服)
+		required uint32 nameweapon = 13;  //玩家武器外观编号（武器）
+		required uint32 curstate = 14; //玩家状态
+		optional float mspeed = 15;  //玩家速度
+		optional uint32 pk_mode = 16; //pk模式
+		optional uint32 pk_killing_value = 17; //pk值
 	}
 	message Monster
 	{
@@ -79,12 +80,24 @@ message CreaturesCreateData
 		required uint32 dropTypeVal = 6; //掉落类型值 独立掉落和个人掉落表示生物的cid,队伍掉落表示 队伍ID,公共掉落为0
 		required uint64 dropTime	= 7; //掉落物剩余时间, 单位：毫秒（前端用于计算掉落生存时间，个人掉落的保护时间等）
 		optional ItemProtoInfo item = 8; //掉落物品信息
+		optional uint32 gold		= 9; //掉落金币
 
 	}
 	message Summon
 	{
 		required uint32 summonCid = 1;		 //召唤物cid
 		required uint32 summonConfigId = 2; //召唤物配置表id
+		required uint32 hp              = 3; //召唤物血量
+	    required float posX		     	= 4;  //上线位置X
+	    required float posY    			= 5;  //上线位置Y
+	    required float posZ    			= 6;  //上线位置Y
+		required uint32 curstate		= 7; //召唤物状态
+		required float mspeed = 8; //怪物移动速度
+	}
+	message Pet
+	{
+		required uint32 petCid = 1;		 //召唤物cid
+		required uint32 petConfigId = 2; //召唤物配置表id
 		required uint32 hp              = 3; //召唤物血量
 	    required float posX		     	= 4;  //上线位置X
 	    required float posY    			= 5;  //上线位置Y
@@ -124,6 +137,7 @@ message CreaturesCreateData
 	repeated Herbs herbs = 6;	 //玩家可见草药
 	repeated Mine  mines = 7;	 //玩家可见矿石
 	repeated Fish  fishs = 8;	 //玩家可见鱼
+	repeated Pet pets = 9; //精灵
 }
 
 //LOGIC_TO_CLIENT_CREATURE_DESTORY

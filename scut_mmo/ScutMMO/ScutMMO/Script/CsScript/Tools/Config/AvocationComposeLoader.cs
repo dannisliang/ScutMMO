@@ -32,12 +32,13 @@ public class AvocationComposeConfig
 	public AvocationComposeNewItemConfig[]   newItem; // 合成物 
 	public int   id; // 制造id 
 	public int   consumeRandomReel_Id; // 随机卷轴ID 
+	public AvocationComposeNeedMaterialConfig[]   needMaterial; // 需要材料 
 	public int   creatList; // 所在制造列表 
 	public int   type; // 类型 
 	public AvocationComposeConsumeReelConfig[]   consumeReel; // 卷轴 
 	public int   sonType; // 子类型 
 	public int   jobList; // 职业列表 
-	public AvocationComposeNeedMaterialConfig[]   needMaterial; // 需要材料 
+	public int   isName; // 是否铭刻 
 	public int   linkId; // 关联id 
 	public int   needMoney; // 需要金币 
 
@@ -56,7 +57,7 @@ public class AvocationComposeConfigTable
 
     public object ConfigProcess(string[] row)
     {
-        if (row.Length < 34)
+        if (row.Length < 35)
         {
             return null;
         }
@@ -69,6 +70,7 @@ public class AvocationComposeConfigTable
 		rec.sonType = Utility.ToInt(rh.Read());	 //子类型
 		rec.creatList = Utility.ToInt(rh.Read());	 //所在制造列表
 		rec.jobList = Utility.ToInt(rh.Read());	 //职业列表
+		rec.isName = Utility.ToInt(rh.Read());	 //是否铭刻
 		rec.needMoney = Utility.ToInt(rh.Read());	 //需要金币
 		rec.consumeRandomReel_Id = Utility.ToInt(rh.Read());	 //随机卷轴ID
 		rec.newItem = new AvocationComposeNewItemConfig[6]; 

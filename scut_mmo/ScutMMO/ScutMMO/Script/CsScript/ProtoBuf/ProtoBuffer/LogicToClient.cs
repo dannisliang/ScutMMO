@@ -203,6 +203,13 @@ namespace ProtoBuf
       get { return _fishs; }
     }
   
+    private readonly global::System.Collections.Generic.List<ProtoBuf.CreaturesCreateData.Pet> _pets = new global::System.Collections.Generic.List<ProtoBuf.CreaturesCreateData.Pet>();
+    [global::ProtoBuf.ProtoMember(9, Name=@"pets", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.CreaturesCreateData.Pet> pets
+    {
+      get { return _pets; }
+    }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Player")]
   public partial class Player : global::ProtoBuf.IExtensible
   {
@@ -243,64 +250,71 @@ namespace ProtoBuf
       get { return _hp; }
       set { _hp = value; }
     }
+    private uint _maxhp;
+    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"maxhp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint maxhp
+    {
+      get { return _maxhp; }
+      set { _maxhp = value; }
+    }
     private float _posX;
-    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"posX", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"posX", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
     public float posX
     {
       get { return _posX; }
       set { _posX = value; }
     }
     private float _posY;
-    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"posY", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    [global::ProtoBuf.ProtoMember(8, IsRequired = true, Name=@"posY", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
     public float posY
     {
       get { return _posY; }
       set { _posY = value; }
     }
     private float _posZ;
-    [global::ProtoBuf.ProtoMember(8, IsRequired = true, Name=@"posZ", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    [global::ProtoBuf.ProtoMember(9, IsRequired = true, Name=@"posZ", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
     public float posZ
     {
       get { return _posZ; }
       set { _posZ = value; }
     }
     private uint _playerrace;
-    [global::ProtoBuf.ProtoMember(9, IsRequired = true, Name=@"playerrace", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(10, IsRequired = true, Name=@"playerrace", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public uint playerrace
     {
       get { return _playerrace; }
       set { _playerrace = value; }
     }
     private uint _gender;
-    [global::ProtoBuf.ProtoMember(10, IsRequired = true, Name=@"gender", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(11, IsRequired = true, Name=@"gender", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public uint gender
     {
       get { return _gender; }
       set { _gender = value; }
     }
     private uint _namebody;
-    [global::ProtoBuf.ProtoMember(11, IsRequired = true, Name=@"namebody", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(12, IsRequired = true, Name=@"namebody", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public uint namebody
     {
       get { return _namebody; }
       set { _namebody = value; }
     }
     private uint _nameweapon;
-    [global::ProtoBuf.ProtoMember(12, IsRequired = true, Name=@"nameweapon", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(13, IsRequired = true, Name=@"nameweapon", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public uint nameweapon
     {
       get { return _nameweapon; }
       set { _nameweapon = value; }
     }
     private uint _curstate;
-    [global::ProtoBuf.ProtoMember(13, IsRequired = true, Name=@"curstate", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(14, IsRequired = true, Name=@"curstate", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public uint curstate
     {
       get { return _curstate; }
       set { _curstate = value; }
     }
     private float _mspeed = default(float);
-    [global::ProtoBuf.ProtoMember(14, IsRequired = false, Name=@"mspeed", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    [global::ProtoBuf.ProtoMember(15, IsRequired = false, Name=@"mspeed", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
     [global::System.ComponentModel.DefaultValue(default(float))]
     public float mspeed
     {
@@ -308,7 +322,7 @@ namespace ProtoBuf
       set { _mspeed = value; }
     }
     private uint _pk_mode = default(uint);
-    [global::ProtoBuf.ProtoMember(15, IsRequired = false, Name=@"pk_mode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(16, IsRequired = false, Name=@"pk_mode", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     [global::System.ComponentModel.DefaultValue(default(uint))]
     public uint pk_mode
     {
@@ -316,7 +330,7 @@ namespace ProtoBuf
       set { _pk_mode = value; }
     }
     private uint _pk_killing_value = default(uint);
-    [global::ProtoBuf.ProtoMember(16, IsRequired = false, Name=@"pk_killing_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(17, IsRequired = false, Name=@"pk_killing_value", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     [global::System.ComponentModel.DefaultValue(default(uint))]
     public uint pk_killing_value
     {
@@ -501,6 +515,14 @@ namespace ProtoBuf
       get { return _item; }
       set { _item = value; }
     }
+    private uint _gold = default(uint);
+    [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(uint))]
+    public uint gold
+    {
+      get { return _gold; }
+      set { _gold = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -524,6 +546,72 @@ namespace ProtoBuf
     {
       get { return _summonConfigId; }
       set { _summonConfigId = value; }
+    }
+    private uint _hp;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint hp
+    {
+      get { return _hp; }
+      set { _hp = value; }
+    }
+    private float _posX;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"posX", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float posX
+    {
+      get { return _posX; }
+      set { _posX = value; }
+    }
+    private float _posY;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"posY", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float posY
+    {
+      get { return _posY; }
+      set { _posY = value; }
+    }
+    private float _posZ;
+    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"posZ", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float posZ
+    {
+      get { return _posZ; }
+      set { _posZ = value; }
+    }
+    private uint _curstate;
+    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"curstate", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint curstate
+    {
+      get { return _curstate; }
+      set { _curstate = value; }
+    }
+    private float _mspeed;
+    [global::ProtoBuf.ProtoMember(8, IsRequired = true, Name=@"mspeed", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float mspeed
+    {
+      get { return _mspeed; }
+      set { _mspeed = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Pet")]
+  public partial class Pet : global::ProtoBuf.IExtensible
+  {
+    public Pet() {}
+    
+    private uint _petCid;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"petCid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint petCid
+    {
+      get { return _petCid; }
+      set { _petCid = value; }
+    }
+    private uint _petConfigId;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"petConfigId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public uint petConfigId
+    {
+      get { return _petConfigId; }
+      set { _petConfigId = value; }
     }
     private uint _hp;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]

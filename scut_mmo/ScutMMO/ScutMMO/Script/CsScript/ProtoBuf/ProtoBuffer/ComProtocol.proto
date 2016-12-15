@@ -183,6 +183,7 @@ message CharacterDBCampMissionInfo
 	optional uint32 campTimes = 3; //当天完成次数
 	optional uint32 boxProgress = 4; //宝箱进度
 	optional bool campOpen = 5;  //阵营任务是否开启
+	optional uint32 campExtractTimes = 6; //普通抽取次数
 }
 
 //环任务数据
@@ -337,19 +338,27 @@ message CharacterDBFashionData
 }
 
 
+//副本组信息
+message DuplicateGroupProto
+{
+	required int32 group_id = 1;		//副本组ID
+	optional int32 reward_num = 2;		//已获得奖励次数
+	optional int32 enter_num = 3;		//已经进入次数
+	optional int32 buy_num	= 4;		//已购买次数
+	optional uint64 last_fresh = 5;		//上次刷新时间
+}
 //副本信息
 message DuplicateSingleProto
 {
 	required int32 dupliate_id = 1;		//副本ID
 	optional int32 star = 2;			//星级
-	optional int32 reward_count = 3;	//已获得奖励次数
-	optional uint64 last_fresh = 4;		//上次刷新获得奖励次数时间
-	optional int32 buy_count = 5;		//购买获得奖励次数
 }
 //副本数据
 message CharacterDBDuplicateData
 {
 	repeated DuplicateSingleProto duplicate = 1;	//副本数据
+	repeated DuplicateGroupProto group = 2;			//副本组数据
+	repeated uint32 open_dup = 3;					//开启副本
 }
 
 //邮件数据
@@ -637,7 +646,10 @@ enum PlayerAttr
 	P_KNIGHT = 81;						 //爵位 
 	P_UNION_CONTRI = 82;				 //工会贡献
 	P_ENERGY = 83;						 //活力值
-
+	P_TEAM_ID = 84;						 //队伍ID
+	P_TEAM_LEADER_ID = 85;				 //队长ID
+	P_ROOM_ID = 86;						 //房间ID
+	P_ROOM_LEADER_ID = 87;				 //房主ID
 	P_CLIENT_END=99;					 //客户端属性
 
 	P_VALUE_BEGIN=100;
@@ -719,40 +731,41 @@ enum PlayerAttr
 	P_ADVANCED_ATTR_TOUGHNESS=217;		   //一级属性影响韧性
 	P_ADVANCED_ATTR_MP_MAX=218;			   //一级属性影响魔法值
 	P_ADVANCED_ATTR_HP_MAX=219;			   //一级属性影响血量上限值
-	P_ADVANCED_ATTR_END=220;
+	P_ADVANCED_ATTR_CRIT_RATE = 220;		   //一级属性影响的暴击命倍率
+	P_ADVANCED_ATTR_END=230;
 
-	P_EQUIP_BEGIN=221;
-	P_EQUIP_POWER=222;					   //力量
-	P_EQUIP_INTELLIGENCE=223;			   //智力
-	P_EQUIP_AGILITY=224;				   //敏捷
-	P_EQUIP_PHYSIQUE=225;				   //体质
-	P_EQUIP_ENDURANCE=226;				   //耐力
-	P_EQUIP_PRECISION=227;				   //精准
-	P_EQUIP_MAX_HP=228;					   //最大生命值
-	P_EQUIP_MAX_MP=229;					   //最大魔法值
-	P_EQUIP_AP=230;						   //物理攻击
-	P_EQUIP_MAT=231;					   //魔法攻击
-	P_EQUIP_DP=232;						   //物理防御
-	P_EQUIP_MDP=233;					   //魔法防御
-	P_EQUIP_HIT=234;					   //命中率
-	P_EQUIP_DODGE=235;					   //闪避率
-	P_EQUIP_CRIT=236;					   //暴击
-	P_EQUIP_TOUGHNESS=237;				   //韧性
-	P_EQUIP_CRIT_RATE=238;				   //暴击倍率
-	P_EQUIP_CRIT_EXTRADAMAGE=239;		   //暴击额外伤害
-	P_EQUIP_CRIT_REDUCEDAMAGE=240;		   //暴击额外免伤
-	P_EQUIP_EXTRA_DAMAGE=241;			   //额外伤害
-	P_EQUIP_REDUCE_DAMAGE=242;			   //额外免伤
-	P_EQUIP_DAMAGE_RATE=243;			   //暴击率
-	P_EQUIP_FREEZERES=244;				   //冰冻抗性
-	P_EQUIP_BURNRES=245;				   //灼烧抗性
-	P_EQUIP_WEAKRES=246;				   //虚弱抗性
-	P_EQUIP_FASTINGRES=247;				   //禁食抗性
-	P_EQUIP_FUNKRES=248;				   //恐惧抗性
-	P_EQUIP_APDAMAGERATE=249;			   //物理伤害率
-	P_EQUIP_MATDAMAGERATE=250;			   //魔法伤害率
-	P_EQUIP_APREDUCEDAMAGERATE=251;		   //物理免伤率
-	P_EQUIP_MATREDUCEDAMAGERATE=252;	   //魔法免伤
+	P_EQUIP_BEGIN=231;
+	P_EQUIP_POWER=232;					   //力量
+	P_EQUIP_INTELLIGENCE=233;			   //智力
+	P_EQUIP_AGILITY=234;				   //敏捷
+	P_EQUIP_PHYSIQUE=235;				   //体质
+	P_EQUIP_ENDURANCE=236;				   //耐力
+	P_EQUIP_PRECISION=237;				   //精准
+	P_EQUIP_MAX_HP=238;					   //最大生命值
+	P_EQUIP_MAX_MP=239;					   //最大魔法值
+	P_EQUIP_AP=240;						   //物理攻击
+	P_EQUIP_MAT=241;					   //魔法攻击
+	P_EQUIP_DP=242;						   //物理防御
+	P_EQUIP_MDP=243;					   //魔法防御
+	P_EQUIP_HIT=244;					   //命中率
+	P_EQUIP_DODGE=245;					   //闪避率
+	P_EQUIP_CRIT=246;					   //暴击
+	P_EQUIP_TOUGHNESS=247;				   //韧性
+	P_EQUIP_CRIT_RATE=248;				   //暴击倍率
+	P_EQUIP_CRIT_EXTRADAMAGE=249;		   //暴击额外伤害
+	P_EQUIP_CRIT_REDUCEDAMAGE=250;		   //暴击额外免伤
+	P_EQUIP_EXTRA_DAMAGE=251;			   //额外伤害
+	P_EQUIP_REDUCE_DAMAGE=252;			   //额外免伤
+	P_EQUIP_DAMAGE_RATE=253;			   //暴击率
+	P_EQUIP_FREEZERES=254;				   //冰冻抗性
+	P_EQUIP_BURNRES=255;				   //灼烧抗性
+	P_EQUIP_WEAKRES=256;				   //虚弱抗性
+	P_EQUIP_FASTINGRES=257;				   //禁食抗性
+	P_EQUIP_FUNKRES=258;				   //恐惧抗性
+	P_EQUIP_APDAMAGERATE=259;			   //物理伤害率
+	P_EQUIP_MATDAMAGERATE=260;			   //魔法伤害率
+	P_EQUIP_APREDUCEDAMAGERATE=261;		   //物理免伤率
+	P_EQUIP_MATREDUCEDAMAGERATE=262;	   //魔法免伤
 	P_EQUIP_END=280;
 
 	P_LEV_BEGIN=281;
@@ -1245,3 +1258,5 @@ message MiniMailInfo
 	optional uint32 sellMoney						= 2;			//出售物品的价格(该字段只有在交易邮件中才会有)
 	optional MailAttachmentList attachmentList		= 3;			//附件具体内容(该字段只有在交易邮件中才会加载进来，普通邮件不会加载该字段值进来)
 }
+
+//

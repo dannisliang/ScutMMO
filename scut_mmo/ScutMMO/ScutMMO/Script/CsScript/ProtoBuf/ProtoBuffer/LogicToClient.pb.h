@@ -44,6 +44,7 @@ class CreaturesCreateData_Monster;
 class CreaturesCreateData_Npc;
 class CreaturesCreateData_Drop;
 class CreaturesCreateData_Summon;
+class CreaturesCreateData_Pet;
 class CreaturesCreateData_Herbs;
 class CreaturesCreateData_Mine;
 class CreaturesCreateData_Fish;
@@ -493,80 +494,87 @@ class CreaturesCreateData_Player : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 hp() const;
   inline void set_hp(::google::protobuf::uint32 value);
 
-  // required float posX = 6;
+  // required uint32 maxhp = 6;
+  inline bool has_maxhp() const;
+  inline void clear_maxhp();
+  static const int kMaxhpFieldNumber = 6;
+  inline ::google::protobuf::uint32 maxhp() const;
+  inline void set_maxhp(::google::protobuf::uint32 value);
+
+  // required float posX = 7;
   inline bool has_posx() const;
   inline void clear_posx();
-  static const int kPosXFieldNumber = 6;
+  static const int kPosXFieldNumber = 7;
   inline float posx() const;
   inline void set_posx(float value);
 
-  // required float posY = 7;
+  // required float posY = 8;
   inline bool has_posy() const;
   inline void clear_posy();
-  static const int kPosYFieldNumber = 7;
+  static const int kPosYFieldNumber = 8;
   inline float posy() const;
   inline void set_posy(float value);
 
-  // required float posZ = 8;
+  // required float posZ = 9;
   inline bool has_posz() const;
   inline void clear_posz();
-  static const int kPosZFieldNumber = 8;
+  static const int kPosZFieldNumber = 9;
   inline float posz() const;
   inline void set_posz(float value);
 
-  // required uint32 playerrace = 9;
+  // required uint32 playerrace = 10;
   inline bool has_playerrace() const;
   inline void clear_playerrace();
-  static const int kPlayerraceFieldNumber = 9;
+  static const int kPlayerraceFieldNumber = 10;
   inline ::google::protobuf::uint32 playerrace() const;
   inline void set_playerrace(::google::protobuf::uint32 value);
 
-  // required uint32 gender = 10;
+  // required uint32 gender = 11;
   inline bool has_gender() const;
   inline void clear_gender();
-  static const int kGenderFieldNumber = 10;
+  static const int kGenderFieldNumber = 11;
   inline ::google::protobuf::uint32 gender() const;
   inline void set_gender(::google::protobuf::uint32 value);
 
-  // required uint32 namebody = 11;
+  // required uint32 namebody = 12;
   inline bool has_namebody() const;
   inline void clear_namebody();
-  static const int kNamebodyFieldNumber = 11;
+  static const int kNamebodyFieldNumber = 12;
   inline ::google::protobuf::uint32 namebody() const;
   inline void set_namebody(::google::protobuf::uint32 value);
 
-  // required uint32 nameweapon = 12;
+  // required uint32 nameweapon = 13;
   inline bool has_nameweapon() const;
   inline void clear_nameweapon();
-  static const int kNameweaponFieldNumber = 12;
+  static const int kNameweaponFieldNumber = 13;
   inline ::google::protobuf::uint32 nameweapon() const;
   inline void set_nameweapon(::google::protobuf::uint32 value);
 
-  // required uint32 curstate = 13;
+  // required uint32 curstate = 14;
   inline bool has_curstate() const;
   inline void clear_curstate();
-  static const int kCurstateFieldNumber = 13;
+  static const int kCurstateFieldNumber = 14;
   inline ::google::protobuf::uint32 curstate() const;
   inline void set_curstate(::google::protobuf::uint32 value);
 
-  // optional float mspeed = 14;
+  // optional float mspeed = 15;
   inline bool has_mspeed() const;
   inline void clear_mspeed();
-  static const int kMspeedFieldNumber = 14;
+  static const int kMspeedFieldNumber = 15;
   inline float mspeed() const;
   inline void set_mspeed(float value);
 
-  // optional uint32 pk_mode = 15;
+  // optional uint32 pk_mode = 16;
   inline bool has_pk_mode() const;
   inline void clear_pk_mode();
-  static const int kPkModeFieldNumber = 15;
+  static const int kPkModeFieldNumber = 16;
   inline ::google::protobuf::uint32 pk_mode() const;
   inline void set_pk_mode(::google::protobuf::uint32 value);
 
-  // optional uint32 pk_killing_value = 16;
+  // optional uint32 pk_killing_value = 17;
   inline bool has_pk_killing_value() const;
   inline void clear_pk_killing_value();
-  static const int kPkKillingValueFieldNumber = 16;
+  static const int kPkKillingValueFieldNumber = 17;
   inline ::google::protobuf::uint32 pk_killing_value() const;
   inline void set_pk_killing_value(::google::protobuf::uint32 value);
 
@@ -582,6 +590,8 @@ class CreaturesCreateData_Player : public ::google::protobuf::Message {
   inline void clear_has_level();
   inline void set_has_hp();
   inline void clear_has_hp();
+  inline void set_has_maxhp();
+  inline void clear_has_maxhp();
   inline void set_has_posx();
   inline void clear_has_posx();
   inline void set_has_posy();
@@ -612,6 +622,7 @@ class CreaturesCreateData_Player : public ::google::protobuf::Message {
   ::google::protobuf::uint32 prof_;
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 hp_;
+  ::google::protobuf::uint32 maxhp_;
   float posx_;
   float posy_;
   float posz_;
@@ -625,7 +636,7 @@ class CreaturesCreateData_Player : public ::google::protobuf::Message {
   ::google::protobuf::uint32 pk_killing_value_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto();
@@ -1022,6 +1033,13 @@ class CreaturesCreateData_Drop : public ::google::protobuf::Message {
   inline ::ProtoBuf::ItemProtoInfo* release_item();
   inline void set_allocated_item(::ProtoBuf::ItemProtoInfo* item);
 
+  // optional uint32 gold = 9;
+  inline bool has_gold() const;
+  inline void clear_gold();
+  static const int kGoldFieldNumber = 9;
+  inline ::google::protobuf::uint32 gold() const;
+  inline void set_gold(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.CreaturesCreateData.Drop)
  private:
   inline void set_has_dropcid();
@@ -1040,6 +1058,8 @@ class CreaturesCreateData_Drop : public ::google::protobuf::Message {
   inline void clear_has_droptime();
   inline void set_has_item();
   inline void clear_has_item();
+  inline void set_has_gold();
+  inline void clear_has_gold();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1051,9 +1071,10 @@ class CreaturesCreateData_Drop : public ::google::protobuf::Message {
   ::google::protobuf::uint32 droptypeval_;
   ::google::protobuf::uint64 droptime_;
   ::ProtoBuf::ItemProtoInfo* item_;
+  ::google::protobuf::uint32 gold_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto();
@@ -1213,6 +1234,158 @@ class CreaturesCreateData_Summon : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static CreaturesCreateData_Summon* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CreaturesCreateData_Pet : public ::google::protobuf::Message {
+ public:
+  CreaturesCreateData_Pet();
+  virtual ~CreaturesCreateData_Pet();
+
+  CreaturesCreateData_Pet(const CreaturesCreateData_Pet& from);
+
+  inline CreaturesCreateData_Pet& operator=(const CreaturesCreateData_Pet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CreaturesCreateData_Pet& default_instance();
+
+  void Swap(CreaturesCreateData_Pet* other);
+
+  // implements Message ----------------------------------------------
+
+  CreaturesCreateData_Pet* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CreaturesCreateData_Pet& from);
+  void MergeFrom(const CreaturesCreateData_Pet& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 petCid = 1;
+  inline bool has_petcid() const;
+  inline void clear_petcid();
+  static const int kPetCidFieldNumber = 1;
+  inline ::google::protobuf::uint32 petcid() const;
+  inline void set_petcid(::google::protobuf::uint32 value);
+
+  // required uint32 petConfigId = 2;
+  inline bool has_petconfigid() const;
+  inline void clear_petconfigid();
+  static const int kPetConfigIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 petconfigid() const;
+  inline void set_petconfigid(::google::protobuf::uint32 value);
+
+  // required uint32 hp = 3;
+  inline bool has_hp() const;
+  inline void clear_hp();
+  static const int kHpFieldNumber = 3;
+  inline ::google::protobuf::uint32 hp() const;
+  inline void set_hp(::google::protobuf::uint32 value);
+
+  // required float posX = 4;
+  inline bool has_posx() const;
+  inline void clear_posx();
+  static const int kPosXFieldNumber = 4;
+  inline float posx() const;
+  inline void set_posx(float value);
+
+  // required float posY = 5;
+  inline bool has_posy() const;
+  inline void clear_posy();
+  static const int kPosYFieldNumber = 5;
+  inline float posy() const;
+  inline void set_posy(float value);
+
+  // required float posZ = 6;
+  inline bool has_posz() const;
+  inline void clear_posz();
+  static const int kPosZFieldNumber = 6;
+  inline float posz() const;
+  inline void set_posz(float value);
+
+  // required uint32 curstate = 7;
+  inline bool has_curstate() const;
+  inline void clear_curstate();
+  static const int kCurstateFieldNumber = 7;
+  inline ::google::protobuf::uint32 curstate() const;
+  inline void set_curstate(::google::protobuf::uint32 value);
+
+  // required float mspeed = 8;
+  inline bool has_mspeed() const;
+  inline void clear_mspeed();
+  static const int kMspeedFieldNumber = 8;
+  inline float mspeed() const;
+  inline void set_mspeed(float value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.CreaturesCreateData.Pet)
+ private:
+  inline void set_has_petcid();
+  inline void clear_has_petcid();
+  inline void set_has_petconfigid();
+  inline void clear_has_petconfigid();
+  inline void set_has_hp();
+  inline void clear_has_hp();
+  inline void set_has_posx();
+  inline void clear_has_posx();
+  inline void set_has_posy();
+  inline void clear_has_posy();
+  inline void set_has_posz();
+  inline void clear_has_posz();
+  inline void set_has_curstate();
+  inline void clear_has_curstate();
+  inline void set_has_mspeed();
+  inline void clear_has_mspeed();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 petcid_;
+  ::google::protobuf::uint32 petconfigid_;
+  ::google::protobuf::uint32 hp_;
+  float posx_;
+  float posy_;
+  float posz_;
+  ::google::protobuf::uint32 curstate_;
+  float mspeed_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fLogicToClient_2eproto();
+
+  void InitAsDefaultInstance();
+  static CreaturesCreateData_Pet* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1639,6 +1812,7 @@ class CreaturesCreateData : public ::google::protobuf::Message {
   typedef CreaturesCreateData_Npc Npc;
   typedef CreaturesCreateData_Drop Drop;
   typedef CreaturesCreateData_Summon Summon;
+  typedef CreaturesCreateData_Pet Pet;
   typedef CreaturesCreateData_Herbs Herbs;
   typedef CreaturesCreateData_Mine Mine;
   typedef CreaturesCreateData_Fish Fish;
@@ -1741,6 +1915,18 @@ class CreaturesCreateData : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Fish >*
       mutable_fishs();
 
+  // repeated .ProtoBuf.CreaturesCreateData.Pet pets = 9;
+  inline int pets_size() const;
+  inline void clear_pets();
+  static const int kPetsFieldNumber = 9;
+  inline const ::ProtoBuf::CreaturesCreateData_Pet& pets(int index) const;
+  inline ::ProtoBuf::CreaturesCreateData_Pet* mutable_pets(int index);
+  inline ::ProtoBuf::CreaturesCreateData_Pet* add_pets();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Pet >&
+      pets() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Pet >*
+      mutable_pets();
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.CreaturesCreateData)
  private:
 
@@ -1754,9 +1940,10 @@ class CreaturesCreateData : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Herbs > herbs_;
   ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Mine > mines_;
   ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Fish > fishs_;
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Pet > pets_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto();
@@ -5534,15 +5721,37 @@ inline void CreaturesCreateData_Player::set_hp(::google::protobuf::uint32 value)
   hp_ = value;
 }
 
-// required float posX = 6;
-inline bool CreaturesCreateData_Player::has_posx() const {
+// required uint32 maxhp = 6;
+inline bool CreaturesCreateData_Player::has_maxhp() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void CreaturesCreateData_Player::set_has_posx() {
+inline void CreaturesCreateData_Player::set_has_maxhp() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void CreaturesCreateData_Player::clear_has_posx() {
+inline void CreaturesCreateData_Player::clear_has_maxhp() {
   _has_bits_[0] &= ~0x00000020u;
+}
+inline void CreaturesCreateData_Player::clear_maxhp() {
+  maxhp_ = 0u;
+  clear_has_maxhp();
+}
+inline ::google::protobuf::uint32 CreaturesCreateData_Player::maxhp() const {
+  return maxhp_;
+}
+inline void CreaturesCreateData_Player::set_maxhp(::google::protobuf::uint32 value) {
+  set_has_maxhp();
+  maxhp_ = value;
+}
+
+// required float posX = 7;
+inline bool CreaturesCreateData_Player::has_posx() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CreaturesCreateData_Player::set_has_posx() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CreaturesCreateData_Player::clear_has_posx() {
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void CreaturesCreateData_Player::clear_posx() {
   posx_ = 0;
@@ -5556,15 +5765,15 @@ inline void CreaturesCreateData_Player::set_posx(float value) {
   posx_ = value;
 }
 
-// required float posY = 7;
+// required float posY = 8;
 inline bool CreaturesCreateData_Player::has_posy() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_posy() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void CreaturesCreateData_Player::clear_has_posy() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void CreaturesCreateData_Player::clear_posy() {
   posy_ = 0;
@@ -5578,15 +5787,15 @@ inline void CreaturesCreateData_Player::set_posy(float value) {
   posy_ = value;
 }
 
-// required float posZ = 8;
+// required float posZ = 9;
 inline bool CreaturesCreateData_Player::has_posz() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_posz() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void CreaturesCreateData_Player::clear_has_posz() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void CreaturesCreateData_Player::clear_posz() {
   posz_ = 0;
@@ -5600,15 +5809,15 @@ inline void CreaturesCreateData_Player::set_posz(float value) {
   posz_ = value;
 }
 
-// required uint32 playerrace = 9;
+// required uint32 playerrace = 10;
 inline bool CreaturesCreateData_Player::has_playerrace() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_playerrace() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void CreaturesCreateData_Player::clear_has_playerrace() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void CreaturesCreateData_Player::clear_playerrace() {
   playerrace_ = 0u;
@@ -5622,15 +5831,15 @@ inline void CreaturesCreateData_Player::set_playerrace(::google::protobuf::uint3
   playerrace_ = value;
 }
 
-// required uint32 gender = 10;
+// required uint32 gender = 11;
 inline bool CreaturesCreateData_Player::has_gender() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_gender() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void CreaturesCreateData_Player::clear_has_gender() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void CreaturesCreateData_Player::clear_gender() {
   gender_ = 0u;
@@ -5644,15 +5853,15 @@ inline void CreaturesCreateData_Player::set_gender(::google::protobuf::uint32 va
   gender_ = value;
 }
 
-// required uint32 namebody = 11;
+// required uint32 namebody = 12;
 inline bool CreaturesCreateData_Player::has_namebody() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_namebody() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void CreaturesCreateData_Player::clear_has_namebody() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void CreaturesCreateData_Player::clear_namebody() {
   namebody_ = 0u;
@@ -5666,15 +5875,15 @@ inline void CreaturesCreateData_Player::set_namebody(::google::protobuf::uint32 
   namebody_ = value;
 }
 
-// required uint32 nameweapon = 12;
+// required uint32 nameweapon = 13;
 inline bool CreaturesCreateData_Player::has_nameweapon() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_nameweapon() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void CreaturesCreateData_Player::clear_has_nameweapon() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void CreaturesCreateData_Player::clear_nameweapon() {
   nameweapon_ = 0u;
@@ -5688,15 +5897,15 @@ inline void CreaturesCreateData_Player::set_nameweapon(::google::protobuf::uint3
   nameweapon_ = value;
 }
 
-// required uint32 curstate = 13;
+// required uint32 curstate = 14;
 inline bool CreaturesCreateData_Player::has_curstate() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_curstate() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void CreaturesCreateData_Player::clear_has_curstate() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void CreaturesCreateData_Player::clear_curstate() {
   curstate_ = 0u;
@@ -5710,15 +5919,15 @@ inline void CreaturesCreateData_Player::set_curstate(::google::protobuf::uint32 
   curstate_ = value;
 }
 
-// optional float mspeed = 14;
+// optional float mspeed = 15;
 inline bool CreaturesCreateData_Player::has_mspeed() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_mspeed() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void CreaturesCreateData_Player::clear_has_mspeed() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void CreaturesCreateData_Player::clear_mspeed() {
   mspeed_ = 0;
@@ -5732,15 +5941,15 @@ inline void CreaturesCreateData_Player::set_mspeed(float value) {
   mspeed_ = value;
 }
 
-// optional uint32 pk_mode = 15;
+// optional uint32 pk_mode = 16;
 inline bool CreaturesCreateData_Player::has_pk_mode() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_pk_mode() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void CreaturesCreateData_Player::clear_has_pk_mode() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void CreaturesCreateData_Player::clear_pk_mode() {
   pk_mode_ = 0u;
@@ -5754,15 +5963,15 @@ inline void CreaturesCreateData_Player::set_pk_mode(::google::protobuf::uint32 v
   pk_mode_ = value;
 }
 
-// optional uint32 pk_killing_value = 16;
+// optional uint32 pk_killing_value = 17;
 inline bool CreaturesCreateData_Player::has_pk_killing_value() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void CreaturesCreateData_Player::set_has_pk_killing_value() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void CreaturesCreateData_Player::clear_has_pk_killing_value() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void CreaturesCreateData_Player::clear_pk_killing_value() {
   pk_killing_value_ = 0u;
@@ -6266,6 +6475,28 @@ inline void CreaturesCreateData_Drop::set_allocated_item(::ProtoBuf::ItemProtoIn
   }
 }
 
+// optional uint32 gold = 9;
+inline bool CreaturesCreateData_Drop::has_gold() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CreaturesCreateData_Drop::set_has_gold() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CreaturesCreateData_Drop::clear_has_gold() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CreaturesCreateData_Drop::clear_gold() {
+  gold_ = 0u;
+  clear_has_gold();
+}
+inline ::google::protobuf::uint32 CreaturesCreateData_Drop::gold() const {
+  return gold_;
+}
+inline void CreaturesCreateData_Drop::set_gold(::google::protobuf::uint32 value) {
+  set_has_gold();
+  gold_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // CreaturesCreateData_Summon
@@ -6442,6 +6673,186 @@ inline float CreaturesCreateData_Summon::mspeed() const {
   return mspeed_;
 }
 inline void CreaturesCreateData_Summon::set_mspeed(float value) {
+  set_has_mspeed();
+  mspeed_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CreaturesCreateData_Pet
+
+// required uint32 petCid = 1;
+inline bool CreaturesCreateData_Pet::has_petcid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_petcid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CreaturesCreateData_Pet::clear_has_petcid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CreaturesCreateData_Pet::clear_petcid() {
+  petcid_ = 0u;
+  clear_has_petcid();
+}
+inline ::google::protobuf::uint32 CreaturesCreateData_Pet::petcid() const {
+  return petcid_;
+}
+inline void CreaturesCreateData_Pet::set_petcid(::google::protobuf::uint32 value) {
+  set_has_petcid();
+  petcid_ = value;
+}
+
+// required uint32 petConfigId = 2;
+inline bool CreaturesCreateData_Pet::has_petconfigid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_petconfigid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CreaturesCreateData_Pet::clear_has_petconfigid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CreaturesCreateData_Pet::clear_petconfigid() {
+  petconfigid_ = 0u;
+  clear_has_petconfigid();
+}
+inline ::google::protobuf::uint32 CreaturesCreateData_Pet::petconfigid() const {
+  return petconfigid_;
+}
+inline void CreaturesCreateData_Pet::set_petconfigid(::google::protobuf::uint32 value) {
+  set_has_petconfigid();
+  petconfigid_ = value;
+}
+
+// required uint32 hp = 3;
+inline bool CreaturesCreateData_Pet::has_hp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_hp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CreaturesCreateData_Pet::clear_has_hp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CreaturesCreateData_Pet::clear_hp() {
+  hp_ = 0u;
+  clear_has_hp();
+}
+inline ::google::protobuf::uint32 CreaturesCreateData_Pet::hp() const {
+  return hp_;
+}
+inline void CreaturesCreateData_Pet::set_hp(::google::protobuf::uint32 value) {
+  set_has_hp();
+  hp_ = value;
+}
+
+// required float posX = 4;
+inline bool CreaturesCreateData_Pet::has_posx() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_posx() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CreaturesCreateData_Pet::clear_has_posx() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CreaturesCreateData_Pet::clear_posx() {
+  posx_ = 0;
+  clear_has_posx();
+}
+inline float CreaturesCreateData_Pet::posx() const {
+  return posx_;
+}
+inline void CreaturesCreateData_Pet::set_posx(float value) {
+  set_has_posx();
+  posx_ = value;
+}
+
+// required float posY = 5;
+inline bool CreaturesCreateData_Pet::has_posy() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_posy() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CreaturesCreateData_Pet::clear_has_posy() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CreaturesCreateData_Pet::clear_posy() {
+  posy_ = 0;
+  clear_has_posy();
+}
+inline float CreaturesCreateData_Pet::posy() const {
+  return posy_;
+}
+inline void CreaturesCreateData_Pet::set_posy(float value) {
+  set_has_posy();
+  posy_ = value;
+}
+
+// required float posZ = 6;
+inline bool CreaturesCreateData_Pet::has_posz() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_posz() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CreaturesCreateData_Pet::clear_has_posz() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CreaturesCreateData_Pet::clear_posz() {
+  posz_ = 0;
+  clear_has_posz();
+}
+inline float CreaturesCreateData_Pet::posz() const {
+  return posz_;
+}
+inline void CreaturesCreateData_Pet::set_posz(float value) {
+  set_has_posz();
+  posz_ = value;
+}
+
+// required uint32 curstate = 7;
+inline bool CreaturesCreateData_Pet::has_curstate() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_curstate() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CreaturesCreateData_Pet::clear_has_curstate() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CreaturesCreateData_Pet::clear_curstate() {
+  curstate_ = 0u;
+  clear_has_curstate();
+}
+inline ::google::protobuf::uint32 CreaturesCreateData_Pet::curstate() const {
+  return curstate_;
+}
+inline void CreaturesCreateData_Pet::set_curstate(::google::protobuf::uint32 value) {
+  set_has_curstate();
+  curstate_ = value;
+}
+
+// required float mspeed = 8;
+inline bool CreaturesCreateData_Pet::has_mspeed() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void CreaturesCreateData_Pet::set_has_mspeed() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void CreaturesCreateData_Pet::clear_has_mspeed() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void CreaturesCreateData_Pet::clear_mspeed() {
+  mspeed_ = 0;
+  clear_has_mspeed();
+}
+inline float CreaturesCreateData_Pet::mspeed() const {
+  return mspeed_;
+}
+inline void CreaturesCreateData_Pet::set_mspeed(float value) {
   set_has_mspeed();
   mspeed_ = value;
 }
@@ -6990,6 +7401,31 @@ CreaturesCreateData::fishs() const {
 inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Fish >*
 CreaturesCreateData::mutable_fishs() {
   return &fishs_;
+}
+
+// repeated .ProtoBuf.CreaturesCreateData.Pet pets = 9;
+inline int CreaturesCreateData::pets_size() const {
+  return pets_.size();
+}
+inline void CreaturesCreateData::clear_pets() {
+  pets_.Clear();
+}
+inline const ::ProtoBuf::CreaturesCreateData_Pet& CreaturesCreateData::pets(int index) const {
+  return pets_.Get(index);
+}
+inline ::ProtoBuf::CreaturesCreateData_Pet* CreaturesCreateData::mutable_pets(int index) {
+  return pets_.Mutable(index);
+}
+inline ::ProtoBuf::CreaturesCreateData_Pet* CreaturesCreateData::add_pets() {
+  return pets_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Pet >&
+CreaturesCreateData::pets() const {
+  return pets_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::CreaturesCreateData_Pet >*
+CreaturesCreateData::mutable_pets() {
+  return &pets_;
 }
 
 // -------------------------------------------------------------------

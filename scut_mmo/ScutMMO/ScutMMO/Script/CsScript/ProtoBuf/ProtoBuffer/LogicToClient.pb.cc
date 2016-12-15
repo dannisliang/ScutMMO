@@ -41,6 +41,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CreaturesCreateData_Summon_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CreaturesCreateData_Summon_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CreaturesCreateData_Pet_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CreaturesCreateData_Pet_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CreaturesCreateData_Herbs_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CreaturesCreateData_Herbs_reflection_ = NULL;
@@ -185,7 +188,7 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PlayerClientInfo));
   CreaturesCreateData_descriptor_ = file->message_type(1);
-  static const int CreaturesCreateData_offsets_[8] = {
+  static const int CreaturesCreateData_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, players_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, monsters_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, npcs_),
@@ -194,6 +197,7 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, herbs_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, mines_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, fishs_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData, pets_),
   };
   CreaturesCreateData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -207,12 +211,13 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreaturesCreateData));
   CreaturesCreateData_Player_descriptor_ = CreaturesCreateData_descriptor_->nested_type(0);
-  static const int CreaturesCreateData_Player_offsets_[16] = {
+  static const int CreaturesCreateData_Player_offsets_[17] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, playername_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, prof_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, hp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, maxhp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, posx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, posy_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Player, posz_),
@@ -278,7 +283,7 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreaturesCreateData_Npc));
   CreaturesCreateData_Drop_descriptor_ = CreaturesCreateData_descriptor_->nested_type(3);
-  static const int CreaturesCreateData_Drop_offsets_[8] = {
+  static const int CreaturesCreateData_Drop_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, dropcid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, posx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, posy_),
@@ -287,6 +292,7 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, droptypeval_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, droptime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, item_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Drop, gold_),
   };
   CreaturesCreateData_Drop_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -321,7 +327,29 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreaturesCreateData_Summon));
-  CreaturesCreateData_Herbs_descriptor_ = CreaturesCreateData_descriptor_->nested_type(5);
+  CreaturesCreateData_Pet_descriptor_ = CreaturesCreateData_descriptor_->nested_type(5);
+  static const int CreaturesCreateData_Pet_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, petcid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, petconfigid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, hp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, posx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, posy_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, posz_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, curstate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, mspeed_),
+  };
+  CreaturesCreateData_Pet_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CreaturesCreateData_Pet_descriptor_,
+      CreaturesCreateData_Pet::default_instance_,
+      CreaturesCreateData_Pet_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Pet, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CreaturesCreateData_Pet));
+  CreaturesCreateData_Herbs_descriptor_ = CreaturesCreateData_descriptor_->nested_type(6);
   static const int CreaturesCreateData_Herbs_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Herbs, herbscid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Herbs, herbsid_),
@@ -340,7 +368,7 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreaturesCreateData_Herbs));
-  CreaturesCreateData_Mine_descriptor_ = CreaturesCreateData_descriptor_->nested_type(6);
+  CreaturesCreateData_Mine_descriptor_ = CreaturesCreateData_descriptor_->nested_type(7);
   static const int CreaturesCreateData_Mine_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Mine, minecid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Mine, mineid_),
@@ -359,7 +387,7 @@ void protobuf_AssignDesc_ProtoBuffer_2fLogicToClient_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreaturesCreateData_Mine));
-  CreaturesCreateData_Fish_descriptor_ = CreaturesCreateData_descriptor_->nested_type(7);
+  CreaturesCreateData_Fish_descriptor_ = CreaturesCreateData_descriptor_->nested_type(8);
   static const int CreaturesCreateData_Fish_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Fish, fishcid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreaturesCreateData_Fish, fishid_),
@@ -912,6 +940,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CreaturesCreateData_Summon_descriptor_, &CreaturesCreateData_Summon::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CreaturesCreateData_Pet_descriptor_, &CreaturesCreateData_Pet::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CreaturesCreateData_Herbs_descriptor_, &CreaturesCreateData_Herbs::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CreaturesCreateData_Mine_descriptor_, &CreaturesCreateData_Mine::default_instance());
@@ -996,6 +1026,8 @@ void protobuf_ShutdownFile_ProtoBuffer_2fLogicToClient_2eproto() {
   delete CreaturesCreateData_Drop_reflection_;
   delete CreaturesCreateData_Summon::default_instance_;
   delete CreaturesCreateData_Summon_reflection_;
+  delete CreaturesCreateData_Pet::default_instance_;
+  delete CreaturesCreateData_Pet_reflection_;
   delete CreaturesCreateData_Herbs::default_instance_;
   delete CreaturesCreateData_Herbs_reflection_;
   delete CreaturesCreateData_Mine::default_instance_;
@@ -1086,7 +1118,7 @@ void protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto() {
     "\r\022\020\n\010curstate\030\r \002(\r\022#\n\006skills\030\016 \003(\0132\023.Pr"
     "otoBuf.SkillCell\022#\n\013playerAttrs\030\017 \003(\0132\016."
     "ProtoBuf.Attr\022\017\n\007pk_mode\030\020 \002(\r\022\030\n\020pk_kil"
-    "ling_value\030\021 \002(\r\"\352\013\n\023CreaturesCreateData"
+    "ling_value\030\021 \002(\r\"\275\r\n\023CreaturesCreateData"
     "\0225\n\007players\030\001 \003(\0132$.ProtoBuf.CreaturesCr"
     "eateData.Player\0227\n\010monsters\030\002 \003(\0132%.Prot"
     "oBuf.CreaturesCreateData.Monster\022/\n\004npcs"
@@ -1097,117 +1129,122 @@ void protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto() {
     "(\0132#.ProtoBuf.CreaturesCreateData.Herbs\022"
     "1\n\005mines\030\007 \003(\0132\".ProtoBuf.CreaturesCreat"
     "eData.Mine\0221\n\005fishs\030\010 \003(\0132\".ProtoBuf.Cre"
-    "aturesCreateData.Fish\032\230\002\n\006Player\022\020\n\010play"
-    "erId\030\001 \002(\r\022\022\n\nplayername\030\002 \002(\t\022\014\n\004prof\030\003"
-    " \002(\r\022\r\n\005level\030\004 \002(\r\022\n\n\002hp\030\005 \002(\r\022\014\n\004posX\030"
-    "\006 \002(\002\022\014\n\004posY\030\007 \002(\002\022\014\n\004posZ\030\010 \002(\002\022\022\n\npla"
-    "yerrace\030\t \002(\r\022\016\n\006gender\030\n \002(\r\022\020\n\010namebod"
-    "y\030\013 \002(\r\022\022\n\nnameweapon\030\014 \002(\r\022\020\n\010curstate\030"
-    "\r \002(\r\022\016\n\006mspeed\030\016 \001(\002\022\017\n\007pk_mode\030\017 \001(\r\022\030"
-    "\n\020pk_killing_value\030\020 \001(\r\032\216\001\n\007Monster\022\022\n\n"
-    "monsterCid\030\001 \002(\r\022\027\n\017monsterConfigId\030\002 \002("
-    "\r\022\n\n\002hp\030\003 \002(\r\022\014\n\004posX\030\004 \002(\002\022\014\n\004posY\030\005 \002("
-    "\002\022\014\n\004posZ\030\006 \002(\002\022\020\n\010curstate\030\007 \002(\r\022\016\n\006msp"
-    "eed\030\010 \002(\002\032T\n\003Npc\022\016\n\006npcCid\030\001 \002(\r\022\023\n\013npcC"
-    "onfigId\030\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004posY\030\004 \002("
-    "\002\022\014\n\004posZ\030\005 \002(\002\032\241\001\n\004Drop\022\017\n\007dropCid\030\001 \002("
-    "\r\022\014\n\004posX\030\002 \002(\002\022\014\n\004posY\030\003 \002(\002\022\014\n\004posZ\030\004 "
-    "\002(\002\022\020\n\010dropType\030\005 \002(\005\022\023\n\013dropTypeVal\030\006 \002"
-    "(\r\022\020\n\010dropTime\030\007 \002(\004\022%\n\004item\030\010 \001(\0132\027.Pro"
-    "toBuf.ItemProtoInfo\032\213\001\n\006Summon\022\021\n\tsummon"
-    "Cid\030\001 \002(\r\022\026\n\016summonConfigId\030\002 \002(\r\022\n\n\002hp\030"
-    "\003 \002(\r\022\014\n\004posX\030\004 \002(\002\022\014\n\004posY\030\005 \002(\002\022\014\n\004pos"
-    "Z\030\006 \002(\002\022\020\n\010curstate\030\007 \002(\r\022\016\n\006mspeed\030\010 \002("
-    "\002\032T\n\005Herbs\022\020\n\010herbsCid\030\001 \002(\r\022\017\n\007herbsId\030"
-    "\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004posY\030\004 \002(\002\022\014\n\004pos"
-    "Z\030\005 \002(\002\032Q\n\004Mine\022\017\n\007mineCid\030\001 \002(\r\022\016\n\006mine"
-    "Id\030\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004posY\030\004 \002(\002\022\014\n\004"
-    "posZ\030\005 \002(\002\032Q\n\004Fish\022\017\n\007fishCid\030\001 \002(\r\022\016\n\006f"
-    "ishId\030\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004posY\030\004 \002(\002\022"
-    "\014\n\004posZ\030\005 \002(\002\"#\n\023CreatureDestoryData\022\014\n\004"
-    "cids\030\001 \003(\r\"g\n\021SynAttrsAllClient\022\013\n\003cid\030\001"
-    " \002(\r\022%\n\rcreatureAttrs\030\002 \003(\0132\016.ProtoBuf.A"
-    "ttr\022\014\n\004name\030\003 \001(\t\022\020\n\010curstate\030\004 \001(\r\"L\n\026S"
-    "ynAttrsToSingleClient\022\013\n\003cid\030\001 \002(\r\022%\n\rcr"
-    "eatureAttrs\030\002 \003(\0132\016.ProtoBuf.Attr\"\266\001\n\016Cr"
-    "eaturesLevUp\022\013\n\003cid\030\001 \002(\r\022\r\n\005level\030\002 \002(\r"
-    "\022%\n\rcreatureAttrs\030\003 \003(\0132\016.ProtoBuf.Attr\022"
-    "2\n\tcharacter\030\004 \001(\0132\037.ProtoBuf.CreaturesL"
-    "evUp.Player\032-\n\006Player\022#\n\006skills\030\001 \003(\0132\023."
-    "ProtoBuf.SkillCell\"\350\002\n\031AccountLoginLogic"
-    "Response\022\023\n\013loginResult\030\001 \002(\r\022\022\n\nserverT"
-    "ick\030\002 \002(\004\022\020\n\010unixMSec\030\003 \002(\004\022\024\n\014accountIn"
-    "dex\030\004 \001(\r\022\021\n\tstartMark\030\005 \001(\004\"\346\001\n\006RESULT\022"
-    "\035\n\031CLIENT_LOGIN_LOGIC_SUCESS\020\000\022\037\n\033CLIENT"
-    "_LOGIN_LOGIC_TIME_OUT\020\001\022\036\n\032CLIENT_LOGIN_"
-    "LOGIC_INVALID\020\002\022\034\n\030CLIENT_LOGIN_LOGIC_BL"
-    "ACK\020\003\022\035\n\031CLIENT_LOGIN_LOGIC_REFUSE\020\004\022\037\n\033"
-    "CLIENT_LOGIN_ALREADY_ONLINE\020\005\022\036\n\032CLIENT_"
-    "LOGIN_LOGIC_UNKNOWN\020\006\"<\n\021NotifyClientSta"
-    "te\022\'\n\tgameState\030\001 \002(\0162\024.ProtoBuf.GAME_ST"
-    "ATE\"\346\001\n\020NotifyLogoutGame\022#\n\004flag\030\001 \002(\0162\025"
-    ".ProtoBuf.LOGOUT_FLAG\022I\n\023switch_server_p"
-    "aram\030\002 \001(\0132,.ProtoBuf.NotifyLogoutGame.S"
-    "witchServerParam\032b\n\021SwitchServerParam\022\027\n"
-    "\017logic_server_ip\030\001 \002(\t\022\031\n\021logic_server_p"
-    "ort\030\002 \002(\r\022\031\n\021scene_template_id\030\003 \002(\r\"T\n\033"
-    "ClientCharacterListResponse\0225\n\014charInfoL"
-    "ist\030\001 \003(\0132\037.ProtoBuf.CharacterDBSimpleIn"
-    "fo\"\334\002\n\035ClientCreateCharacterResponse\022\016\n\006"
-    "result\030\001 \002(\r\0229\n\020newCharacterInfo\030\002 \001(\0132\037"
-    ".ProtoBuf.CharacterDBSimpleInfo\"\357\001\n\006RESU"
-    "LT\022#\n\037CREATE_CHARACTER_RESULT_SUCCESS\020\000\022"
-    " \n\034CREATE_CHARACTER_RESULT_FAIL\020\001\022&\n\"CRE"
-    "ATE_CHARACTER_RESULT_NAME_EXSIT\020\002\022\'\n#CRE"
-    "ATE_CHARACTER_RESULT_NAME_LENGTH\020\003\022&\n\"CR"
-    "EATE_CHARACTER_RESULT_NAME_ERROR\020\004\022%\n!CR"
-    "EATE_CHARACTER_RESULT_MAX_COUNT\020\005\"8\n\025Cli"
-    "entDelCharacterRsp\022\017\n\007retcode\030\001 \002(\005\022\016\n\006c"
-    "harId\030\002 \001(\r\"j\n\021ReconnectResponse\0222\n\006resu"
-    "lt\030\001 \002(\0162\".ProtoBuf.ReconnectResponse.Re"
-    "sult\"!\n\006Result\022\013\n\007SUCCESS\020\001\022\n\n\006FAILED\020\002\""
-    "h\n\rSyncActorMove\022\013\n\003cid\030\001 \002(\r\022\'\n\ncurrent"
-    "Pos\030\002 \002(\0132\023.ProtoBuf.Vector3PB\022!\n\004path\030\003"
-    " \003(\0132\023.ProtoBuf.Vector3PB\"\037\n\rTransSceneR"
-    "et\022\016\n\006result\030\001 \002(\r\"V\n\rNotifyLoadMap\022\r\n\005m"
-    "apId\030\001 \002(\r\022\017\n\007routeId\030\002 \002(\r\022%\n\010transPos\030"
-    "\003 \002(\0132\023.ProtoBuf.Vector3PB\"\?\n\024NotifyTran"
-    "sLogicNode\022\014\n\004port\030\001 \002(\r\022\n\n\002ip\030\002 \002(\t\022\r\n\005"
-    "token\030\003 \002(\t\"\220\002\n\016UseSkillResult\022\017\n\007skillI"
-    "d\030\001 \002(\r\022\017\n\007userCid\030\002 \002(\r\0220\n\007targets\030\003 \003("
-    "\0132\037.ProtoBuf.UseSkillResult.Target\022.\n\tst"
-    "atebags\030\004 \003(\0132\033.ProtoBuf.BuffBagDetailIn"
-    "fo\032z\n\006Target\022\021\n\ttargetCid\030\001 \002(\r\022$\n\014creat"
-    "ureAttr\030\002 \003(\0132\016.ProtoBuf.Attr\022\'\n\ndigPerf"
-    "ors\030\003 \003(\0132\023.ProtoBuf.DigPerfor\022\016\n\006BeDead"
-    "\030\004 \001(\010\"\223\001\n\021BroadcastSkillUse\022\017\n\007skillId\030"
-    "\001 \002(\r\022\017\n\007userCid\030\002 \002(\r\022\022\n\ntargetCids\030\003 \003"
-    "(\r\022 \n\003dir\030\004 \002(\0132\023.ProtoBuf.Vector3PB\022&\n\t"
-    "targetPos\030\005 \001(\0132\023.ProtoBuf.Vector3PB\"\230\002\n"
-    "\rUseBuffResult\022\017\n\007skillId\030\001 \002(\r\022\017\n\007userC"
-    "id\030\002 \002(\r\022/\n\007targets\030\003 \003(\0132\036.ProtoBuf.Use"
-    "BuffResult.Target\022\021\n\tbuffBagId\030\004 \002(\r\022\025\n\r"
-    "buffBagInstId\030\005 \002(\r\022\016\n\006buffId\030\006 \002(\r\032z\n\006T"
-    "arget\022\021\n\ttargetCid\030\001 \002(\r\022$\n\014creatureAttr"
-    "\030\002 \003(\0132\016.ProtoBuf.Attr\022\'\n\ndigPerfors\030\003 \003"
-    "(\0132\023.ProtoBuf.DigPerfor\022\016\n\006BeDead\030\004 \001(\010\""
-    "T\n\rLevUpSkillRsp\022 \n\004code\030\001 \002(\0162\022.ProtoBu"
-    "f.ERetCode\022\017\n\007skillId\030\002 \001(\r\022\020\n\010skillLev\030"
-    "\003 \001(\r\"K\n\025BroadcastUseSkillStop\022\017\n\007skillI"
-    "d\030\001 \002(\r\022\017\n\007userCid\030\002 \002(\r\022\020\n\010stopStep\030\003 \001"
-    "(\r\"\232\001\n\021BuffBagDetailInfo\022\030\n\020buff_bag_ins"
-    "t_id\030\001 \002(\005\022\023\n\013buff_bag_id\030\002 \002(\005\022\022\n\nsende"
-    "r_cid\030\003 \001(\005\022\022\n\nrecver_cid\030\004 \001(\005\022\030\n\020conti"
-    "nuance_time\030\005 \001(\003\022\024\n\014delayed_time\030\006 \001(\005\""
-    "H\n\023BuffStateChangeInfo\022\025\n\rbuff_state_id\030"
-    "\001 \002(\005\022\r\n\005value\030\002 \002(\005\022\013\n\003cid\030\003 \002(\005\"\035\n\016AiP"
-    "layIdleInfo\022\013\n\003cid\030\001 \002(\005\"4\n\030PvpKillingVa"
-    "lueBroadCast\022\030\n\020pk_killing_value\030\001 \001(\r\"2"
-    "\n\014PvpRedPlayer\022\016\n\006is_add\030\001 \001(\010\022\022\n\nplayer"
-    "_cid\030\002 \001(\r\"t\n\027BuffReplaceNormalSkills\022\013\n"
-    "\003cid\030\001 \001(\r\022%\n\010oldSkill\030\002 \001(\0132\023.ProtoBuf."
-    "SkillCell\022%\n\010newSkill\030\003 \001(\0132\023.ProtoBuf.S"
-    "killCell", 5328);
+    "aturesCreateData.Fish\022/\n\004pets\030\t \003(\0132!.Pr"
+    "otoBuf.CreaturesCreateData.Pet\032\247\002\n\006Playe"
+    "r\022\020\n\010playerId\030\001 \002(\r\022\022\n\nplayername\030\002 \002(\t\022"
+    "\014\n\004prof\030\003 \002(\r\022\r\n\005level\030\004 \002(\r\022\n\n\002hp\030\005 \002(\r"
+    "\022\r\n\005maxhp\030\006 \002(\r\022\014\n\004posX\030\007 \002(\002\022\014\n\004posY\030\010 "
+    "\002(\002\022\014\n\004posZ\030\t \002(\002\022\022\n\nplayerrace\030\n \002(\r\022\016\n"
+    "\006gender\030\013 \002(\r\022\020\n\010namebody\030\014 \002(\r\022\022\n\nnamew"
+    "eapon\030\r \002(\r\022\020\n\010curstate\030\016 \002(\r\022\016\n\006mspeed\030"
+    "\017 \001(\002\022\017\n\007pk_mode\030\020 \001(\r\022\030\n\020pk_killing_val"
+    "ue\030\021 \001(\r\032\216\001\n\007Monster\022\022\n\nmonsterCid\030\001 \002(\r"
+    "\022\027\n\017monsterConfigId\030\002 \002(\r\022\n\n\002hp\030\003 \002(\r\022\014\n"
+    "\004posX\030\004 \002(\002\022\014\n\004posY\030\005 \002(\002\022\014\n\004posZ\030\006 \002(\002\022"
+    "\020\n\010curstate\030\007 \002(\r\022\016\n\006mspeed\030\010 \002(\002\032T\n\003Npc"
+    "\022\016\n\006npcCid\030\001 \002(\r\022\023\n\013npcConfigId\030\002 \002(\r\022\014\n"
+    "\004posX\030\003 \002(\002\022\014\n\004posY\030\004 \002(\002\022\014\n\004posZ\030\005 \002(\002\032"
+    "\257\001\n\004Drop\022\017\n\007dropCid\030\001 \002(\r\022\014\n\004posX\030\002 \002(\002\022"
+    "\014\n\004posY\030\003 \002(\002\022\014\n\004posZ\030\004 \002(\002\022\020\n\010dropType\030"
+    "\005 \002(\005\022\023\n\013dropTypeVal\030\006 \002(\r\022\020\n\010dropTime\030\007"
+    " \002(\004\022%\n\004item\030\010 \001(\0132\027.ProtoBuf.ItemProtoI"
+    "nfo\022\014\n\004gold\030\t \001(\r\032\213\001\n\006Summon\022\021\n\tsummonCi"
+    "d\030\001 \002(\r\022\026\n\016summonConfigId\030\002 \002(\r\022\n\n\002hp\030\003 "
+    "\002(\r\022\014\n\004posX\030\004 \002(\002\022\014\n\004posY\030\005 \002(\002\022\014\n\004posZ\030"
+    "\006 \002(\002\022\020\n\010curstate\030\007 \002(\r\022\016\n\006mspeed\030\010 \002(\002\032"
+    "\202\001\n\003Pet\022\016\n\006petCid\030\001 \002(\r\022\023\n\013petConfigId\030\002"
+    " \002(\r\022\n\n\002hp\030\003 \002(\r\022\014\n\004posX\030\004 \002(\002\022\014\n\004posY\030\005"
+    " \002(\002\022\014\n\004posZ\030\006 \002(\002\022\020\n\010curstate\030\007 \002(\r\022\016\n\006"
+    "mspeed\030\010 \002(\002\032T\n\005Herbs\022\020\n\010herbsCid\030\001 \002(\r\022"
+    "\017\n\007herbsId\030\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004posY\030\004"
+    " \002(\002\022\014\n\004posZ\030\005 \002(\002\032Q\n\004Mine\022\017\n\007mineCid\030\001 "
+    "\002(\r\022\016\n\006mineId\030\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004pos"
+    "Y\030\004 \002(\002\022\014\n\004posZ\030\005 \002(\002\032Q\n\004Fish\022\017\n\007fishCid"
+    "\030\001 \002(\r\022\016\n\006fishId\030\002 \002(\r\022\014\n\004posX\030\003 \002(\002\022\014\n\004"
+    "posY\030\004 \002(\002\022\014\n\004posZ\030\005 \002(\002\"#\n\023CreatureDest"
+    "oryData\022\014\n\004cids\030\001 \003(\r\"g\n\021SynAttrsAllClie"
+    "nt\022\013\n\003cid\030\001 \002(\r\022%\n\rcreatureAttrs\030\002 \003(\0132\016"
+    ".ProtoBuf.Attr\022\014\n\004name\030\003 \001(\t\022\020\n\010curstate"
+    "\030\004 \001(\r\"L\n\026SynAttrsToSingleClient\022\013\n\003cid\030"
+    "\001 \002(\r\022%\n\rcreatureAttrs\030\002 \003(\0132\016.ProtoBuf."
+    "Attr\"\266\001\n\016CreaturesLevUp\022\013\n\003cid\030\001 \002(\r\022\r\n\005"
+    "level\030\002 \002(\r\022%\n\rcreatureAttrs\030\003 \003(\0132\016.Pro"
+    "toBuf.Attr\0222\n\tcharacter\030\004 \001(\0132\037.ProtoBuf"
+    ".CreaturesLevUp.Player\032-\n\006Player\022#\n\006skil"
+    "ls\030\001 \003(\0132\023.ProtoBuf.SkillCell\"\350\002\n\031Accoun"
+    "tLoginLogicResponse\022\023\n\013loginResult\030\001 \002(\r"
+    "\022\022\n\nserverTick\030\002 \002(\004\022\020\n\010unixMSec\030\003 \002(\004\022\024"
+    "\n\014accountIndex\030\004 \001(\r\022\021\n\tstartMark\030\005 \001(\004\""
+    "\346\001\n\006RESULT\022\035\n\031CLIENT_LOGIN_LOGIC_SUCESS\020"
+    "\000\022\037\n\033CLIENT_LOGIN_LOGIC_TIME_OUT\020\001\022\036\n\032CL"
+    "IENT_LOGIN_LOGIC_INVALID\020\002\022\034\n\030CLIENT_LOG"
+    "IN_LOGIC_BLACK\020\003\022\035\n\031CLIENT_LOGIN_LOGIC_R"
+    "EFUSE\020\004\022\037\n\033CLIENT_LOGIN_ALREADY_ONLINE\020\005"
+    "\022\036\n\032CLIENT_LOGIN_LOGIC_UNKNOWN\020\006\"<\n\021Noti"
+    "fyClientState\022\'\n\tgameState\030\001 \002(\0162\024.Proto"
+    "Buf.GAME_STATE\"\346\001\n\020NotifyLogoutGame\022#\n\004f"
+    "lag\030\001 \002(\0162\025.ProtoBuf.LOGOUT_FLAG\022I\n\023swit"
+    "ch_server_param\030\002 \001(\0132,.ProtoBuf.NotifyL"
+    "ogoutGame.SwitchServerParam\032b\n\021SwitchSer"
+    "verParam\022\027\n\017logic_server_ip\030\001 \002(\t\022\031\n\021log"
+    "ic_server_port\030\002 \002(\r\022\031\n\021scene_template_i"
+    "d\030\003 \002(\r\"T\n\033ClientCharacterListResponse\0225"
+    "\n\014charInfoList\030\001 \003(\0132\037.ProtoBuf.Characte"
+    "rDBSimpleInfo\"\334\002\n\035ClientCreateCharacterR"
+    "esponse\022\016\n\006result\030\001 \002(\r\0229\n\020newCharacterI"
+    "nfo\030\002 \001(\0132\037.ProtoBuf.CharacterDBSimpleIn"
+    "fo\"\357\001\n\006RESULT\022#\n\037CREATE_CHARACTER_RESULT"
+    "_SUCCESS\020\000\022 \n\034CREATE_CHARACTER_RESULT_FA"
+    "IL\020\001\022&\n\"CREATE_CHARACTER_RESULT_NAME_EXS"
+    "IT\020\002\022\'\n#CREATE_CHARACTER_RESULT_NAME_LEN"
+    "GTH\020\003\022&\n\"CREATE_CHARACTER_RESULT_NAME_ER"
+    "ROR\020\004\022%\n!CREATE_CHARACTER_RESULT_MAX_COU"
+    "NT\020\005\"8\n\025ClientDelCharacterRsp\022\017\n\007retcode"
+    "\030\001 \002(\005\022\016\n\006charId\030\002 \001(\r\"j\n\021ReconnectRespo"
+    "nse\0222\n\006result\030\001 \002(\0162\".ProtoBuf.Reconnect"
+    "Response.Result\"!\n\006Result\022\013\n\007SUCCESS\020\001\022\n"
+    "\n\006FAILED\020\002\"h\n\rSyncActorMove\022\013\n\003cid\030\001 \002(\r"
+    "\022\'\n\ncurrentPos\030\002 \002(\0132\023.ProtoBuf.Vector3P"
+    "B\022!\n\004path\030\003 \003(\0132\023.ProtoBuf.Vector3PB\"\037\n\r"
+    "TransSceneRet\022\016\n\006result\030\001 \002(\r\"V\n\rNotifyL"
+    "oadMap\022\r\n\005mapId\030\001 \002(\r\022\017\n\007routeId\030\002 \002(\r\022%"
+    "\n\010transPos\030\003 \002(\0132\023.ProtoBuf.Vector3PB\"\?\n"
+    "\024NotifyTransLogicNode\022\014\n\004port\030\001 \002(\r\022\n\n\002i"
+    "p\030\002 \002(\t\022\r\n\005token\030\003 \002(\t\"\220\002\n\016UseSkillResul"
+    "t\022\017\n\007skillId\030\001 \002(\r\022\017\n\007userCid\030\002 \002(\r\0220\n\007t"
+    "argets\030\003 \003(\0132\037.ProtoBuf.UseSkillResult.T"
+    "arget\022.\n\tstatebags\030\004 \003(\0132\033.ProtoBuf.Buff"
+    "BagDetailInfo\032z\n\006Target\022\021\n\ttargetCid\030\001 \002"
+    "(\r\022$\n\014creatureAttr\030\002 \003(\0132\016.ProtoBuf.Attr"
+    "\022\'\n\ndigPerfors\030\003 \003(\0132\023.ProtoBuf.DigPerfo"
+    "r\022\016\n\006BeDead\030\004 \001(\010\"\223\001\n\021BroadcastSkillUse\022"
+    "\017\n\007skillId\030\001 \002(\r\022\017\n\007userCid\030\002 \002(\r\022\022\n\ntar"
+    "getCids\030\003 \003(\r\022 \n\003dir\030\004 \002(\0132\023.ProtoBuf.Ve"
+    "ctor3PB\022&\n\ttargetPos\030\005 \001(\0132\023.ProtoBuf.Ve"
+    "ctor3PB\"\230\002\n\rUseBuffResult\022\017\n\007skillId\030\001 \002"
+    "(\r\022\017\n\007userCid\030\002 \002(\r\022/\n\007targets\030\003 \003(\0132\036.P"
+    "rotoBuf.UseBuffResult.Target\022\021\n\tbuffBagI"
+    "d\030\004 \002(\r\022\025\n\rbuffBagInstId\030\005 \002(\r\022\016\n\006buffId"
+    "\030\006 \002(\r\032z\n\006Target\022\021\n\ttargetCid\030\001 \002(\r\022$\n\014c"
+    "reatureAttr\030\002 \003(\0132\016.ProtoBuf.Attr\022\'\n\ndig"
+    "Perfors\030\003 \003(\0132\023.ProtoBuf.DigPerfor\022\016\n\006Be"
+    "Dead\030\004 \001(\010\"T\n\rLevUpSkillRsp\022 \n\004code\030\001 \002("
+    "\0162\022.ProtoBuf.ERetCode\022\017\n\007skillId\030\002 \001(\r\022\020"
+    "\n\010skillLev\030\003 \001(\r\"K\n\025BroadcastUseSkillSto"
+    "p\022\017\n\007skillId\030\001 \002(\r\022\017\n\007userCid\030\002 \002(\r\022\020\n\010s"
+    "topStep\030\003 \001(\r\"\232\001\n\021BuffBagDetailInfo\022\030\n\020b"
+    "uff_bag_inst_id\030\001 \002(\005\022\023\n\013buff_bag_id\030\002 \002"
+    "(\005\022\022\n\nsender_cid\030\003 \001(\005\022\022\n\nrecver_cid\030\004 \001"
+    "(\005\022\030\n\020continuance_time\030\005 \001(\003\022\024\n\014delayed_"
+    "time\030\006 \001(\005\"H\n\023BuffStateChangeInfo\022\025\n\rbuf"
+    "f_state_id\030\001 \002(\005\022\r\n\005value\030\002 \002(\005\022\013\n\003cid\030\003"
+    " \002(\005\"\035\n\016AiPlayIdleInfo\022\013\n\003cid\030\001 \002(\005\"4\n\030P"
+    "vpKillingValueBroadCast\022\030\n\020pk_killing_va"
+    "lue\030\001 \001(\r\"2\n\014PvpRedPlayer\022\016\n\006is_add\030\001 \001("
+    "\010\022\022\n\nplayer_cid\030\002 \001(\r\"t\n\027BuffReplaceNorm"
+    "alSkills\022\013\n\003cid\030\001 \001(\r\022%\n\010oldSkill\030\002 \001(\0132"
+    "\023.ProtoBuf.SkillCell\022%\n\010newSkill\030\003 \001(\0132\023"
+    ".ProtoBuf.SkillCell", 5539);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ProtoBuffer/LogicToClient.proto", &protobuf_RegisterTypes);
   PlayerClientInfo::default_instance_ = new PlayerClientInfo();
@@ -1217,6 +1254,7 @@ void protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto() {
   CreaturesCreateData_Npc::default_instance_ = new CreaturesCreateData_Npc();
   CreaturesCreateData_Drop::default_instance_ = new CreaturesCreateData_Drop();
   CreaturesCreateData_Summon::default_instance_ = new CreaturesCreateData_Summon();
+  CreaturesCreateData_Pet::default_instance_ = new CreaturesCreateData_Pet();
   CreaturesCreateData_Herbs::default_instance_ = new CreaturesCreateData_Herbs();
   CreaturesCreateData_Mine::default_instance_ = new CreaturesCreateData_Mine();
   CreaturesCreateData_Fish::default_instance_ = new CreaturesCreateData_Fish();
@@ -1257,6 +1295,7 @@ void protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto() {
   CreaturesCreateData_Npc::default_instance_->InitAsDefaultInstance();
   CreaturesCreateData_Drop::default_instance_->InitAsDefaultInstance();
   CreaturesCreateData_Summon::default_instance_->InitAsDefaultInstance();
+  CreaturesCreateData_Pet::default_instance_->InitAsDefaultInstance();
   CreaturesCreateData_Herbs::default_instance_->InitAsDefaultInstance();
   CreaturesCreateData_Mine::default_instance_->InitAsDefaultInstance();
   CreaturesCreateData_Fish::default_instance_->InitAsDefaultInstance();
@@ -2184,6 +2223,7 @@ const int CreaturesCreateData_Player::kPlayernameFieldNumber;
 const int CreaturesCreateData_Player::kProfFieldNumber;
 const int CreaturesCreateData_Player::kLevelFieldNumber;
 const int CreaturesCreateData_Player::kHpFieldNumber;
+const int CreaturesCreateData_Player::kMaxhpFieldNumber;
 const int CreaturesCreateData_Player::kPosXFieldNumber;
 const int CreaturesCreateData_Player::kPosYFieldNumber;
 const int CreaturesCreateData_Player::kPosZFieldNumber;
@@ -2218,6 +2258,7 @@ void CreaturesCreateData_Player::SharedCtor() {
   prof_ = 0u;
   level_ = 0u;
   hp_ = 0u;
+  maxhp_ = 0u;
   posx_ = 0;
   posy_ = 0;
   posz_ = 0;
@@ -2276,11 +2317,12 @@ void CreaturesCreateData_Player::Clear() {
     prof_ = 0u;
     level_ = 0u;
     hp_ = 0u;
+    maxhp_ = 0u;
     posx_ = 0;
     posy_ = 0;
-    posz_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    posz_ = 0;
     playerrace_ = 0u;
     gender_ = 0u;
     namebody_ = 0u;
@@ -2288,6 +2330,8 @@ void CreaturesCreateData_Player::Clear() {
     curstate_ = 0u;
     mspeed_ = 0;
     pk_mode_ = 0u;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     pk_killing_value_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2376,12 +2420,28 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(53)) goto parse_posX;
+        if (input->ExpectTag(48)) goto parse_maxhp;
         break;
       }
 
-      // required float posX = 6;
+      // required uint32 maxhp = 6;
       case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_maxhp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &maxhp_)));
+          set_has_maxhp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(61)) goto parse_posX;
+        break;
+      }
+
+      // required float posX = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
          parse_posX:
@@ -2392,12 +2452,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(61)) goto parse_posY;
+        if (input->ExpectTag(69)) goto parse_posY;
         break;
       }
 
-      // required float posY = 7;
-      case 7: {
+      // required float posY = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
          parse_posY:
@@ -2408,12 +2468,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(69)) goto parse_posZ;
+        if (input->ExpectTag(77)) goto parse_posZ;
         break;
       }
 
-      // required float posZ = 8;
-      case 8: {
+      // required float posZ = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
          parse_posZ:
@@ -2424,12 +2484,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_playerrace;
+        if (input->ExpectTag(80)) goto parse_playerrace;
         break;
       }
 
-      // required uint32 playerrace = 9;
-      case 9: {
+      // required uint32 playerrace = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_playerrace:
@@ -2440,12 +2500,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_gender;
+        if (input->ExpectTag(88)) goto parse_gender;
         break;
       }
 
-      // required uint32 gender = 10;
-      case 10: {
+      // required uint32 gender = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_gender:
@@ -2456,12 +2516,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_namebody;
+        if (input->ExpectTag(96)) goto parse_namebody;
         break;
       }
 
-      // required uint32 namebody = 11;
-      case 11: {
+      // required uint32 namebody = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_namebody:
@@ -2472,12 +2532,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_nameweapon;
+        if (input->ExpectTag(104)) goto parse_nameweapon;
         break;
       }
 
-      // required uint32 nameweapon = 12;
-      case 12: {
+      // required uint32 nameweapon = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_nameweapon:
@@ -2488,12 +2548,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_curstate;
+        if (input->ExpectTag(112)) goto parse_curstate;
         break;
       }
 
-      // required uint32 curstate = 13;
-      case 13: {
+      // required uint32 curstate = 14;
+      case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_curstate:
@@ -2504,12 +2564,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(117)) goto parse_mspeed;
+        if (input->ExpectTag(125)) goto parse_mspeed;
         break;
       }
 
-      // optional float mspeed = 14;
-      case 14: {
+      // optional float mspeed = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
          parse_mspeed:
@@ -2520,12 +2580,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_pk_mode;
+        if (input->ExpectTag(128)) goto parse_pk_mode;
         break;
       }
 
-      // optional uint32 pk_mode = 15;
-      case 15: {
+      // optional uint32 pk_mode = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_pk_mode:
@@ -2536,12 +2596,12 @@ bool CreaturesCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_pk_killing_value;
+        if (input->ExpectTag(136)) goto parse_pk_killing_value;
         break;
       }
 
-      // optional uint32 pk_killing_value = 16;
-      case 16: {
+      // optional uint32 pk_killing_value = 17;
+      case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_pk_killing_value:
@@ -2603,59 +2663,64 @@ void CreaturesCreateData_Player::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->hp(), output);
   }
 
-  // required float posX = 6;
+  // required uint32 maxhp = 6;
+  if (has_maxhp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->maxhp(), output);
+  }
+
+  // required float posX = 7;
   if (has_posx()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->posx(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->posx(), output);
   }
 
-  // required float posY = 7;
+  // required float posY = 8;
   if (has_posy()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->posy(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->posy(), output);
   }
 
-  // required float posZ = 8;
+  // required float posZ = 9;
   if (has_posz()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->posz(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->posz(), output);
   }
 
-  // required uint32 playerrace = 9;
+  // required uint32 playerrace = 10;
   if (has_playerrace()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->playerrace(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->playerrace(), output);
   }
 
-  // required uint32 gender = 10;
+  // required uint32 gender = 11;
   if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->gender(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(11, this->gender(), output);
   }
 
-  // required uint32 namebody = 11;
+  // required uint32 namebody = 12;
   if (has_namebody()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(11, this->namebody(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->namebody(), output);
   }
 
-  // required uint32 nameweapon = 12;
+  // required uint32 nameweapon = 13;
   if (has_nameweapon()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->nameweapon(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->nameweapon(), output);
   }
 
-  // required uint32 curstate = 13;
+  // required uint32 curstate = 14;
   if (has_curstate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->curstate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->curstate(), output);
   }
 
-  // optional float mspeed = 14;
+  // optional float mspeed = 15;
   if (has_mspeed()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(14, this->mspeed(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(15, this->mspeed(), output);
   }
 
-  // optional uint32 pk_mode = 15;
+  // optional uint32 pk_mode = 16;
   if (has_pk_mode()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(15, this->pk_mode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(16, this->pk_mode(), output);
   }
 
-  // optional uint32 pk_killing_value = 16;
+  // optional uint32 pk_killing_value = 17;
   if (has_pk_killing_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(16, this->pk_killing_value(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(17, this->pk_killing_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2696,59 +2761,64 @@ void CreaturesCreateData_Player::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->hp(), target);
   }
 
-  // required float posX = 6;
+  // required uint32 maxhp = 6;
+  if (has_maxhp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->maxhp(), target);
+  }
+
+  // required float posX = 7;
   if (has_posx()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->posx(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->posx(), target);
   }
 
-  // required float posY = 7;
+  // required float posY = 8;
   if (has_posy()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->posy(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->posy(), target);
   }
 
-  // required float posZ = 8;
+  // required float posZ = 9;
   if (has_posz()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->posz(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->posz(), target);
   }
 
-  // required uint32 playerrace = 9;
+  // required uint32 playerrace = 10;
   if (has_playerrace()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->playerrace(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->playerrace(), target);
   }
 
-  // required uint32 gender = 10;
+  // required uint32 gender = 11;
   if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->gender(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(11, this->gender(), target);
   }
 
-  // required uint32 namebody = 11;
+  // required uint32 namebody = 12;
   if (has_namebody()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(11, this->namebody(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->namebody(), target);
   }
 
-  // required uint32 nameweapon = 12;
+  // required uint32 nameweapon = 13;
   if (has_nameweapon()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->nameweapon(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->nameweapon(), target);
   }
 
-  // required uint32 curstate = 13;
+  // required uint32 curstate = 14;
   if (has_curstate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->curstate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->curstate(), target);
   }
 
-  // optional float mspeed = 14;
+  // optional float mspeed = 15;
   if (has_mspeed()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(14, this->mspeed(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(15, this->mspeed(), target);
   }
 
-  // optional uint32 pk_mode = 15;
+  // optional uint32 pk_mode = 16;
   if (has_pk_mode()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(15, this->pk_mode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(16, this->pk_mode(), target);
   }
 
-  // optional uint32 pk_killing_value = 16;
+  // optional uint32 pk_killing_value = 17;
   if (has_pk_killing_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(16, this->pk_killing_value(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(17, this->pk_killing_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2797,71 +2867,80 @@ int CreaturesCreateData_Player::ByteSize() const {
           this->hp());
     }
 
-    // required float posX = 6;
+    // required uint32 maxhp = 6;
+    if (has_maxhp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->maxhp());
+    }
+
+    // required float posX = 7;
     if (has_posx()) {
       total_size += 1 + 4;
     }
 
-    // required float posY = 7;
+    // required float posY = 8;
     if (has_posy()) {
-      total_size += 1 + 4;
-    }
-
-    // required float posZ = 8;
-    if (has_posz()) {
       total_size += 1 + 4;
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // required uint32 playerrace = 9;
+    // required float posZ = 9;
+    if (has_posz()) {
+      total_size += 1 + 4;
+    }
+
+    // required uint32 playerrace = 10;
     if (has_playerrace()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->playerrace());
     }
 
-    // required uint32 gender = 10;
+    // required uint32 gender = 11;
     if (has_gender()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->gender());
     }
 
-    // required uint32 namebody = 11;
+    // required uint32 namebody = 12;
     if (has_namebody()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->namebody());
     }
 
-    // required uint32 nameweapon = 12;
+    // required uint32 nameweapon = 13;
     if (has_nameweapon()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->nameweapon());
     }
 
-    // required uint32 curstate = 13;
+    // required uint32 curstate = 14;
     if (has_curstate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->curstate());
     }
 
-    // optional float mspeed = 14;
+    // optional float mspeed = 15;
     if (has_mspeed()) {
       total_size += 1 + 4;
     }
 
-    // optional uint32 pk_mode = 15;
+    // optional uint32 pk_mode = 16;
     if (has_pk_mode()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->pk_mode());
     }
 
-    // optional uint32 pk_killing_value = 16;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional uint32 pk_killing_value = 17;
     if (has_pk_killing_value()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -2910,17 +2989,20 @@ void CreaturesCreateData_Player::MergeFrom(const CreaturesCreateData_Player& fro
     if (from.has_hp()) {
       set_hp(from.hp());
     }
+    if (from.has_maxhp()) {
+      set_maxhp(from.maxhp());
+    }
     if (from.has_posx()) {
       set_posx(from.posx());
     }
     if (from.has_posy()) {
       set_posy(from.posy());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_posz()) {
       set_posz(from.posz());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_playerrace()) {
       set_playerrace(from.playerrace());
     }
@@ -2942,6 +3024,8 @@ void CreaturesCreateData_Player::MergeFrom(const CreaturesCreateData_Player& fro
     if (from.has_pk_mode()) {
       set_pk_mode(from.pk_mode());
     }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_pk_killing_value()) {
       set_pk_killing_value(from.pk_killing_value());
     }
@@ -2962,7 +3046,7 @@ void CreaturesCreateData_Player::CopyFrom(const CreaturesCreateData_Player& from
 }
 
 bool CreaturesCreateData_Player::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00001fff) != 0x00001fff) return false;
+  if ((_has_bits_[0] & 0x00003fff) != 0x00003fff) return false;
 
   return true;
 }
@@ -2974,6 +3058,7 @@ void CreaturesCreateData_Player::Swap(CreaturesCreateData_Player* other) {
     std::swap(prof_, other->prof_);
     std::swap(level_, other->level_);
     std::swap(hp_, other->hp_);
+    std::swap(maxhp_, other->maxhp_);
     std::swap(posx_, other->posx_);
     std::swap(posy_, other->posy_);
     std::swap(posz_, other->posz_);
@@ -3855,6 +3940,7 @@ const int CreaturesCreateData_Drop::kDropTypeFieldNumber;
 const int CreaturesCreateData_Drop::kDropTypeValFieldNumber;
 const int CreaturesCreateData_Drop::kDropTimeFieldNumber;
 const int CreaturesCreateData_Drop::kItemFieldNumber;
+const int CreaturesCreateData_Drop::kGoldFieldNumber;
 #endif  // !_MSC_VER
 
 CreaturesCreateData_Drop::CreaturesCreateData_Drop()
@@ -3882,6 +3968,7 @@ void CreaturesCreateData_Drop::SharedCtor() {
   droptypeval_ = 0u;
   droptime_ = GOOGLE_ULONGLONG(0);
   item_ = NULL;
+  gold_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3928,6 +4015,9 @@ void CreaturesCreateData_Drop::Clear() {
     if (has_item()) {
       if (item_ != NULL) item_->::ProtoBuf::ItemProtoInfo::Clear();
     }
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    gold_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4060,6 +4150,22 @@ bool CreaturesCreateData_Drop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(72)) goto parse_gold;
+        break;
+      }
+
+      // optional uint32 gold = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_gold:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &gold_)));
+          set_has_gold();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4123,6 +4229,11 @@ void CreaturesCreateData_Drop::SerializeWithCachedSizes(
       8, this->item(), output);
   }
 
+  // optional uint32 gold = 9;
+  if (has_gold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->gold(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4171,6 +4282,11 @@ void CreaturesCreateData_Drop::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, this->item(), target);
+  }
+
+  // optional uint32 gold = 9;
+  if (has_gold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->gold(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4235,6 +4351,15 @@ int CreaturesCreateData_Drop::ByteSize() const {
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional uint32 gold = 9;
+    if (has_gold()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->gold());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -4286,6 +4411,11 @@ void CreaturesCreateData_Drop::MergeFrom(const CreaturesCreateData_Drop& from) {
       mutable_item()->::ProtoBuf::ItemProtoInfo::MergeFrom(from.item());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_gold()) {
+      set_gold(from.gold());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -4320,6 +4450,7 @@ void CreaturesCreateData_Drop::Swap(CreaturesCreateData_Drop* other) {
     std::swap(droptypeval_, other->droptypeval_);
     std::swap(droptime_, other->droptime_);
     std::swap(item_, other->item_);
+    std::swap(gold_, other->gold_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4812,6 +4943,487 @@ void CreaturesCreateData_Summon::Swap(CreaturesCreateData_Summon* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = CreaturesCreateData_Summon_descriptor_;
   metadata.reflection = CreaturesCreateData_Summon_reflection_;
+  return metadata;
+}
+
+
+// -------------------------------------------------------------------
+
+#ifndef _MSC_VER
+const int CreaturesCreateData_Pet::kPetCidFieldNumber;
+const int CreaturesCreateData_Pet::kPetConfigIdFieldNumber;
+const int CreaturesCreateData_Pet::kHpFieldNumber;
+const int CreaturesCreateData_Pet::kPosXFieldNumber;
+const int CreaturesCreateData_Pet::kPosYFieldNumber;
+const int CreaturesCreateData_Pet::kPosZFieldNumber;
+const int CreaturesCreateData_Pet::kCurstateFieldNumber;
+const int CreaturesCreateData_Pet::kMspeedFieldNumber;
+#endif  // !_MSC_VER
+
+CreaturesCreateData_Pet::CreaturesCreateData_Pet()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CreaturesCreateData_Pet::InitAsDefaultInstance() {
+}
+
+CreaturesCreateData_Pet::CreaturesCreateData_Pet(const CreaturesCreateData_Pet& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CreaturesCreateData_Pet::SharedCtor() {
+  _cached_size_ = 0;
+  petcid_ = 0u;
+  petconfigid_ = 0u;
+  hp_ = 0u;
+  posx_ = 0;
+  posy_ = 0;
+  posz_ = 0;
+  curstate_ = 0u;
+  mspeed_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CreaturesCreateData_Pet::~CreaturesCreateData_Pet() {
+  SharedDtor();
+}
+
+void CreaturesCreateData_Pet::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CreaturesCreateData_Pet::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CreaturesCreateData_Pet::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CreaturesCreateData_Pet_descriptor_;
+}
+
+const CreaturesCreateData_Pet& CreaturesCreateData_Pet::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ProtoBuffer_2fLogicToClient_2eproto();
+  return *default_instance_;
+}
+
+CreaturesCreateData_Pet* CreaturesCreateData_Pet::default_instance_ = NULL;
+
+CreaturesCreateData_Pet* CreaturesCreateData_Pet::New() const {
+  return new CreaturesCreateData_Pet;
+}
+
+void CreaturesCreateData_Pet::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    petcid_ = 0u;
+    petconfigid_ = 0u;
+    hp_ = 0u;
+    posx_ = 0;
+    posy_ = 0;
+    posz_ = 0;
+    curstate_ = 0u;
+    mspeed_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CreaturesCreateData_Pet::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 petCid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &petcid_)));
+          set_has_petcid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_petConfigId;
+        break;
+      }
+
+      // required uint32 petConfigId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_petConfigId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &petconfigid_)));
+          set_has_petconfigid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_hp;
+        break;
+      }
+
+      // required uint32 hp = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_hp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &hp_)));
+          set_has_hp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(37)) goto parse_posX;
+        break;
+      }
+
+      // required float posX = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_posX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &posx_)));
+          set_has_posx();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(45)) goto parse_posY;
+        break;
+      }
+
+      // required float posY = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_posY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &posy_)));
+          set_has_posy();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(53)) goto parse_posZ;
+        break;
+      }
+
+      // required float posZ = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_posZ:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &posz_)));
+          set_has_posz();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_curstate;
+        break;
+      }
+
+      // required uint32 curstate = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_curstate:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &curstate_)));
+          set_has_curstate();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(69)) goto parse_mspeed;
+        break;
+      }
+
+      // required float mspeed = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_mspeed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &mspeed_)));
+          set_has_mspeed();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CreaturesCreateData_Pet::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 petCid = 1;
+  if (has_petcid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->petcid(), output);
+  }
+
+  // required uint32 petConfigId = 2;
+  if (has_petconfigid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->petconfigid(), output);
+  }
+
+  // required uint32 hp = 3;
+  if (has_hp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->hp(), output);
+  }
+
+  // required float posX = 4;
+  if (has_posx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->posx(), output);
+  }
+
+  // required float posY = 5;
+  if (has_posy()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->posy(), output);
+  }
+
+  // required float posZ = 6;
+  if (has_posz()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->posz(), output);
+  }
+
+  // required uint32 curstate = 7;
+  if (has_curstate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->curstate(), output);
+  }
+
+  // required float mspeed = 8;
+  if (has_mspeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->mspeed(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CreaturesCreateData_Pet::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 petCid = 1;
+  if (has_petcid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->petcid(), target);
+  }
+
+  // required uint32 petConfigId = 2;
+  if (has_petconfigid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->petconfigid(), target);
+  }
+
+  // required uint32 hp = 3;
+  if (has_hp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->hp(), target);
+  }
+
+  // required float posX = 4;
+  if (has_posx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->posx(), target);
+  }
+
+  // required float posY = 5;
+  if (has_posy()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->posy(), target);
+  }
+
+  // required float posZ = 6;
+  if (has_posz()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->posz(), target);
+  }
+
+  // required uint32 curstate = 7;
+  if (has_curstate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->curstate(), target);
+  }
+
+  // required float mspeed = 8;
+  if (has_mspeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->mspeed(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CreaturesCreateData_Pet::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 petCid = 1;
+    if (has_petcid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->petcid());
+    }
+
+    // required uint32 petConfigId = 2;
+    if (has_petconfigid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->petconfigid());
+    }
+
+    // required uint32 hp = 3;
+    if (has_hp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->hp());
+    }
+
+    // required float posX = 4;
+    if (has_posx()) {
+      total_size += 1 + 4;
+    }
+
+    // required float posY = 5;
+    if (has_posy()) {
+      total_size += 1 + 4;
+    }
+
+    // required float posZ = 6;
+    if (has_posz()) {
+      total_size += 1 + 4;
+    }
+
+    // required uint32 curstate = 7;
+    if (has_curstate()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->curstate());
+    }
+
+    // required float mspeed = 8;
+    if (has_mspeed()) {
+      total_size += 1 + 4;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CreaturesCreateData_Pet::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CreaturesCreateData_Pet* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CreaturesCreateData_Pet*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CreaturesCreateData_Pet::MergeFrom(const CreaturesCreateData_Pet& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_petcid()) {
+      set_petcid(from.petcid());
+    }
+    if (from.has_petconfigid()) {
+      set_petconfigid(from.petconfigid());
+    }
+    if (from.has_hp()) {
+      set_hp(from.hp());
+    }
+    if (from.has_posx()) {
+      set_posx(from.posx());
+    }
+    if (from.has_posy()) {
+      set_posy(from.posy());
+    }
+    if (from.has_posz()) {
+      set_posz(from.posz());
+    }
+    if (from.has_curstate()) {
+      set_curstate(from.curstate());
+    }
+    if (from.has_mspeed()) {
+      set_mspeed(from.mspeed());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CreaturesCreateData_Pet::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CreaturesCreateData_Pet::CopyFrom(const CreaturesCreateData_Pet& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreaturesCreateData_Pet::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
+
+  return true;
+}
+
+void CreaturesCreateData_Pet::Swap(CreaturesCreateData_Pet* other) {
+  if (other != this) {
+    std::swap(petcid_, other->petcid_);
+    std::swap(petconfigid_, other->petconfigid_);
+    std::swap(hp_, other->hp_);
+    std::swap(posx_, other->posx_);
+    std::swap(posy_, other->posy_);
+    std::swap(posz_, other->posz_);
+    std::swap(curstate_, other->curstate_);
+    std::swap(mspeed_, other->mspeed_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CreaturesCreateData_Pet::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CreaturesCreateData_Pet_descriptor_;
+  metadata.reflection = CreaturesCreateData_Pet_reflection_;
   return metadata;
 }
 
@@ -5916,6 +6528,7 @@ const int CreaturesCreateData::kSummonsFieldNumber;
 const int CreaturesCreateData::kHerbsFieldNumber;
 const int CreaturesCreateData::kMinesFieldNumber;
 const int CreaturesCreateData::kFishsFieldNumber;
+const int CreaturesCreateData::kPetsFieldNumber;
 #endif  // !_MSC_VER
 
 CreaturesCreateData::CreaturesCreateData()
@@ -5976,6 +6589,7 @@ void CreaturesCreateData::Clear() {
   herbs_.Clear();
   mines_.Clear();
   fishs_.Clear();
+  pets_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -6102,6 +6716,21 @@ bool CreaturesCreateData::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(66)) goto parse_fishs;
+        if (input->ExpectTag(74)) goto parse_pets;
+        break;
+      }
+
+      // repeated .ProtoBuf.CreaturesCreateData.Pet pets = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_pets:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_pets()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(74)) goto parse_pets;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6172,6 +6801,12 @@ void CreaturesCreateData::SerializeWithCachedSizes(
       8, this->fishs(i), output);
   }
 
+  // repeated .ProtoBuf.CreaturesCreateData.Pet pets = 9;
+  for (int i = 0; i < this->pets_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->pets(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6234,6 +6869,13 @@ void CreaturesCreateData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, this->fishs(i), target);
+  }
+
+  // repeated .ProtoBuf.CreaturesCreateData.Pet pets = 9;
+  for (int i = 0; i < this->pets_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->pets(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6310,6 +6952,14 @@ int CreaturesCreateData::ByteSize() const {
         this->fishs(i));
   }
 
+  // repeated .ProtoBuf.CreaturesCreateData.Pet pets = 9;
+  total_size += 1 * this->pets_size();
+  for (int i = 0; i < this->pets_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->pets(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -6343,6 +6993,7 @@ void CreaturesCreateData::MergeFrom(const CreaturesCreateData& from) {
   herbs_.MergeFrom(from.herbs_);
   mines_.MergeFrom(from.mines_);
   fishs_.MergeFrom(from.fishs_);
+  pets_.MergeFrom(from.pets_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -6384,6 +7035,9 @@ bool CreaturesCreateData::IsInitialized() const {
   for (int i = 0; i < fishs_size(); i++) {
     if (!this->fishs(i).IsInitialized()) return false;
   }
+  for (int i = 0; i < pets_size(); i++) {
+    if (!this->pets(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -6397,6 +7051,7 @@ void CreaturesCreateData::Swap(CreaturesCreateData* other) {
     herbs_.Swap(&other->herbs_);
     mines_.Swap(&other->mines_);
     fishs_.Swap(&other->fishs_);
+    pets_.Swap(&other->pets_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

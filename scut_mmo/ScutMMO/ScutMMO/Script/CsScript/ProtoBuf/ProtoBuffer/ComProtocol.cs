@@ -989,6 +989,14 @@ namespace ProtoBuf
       get { return _campOpen; }
       set { _campOpen = value; }
     }
+    private uint _campExtractTimes = default(uint);
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"campExtractTimes", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(uint))]
+    public uint campExtractTimes
+    {
+      get { return _campExtractTimes; }
+      set { _campExtractTimes = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -1782,6 +1790,55 @@ namespace ProtoBuf
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"DuplicateGroupProto")]
+  public partial class DuplicateGroupProto : global::ProtoBuf.IExtensible
+  {
+    public DuplicateGroupProto() {}
+    
+    private int _group_id;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"group_id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int group_id
+    {
+      get { return _group_id; }
+      set { _group_id = value; }
+    }
+    private int _reward_num = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"reward_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int reward_num
+    {
+      get { return _reward_num; }
+      set { _reward_num = value; }
+    }
+    private int _enter_num = default(int);
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"enter_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int enter_num
+    {
+      get { return _enter_num; }
+      set { _enter_num = value; }
+    }
+    private int _buy_num = default(int);
+    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"buy_num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int buy_num
+    {
+      get { return _buy_num; }
+      set { _buy_num = value; }
+    }
+    private ulong _last_fresh = default(ulong);
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"last_fresh", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(ulong))]
+    public ulong last_fresh
+    {
+      get { return _last_fresh; }
+      set { _last_fresh = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"DuplicateSingleProto")]
   public partial class DuplicateSingleProto : global::ProtoBuf.IExtensible
   {
@@ -1802,30 +1859,6 @@ namespace ProtoBuf
       get { return _star; }
       set { _star = value; }
     }
-    private int _reward_count = default(int);
-    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"reward_count", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int reward_count
-    {
-      get { return _reward_count; }
-      set { _reward_count = value; }
-    }
-    private ulong _last_fresh = default(ulong);
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"last_fresh", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(ulong))]
-    public ulong last_fresh
-    {
-      get { return _last_fresh; }
-      set { _last_fresh = value; }
-    }
-    private int _buy_count = default(int);
-    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"buy_count", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int buy_count
-    {
-      get { return _buy_count; }
-      set { _buy_count = value; }
-    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -1841,6 +1874,20 @@ namespace ProtoBuf
     public global::System.Collections.Generic.List<ProtoBuf.DuplicateSingleProto> duplicate
     {
       get { return _duplicate; }
+    }
+  
+    private readonly global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto> _group = new global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto>();
+    [global::ProtoBuf.ProtoMember(2, Name=@"group", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ProtoBuf.DuplicateGroupProto> group
+    {
+      get { return _group; }
+    }
+  
+    private readonly global::System.Collections.Generic.List<uint> _open_dup = new global::System.Collections.Generic.List<uint>();
+    [global::ProtoBuf.ProtoMember(3, Name=@"open_dup", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public global::System.Collections.Generic.List<uint> open_dup
+    {
+      get { return _open_dup; }
     }
   
     private global::ProtoBuf.IExtension extensionObject;
@@ -3652,6 +3699,18 @@ namespace ProtoBuf
       [global::ProtoBuf.ProtoEnum(Name=@"P_ENERGY", Value=83)]
       P_ENERGY = 83,
             
+      [global::ProtoBuf.ProtoEnum(Name=@"P_TEAM_ID", Value=84)]
+      P_TEAM_ID = 84,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"P_TEAM_LEADER_ID", Value=85)]
+      P_TEAM_LEADER_ID = 85,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"P_ROOM_ID", Value=86)]
+      P_ROOM_ID = 86,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"P_ROOM_LEADER_ID", Value=87)]
+      P_ROOM_LEADER_ID = 87,
+            
       [global::ProtoBuf.ProtoEnum(Name=@"P_CLIENT_END", Value=99)]
       P_CLIENT_END = 99,
             
@@ -3880,104 +3939,107 @@ namespace ProtoBuf
       [global::ProtoBuf.ProtoEnum(Name=@"P_ADVANCED_ATTR_HP_MAX", Value=219)]
       P_ADVANCED_ATTR_HP_MAX = 219,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_ADVANCED_ATTR_END", Value=220)]
-      P_ADVANCED_ATTR_END = 220,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_ADVANCED_ATTR_CRIT_RATE", Value=220)]
+      P_ADVANCED_ATTR_CRIT_RATE = 220,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_BEGIN", Value=221)]
-      P_EQUIP_BEGIN = 221,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_ADVANCED_ATTR_END", Value=230)]
+      P_ADVANCED_ATTR_END = 230,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_POWER", Value=222)]
-      P_EQUIP_POWER = 222,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_BEGIN", Value=231)]
+      P_EQUIP_BEGIN = 231,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_INTELLIGENCE", Value=223)]
-      P_EQUIP_INTELLIGENCE = 223,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_POWER", Value=232)]
+      P_EQUIP_POWER = 232,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_AGILITY", Value=224)]
-      P_EQUIP_AGILITY = 224,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_INTELLIGENCE", Value=233)]
+      P_EQUIP_INTELLIGENCE = 233,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_PHYSIQUE", Value=225)]
-      P_EQUIP_PHYSIQUE = 225,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_AGILITY", Value=234)]
+      P_EQUIP_AGILITY = 234,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_ENDURANCE", Value=226)]
-      P_EQUIP_ENDURANCE = 226,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_PHYSIQUE", Value=235)]
+      P_EQUIP_PHYSIQUE = 235,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_PRECISION", Value=227)]
-      P_EQUIP_PRECISION = 227,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_ENDURANCE", Value=236)]
+      P_EQUIP_ENDURANCE = 236,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MAX_HP", Value=228)]
-      P_EQUIP_MAX_HP = 228,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_PRECISION", Value=237)]
+      P_EQUIP_PRECISION = 237,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MAX_MP", Value=229)]
-      P_EQUIP_MAX_MP = 229,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MAX_HP", Value=238)]
+      P_EQUIP_MAX_HP = 238,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_AP", Value=230)]
-      P_EQUIP_AP = 230,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MAX_MP", Value=239)]
+      P_EQUIP_MAX_MP = 239,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MAT", Value=231)]
-      P_EQUIP_MAT = 231,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_AP", Value=240)]
+      P_EQUIP_AP = 240,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_DP", Value=232)]
-      P_EQUIP_DP = 232,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MAT", Value=241)]
+      P_EQUIP_MAT = 241,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MDP", Value=233)]
-      P_EQUIP_MDP = 233,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_DP", Value=242)]
+      P_EQUIP_DP = 242,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_HIT", Value=234)]
-      P_EQUIP_HIT = 234,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MDP", Value=243)]
+      P_EQUIP_MDP = 243,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_DODGE", Value=235)]
-      P_EQUIP_DODGE = 235,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_HIT", Value=244)]
+      P_EQUIP_HIT = 244,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT", Value=236)]
-      P_EQUIP_CRIT = 236,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_DODGE", Value=245)]
+      P_EQUIP_DODGE = 245,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_TOUGHNESS", Value=237)]
-      P_EQUIP_TOUGHNESS = 237,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT", Value=246)]
+      P_EQUIP_CRIT = 246,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT_RATE", Value=238)]
-      P_EQUIP_CRIT_RATE = 238,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_TOUGHNESS", Value=247)]
+      P_EQUIP_TOUGHNESS = 247,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT_EXTRADAMAGE", Value=239)]
-      P_EQUIP_CRIT_EXTRADAMAGE = 239,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT_RATE", Value=248)]
+      P_EQUIP_CRIT_RATE = 248,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT_REDUCEDAMAGE", Value=240)]
-      P_EQUIP_CRIT_REDUCEDAMAGE = 240,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT_EXTRADAMAGE", Value=249)]
+      P_EQUIP_CRIT_EXTRADAMAGE = 249,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_EXTRA_DAMAGE", Value=241)]
-      P_EQUIP_EXTRA_DAMAGE = 241,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_CRIT_REDUCEDAMAGE", Value=250)]
+      P_EQUIP_CRIT_REDUCEDAMAGE = 250,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_REDUCE_DAMAGE", Value=242)]
-      P_EQUIP_REDUCE_DAMAGE = 242,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_EXTRA_DAMAGE", Value=251)]
+      P_EQUIP_EXTRA_DAMAGE = 251,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_DAMAGE_RATE", Value=243)]
-      P_EQUIP_DAMAGE_RATE = 243,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_REDUCE_DAMAGE", Value=252)]
+      P_EQUIP_REDUCE_DAMAGE = 252,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_FREEZERES", Value=244)]
-      P_EQUIP_FREEZERES = 244,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_DAMAGE_RATE", Value=253)]
+      P_EQUIP_DAMAGE_RATE = 253,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_BURNRES", Value=245)]
-      P_EQUIP_BURNRES = 245,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_FREEZERES", Value=254)]
+      P_EQUIP_FREEZERES = 254,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_WEAKRES", Value=246)]
-      P_EQUIP_WEAKRES = 246,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_BURNRES", Value=255)]
+      P_EQUIP_BURNRES = 255,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_FASTINGRES", Value=247)]
-      P_EQUIP_FASTINGRES = 247,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_WEAKRES", Value=256)]
+      P_EQUIP_WEAKRES = 256,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_FUNKRES", Value=248)]
-      P_EQUIP_FUNKRES = 248,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_FASTINGRES", Value=257)]
+      P_EQUIP_FASTINGRES = 257,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_APDAMAGERATE", Value=249)]
-      P_EQUIP_APDAMAGERATE = 249,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_FUNKRES", Value=258)]
+      P_EQUIP_FUNKRES = 258,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MATDAMAGERATE", Value=250)]
-      P_EQUIP_MATDAMAGERATE = 250,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_APDAMAGERATE", Value=259)]
+      P_EQUIP_APDAMAGERATE = 259,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_APREDUCEDAMAGERATE", Value=251)]
-      P_EQUIP_APREDUCEDAMAGERATE = 251,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MATDAMAGERATE", Value=260)]
+      P_EQUIP_MATDAMAGERATE = 260,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MATREDUCEDAMAGERATE", Value=252)]
-      P_EQUIP_MATREDUCEDAMAGERATE = 252,
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_APREDUCEDAMAGERATE", Value=261)]
+      P_EQUIP_APREDUCEDAMAGERATE = 261,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_MATREDUCEDAMAGERATE", Value=262)]
+      P_EQUIP_MATREDUCEDAMAGERATE = 262,
             
       [global::ProtoBuf.ProtoEnum(Name=@"P_EQUIP_END", Value=280)]
       P_EQUIP_END = 280,

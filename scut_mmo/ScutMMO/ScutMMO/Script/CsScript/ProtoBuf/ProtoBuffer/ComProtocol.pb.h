@@ -60,6 +60,7 @@ class FashionProtoInfo;
 class CharacterDBPackageData;
 class CharacterDBEquipData;
 class CharacterDBFashionData;
+class DuplicateGroupProto;
 class DuplicateSingleProto;
 class CharacterDBDuplicateData;
 class CharacterDBMailData;
@@ -234,6 +235,10 @@ enum PlayerAttr {
   P_KNIGHT = 81,
   P_UNION_CONTRI = 82,
   P_ENERGY = 83,
+  P_TEAM_ID = 84,
+  P_TEAM_LEADER_ID = 85,
+  P_ROOM_ID = 86,
+  P_ROOM_LEADER_ID = 87,
   P_CLIENT_END = 99,
   P_VALUE_BEGIN = 100,
   P_VALUE_POWER = 101,
@@ -310,39 +315,40 @@ enum PlayerAttr {
   P_ADVANCED_ATTR_TOUGHNESS = 217,
   P_ADVANCED_ATTR_MP_MAX = 218,
   P_ADVANCED_ATTR_HP_MAX = 219,
-  P_ADVANCED_ATTR_END = 220,
-  P_EQUIP_BEGIN = 221,
-  P_EQUIP_POWER = 222,
-  P_EQUIP_INTELLIGENCE = 223,
-  P_EQUIP_AGILITY = 224,
-  P_EQUIP_PHYSIQUE = 225,
-  P_EQUIP_ENDURANCE = 226,
-  P_EQUIP_PRECISION = 227,
-  P_EQUIP_MAX_HP = 228,
-  P_EQUIP_MAX_MP = 229,
-  P_EQUIP_AP = 230,
-  P_EQUIP_MAT = 231,
-  P_EQUIP_DP = 232,
-  P_EQUIP_MDP = 233,
-  P_EQUIP_HIT = 234,
-  P_EQUIP_DODGE = 235,
-  P_EQUIP_CRIT = 236,
-  P_EQUIP_TOUGHNESS = 237,
-  P_EQUIP_CRIT_RATE = 238,
-  P_EQUIP_CRIT_EXTRADAMAGE = 239,
-  P_EQUIP_CRIT_REDUCEDAMAGE = 240,
-  P_EQUIP_EXTRA_DAMAGE = 241,
-  P_EQUIP_REDUCE_DAMAGE = 242,
-  P_EQUIP_DAMAGE_RATE = 243,
-  P_EQUIP_FREEZERES = 244,
-  P_EQUIP_BURNRES = 245,
-  P_EQUIP_WEAKRES = 246,
-  P_EQUIP_FASTINGRES = 247,
-  P_EQUIP_FUNKRES = 248,
-  P_EQUIP_APDAMAGERATE = 249,
-  P_EQUIP_MATDAMAGERATE = 250,
-  P_EQUIP_APREDUCEDAMAGERATE = 251,
-  P_EQUIP_MATREDUCEDAMAGERATE = 252,
+  P_ADVANCED_ATTR_CRIT_RATE = 220,
+  P_ADVANCED_ATTR_END = 230,
+  P_EQUIP_BEGIN = 231,
+  P_EQUIP_POWER = 232,
+  P_EQUIP_INTELLIGENCE = 233,
+  P_EQUIP_AGILITY = 234,
+  P_EQUIP_PHYSIQUE = 235,
+  P_EQUIP_ENDURANCE = 236,
+  P_EQUIP_PRECISION = 237,
+  P_EQUIP_MAX_HP = 238,
+  P_EQUIP_MAX_MP = 239,
+  P_EQUIP_AP = 240,
+  P_EQUIP_MAT = 241,
+  P_EQUIP_DP = 242,
+  P_EQUIP_MDP = 243,
+  P_EQUIP_HIT = 244,
+  P_EQUIP_DODGE = 245,
+  P_EQUIP_CRIT = 246,
+  P_EQUIP_TOUGHNESS = 247,
+  P_EQUIP_CRIT_RATE = 248,
+  P_EQUIP_CRIT_EXTRADAMAGE = 249,
+  P_EQUIP_CRIT_REDUCEDAMAGE = 250,
+  P_EQUIP_EXTRA_DAMAGE = 251,
+  P_EQUIP_REDUCE_DAMAGE = 252,
+  P_EQUIP_DAMAGE_RATE = 253,
+  P_EQUIP_FREEZERES = 254,
+  P_EQUIP_BURNRES = 255,
+  P_EQUIP_WEAKRES = 256,
+  P_EQUIP_FASTINGRES = 257,
+  P_EQUIP_FUNKRES = 258,
+  P_EQUIP_APDAMAGERATE = 259,
+  P_EQUIP_MATDAMAGERATE = 260,
+  P_EQUIP_APREDUCEDAMAGERATE = 261,
+  P_EQUIP_MATREDUCEDAMAGERATE = 262,
   P_EQUIP_END = 280,
   P_LEV_BEGIN = 281,
   P_LEV_POWER = 282,
@@ -2749,6 +2755,13 @@ class CharacterDBCampMissionInfo : public ::google::protobuf::Message {
   inline bool campopen() const;
   inline void set_campopen(bool value);
 
+  // optional uint32 campExtractTimes = 6;
+  inline bool has_campextracttimes() const;
+  inline void clear_campextracttimes();
+  static const int kCampExtractTimesFieldNumber = 6;
+  inline ::google::protobuf::uint32 campextracttimes() const;
+  inline void set_campextracttimes(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.CharacterDBCampMissionInfo)
  private:
   inline void set_has_camprefreshtime();
@@ -2759,6 +2772,8 @@ class CharacterDBCampMissionInfo : public ::google::protobuf::Message {
   inline void clear_has_boxprogress();
   inline void set_has_campopen();
   inline void clear_has_campopen();
+  inline void set_has_campextracttimes();
+  inline void clear_has_campextracttimes();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2767,9 +2782,10 @@ class CharacterDBCampMissionInfo : public ::google::protobuf::Message {
   ::google::protobuf::uint32 camptimes_;
   ::google::protobuf::uint32 boxprogress_;
   bool campopen_;
+  ::google::protobuf::uint32 campextracttimes_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fComProtocol_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fComProtocol_2eproto();
@@ -4583,6 +4599,128 @@ class CharacterDBFashionData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class DuplicateGroupProto : public ::google::protobuf::Message {
+ public:
+  DuplicateGroupProto();
+  virtual ~DuplicateGroupProto();
+
+  DuplicateGroupProto(const DuplicateGroupProto& from);
+
+  inline DuplicateGroupProto& operator=(const DuplicateGroupProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DuplicateGroupProto& default_instance();
+
+  void Swap(DuplicateGroupProto* other);
+
+  // implements Message ----------------------------------------------
+
+  DuplicateGroupProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DuplicateGroupProto& from);
+  void MergeFrom(const DuplicateGroupProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 group_id = 1;
+  inline bool has_group_id() const;
+  inline void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  inline ::google::protobuf::int32 group_id() const;
+  inline void set_group_id(::google::protobuf::int32 value);
+
+  // optional int32 reward_num = 2;
+  inline bool has_reward_num() const;
+  inline void clear_reward_num();
+  static const int kRewardNumFieldNumber = 2;
+  inline ::google::protobuf::int32 reward_num() const;
+  inline void set_reward_num(::google::protobuf::int32 value);
+
+  // optional int32 enter_num = 3;
+  inline bool has_enter_num() const;
+  inline void clear_enter_num();
+  static const int kEnterNumFieldNumber = 3;
+  inline ::google::protobuf::int32 enter_num() const;
+  inline void set_enter_num(::google::protobuf::int32 value);
+
+  // optional int32 buy_num = 4;
+  inline bool has_buy_num() const;
+  inline void clear_buy_num();
+  static const int kBuyNumFieldNumber = 4;
+  inline ::google::protobuf::int32 buy_num() const;
+  inline void set_buy_num(::google::protobuf::int32 value);
+
+  // optional uint64 last_fresh = 5;
+  inline bool has_last_fresh() const;
+  inline void clear_last_fresh();
+  static const int kLastFreshFieldNumber = 5;
+  inline ::google::protobuf::uint64 last_fresh() const;
+  inline void set_last_fresh(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:ProtoBuf.DuplicateGroupProto)
+ private:
+  inline void set_has_group_id();
+  inline void clear_has_group_id();
+  inline void set_has_reward_num();
+  inline void clear_has_reward_num();
+  inline void set_has_enter_num();
+  inline void clear_has_enter_num();
+  inline void set_has_buy_num();
+  inline void clear_has_buy_num();
+  inline void set_has_last_fresh();
+  inline void clear_has_last_fresh();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 group_id_;
+  ::google::protobuf::int32 reward_num_;
+  ::google::protobuf::int32 enter_num_;
+  ::google::protobuf::int32 buy_num_;
+  ::google::protobuf::uint64 last_fresh_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ProtoBuffer_2fComProtocol_2eproto();
+  friend void protobuf_AssignDesc_ProtoBuffer_2fComProtocol_2eproto();
+  friend void protobuf_ShutdownFile_ProtoBuffer_2fComProtocol_2eproto();
+
+  void InitAsDefaultInstance();
+  static DuplicateGroupProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class DuplicateSingleProto : public ::google::protobuf::Message {
  public:
   DuplicateSingleProto();
@@ -4651,50 +4789,20 @@ class DuplicateSingleProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 star() const;
   inline void set_star(::google::protobuf::int32 value);
 
-  // optional int32 reward_count = 3;
-  inline bool has_reward_count() const;
-  inline void clear_reward_count();
-  static const int kRewardCountFieldNumber = 3;
-  inline ::google::protobuf::int32 reward_count() const;
-  inline void set_reward_count(::google::protobuf::int32 value);
-
-  // optional uint64 last_fresh = 4;
-  inline bool has_last_fresh() const;
-  inline void clear_last_fresh();
-  static const int kLastFreshFieldNumber = 4;
-  inline ::google::protobuf::uint64 last_fresh() const;
-  inline void set_last_fresh(::google::protobuf::uint64 value);
-
-  // optional int32 buy_count = 5;
-  inline bool has_buy_count() const;
-  inline void clear_buy_count();
-  static const int kBuyCountFieldNumber = 5;
-  inline ::google::protobuf::int32 buy_count() const;
-  inline void set_buy_count(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:ProtoBuf.DuplicateSingleProto)
  private:
   inline void set_has_dupliate_id();
   inline void clear_has_dupliate_id();
   inline void set_has_star();
   inline void clear_has_star();
-  inline void set_has_reward_count();
-  inline void clear_has_reward_count();
-  inline void set_has_last_fresh();
-  inline void clear_has_last_fresh();
-  inline void set_has_buy_count();
-  inline void clear_has_buy_count();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 dupliate_id_;
   ::google::protobuf::int32 star_;
-  ::google::protobuf::uint64 last_fresh_;
-  ::google::protobuf::int32 reward_count_;
-  ::google::protobuf::int32 buy_count_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fComProtocol_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fComProtocol_2eproto();
@@ -4771,15 +4879,41 @@ class CharacterDBDuplicateData : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateSingleProto >*
       mutable_duplicate();
 
+  // repeated .ProtoBuf.DuplicateGroupProto group = 2;
+  inline int group_size() const;
+  inline void clear_group();
+  static const int kGroupFieldNumber = 2;
+  inline const ::ProtoBuf::DuplicateGroupProto& group(int index) const;
+  inline ::ProtoBuf::DuplicateGroupProto* mutable_group(int index);
+  inline ::ProtoBuf::DuplicateGroupProto* add_group();
+  inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >&
+      group() const;
+  inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >*
+      mutable_group();
+
+  // repeated uint32 open_dup = 3;
+  inline int open_dup_size() const;
+  inline void clear_open_dup();
+  static const int kOpenDupFieldNumber = 3;
+  inline ::google::protobuf::uint32 open_dup(int index) const;
+  inline void set_open_dup(int index, ::google::protobuf::uint32 value);
+  inline void add_open_dup(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      open_dup() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_open_dup();
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.CharacterDBDuplicateData)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateSingleProto > duplicate_;
+  ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto > group_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > open_dup_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fComProtocol_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fComProtocol_2eproto();
@@ -12228,6 +12362,28 @@ inline void CharacterDBCampMissionInfo::set_campopen(bool value) {
   campopen_ = value;
 }
 
+// optional uint32 campExtractTimes = 6;
+inline bool CharacterDBCampMissionInfo::has_campextracttimes() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void CharacterDBCampMissionInfo::set_has_campextracttimes() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void CharacterDBCampMissionInfo::clear_has_campextracttimes() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void CharacterDBCampMissionInfo::clear_campextracttimes() {
+  campextracttimes_ = 0u;
+  clear_has_campextracttimes();
+}
+inline ::google::protobuf::uint32 CharacterDBCampMissionInfo::campextracttimes() const {
+  return campextracttimes_;
+}
+inline void CharacterDBCampMissionInfo::set_campextracttimes(::google::protobuf::uint32 value) {
+  set_has_campextracttimes();
+  campextracttimes_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // CharacterDBLoopMissionInfo
@@ -14487,6 +14643,120 @@ inline void CharacterDBFashionData::set_open(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// DuplicateGroupProto
+
+// required int32 group_id = 1;
+inline bool DuplicateGroupProto::has_group_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DuplicateGroupProto::set_has_group_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DuplicateGroupProto::clear_has_group_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DuplicateGroupProto::clear_group_id() {
+  group_id_ = 0;
+  clear_has_group_id();
+}
+inline ::google::protobuf::int32 DuplicateGroupProto::group_id() const {
+  return group_id_;
+}
+inline void DuplicateGroupProto::set_group_id(::google::protobuf::int32 value) {
+  set_has_group_id();
+  group_id_ = value;
+}
+
+// optional int32 reward_num = 2;
+inline bool DuplicateGroupProto::has_reward_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DuplicateGroupProto::set_has_reward_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DuplicateGroupProto::clear_has_reward_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DuplicateGroupProto::clear_reward_num() {
+  reward_num_ = 0;
+  clear_has_reward_num();
+}
+inline ::google::protobuf::int32 DuplicateGroupProto::reward_num() const {
+  return reward_num_;
+}
+inline void DuplicateGroupProto::set_reward_num(::google::protobuf::int32 value) {
+  set_has_reward_num();
+  reward_num_ = value;
+}
+
+// optional int32 enter_num = 3;
+inline bool DuplicateGroupProto::has_enter_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DuplicateGroupProto::set_has_enter_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DuplicateGroupProto::clear_has_enter_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DuplicateGroupProto::clear_enter_num() {
+  enter_num_ = 0;
+  clear_has_enter_num();
+}
+inline ::google::protobuf::int32 DuplicateGroupProto::enter_num() const {
+  return enter_num_;
+}
+inline void DuplicateGroupProto::set_enter_num(::google::protobuf::int32 value) {
+  set_has_enter_num();
+  enter_num_ = value;
+}
+
+// optional int32 buy_num = 4;
+inline bool DuplicateGroupProto::has_buy_num() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DuplicateGroupProto::set_has_buy_num() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DuplicateGroupProto::clear_has_buy_num() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DuplicateGroupProto::clear_buy_num() {
+  buy_num_ = 0;
+  clear_has_buy_num();
+}
+inline ::google::protobuf::int32 DuplicateGroupProto::buy_num() const {
+  return buy_num_;
+}
+inline void DuplicateGroupProto::set_buy_num(::google::protobuf::int32 value) {
+  set_has_buy_num();
+  buy_num_ = value;
+}
+
+// optional uint64 last_fresh = 5;
+inline bool DuplicateGroupProto::has_last_fresh() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void DuplicateGroupProto::set_has_last_fresh() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void DuplicateGroupProto::clear_has_last_fresh() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void DuplicateGroupProto::clear_last_fresh() {
+  last_fresh_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_fresh();
+}
+inline ::google::protobuf::uint64 DuplicateGroupProto::last_fresh() const {
+  return last_fresh_;
+}
+inline void DuplicateGroupProto::set_last_fresh(::google::protobuf::uint64 value) {
+  set_has_last_fresh();
+  last_fresh_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // DuplicateSingleProto
 
 // required int32 dupliate_id = 1;
@@ -14533,72 +14803,6 @@ inline void DuplicateSingleProto::set_star(::google::protobuf::int32 value) {
   star_ = value;
 }
 
-// optional int32 reward_count = 3;
-inline bool DuplicateSingleProto::has_reward_count() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void DuplicateSingleProto::set_has_reward_count() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void DuplicateSingleProto::clear_has_reward_count() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void DuplicateSingleProto::clear_reward_count() {
-  reward_count_ = 0;
-  clear_has_reward_count();
-}
-inline ::google::protobuf::int32 DuplicateSingleProto::reward_count() const {
-  return reward_count_;
-}
-inline void DuplicateSingleProto::set_reward_count(::google::protobuf::int32 value) {
-  set_has_reward_count();
-  reward_count_ = value;
-}
-
-// optional uint64 last_fresh = 4;
-inline bool DuplicateSingleProto::has_last_fresh() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void DuplicateSingleProto::set_has_last_fresh() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void DuplicateSingleProto::clear_has_last_fresh() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void DuplicateSingleProto::clear_last_fresh() {
-  last_fresh_ = GOOGLE_ULONGLONG(0);
-  clear_has_last_fresh();
-}
-inline ::google::protobuf::uint64 DuplicateSingleProto::last_fresh() const {
-  return last_fresh_;
-}
-inline void DuplicateSingleProto::set_last_fresh(::google::protobuf::uint64 value) {
-  set_has_last_fresh();
-  last_fresh_ = value;
-}
-
-// optional int32 buy_count = 5;
-inline bool DuplicateSingleProto::has_buy_count() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void DuplicateSingleProto::set_has_buy_count() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void DuplicateSingleProto::clear_has_buy_count() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void DuplicateSingleProto::clear_buy_count() {
-  buy_count_ = 0;
-  clear_has_buy_count();
-}
-inline ::google::protobuf::int32 DuplicateSingleProto::buy_count() const {
-  return buy_count_;
-}
-inline void DuplicateSingleProto::set_buy_count(::google::protobuf::int32 value) {
-  set_has_buy_count();
-  buy_count_ = value;
-}
-
 // -------------------------------------------------------------------
 
 // CharacterDBDuplicateData
@@ -14626,6 +14830,56 @@ CharacterDBDuplicateData::duplicate() const {
 inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateSingleProto >*
 CharacterDBDuplicateData::mutable_duplicate() {
   return &duplicate_;
+}
+
+// repeated .ProtoBuf.DuplicateGroupProto group = 2;
+inline int CharacterDBDuplicateData::group_size() const {
+  return group_.size();
+}
+inline void CharacterDBDuplicateData::clear_group() {
+  group_.Clear();
+}
+inline const ::ProtoBuf::DuplicateGroupProto& CharacterDBDuplicateData::group(int index) const {
+  return group_.Get(index);
+}
+inline ::ProtoBuf::DuplicateGroupProto* CharacterDBDuplicateData::mutable_group(int index) {
+  return group_.Mutable(index);
+}
+inline ::ProtoBuf::DuplicateGroupProto* CharacterDBDuplicateData::add_group() {
+  return group_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >&
+CharacterDBDuplicateData::group() const {
+  return group_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::ProtoBuf::DuplicateGroupProto >*
+CharacterDBDuplicateData::mutable_group() {
+  return &group_;
+}
+
+// repeated uint32 open_dup = 3;
+inline int CharacterDBDuplicateData::open_dup_size() const {
+  return open_dup_.size();
+}
+inline void CharacterDBDuplicateData::clear_open_dup() {
+  open_dup_.Clear();
+}
+inline ::google::protobuf::uint32 CharacterDBDuplicateData::open_dup(int index) const {
+  return open_dup_.Get(index);
+}
+inline void CharacterDBDuplicateData::set_open_dup(int index, ::google::protobuf::uint32 value) {
+  open_dup_.Set(index, value);
+}
+inline void CharacterDBDuplicateData::add_open_dup(::google::protobuf::uint32 value) {
+  open_dup_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CharacterDBDuplicateData::open_dup() const {
+  return open_dup_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CharacterDBDuplicateData::mutable_open_dup() {
+  return &open_dup_;
 }
 
 // -------------------------------------------------------------------

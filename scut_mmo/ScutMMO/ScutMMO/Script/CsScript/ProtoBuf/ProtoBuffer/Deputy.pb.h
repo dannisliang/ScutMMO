@@ -1004,6 +1004,13 @@ class Deputy_MakeOperateReq : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 make_num() const;
   inline void set_make_num(::google::protobuf::int32 value);
 
+  // optional int32 item_idx = 4;
+  inline bool has_item_idx() const;
+  inline void clear_item_idx();
+  static const int kItemIdxFieldNumber = 4;
+  inline ::google::protobuf::int32 item_idx() const;
+  inline void set_item_idx(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:ProtoBuf.Deputy_MakeOperateReq)
  private:
   inline void set_has_make_id();
@@ -1012,15 +1019,18 @@ class Deputy_MakeOperateReq : public ::google::protobuf::Message {
   inline void clear_has_reel_id();
   inline void set_has_make_num();
   inline void clear_has_make_num();
+  inline void set_has_item_idx();
+  inline void clear_has_item_idx();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 make_id_;
   ::google::protobuf::int32 reel_id_;
   ::google::protobuf::int32 make_num_;
+  ::google::protobuf::int32 item_idx_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_ProtoBuffer_2fDeputy_2eproto();
   friend void protobuf_AssignDesc_ProtoBuffer_2fDeputy_2eproto();
@@ -1762,6 +1772,28 @@ inline ::google::protobuf::int32 Deputy_MakeOperateReq::make_num() const {
 inline void Deputy_MakeOperateReq::set_make_num(::google::protobuf::int32 value) {
   set_has_make_num();
   make_num_ = value;
+}
+
+// optional int32 item_idx = 4;
+inline bool Deputy_MakeOperateReq::has_item_idx() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Deputy_MakeOperateReq::set_has_item_idx() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Deputy_MakeOperateReq::clear_has_item_idx() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Deputy_MakeOperateReq::clear_item_idx() {
+  item_idx_ = 0;
+  clear_has_item_idx();
+}
+inline ::google::protobuf::int32 Deputy_MakeOperateReq::item_idx() const {
+  return item_idx_;
+}
+inline void Deputy_MakeOperateReq::set_item_idx(::google::protobuf::int32 value) {
+  set_has_item_idx();
+  item_idx_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -47,6 +47,7 @@ namespace GameServer.Script.Common
                 Stopwatch stopwatch = new Stopwatch();
                 //加载配置
                 stopwatch.Start();
+                AttrMgr.Init();
                 ConfigMgr.Inst().InitConfigMgr();
                 stopwatch.Stop();
 

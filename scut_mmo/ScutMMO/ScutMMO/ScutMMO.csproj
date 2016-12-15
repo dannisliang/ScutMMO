@@ -115,6 +115,8 @@
     <Compile Include="Script\CsScript\Common\SystemGlobal.cs" />
     <Compile Include="Script\CsScript\CustomActionDispatcher.cs" />
     <Compile Include="Script\CsScript\Locale\SimplifiedLanguage.cs" />
+    <Compile Include="Script\CsScript\Logic\Character\AttrMgr.cs" />
+    <Compile Include="Script\CsScript\Logic\Character\CommonDefine.cs" />
     <Compile Include="Script\CsScript\Logic\Character\Creature.cs" />
     <Compile Include="Script\CsScript\Logic\Character\Monster.cs" />
     <Compile Include="Script\CsScript\Logic\Character\NPC.cs" />
@@ -247,6 +249,8 @@
     <Compile Include="Script\CsScript\Tools\Config\MonsterMonsterLoader.cs" />
     <Compile Include="Script\CsScript\Tools\Config\NpcNpcfunctionLoader.cs" />
     <Compile Include="Script\CsScript\Tools\Config\NpcNpcLoader.cs" />
+    <Compile Include="Script\CsScript\Tools\Config\PetPetLoader.cs" />
+    <Compile Include="Script\CsScript\Tools\Config\PetPetskillLoader.cs" />
     <Compile Include="Script\CsScript\Tools\Config\PkmodePkWantedLoader.cs" />
     <Compile Include="Script\CsScript\Tools\Config\RandomnameManfirstLoader.cs" />
     <Compile Include="Script\CsScript\Tools\Config\RandomnameMansecondLoader.cs" />

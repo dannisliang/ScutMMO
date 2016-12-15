@@ -644,9 +644,9 @@ void protobuf_AddDesc_ProtoBuffer_2fMail_2eproto() {
     "ailItemListRsp\022$\n\010mailHead\030\001 \003(\0132\022.Proto"
     "Buf.MailHead\"\036\n\014CWAskMailReq\022\016\n\006mailId\030\001"
     " \001(\r\"\316\001\n\014WCAskMailRsp\022\016\n\006mailId\030\001 \001(\r\022\017\n"
-    "\007content\030\002 \001(\014\022\014\n\004gold\030\003 \001(\r\022\017\n\007diamond\030"
-    "\004 \001(\r\022\020\n\010bindGold\030\005 \001(\r\022\023\n\013bindDiamond\030\006"
-    " \001(\r\022\020\n\010sellType\030\007 \001(\r\022\017\n\007sellNum\030\010 \001(\r\022"
+    "\007content\030\002 \001(\014\022\014\n\004gold\030\003 \001(\005\022\017\n\007diamond\030"
+    "\004 \001(\005\022\020\n\010bindGold\030\005 \001(\005\022\023\n\013bindDiamond\030\006"
+    " \001(\005\022\020\n\010sellType\030\007 \001(\r\022\017\n\007sellNum\030\010 \001(\r\022"
     "4\n\016attachmentList\030\t \001(\0132\034.ProtoBuf.MailA"
     "ttachmentList\"$\n\022WCUnReadMailNotify\022\016\n\006h"
     "asNew\030\001 \001(\010\">\n\016MailAttachment\022\014\n\004type\030\001 "
@@ -671,26 +671,26 @@ void protobuf_AddDesc_ProtoBuffer_2fMail_2eproto() {
     "\010mailType\030\001 \001(\r\022\016\n\006sendId\030\002 \001(\r\022\022\n\ntarge"
     "tName\030\003 \001(\014\022\020\n\010targetId\030\004 \001(\r\022\r\n\005title\030\005"
     " \001(\014\022\017\n\007content\030\006 \001(\014\022\020\n\010sellType\030\007 \001(\r\022"
-    "\017\n\007sellNum\030\010 \001(\r\0220\n\nattachment\030\t \001(\0132\034.P"
+    "\017\n\007sellNum\030\010 \001(\005\0220\n\nattachment\030\t \001(\0132\034.P"
     "rotoBuf.MailAttachmentList\"\345\001\n\026WGGetMail"
     "AttachmentReq\022\016\n\006charId\030\001 \001(\r\022\016\n\006mailId\030"
-    "\002 \001(\r\022\020\n\010mailType\030\003 \001(\r\022\014\n\004gold\030\004 \001(\r\022\020\n"
-    "\010bindGold\030\005 \001(\r\022\017\n\007diamond\030\006 \001(\r\022\023\n\013bind"
-    "Diamond\030\007 \001(\r\022\020\n\010sellType\030\010 \001(\r\022\017\n\007sellN"
-    "um\030\t \001(\r\0220\n\nattachment\030\n \001(\0132\034.ProtoBuf."
+    "\002 \001(\r\022\020\n\010mailType\030\003 \001(\r\022\014\n\004gold\030\004 \001(\005\022\020\n"
+    "\010bindGold\030\005 \001(\005\022\017\n\007diamond\030\006 \001(\005\022\023\n\013bind"
+    "Diamond\030\007 \001(\005\022\020\n\010sellType\030\010 \001(\r\022\017\n\007sellN"
+    "um\030\t \001(\005\0220\n\nattachment\030\n \001(\0132\034.ProtoBuf."
     "MailAttachmentList\"A\n\022GWUpdateMailNotify"
     "\022\016\n\006charId\030\001 \001(\r\022\016\n\006idList\030\002 \003(\r\022\013\n\003ret\030"
     "\003 \001(\r\"\237\001\n\025OneMailAttachmentData\022\016\n\006mailI"
-    "d\030\001 \001(\r\022\014\n\004gold\030\002 \001(\r\022\020\n\010bindGold\030\003 \001(\r\022"
-    "\017\n\007diamond\030\004 \001(\r\022\023\n\013bindDiamond\030\005 \001(\r\0220\n"
+    "d\030\001 \001(\r\022\014\n\004gold\030\002 \001(\005\022\020\n\010bindGold\030\003 \001(\005\022"
+    "\017\n\007diamond\030\004 \001(\005\022\023\n\013bindDiamond\030\005 \001(\005\0220\n"
     "\nattachment\030\006 \001(\0132\034.ProtoBuf.MailAttachm"
     "entList\"h\n\031WGGetAllMailAttachmentReq\022\016\n\006"
     "charId\030\001 \001(\r\022;\n\022attachmentDataList\030\002 \003(\013"
     "2\037.ProtoBuf.OneMailAttachmentData\"\275\001\n\023GW"
     "SendSystemMailReq\022\016\n\006destId\030\001 \001(\r\022\r\n\005tit"
-    "le\030\002 \001(\014\022\017\n\007content\030\003 \001(\014\022\014\n\004gold\030\004 \001(\r\022"
-    "\020\n\010bindGold\030\005 \001(\r\022\017\n\007diamond\030\006 \001(\r\022\023\n\013bi"
-    "ndDiamond\030\007 \001(\r\0220\n\nattachment\030\010 \001(\0132\034.Pr"
+    "le\030\002 \001(\014\022\017\n\007content\030\003 \001(\014\022\014\n\004gold\030\004 \001(\005\022"
+    "\020\n\010bindGold\030\005 \001(\005\022\017\n\007diamond\030\006 \001(\005\022\023\n\013bi"
+    "ndDiamond\030\007 \001(\005\0220\n\nattachment\030\010 \001(\0132\034.Pr"
     "otoBuf.MailAttachmentList", 2185);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ProtoBuffer/Mail.proto", &protobuf_RegisterTypes);
@@ -1352,10 +1352,10 @@ void WCAskMailRsp::SharedCtor() {
   _cached_size_ = 0;
   mailid_ = 0u;
   content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  gold_ = 0u;
-  diamond_ = 0u;
-  bindgold_ = 0u;
-  binddiamond_ = 0u;
+  gold_ = 0;
+  diamond_ = 0;
+  bindgold_ = 0;
+  binddiamond_ = 0;
   selltype_ = 0u;
   sellnum_ = 0u;
   attachmentlist_ = NULL;
@@ -1404,10 +1404,10 @@ void WCAskMailRsp::Clear() {
         content_->clear();
       }
     }
-    gold_ = 0u;
-    diamond_ = 0u;
-    bindgold_ = 0u;
-    binddiamond_ = 0u;
+    gold_ = 0;
+    diamond_ = 0;
+    bindgold_ = 0;
+    binddiamond_ = 0;
     selltype_ = 0u;
     sellnum_ = 0u;
   }
@@ -1455,13 +1455,13 @@ bool WCAskMailRsp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 gold = 3;
+      // optional int32 gold = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_gold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &gold_)));
           set_has_gold();
         } else {
@@ -1471,13 +1471,13 @@ bool WCAskMailRsp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 diamond = 4;
+      // optional int32 diamond = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_diamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &diamond_)));
           set_has_diamond();
         } else {
@@ -1487,13 +1487,13 @@ bool WCAskMailRsp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindGold = 5;
+      // optional int32 bindGold = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindGold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &bindgold_)));
           set_has_bindgold();
         } else {
@@ -1503,13 +1503,13 @@ bool WCAskMailRsp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindDiamond = 6;
+      // optional int32 bindDiamond = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindDiamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &binddiamond_)));
           set_has_binddiamond();
         } else {
@@ -1594,24 +1594,24 @@ void WCAskMailRsp::SerializeWithCachedSizes(
       2, this->content(), output);
   }
 
-  // optional uint32 gold = 3;
+  // optional int32 gold = 3;
   if (has_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->gold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->gold(), output);
   }
 
-  // optional uint32 diamond = 4;
+  // optional int32 diamond = 4;
   if (has_diamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->diamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->diamond(), output);
   }
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   if (has_bindgold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->bindgold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->bindgold(), output);
   }
 
-  // optional uint32 bindDiamond = 6;
+  // optional int32 bindDiamond = 6;
   if (has_binddiamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->binddiamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->binddiamond(), output);
   }
 
   // optional uint32 sellType = 7;
@@ -1650,24 +1650,24 @@ void WCAskMailRsp::SerializeWithCachedSizes(
         2, this->content(), target);
   }
 
-  // optional uint32 gold = 3;
+  // optional int32 gold = 3;
   if (has_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->gold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->gold(), target);
   }
 
-  // optional uint32 diamond = 4;
+  // optional int32 diamond = 4;
   if (has_diamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->diamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->diamond(), target);
   }
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   if (has_bindgold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->bindgold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->bindgold(), target);
   }
 
-  // optional uint32 bindDiamond = 6;
+  // optional int32 bindDiamond = 6;
   if (has_binddiamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->binddiamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->binddiamond(), target);
   }
 
   // optional uint32 sellType = 7;
@@ -1712,31 +1712,31 @@ int WCAskMailRsp::ByteSize() const {
           this->content());
     }
 
-    // optional uint32 gold = 3;
+    // optional int32 gold = 3;
     if (has_gold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->gold());
     }
 
-    // optional uint32 diamond = 4;
+    // optional int32 diamond = 4;
     if (has_diamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->diamond());
     }
 
-    // optional uint32 bindGold = 5;
+    // optional int32 bindGold = 5;
     if (has_bindgold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->bindgold());
     }
 
-    // optional uint32 bindDiamond = 6;
+    // optional int32 bindDiamond = 6;
     if (has_binddiamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->binddiamond());
     }
 
@@ -5298,7 +5298,7 @@ void GWSendMailReq::SharedCtor() {
   title_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   selltype_ = 0u;
-  sellnum_ = 0u;
+  sellnum_ = 0;
   attachment_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -5364,7 +5364,7 @@ void GWSendMailReq::Clear() {
       }
     }
     selltype_ = 0u;
-    sellnum_ = 0u;
+    sellnum_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (has_attachment()) {
@@ -5486,13 +5486,13 @@ bool GWSendMailReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 sellNum = 8;
+      // optional int32 sellNum = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_sellNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &sellnum_)));
           set_has_sellnum();
         } else {
@@ -5572,9 +5572,9 @@ void GWSendMailReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->selltype(), output);
   }
 
-  // optional uint32 sellNum = 8;
+  // optional int32 sellNum = 8;
   if (has_sellnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->sellnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->sellnum(), output);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 9;
@@ -5632,9 +5632,9 @@ void GWSendMailReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->selltype(), target);
   }
 
-  // optional uint32 sellNum = 8;
+  // optional int32 sellNum = 8;
   if (has_sellnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->sellnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->sellnum(), target);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 9;
@@ -5704,10 +5704,10 @@ int GWSendMailReq::ByteSize() const {
           this->selltype());
     }
 
-    // optional uint32 sellNum = 8;
+    // optional int32 sellNum = 8;
     if (has_sellnum()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->sellnum());
     }
 
@@ -5861,12 +5861,12 @@ void WGGetMailAttachmentReq::SharedCtor() {
   charid_ = 0u;
   mailid_ = 0u;
   mailtype_ = 0u;
-  gold_ = 0u;
-  bindgold_ = 0u;
-  diamond_ = 0u;
-  binddiamond_ = 0u;
+  gold_ = 0;
+  bindgold_ = 0;
+  diamond_ = 0;
+  binddiamond_ = 0;
   selltype_ = 0u;
-  sellnum_ = 0u;
+  sellnum_ = 0;
   attachment_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -5907,14 +5907,14 @@ void WGGetMailAttachmentReq::Clear() {
     charid_ = 0u;
     mailid_ = 0u;
     mailtype_ = 0u;
-    gold_ = 0u;
-    bindgold_ = 0u;
-    diamond_ = 0u;
-    binddiamond_ = 0u;
+    gold_ = 0;
+    bindgold_ = 0;
+    diamond_ = 0;
+    binddiamond_ = 0;
     selltype_ = 0u;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    sellnum_ = 0u;
+    sellnum_ = 0;
     if (has_attachment()) {
       if (attachment_ != NULL) attachment_->::ProtoBuf::MailAttachmentList::Clear();
     }
@@ -5976,13 +5976,13 @@ bool WGGetMailAttachmentReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 gold = 4;
+      // optional int32 gold = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_gold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &gold_)));
           set_has_gold();
         } else {
@@ -5992,13 +5992,13 @@ bool WGGetMailAttachmentReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindGold = 5;
+      // optional int32 bindGold = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindGold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &bindgold_)));
           set_has_bindgold();
         } else {
@@ -6008,13 +6008,13 @@ bool WGGetMailAttachmentReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 diamond = 6;
+      // optional int32 diamond = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_diamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &diamond_)));
           set_has_diamond();
         } else {
@@ -6024,13 +6024,13 @@ bool WGGetMailAttachmentReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindDiamond = 7;
+      // optional int32 bindDiamond = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindDiamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &binddiamond_)));
           set_has_binddiamond();
         } else {
@@ -6056,13 +6056,13 @@ bool WGGetMailAttachmentReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 sellNum = 9;
+      // optional int32 sellNum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_sellNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &sellnum_)));
           set_has_sellnum();
         } else {
@@ -6119,24 +6119,24 @@ void WGGetMailAttachmentReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->mailtype(), output);
   }
 
-  // optional uint32 gold = 4;
+  // optional int32 gold = 4;
   if (has_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->gold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->gold(), output);
   }
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   if (has_bindgold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->bindgold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->bindgold(), output);
   }
 
-  // optional uint32 diamond = 6;
+  // optional int32 diamond = 6;
   if (has_diamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->diamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->diamond(), output);
   }
 
-  // optional uint32 bindDiamond = 7;
+  // optional int32 bindDiamond = 7;
   if (has_binddiamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->binddiamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->binddiamond(), output);
   }
 
   // optional uint32 sellType = 8;
@@ -6144,9 +6144,9 @@ void WGGetMailAttachmentReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->selltype(), output);
   }
 
-  // optional uint32 sellNum = 9;
+  // optional int32 sellNum = 9;
   if (has_sellnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->sellnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->sellnum(), output);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 10;
@@ -6178,24 +6178,24 @@ void WGGetMailAttachmentReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->mailtype(), target);
   }
 
-  // optional uint32 gold = 4;
+  // optional int32 gold = 4;
   if (has_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->gold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->gold(), target);
   }
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   if (has_bindgold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->bindgold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->bindgold(), target);
   }
 
-  // optional uint32 diamond = 6;
+  // optional int32 diamond = 6;
   if (has_diamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->diamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->diamond(), target);
   }
 
-  // optional uint32 bindDiamond = 7;
+  // optional int32 bindDiamond = 7;
   if (has_binddiamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->binddiamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->binddiamond(), target);
   }
 
   // optional uint32 sellType = 8;
@@ -6203,9 +6203,9 @@ void WGGetMailAttachmentReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->selltype(), target);
   }
 
-  // optional uint32 sellNum = 9;
+  // optional int32 sellNum = 9;
   if (has_sellnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->sellnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->sellnum(), target);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 10;
@@ -6247,31 +6247,31 @@ int WGGetMailAttachmentReq::ByteSize() const {
           this->mailtype());
     }
 
-    // optional uint32 gold = 4;
+    // optional int32 gold = 4;
     if (has_gold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->gold());
     }
 
-    // optional uint32 bindGold = 5;
+    // optional int32 bindGold = 5;
     if (has_bindgold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->bindgold());
     }
 
-    // optional uint32 diamond = 6;
+    // optional int32 diamond = 6;
     if (has_diamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->diamond());
     }
 
-    // optional uint32 bindDiamond = 7;
+    // optional int32 bindDiamond = 7;
     if (has_binddiamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->binddiamond());
     }
 
@@ -6284,10 +6284,10 @@ int WGGetMailAttachmentReq::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional uint32 sellNum = 9;
+    // optional int32 sellNum = 9;
     if (has_sellnum()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->sellnum());
     }
 
@@ -6733,10 +6733,10 @@ OneMailAttachmentData::OneMailAttachmentData(const OneMailAttachmentData& from)
 void OneMailAttachmentData::SharedCtor() {
   _cached_size_ = 0;
   mailid_ = 0u;
-  gold_ = 0u;
-  bindgold_ = 0u;
-  diamond_ = 0u;
-  binddiamond_ = 0u;
+  gold_ = 0;
+  bindgold_ = 0;
+  diamond_ = 0;
+  binddiamond_ = 0;
   attachment_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -6775,10 +6775,10 @@ OneMailAttachmentData* OneMailAttachmentData::New() const {
 void OneMailAttachmentData::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     mailid_ = 0u;
-    gold_ = 0u;
-    bindgold_ = 0u;
-    diamond_ = 0u;
-    binddiamond_ = 0u;
+    gold_ = 0;
+    bindgold_ = 0;
+    diamond_ = 0;
+    binddiamond_ = 0;
     if (has_attachment()) {
       if (attachment_ != NULL) attachment_->::ProtoBuf::MailAttachmentList::Clear();
     }
@@ -6808,13 +6808,13 @@ bool OneMailAttachmentData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 gold = 2;
+      // optional int32 gold = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_gold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &gold_)));
           set_has_gold();
         } else {
@@ -6824,13 +6824,13 @@ bool OneMailAttachmentData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindGold = 3;
+      // optional int32 bindGold = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindGold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &bindgold_)));
           set_has_bindgold();
         } else {
@@ -6840,13 +6840,13 @@ bool OneMailAttachmentData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 diamond = 4;
+      // optional int32 diamond = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_diamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &diamond_)));
           set_has_diamond();
         } else {
@@ -6856,13 +6856,13 @@ bool OneMailAttachmentData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindDiamond = 5;
+      // optional int32 bindDiamond = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindDiamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &binddiamond_)));
           set_has_binddiamond();
         } else {
@@ -6909,24 +6909,24 @@ void OneMailAttachmentData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->mailid(), output);
   }
 
-  // optional uint32 gold = 2;
+  // optional int32 gold = 2;
   if (has_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->gold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->gold(), output);
   }
 
-  // optional uint32 bindGold = 3;
+  // optional int32 bindGold = 3;
   if (has_bindgold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->bindgold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->bindgold(), output);
   }
 
-  // optional uint32 diamond = 4;
+  // optional int32 diamond = 4;
   if (has_diamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->diamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->diamond(), output);
   }
 
-  // optional uint32 bindDiamond = 5;
+  // optional int32 bindDiamond = 5;
   if (has_binddiamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->binddiamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->binddiamond(), output);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 6;
@@ -6948,24 +6948,24 @@ void OneMailAttachmentData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->mailid(), target);
   }
 
-  // optional uint32 gold = 2;
+  // optional int32 gold = 2;
   if (has_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->gold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->gold(), target);
   }
 
-  // optional uint32 bindGold = 3;
+  // optional int32 bindGold = 3;
   if (has_bindgold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->bindgold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->bindgold(), target);
   }
 
-  // optional uint32 diamond = 4;
+  // optional int32 diamond = 4;
   if (has_diamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->diamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->diamond(), target);
   }
 
-  // optional uint32 bindDiamond = 5;
+  // optional int32 bindDiamond = 5;
   if (has_binddiamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->binddiamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->binddiamond(), target);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 6;
@@ -6993,31 +6993,31 @@ int OneMailAttachmentData::ByteSize() const {
           this->mailid());
     }
 
-    // optional uint32 gold = 2;
+    // optional int32 gold = 2;
     if (has_gold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->gold());
     }
 
-    // optional uint32 bindGold = 3;
+    // optional int32 bindGold = 3;
     if (has_bindgold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->bindgold());
     }
 
-    // optional uint32 diamond = 4;
+    // optional int32 diamond = 4;
     if (has_diamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->diamond());
     }
 
-    // optional uint32 bindDiamond = 5;
+    // optional int32 bindDiamond = 5;
     if (has_binddiamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->binddiamond());
     }
 
@@ -7404,10 +7404,10 @@ void GWSendSystemMailReq::SharedCtor() {
   destid_ = 0u;
   title_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  gold_ = 0u;
-  bindgold_ = 0u;
-  diamond_ = 0u;
-  binddiamond_ = 0u;
+  gold_ = 0;
+  bindgold_ = 0;
+  diamond_ = 0;
+  binddiamond_ = 0;
   attachment_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -7462,10 +7462,10 @@ void GWSendSystemMailReq::Clear() {
         content_->clear();
       }
     }
-    gold_ = 0u;
-    bindgold_ = 0u;
-    diamond_ = 0u;
-    binddiamond_ = 0u;
+    gold_ = 0;
+    bindgold_ = 0;
+    diamond_ = 0;
+    binddiamond_ = 0;
     if (has_attachment()) {
       if (attachment_ != NULL) attachment_->::ProtoBuf::MailAttachmentList::Clear();
     }
@@ -7523,13 +7523,13 @@ bool GWSendSystemMailReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 gold = 4;
+      // optional int32 gold = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_gold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &gold_)));
           set_has_gold();
         } else {
@@ -7539,13 +7539,13 @@ bool GWSendSystemMailReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindGold = 5;
+      // optional int32 bindGold = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindGold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &bindgold_)));
           set_has_bindgold();
         } else {
@@ -7555,13 +7555,13 @@ bool GWSendSystemMailReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 diamond = 6;
+      // optional int32 diamond = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_diamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &diamond_)));
           set_has_diamond();
         } else {
@@ -7571,13 +7571,13 @@ bool GWSendSystemMailReq::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 bindDiamond = 7;
+      // optional int32 bindDiamond = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_bindDiamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &binddiamond_)));
           set_has_binddiamond();
         } else {
@@ -7636,24 +7636,24 @@ void GWSendSystemMailReq::SerializeWithCachedSizes(
       3, this->content(), output);
   }
 
-  // optional uint32 gold = 4;
+  // optional int32 gold = 4;
   if (has_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->gold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->gold(), output);
   }
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   if (has_bindgold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->bindgold(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->bindgold(), output);
   }
 
-  // optional uint32 diamond = 6;
+  // optional int32 diamond = 6;
   if (has_diamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->diamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->diamond(), output);
   }
 
-  // optional uint32 bindDiamond = 7;
+  // optional int32 bindDiamond = 7;
   if (has_binddiamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->binddiamond(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->binddiamond(), output);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 8;
@@ -7689,24 +7689,24 @@ void GWSendSystemMailReq::SerializeWithCachedSizes(
         3, this->content(), target);
   }
 
-  // optional uint32 gold = 4;
+  // optional int32 gold = 4;
   if (has_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->gold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->gold(), target);
   }
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   if (has_bindgold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->bindgold(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->bindgold(), target);
   }
 
-  // optional uint32 diamond = 6;
+  // optional int32 diamond = 6;
   if (has_diamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->diamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->diamond(), target);
   }
 
-  // optional uint32 bindDiamond = 7;
+  // optional int32 bindDiamond = 7;
   if (has_binddiamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->binddiamond(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->binddiamond(), target);
   }
 
   // optional .ProtoBuf.MailAttachmentList attachment = 8;
@@ -7748,31 +7748,31 @@ int GWSendSystemMailReq::ByteSize() const {
           this->content());
     }
 
-    // optional uint32 gold = 4;
+    // optional int32 gold = 4;
     if (has_gold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->gold());
     }
 
-    // optional uint32 bindGold = 5;
+    // optional int32 bindGold = 5;
     if (has_bindgold()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->bindgold());
     }
 
-    // optional uint32 diamond = 6;
+    // optional int32 diamond = 6;
     if (has_diamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->diamond());
     }
 
-    // optional uint32 bindDiamond = 7;
+    // optional int32 bindDiamond = 7;
     if (has_binddiamond()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->binddiamond());
     }
 

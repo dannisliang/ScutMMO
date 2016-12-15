@@ -375,33 +375,33 @@ class WCAskMailRsp : public ::google::protobuf::Message {
   inline ::std::string* release_content();
   inline void set_allocated_content(::std::string* content);
 
-  // optional uint32 gold = 3;
+  // optional int32 gold = 3;
   inline bool has_gold() const;
   inline void clear_gold();
   static const int kGoldFieldNumber = 3;
-  inline ::google::protobuf::uint32 gold() const;
-  inline void set_gold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 gold() const;
+  inline void set_gold(::google::protobuf::int32 value);
 
-  // optional uint32 diamond = 4;
+  // optional int32 diamond = 4;
   inline bool has_diamond() const;
   inline void clear_diamond();
   static const int kDiamondFieldNumber = 4;
-  inline ::google::protobuf::uint32 diamond() const;
-  inline void set_diamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 diamond() const;
+  inline void set_diamond(::google::protobuf::int32 value);
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   inline bool has_bindgold() const;
   inline void clear_bindgold();
   static const int kBindGoldFieldNumber = 5;
-  inline ::google::protobuf::uint32 bindgold() const;
-  inline void set_bindgold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 bindgold() const;
+  inline void set_bindgold(::google::protobuf::int32 value);
 
-  // optional uint32 bindDiamond = 6;
+  // optional int32 bindDiamond = 6;
   inline bool has_binddiamond() const;
   inline void clear_binddiamond();
   static const int kBindDiamondFieldNumber = 6;
-  inline ::google::protobuf::uint32 binddiamond() const;
-  inline void set_binddiamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 binddiamond() const;
+  inline void set_binddiamond(::google::protobuf::int32 value);
 
   // optional uint32 sellType = 7;
   inline bool has_selltype() const;
@@ -451,10 +451,10 @@ class WCAskMailRsp : public ::google::protobuf::Message {
 
   ::std::string* content_;
   ::google::protobuf::uint32 mailid_;
-  ::google::protobuf::uint32 gold_;
-  ::google::protobuf::uint32 diamond_;
-  ::google::protobuf::uint32 bindgold_;
-  ::google::protobuf::uint32 binddiamond_;
+  ::google::protobuf::int32 gold_;
+  ::google::protobuf::int32 diamond_;
+  ::google::protobuf::int32 bindgold_;
+  ::google::protobuf::int32 binddiamond_;
   ::google::protobuf::uint32 selltype_;
   ::ProtoBuf::MailAttachmentList* attachmentlist_;
   ::google::protobuf::uint32 sellnum_;
@@ -1877,12 +1877,12 @@ class GWSendMailReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 selltype() const;
   inline void set_selltype(::google::protobuf::uint32 value);
 
-  // optional uint32 sellNum = 8;
+  // optional int32 sellNum = 8;
   inline bool has_sellnum() const;
   inline void clear_sellnum();
   static const int kSellNumFieldNumber = 8;
-  inline ::google::protobuf::uint32 sellnum() const;
-  inline void set_sellnum(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 sellnum() const;
+  inline void set_sellnum(::google::protobuf::int32 value);
 
   // optional .ProtoBuf.MailAttachmentList attachment = 9;
   inline bool has_attachment() const;
@@ -1924,7 +1924,7 @@ class GWSendMailReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 selltype_;
   ::std::string* content_;
   ::ProtoBuf::MailAttachmentList* attachment_;
-  ::google::protobuf::uint32 sellnum_;
+  ::google::protobuf::int32 sellnum_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
@@ -2013,33 +2013,33 @@ class WGGetMailAttachmentReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 mailtype() const;
   inline void set_mailtype(::google::protobuf::uint32 value);
 
-  // optional uint32 gold = 4;
+  // optional int32 gold = 4;
   inline bool has_gold() const;
   inline void clear_gold();
   static const int kGoldFieldNumber = 4;
-  inline ::google::protobuf::uint32 gold() const;
-  inline void set_gold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 gold() const;
+  inline void set_gold(::google::protobuf::int32 value);
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   inline bool has_bindgold() const;
   inline void clear_bindgold();
   static const int kBindGoldFieldNumber = 5;
-  inline ::google::protobuf::uint32 bindgold() const;
-  inline void set_bindgold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 bindgold() const;
+  inline void set_bindgold(::google::protobuf::int32 value);
 
-  // optional uint32 diamond = 6;
+  // optional int32 diamond = 6;
   inline bool has_diamond() const;
   inline void clear_diamond();
   static const int kDiamondFieldNumber = 6;
-  inline ::google::protobuf::uint32 diamond() const;
-  inline void set_diamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 diamond() const;
+  inline void set_diamond(::google::protobuf::int32 value);
 
-  // optional uint32 bindDiamond = 7;
+  // optional int32 bindDiamond = 7;
   inline bool has_binddiamond() const;
   inline void clear_binddiamond();
   static const int kBindDiamondFieldNumber = 7;
-  inline ::google::protobuf::uint32 binddiamond() const;
-  inline void set_binddiamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 binddiamond() const;
+  inline void set_binddiamond(::google::protobuf::int32 value);
 
   // optional uint32 sellType = 8;
   inline bool has_selltype() const;
@@ -2048,12 +2048,12 @@ class WGGetMailAttachmentReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 selltype() const;
   inline void set_selltype(::google::protobuf::uint32 value);
 
-  // optional uint32 sellNum = 9;
+  // optional int32 sellNum = 9;
   inline bool has_sellnum() const;
   inline void clear_sellnum();
   static const int kSellNumFieldNumber = 9;
-  inline ::google::protobuf::uint32 sellnum() const;
-  inline void set_sellnum(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 sellnum() const;
+  inline void set_sellnum(::google::protobuf::int32 value);
 
   // optional .ProtoBuf.MailAttachmentList attachment = 10;
   inline bool has_attachment() const;
@@ -2092,13 +2092,13 @@ class WGGetMailAttachmentReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 charid_;
   ::google::protobuf::uint32 mailid_;
   ::google::protobuf::uint32 mailtype_;
-  ::google::protobuf::uint32 gold_;
-  ::google::protobuf::uint32 bindgold_;
-  ::google::protobuf::uint32 diamond_;
-  ::google::protobuf::uint32 binddiamond_;
+  ::google::protobuf::int32 gold_;
+  ::google::protobuf::int32 bindgold_;
+  ::google::protobuf::int32 diamond_;
+  ::google::protobuf::int32 binddiamond_;
   ::google::protobuf::uint32 selltype_;
   ::ProtoBuf::MailAttachmentList* attachment_;
-  ::google::protobuf::uint32 sellnum_;
+  ::google::protobuf::int32 sellnum_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
@@ -2278,33 +2278,33 @@ class OneMailAttachmentData : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 mailid() const;
   inline void set_mailid(::google::protobuf::uint32 value);
 
-  // optional uint32 gold = 2;
+  // optional int32 gold = 2;
   inline bool has_gold() const;
   inline void clear_gold();
   static const int kGoldFieldNumber = 2;
-  inline ::google::protobuf::uint32 gold() const;
-  inline void set_gold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 gold() const;
+  inline void set_gold(::google::protobuf::int32 value);
 
-  // optional uint32 bindGold = 3;
+  // optional int32 bindGold = 3;
   inline bool has_bindgold() const;
   inline void clear_bindgold();
   static const int kBindGoldFieldNumber = 3;
-  inline ::google::protobuf::uint32 bindgold() const;
-  inline void set_bindgold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 bindgold() const;
+  inline void set_bindgold(::google::protobuf::int32 value);
 
-  // optional uint32 diamond = 4;
+  // optional int32 diamond = 4;
   inline bool has_diamond() const;
   inline void clear_diamond();
   static const int kDiamondFieldNumber = 4;
-  inline ::google::protobuf::uint32 diamond() const;
-  inline void set_diamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 diamond() const;
+  inline void set_diamond(::google::protobuf::int32 value);
 
-  // optional uint32 bindDiamond = 5;
+  // optional int32 bindDiamond = 5;
   inline bool has_binddiamond() const;
   inline void clear_binddiamond();
   static const int kBindDiamondFieldNumber = 5;
-  inline ::google::protobuf::uint32 binddiamond() const;
-  inline void set_binddiamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 binddiamond() const;
+  inline void set_binddiamond(::google::protobuf::int32 value);
 
   // optional .ProtoBuf.MailAttachmentList attachment = 6;
   inline bool has_attachment() const;
@@ -2333,11 +2333,11 @@ class OneMailAttachmentData : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint32 mailid_;
-  ::google::protobuf::uint32 gold_;
-  ::google::protobuf::uint32 bindgold_;
-  ::google::protobuf::uint32 diamond_;
+  ::google::protobuf::int32 gold_;
+  ::google::protobuf::int32 bindgold_;
+  ::google::protobuf::int32 diamond_;
   ::ProtoBuf::MailAttachmentList* attachment_;
-  ::google::protobuf::uint32 binddiamond_;
+  ::google::protobuf::int32 binddiamond_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -2531,33 +2531,33 @@ class GWSendSystemMailReq : public ::google::protobuf::Message {
   inline ::std::string* release_content();
   inline void set_allocated_content(::std::string* content);
 
-  // optional uint32 gold = 4;
+  // optional int32 gold = 4;
   inline bool has_gold() const;
   inline void clear_gold();
   static const int kGoldFieldNumber = 4;
-  inline ::google::protobuf::uint32 gold() const;
-  inline void set_gold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 gold() const;
+  inline void set_gold(::google::protobuf::int32 value);
 
-  // optional uint32 bindGold = 5;
+  // optional int32 bindGold = 5;
   inline bool has_bindgold() const;
   inline void clear_bindgold();
   static const int kBindGoldFieldNumber = 5;
-  inline ::google::protobuf::uint32 bindgold() const;
-  inline void set_bindgold(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 bindgold() const;
+  inline void set_bindgold(::google::protobuf::int32 value);
 
-  // optional uint32 diamond = 6;
+  // optional int32 diamond = 6;
   inline bool has_diamond() const;
   inline void clear_diamond();
   static const int kDiamondFieldNumber = 6;
-  inline ::google::protobuf::uint32 diamond() const;
-  inline void set_diamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 diamond() const;
+  inline void set_diamond(::google::protobuf::int32 value);
 
-  // optional uint32 bindDiamond = 7;
+  // optional int32 bindDiamond = 7;
   inline bool has_binddiamond() const;
   inline void clear_binddiamond();
   static const int kBindDiamondFieldNumber = 7;
-  inline ::google::protobuf::uint32 binddiamond() const;
-  inline void set_binddiamond(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 binddiamond() const;
+  inline void set_binddiamond(::google::protobuf::int32 value);
 
   // optional .ProtoBuf.MailAttachmentList attachment = 8;
   inline bool has_attachment() const;
@@ -2591,12 +2591,12 @@ class GWSendSystemMailReq : public ::google::protobuf::Message {
 
   ::std::string* title_;
   ::google::protobuf::uint32 destid_;
-  ::google::protobuf::uint32 gold_;
+  ::google::protobuf::int32 gold_;
   ::std::string* content_;
-  ::google::protobuf::uint32 bindgold_;
-  ::google::protobuf::uint32 diamond_;
+  ::google::protobuf::int32 bindgold_;
+  ::google::protobuf::int32 diamond_;
   ::ProtoBuf::MailAttachmentList* attachment_;
-  ::google::protobuf::uint32 binddiamond_;
+  ::google::protobuf::int32 binddiamond_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
@@ -2766,7 +2766,7 @@ inline void WCAskMailRsp::set_allocated_content(::std::string* content) {
   }
 }
 
-// optional uint32 gold = 3;
+// optional int32 gold = 3;
 inline bool WCAskMailRsp::has_gold() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2777,18 +2777,18 @@ inline void WCAskMailRsp::clear_has_gold() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void WCAskMailRsp::clear_gold() {
-  gold_ = 0u;
+  gold_ = 0;
   clear_has_gold();
 }
-inline ::google::protobuf::uint32 WCAskMailRsp::gold() const {
+inline ::google::protobuf::int32 WCAskMailRsp::gold() const {
   return gold_;
 }
-inline void WCAskMailRsp::set_gold(::google::protobuf::uint32 value) {
+inline void WCAskMailRsp::set_gold(::google::protobuf::int32 value) {
   set_has_gold();
   gold_ = value;
 }
 
-// optional uint32 diamond = 4;
+// optional int32 diamond = 4;
 inline bool WCAskMailRsp::has_diamond() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2799,18 +2799,18 @@ inline void WCAskMailRsp::clear_has_diamond() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void WCAskMailRsp::clear_diamond() {
-  diamond_ = 0u;
+  diamond_ = 0;
   clear_has_diamond();
 }
-inline ::google::protobuf::uint32 WCAskMailRsp::diamond() const {
+inline ::google::protobuf::int32 WCAskMailRsp::diamond() const {
   return diamond_;
 }
-inline void WCAskMailRsp::set_diamond(::google::protobuf::uint32 value) {
+inline void WCAskMailRsp::set_diamond(::google::protobuf::int32 value) {
   set_has_diamond();
   diamond_ = value;
 }
 
-// optional uint32 bindGold = 5;
+// optional int32 bindGold = 5;
 inline bool WCAskMailRsp::has_bindgold() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2821,18 +2821,18 @@ inline void WCAskMailRsp::clear_has_bindgold() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void WCAskMailRsp::clear_bindgold() {
-  bindgold_ = 0u;
+  bindgold_ = 0;
   clear_has_bindgold();
 }
-inline ::google::protobuf::uint32 WCAskMailRsp::bindgold() const {
+inline ::google::protobuf::int32 WCAskMailRsp::bindgold() const {
   return bindgold_;
 }
-inline void WCAskMailRsp::set_bindgold(::google::protobuf::uint32 value) {
+inline void WCAskMailRsp::set_bindgold(::google::protobuf::int32 value) {
   set_has_bindgold();
   bindgold_ = value;
 }
 
-// optional uint32 bindDiamond = 6;
+// optional int32 bindDiamond = 6;
 inline bool WCAskMailRsp::has_binddiamond() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2843,13 +2843,13 @@ inline void WCAskMailRsp::clear_has_binddiamond() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void WCAskMailRsp::clear_binddiamond() {
-  binddiamond_ = 0u;
+  binddiamond_ = 0;
   clear_has_binddiamond();
 }
-inline ::google::protobuf::uint32 WCAskMailRsp::binddiamond() const {
+inline ::google::protobuf::int32 WCAskMailRsp::binddiamond() const {
   return binddiamond_;
 }
-inline void WCAskMailRsp::set_binddiamond(::google::protobuf::uint32 value) {
+inline void WCAskMailRsp::set_binddiamond(::google::protobuf::int32 value) {
   set_has_binddiamond();
   binddiamond_ = value;
 }
@@ -4045,7 +4045,7 @@ inline void GWSendMailReq::set_selltype(::google::protobuf::uint32 value) {
   selltype_ = value;
 }
 
-// optional uint32 sellNum = 8;
+// optional int32 sellNum = 8;
 inline bool GWSendMailReq::has_sellnum() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4056,13 +4056,13 @@ inline void GWSendMailReq::clear_has_sellnum() {
   _has_bits_[0] &= ~0x00000080u;
 }
 inline void GWSendMailReq::clear_sellnum() {
-  sellnum_ = 0u;
+  sellnum_ = 0;
   clear_has_sellnum();
 }
-inline ::google::protobuf::uint32 GWSendMailReq::sellnum() const {
+inline ::google::protobuf::int32 GWSendMailReq::sellnum() const {
   return sellnum_;
 }
-inline void GWSendMailReq::set_sellnum(::google::protobuf::uint32 value) {
+inline void GWSendMailReq::set_sellnum(::google::protobuf::int32 value) {
   set_has_sellnum();
   sellnum_ = value;
 }
@@ -4175,7 +4175,7 @@ inline void WGGetMailAttachmentReq::set_mailtype(::google::protobuf::uint32 valu
   mailtype_ = value;
 }
 
-// optional uint32 gold = 4;
+// optional int32 gold = 4;
 inline bool WGGetMailAttachmentReq::has_gold() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4186,18 +4186,18 @@ inline void WGGetMailAttachmentReq::clear_has_gold() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void WGGetMailAttachmentReq::clear_gold() {
-  gold_ = 0u;
+  gold_ = 0;
   clear_has_gold();
 }
-inline ::google::protobuf::uint32 WGGetMailAttachmentReq::gold() const {
+inline ::google::protobuf::int32 WGGetMailAttachmentReq::gold() const {
   return gold_;
 }
-inline void WGGetMailAttachmentReq::set_gold(::google::protobuf::uint32 value) {
+inline void WGGetMailAttachmentReq::set_gold(::google::protobuf::int32 value) {
   set_has_gold();
   gold_ = value;
 }
 
-// optional uint32 bindGold = 5;
+// optional int32 bindGold = 5;
 inline bool WGGetMailAttachmentReq::has_bindgold() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4208,18 +4208,18 @@ inline void WGGetMailAttachmentReq::clear_has_bindgold() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void WGGetMailAttachmentReq::clear_bindgold() {
-  bindgold_ = 0u;
+  bindgold_ = 0;
   clear_has_bindgold();
 }
-inline ::google::protobuf::uint32 WGGetMailAttachmentReq::bindgold() const {
+inline ::google::protobuf::int32 WGGetMailAttachmentReq::bindgold() const {
   return bindgold_;
 }
-inline void WGGetMailAttachmentReq::set_bindgold(::google::protobuf::uint32 value) {
+inline void WGGetMailAttachmentReq::set_bindgold(::google::protobuf::int32 value) {
   set_has_bindgold();
   bindgold_ = value;
 }
 
-// optional uint32 diamond = 6;
+// optional int32 diamond = 6;
 inline bool WGGetMailAttachmentReq::has_diamond() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -4230,18 +4230,18 @@ inline void WGGetMailAttachmentReq::clear_has_diamond() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void WGGetMailAttachmentReq::clear_diamond() {
-  diamond_ = 0u;
+  diamond_ = 0;
   clear_has_diamond();
 }
-inline ::google::protobuf::uint32 WGGetMailAttachmentReq::diamond() const {
+inline ::google::protobuf::int32 WGGetMailAttachmentReq::diamond() const {
   return diamond_;
 }
-inline void WGGetMailAttachmentReq::set_diamond(::google::protobuf::uint32 value) {
+inline void WGGetMailAttachmentReq::set_diamond(::google::protobuf::int32 value) {
   set_has_diamond();
   diamond_ = value;
 }
 
-// optional uint32 bindDiamond = 7;
+// optional int32 bindDiamond = 7;
 inline bool WGGetMailAttachmentReq::has_binddiamond() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4252,13 +4252,13 @@ inline void WGGetMailAttachmentReq::clear_has_binddiamond() {
   _has_bits_[0] &= ~0x00000040u;
 }
 inline void WGGetMailAttachmentReq::clear_binddiamond() {
-  binddiamond_ = 0u;
+  binddiamond_ = 0;
   clear_has_binddiamond();
 }
-inline ::google::protobuf::uint32 WGGetMailAttachmentReq::binddiamond() const {
+inline ::google::protobuf::int32 WGGetMailAttachmentReq::binddiamond() const {
   return binddiamond_;
 }
-inline void WGGetMailAttachmentReq::set_binddiamond(::google::protobuf::uint32 value) {
+inline void WGGetMailAttachmentReq::set_binddiamond(::google::protobuf::int32 value) {
   set_has_binddiamond();
   binddiamond_ = value;
 }
@@ -4285,7 +4285,7 @@ inline void WGGetMailAttachmentReq::set_selltype(::google::protobuf::uint32 valu
   selltype_ = value;
 }
 
-// optional uint32 sellNum = 9;
+// optional int32 sellNum = 9;
 inline bool WGGetMailAttachmentReq::has_sellnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4296,13 +4296,13 @@ inline void WGGetMailAttachmentReq::clear_has_sellnum() {
   _has_bits_[0] &= ~0x00000100u;
 }
 inline void WGGetMailAttachmentReq::clear_sellnum() {
-  sellnum_ = 0u;
+  sellnum_ = 0;
   clear_has_sellnum();
 }
-inline ::google::protobuf::uint32 WGGetMailAttachmentReq::sellnum() const {
+inline ::google::protobuf::int32 WGGetMailAttachmentReq::sellnum() const {
   return sellnum_;
 }
-inline void WGGetMailAttachmentReq::set_sellnum(::google::protobuf::uint32 value) {
+inline void WGGetMailAttachmentReq::set_sellnum(::google::protobuf::int32 value) {
   set_has_sellnum();
   sellnum_ = value;
 }
@@ -4444,7 +4444,7 @@ inline void OneMailAttachmentData::set_mailid(::google::protobuf::uint32 value) 
   mailid_ = value;
 }
 
-// optional uint32 gold = 2;
+// optional int32 gold = 2;
 inline bool OneMailAttachmentData::has_gold() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4455,18 +4455,18 @@ inline void OneMailAttachmentData::clear_has_gold() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void OneMailAttachmentData::clear_gold() {
-  gold_ = 0u;
+  gold_ = 0;
   clear_has_gold();
 }
-inline ::google::protobuf::uint32 OneMailAttachmentData::gold() const {
+inline ::google::protobuf::int32 OneMailAttachmentData::gold() const {
   return gold_;
 }
-inline void OneMailAttachmentData::set_gold(::google::protobuf::uint32 value) {
+inline void OneMailAttachmentData::set_gold(::google::protobuf::int32 value) {
   set_has_gold();
   gold_ = value;
 }
 
-// optional uint32 bindGold = 3;
+// optional int32 bindGold = 3;
 inline bool OneMailAttachmentData::has_bindgold() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4477,18 +4477,18 @@ inline void OneMailAttachmentData::clear_has_bindgold() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void OneMailAttachmentData::clear_bindgold() {
-  bindgold_ = 0u;
+  bindgold_ = 0;
   clear_has_bindgold();
 }
-inline ::google::protobuf::uint32 OneMailAttachmentData::bindgold() const {
+inline ::google::protobuf::int32 OneMailAttachmentData::bindgold() const {
   return bindgold_;
 }
-inline void OneMailAttachmentData::set_bindgold(::google::protobuf::uint32 value) {
+inline void OneMailAttachmentData::set_bindgold(::google::protobuf::int32 value) {
   set_has_bindgold();
   bindgold_ = value;
 }
 
-// optional uint32 diamond = 4;
+// optional int32 diamond = 4;
 inline bool OneMailAttachmentData::has_diamond() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4499,18 +4499,18 @@ inline void OneMailAttachmentData::clear_has_diamond() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void OneMailAttachmentData::clear_diamond() {
-  diamond_ = 0u;
+  diamond_ = 0;
   clear_has_diamond();
 }
-inline ::google::protobuf::uint32 OneMailAttachmentData::diamond() const {
+inline ::google::protobuf::int32 OneMailAttachmentData::diamond() const {
   return diamond_;
 }
-inline void OneMailAttachmentData::set_diamond(::google::protobuf::uint32 value) {
+inline void OneMailAttachmentData::set_diamond(::google::protobuf::int32 value) {
   set_has_diamond();
   diamond_ = value;
 }
 
-// optional uint32 bindDiamond = 5;
+// optional int32 bindDiamond = 5;
 inline bool OneMailAttachmentData::has_binddiamond() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4521,13 +4521,13 @@ inline void OneMailAttachmentData::clear_has_binddiamond() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void OneMailAttachmentData::clear_binddiamond() {
-  binddiamond_ = 0u;
+  binddiamond_ = 0;
   clear_has_binddiamond();
 }
-inline ::google::protobuf::uint32 OneMailAttachmentData::binddiamond() const {
+inline ::google::protobuf::int32 OneMailAttachmentData::binddiamond() const {
   return binddiamond_;
 }
-inline void OneMailAttachmentData::set_binddiamond(::google::protobuf::uint32 value) {
+inline void OneMailAttachmentData::set_binddiamond(::google::protobuf::int32 value) {
   set_has_binddiamond();
   binddiamond_ = value;
 }
@@ -4787,7 +4787,7 @@ inline void GWSendSystemMailReq::set_allocated_content(::std::string* content) {
   }
 }
 
-// optional uint32 gold = 4;
+// optional int32 gold = 4;
 inline bool GWSendSystemMailReq::has_gold() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4798,18 +4798,18 @@ inline void GWSendSystemMailReq::clear_has_gold() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void GWSendSystemMailReq::clear_gold() {
-  gold_ = 0u;
+  gold_ = 0;
   clear_has_gold();
 }
-inline ::google::protobuf::uint32 GWSendSystemMailReq::gold() const {
+inline ::google::protobuf::int32 GWSendSystemMailReq::gold() const {
   return gold_;
 }
-inline void GWSendSystemMailReq::set_gold(::google::protobuf::uint32 value) {
+inline void GWSendSystemMailReq::set_gold(::google::protobuf::int32 value) {
   set_has_gold();
   gold_ = value;
 }
 
-// optional uint32 bindGold = 5;
+// optional int32 bindGold = 5;
 inline bool GWSendSystemMailReq::has_bindgold() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4820,18 +4820,18 @@ inline void GWSendSystemMailReq::clear_has_bindgold() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void GWSendSystemMailReq::clear_bindgold() {
-  bindgold_ = 0u;
+  bindgold_ = 0;
   clear_has_bindgold();
 }
-inline ::google::protobuf::uint32 GWSendSystemMailReq::bindgold() const {
+inline ::google::protobuf::int32 GWSendSystemMailReq::bindgold() const {
   return bindgold_;
 }
-inline void GWSendSystemMailReq::set_bindgold(::google::protobuf::uint32 value) {
+inline void GWSendSystemMailReq::set_bindgold(::google::protobuf::int32 value) {
   set_has_bindgold();
   bindgold_ = value;
 }
 
-// optional uint32 diamond = 6;
+// optional int32 diamond = 6;
 inline bool GWSendSystemMailReq::has_diamond() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -4842,18 +4842,18 @@ inline void GWSendSystemMailReq::clear_has_diamond() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void GWSendSystemMailReq::clear_diamond() {
-  diamond_ = 0u;
+  diamond_ = 0;
   clear_has_diamond();
 }
-inline ::google::protobuf::uint32 GWSendSystemMailReq::diamond() const {
+inline ::google::protobuf::int32 GWSendSystemMailReq::diamond() const {
   return diamond_;
 }
-inline void GWSendSystemMailReq::set_diamond(::google::protobuf::uint32 value) {
+inline void GWSendSystemMailReq::set_diamond(::google::protobuf::int32 value) {
   set_has_diamond();
   diamond_ = value;
 }
 
-// optional uint32 bindDiamond = 7;
+// optional int32 bindDiamond = 7;
 inline bool GWSendSystemMailReq::has_binddiamond() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4864,13 +4864,13 @@ inline void GWSendSystemMailReq::clear_has_binddiamond() {
   _has_bits_[0] &= ~0x00000040u;
 }
 inline void GWSendSystemMailReq::clear_binddiamond() {
-  binddiamond_ = 0u;
+  binddiamond_ = 0;
   clear_has_binddiamond();
 }
-inline ::google::protobuf::uint32 GWSendSystemMailReq::binddiamond() const {
+inline ::google::protobuf::int32 GWSendSystemMailReq::binddiamond() const {
   return binddiamond_;
 }
-inline void GWSendSystemMailReq::set_binddiamond(::google::protobuf::uint32 value) {
+inline void GWSendSystemMailReq::set_binddiamond(::google::protobuf::int32 value) {
   set_has_binddiamond();
   binddiamond_ = value;
 }

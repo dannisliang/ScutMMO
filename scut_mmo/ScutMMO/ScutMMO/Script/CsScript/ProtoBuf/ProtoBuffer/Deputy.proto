@@ -77,6 +77,7 @@ message Deputy_MakeOperateReq
 	required int32 make_id = 1;		//制作ID(配置表中的id)
 	optional int32 reel_id = 2;		//卷轴ID(1-锻造，2-缝纫，3-冶金 制作装备的需要卷轴，其他不用)
 	optional int32 make_num = 3;	//制作数量（4-烹饪，5-制药 需要数量）
+	optional int32 item_idx = 4;	//卷轴所在的格子ID(0-普通制造, >0-使用卷轴制造)
 }
 //返回制作副业操作
 message Deputy_MakeOperateRsp

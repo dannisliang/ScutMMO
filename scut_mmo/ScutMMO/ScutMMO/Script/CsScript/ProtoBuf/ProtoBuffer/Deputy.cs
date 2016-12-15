@@ -252,6 +252,14 @@ namespace ProtoBuf
       get { return _make_num; }
       set { _make_num = value; }
     }
+    private int _item_idx = default(int);
+    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"item_idx", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int item_idx
+    {
+      get { return _item_idx; }
+      set { _item_idx = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

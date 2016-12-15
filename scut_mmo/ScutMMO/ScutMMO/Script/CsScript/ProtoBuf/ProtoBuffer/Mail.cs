@@ -79,34 +79,34 @@ namespace ProtoBuf
       get { return _content; }
       set { _content = value; }
     }
-    private uint _gold = default(uint);
+    private int _gold = default(int);
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint gold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int gold
     {
       get { return _gold; }
       set { _gold = value; }
     }
-    private uint _diamond = default(uint);
+    private int _diamond = default(int);
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"diamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint diamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int diamond
     {
       get { return _diamond; }
       set { _diamond = value; }
     }
-    private uint _bindGold = default(uint);
+    private int _bindGold = default(int);
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"bindGold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindGold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindGold
     {
       get { return _bindGold; }
       set { _bindGold = value; }
     }
-    private uint _bindDiamond = default(uint);
+    private int _bindDiamond = default(int);
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"bindDiamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindDiamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindDiamond
     {
       get { return _bindDiamond; }
       set { _bindDiamond = value; }
@@ -538,10 +538,10 @@ namespace ProtoBuf
       get { return _sellType; }
       set { _sellType = value; }
     }
-    private uint _sellNum = default(uint);
+    private int _sellNum = default(int);
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"sellNum", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint sellNum
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int sellNum
     {
       get { return _sellNum; }
       set { _sellNum = value; }
@@ -588,34 +588,34 @@ namespace ProtoBuf
       get { return _mailType; }
       set { _mailType = value; }
     }
-    private uint _gold = default(uint);
+    private int _gold = default(int);
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint gold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int gold
     {
       get { return _gold; }
       set { _gold = value; }
     }
-    private uint _bindGold = default(uint);
+    private int _bindGold = default(int);
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"bindGold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindGold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindGold
     {
       get { return _bindGold; }
       set { _bindGold = value; }
     }
-    private uint _diamond = default(uint);
+    private int _diamond = default(int);
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"diamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint diamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int diamond
     {
       get { return _diamond; }
       set { _diamond = value; }
     }
-    private uint _bindDiamond = default(uint);
+    private int _bindDiamond = default(int);
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"bindDiamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindDiamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindDiamond
     {
       get { return _bindDiamond; }
       set { _bindDiamond = value; }
@@ -628,10 +628,10 @@ namespace ProtoBuf
       get { return _sellType; }
       set { _sellType = value; }
     }
-    private uint _sellNum = default(uint);
+    private int _sellNum = default(int);
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"sellNum", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint sellNum
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int sellNum
     {
       get { return _sellNum; }
       set { _sellNum = value; }
@@ -695,34 +695,34 @@ namespace ProtoBuf
       get { return _mailId; }
       set { _mailId = value; }
     }
-    private uint _gold = default(uint);
+    private int _gold = default(int);
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint gold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int gold
     {
       get { return _gold; }
       set { _gold = value; }
     }
-    private uint _bindGold = default(uint);
+    private int _bindGold = default(int);
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"bindGold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindGold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindGold
     {
       get { return _bindGold; }
       set { _bindGold = value; }
     }
-    private uint _diamond = default(uint);
+    private int _diamond = default(int);
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"diamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint diamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int diamond
     {
       get { return _diamond; }
       set { _diamond = value; }
     }
-    private uint _bindDiamond = default(uint);
+    private int _bindDiamond = default(int);
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"bindDiamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindDiamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindDiamond
     {
       get { return _bindDiamond; }
       set { _bindDiamond = value; }
@@ -794,34 +794,34 @@ namespace ProtoBuf
       get { return _content; }
       set { _content = value; }
     }
-    private uint _gold = default(uint);
+    private int _gold = default(int);
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint gold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int gold
     {
       get { return _gold; }
       set { _gold = value; }
     }
-    private uint _bindGold = default(uint);
+    private int _bindGold = default(int);
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"bindGold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindGold
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindGold
     {
       get { return _bindGold; }
       set { _bindGold = value; }
     }
-    private uint _diamond = default(uint);
+    private int _diamond = default(int);
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"diamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint diamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int diamond
     {
       get { return _diamond; }
       set { _diamond = value; }
     }
-    private uint _bindDiamond = default(uint);
+    private int _bindDiamond = default(int);
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"bindDiamond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(uint))]
-    public uint bindDiamond
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int bindDiamond
     {
       get { return _bindDiamond; }
       set { _bindDiamond = value; }
