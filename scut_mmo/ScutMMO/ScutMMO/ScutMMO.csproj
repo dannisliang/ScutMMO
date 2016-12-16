@@ -112,6 +112,7 @@
     <Compile Include="Script\CsScript\Action\BaseAuthorizeAction.cs" />
     <Compile Include="Script\CsScript\Action\LoginExtendActionProtoBuf.cs" />
     <Compile Include="Script\CsScript\Action\LoginProxyProtoBuf.cs" />
+    <Compile Include="Script\CsScript\Common\GameEvent.cs" />
     <Compile Include="Script\CsScript\Common\SystemGlobal.cs" />
     <Compile Include="Script\CsScript\CustomActionDispatcher.cs" />
     <Compile Include="Script\CsScript\Locale\SimplifiedLanguage.cs" />
