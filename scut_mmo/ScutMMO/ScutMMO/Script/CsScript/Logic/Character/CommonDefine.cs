@@ -377,6 +377,69 @@ namespace GameServer.Script.Logic
         C_MAX
     };
 
+    public enum CreatureTypeEnum : uint
+    {
+        CREATURE_NONE = 0,
+        CREATURE_PLAYER,    //玩家类型
+        CREATURE_MONSTER,   //玩家类型
+        CREATURE_NPC,		//NPC类型
+        CREATURE_DROP,		//掉落类型
+        CREATURE_SUMMON,	//召唤物
+        CREATURE_HERBS,		//草药类型
+        CREATURE_MINE,		//矿石类型
+        CREATURE_FISH,		//渔类型
+        CREATURE_MAX
+    };
+
+    public enum MonsterFightType
+    {
+        ENUM_MONSTER_FIGHT_TYPE_NO_ATTACK = 1,		//不攻击 沙包怪
+        ENUM_MONSTER_FIGHT_TYPE_ATTACK_AFTER_ATTACK = 2, //受攻击后攻击 被动怪
+        ENUM_MONSTER_FIGHT_TYPE_ACTIVE_ATTACK = 3, //主动怪
+    };
+
+    public enum MonsterType
+    {
+        ENUM_MONSTER_TYPE_LITTLE_MONSTER = 1, //小怪
+        ENUM_MONSTER_TYPE_BIG_MONSTER = 2, //精英
+        ENUM_MONSTER_TYPE_BOSS_MONSTER = 3, //boss
+        ENUM_MONSTER_TYPE_BOSS_TA = 4, //塔
+    };
+
+    public enum MonsterAttackType
+    {
+        ENUM_MONSTER_TYPE_ATTACK_TYPE_MELEE = 1, //近战
+        ENUM_MONSTER_TYPE_ATTACK_TYPE_RANGED = 2, //远程
+        ENUM_MONSTER_TYPE_ATTACK_TYPE_MIX = 3, //混合
+    };
+
+    public enum MonsterCfgType
+    {
+        ENUM_MONSTER_CFG_TYPE_FIELD = 1, //野外怪
+        ENUM_MONSTER_CFG_TYPE_COPY_SCENE = 2, //副本
+    };
+
+    public enum MonsterViewType
+    {
+        ENUM_MONSTER_VIEW_TYPE_CIRCLE = 1, //圆形
+        ENUM_MONSTER_VIEW_TYPE_SECTOR = 2, //扇形
+        ENUM_MONSTER_VIEW_TYPE_BALL = 3, //球形
+    };
+
+    public enum MonsterPatrolType
+    {
+        ENUM_MONSTER_PATROL_TYPE_ROUND_TRIP = 1, //往返巡逻
+        ENUM_MONSTER_PATROL_TYPE_LOOP_TRIP = 2, //循环巡逻
+        ENUM_MONSTER_PATROL_TYPE_ONE_WAY_TRIP = 3, //一次性巡逻
+    };
+
+    public enum ViewLayerType
+    {
+        ENUM_NINE_GRID_LITTLE = 1, //最初的九格宫 怪物用
+        ENUM_NINE_GRID_MIDDLE = 2, //比上面大一圈 
+        ENUM_NINE_GRID_BIGGER = 3,//比上面大一圈
+    };
+
     public static class CommonDefine
     {
 

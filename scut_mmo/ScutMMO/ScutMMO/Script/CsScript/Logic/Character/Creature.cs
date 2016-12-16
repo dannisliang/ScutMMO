@@ -12,31 +12,29 @@ using ZyGames.Framework.Cache.Generic;
 
 namespace GameServer.Script.Logic
 {
-    public enum CreatureTypeEnum : uint
+    public interface ICreatureAttribute
     {
-        CREATURE_NONE = 0,
-        CREATURE_PLAYER,    //玩家类型
-        CREATURE_MONSTER,   //玩家类型
-        CREATURE_NPC,		//NPC类型
-        CREATURE_DROP,		//掉落类型
-        CREATURE_SUMMON,	//召唤物
-        CREATURE_HERBS,		//草药类型
-        CREATURE_MINE,		//矿石类型
-        CREATURE_FISH,		//渔类型
-        CREATURE_MAX
-    };
+        bool AddAttr(CreatureCommonAttr CAttrType, int attrValue);
+
+        void SetAttr(CreatureCommonAttr CAttrType, int attrValue);
+
+        int GetAttrType(CreatureCommonAttr CAttrType);
+
+        uint GetAttrCount(CreatureCommonAttr CAttrType);
+    }
 
     public abstract class Creature : BaseDisposable
     {
-        private uint m_SceneId;
-        private uint m_MapId;
-        private uint m_Cid;
-        private CreatureTypeEnum m_CreatureType;
-        private List<UInt32> m_SeeLst;
-        private List<UInt32> m_BeenSeeLst;
-        private Vector3 m_Pos;
-        private Vector3 m_Dir;
-        private uint m_ViewLayer;
+        protected uint m_SceneId;
+        protected uint m_MapId;
+        protected uint m_Cid;
+        protected CreatureTypeEnum m_CreatureType;
+        protected List<UInt32> m_SeeLst;
+        protected List<UInt32> m_BeenSeeLst;
+        protected Vector3 m_Pos;
+        protected Vector3 m_Dir;
+        protected uint m_ViewLayer;
+        protected CreatureState m_CurState;
 
         public uint SceneId
         {
@@ -66,6 +64,12 @@ namespace GameServer.Script.Logic
 
         public List<UInt32> BeenSeeLst { get { return m_BeenSeeLst; } }
 
+        public CreatureState CurState
+        {
+            get { return m_CurState; }
+            set { m_CurState = value; }
+        }
+
         public Vector3 Pos
         {
             get { return m_Pos; }
@@ -85,12 +89,13 @@ namespace GameServer.Script.Logic
             m_SceneId = 0;
             m_MapId = 0;
             m_Cid = 0;
-            m_CreatureType =CreatureTypeEnum.CREATURE_NONE;
+            m_CreatureType = CreatureTypeEnum.CREATURE_NONE;
+            m_CurState = CreatureState.State_Init;
             m_SeeLst = new List<uint>();
             m_BeenSeeLst = new List<uint>();
             m_Pos = new Vector3();
             m_Dir = new Vector3();
-            m_ViewLayer = 0;
+            m_ViewLayer = (uint)ViewLayerType.ENUM_NINE_GRID_LITTLE; //1级9各宫
         }
 
         public abstract bool Init();
@@ -100,6 +105,20 @@ namespace GameServer.Script.Logic
         public abstract void Update();
 
         public abstract void UpdateSeeLst();
+
+        public abstract bool AddAttr(CreatureCommonAttr attrType, int attrCount, bool syn, uint relationCid);
+
+        public abstract void SetAttr(CreatureCommonAttr attrType, int attrCount, bool syn);
+
+        public abstract void SetAttrCache(CreatureCommonAttr attrType, int attrCount);
+
+        public abstract void OnDead(uint killerCid);
+
+        public abstract void OnNormal();
+
+        public abstract void OnCorpse();
+
+        public abstract void OnRelive(uint saveCid);
 
         	//******************调用部件接口******************
 	    //1、知道场景Id调用场景Id sceneId
@@ -120,6 +139,8 @@ namespace GameServer.Script.Logic
         public abstract bool MoveTo(Vector3 dstPos);
 	    //停止当前移动
         public abstract void StopMove();
+
+        public abstract void GetVisibleDataToClient(CreaturesCreateData cvData);
 
         /// <summary>
         /// 
